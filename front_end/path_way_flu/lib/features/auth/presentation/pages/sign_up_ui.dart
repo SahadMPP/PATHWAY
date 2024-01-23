@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_way_flu/features/api.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
+
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,17 +44,20 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                const BuilderTextField(
+                BuilderTextField(
+                    controller: nameController,
                     hintText: "Enter your name",
                     obscuretext: false,
                     sufixIcon: false),
                 const SizedBox(height: 20),
-                const BuilderTextField(
+                BuilderTextField(
+                    controller: emailController,
                     hintText: "Enter your email",
                     obscuretext: false,
                     sufixIcon: false),
                 const SizedBox(height: 20),
-                const BuilderTextField(
+                BuilderTextField(
+                    controller: passwordController,
                     hintText: "Enter password",
                     obscuretext: true,
                     sufixIcon: true),
@@ -78,7 +91,24 @@ class SignUpScreen extends StatelessWidget {
                               BeveledRectangleBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(5))))),
-                      onPressed: () {},
+                      onPressed: () {
+                        int index = 0;
+                        if (index == 1) {
+                          final data = {
+                            "name": nameController.text,
+                            "email": emailController.text,
+                            "password": passwordController.text,
+                          };
+                          AuthApi.addStudent(data);
+                        } else {
+                          final data = {
+                            "name": nameController.text,
+                            "email": emailController.text,
+                            "password": passwordController.text,
+                          };
+                          AuthApi.addTeacher(data);
+                        }
+                      },
                       child: Text(
                         'SIGN UP',
                         style: GoogleFonts.roboto(
@@ -141,11 +171,13 @@ class BuilderTextField extends StatelessWidget {
   final String hintText;
   final bool obscuretext;
   final bool? sufixIcon;
+  final TextEditingController? controller;
   const BuilderTextField({
     super.key,
     required this.hintText,
     required this.obscuretext,
     required this.sufixIcon,
+    this.controller,
   });
 
   @override
@@ -153,6 +185,7 @@ class BuilderTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: TextFormField(
+        controller: controller,
         obscureText: obscuretext,
         decoration: InputDecoration(
             suffixIcon: sufixIcon!
