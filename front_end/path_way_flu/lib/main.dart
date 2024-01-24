@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/splash_screen_ui.dart';
 
-void main() {
+// ignore: constant_identifier_names
+const SAVE_KEY_NAME = "userLogined";
+
+void main() async {
   runApp(const MyApp());
 }
 

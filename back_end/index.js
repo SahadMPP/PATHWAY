@@ -31,11 +31,9 @@ db.on("error", () => {
 
 db.once("open", () => {
 
-
     console.log("connected in mongodb")
 
     app.post("/api/add_student", async (req, res) => {
-        
 
         const userEmail = req.body.email;
 
@@ -43,15 +41,15 @@ db.once("open", () => {
         const existingUser = await Student.findOne({ email: userEmail });
 
         if (existingUser) {
-        console.log("user already exist");
+            console.log("user already exist");
 
-          return res.status(404).json({
+            return res.status(404).json({
                 "status": "User with this email already exists"
             })
         }
 
         // adding student if not added
-        console.log("result", req.body);
+        // console.log("result", req.body);
         let data = Student(req.body);
 
         try {
@@ -75,17 +73,17 @@ db.once("open", () => {
         const existingUser = await Teacher.findOne({ email: userEmail });
 
         if (existingUser) {
-         console.log("user already exist");
+            console.log("user already exist");
 
-          return res.status(404).json({
+            return res.status(404).json({
                 "status": "User with this email already exists"
             })
         }
-       
+
 
         // add teacher is not existe
 
-        console.log("result", req.body);
+        // console.log("result", req.body);
 
         let data = Teacher(req.body);
 
@@ -102,7 +100,61 @@ db.once("open", () => {
 
     })
 
+    //  login for student
 
+    app.post("/api/log_student", async (req, res) => {
+
+        console.log("student log is called");
+        const userEmail = req.body.email;
+        const userPassword = req.body.password;
+
+        const existingUser = await Student.findOne({ email: userEmail });
+
+        if (!existingUser) {
+            return res.status(400).json({
+                "status": "user not registed in database"
+            })
+        }
+
+        if (existingUser.password == userPassword) {
+            return res.status(200).json({
+                "status": "user varified"
+            })
+        } else {
+            return res.status(404).json({
+                "status": "password is wrong"
+            })
+        }
+
+    });
+
+    //  login for teacher
+
+    app.post("/api/log_teacher", async (req, res) => {
+
+        console.log("teacher log is called");
+        const userEmail = req.body.email;
+        const userPassword = req.body.password;
+
+        const existingUser = await Teacher.findOne({ email: userEmail });
+
+        if (!existingUser) {
+            return res.status(400).json({
+                "status": "user not registed in database"
+            })
+        }
+
+        if (existingUser.password == userPassword) {
+            return res.status(200).json({
+                "status": "user varified"
+            })
+        } else {
+            return res.status(404).json({
+                "status": "password is wrong"
+            })
+        }
+
+    });
 });
 
 
