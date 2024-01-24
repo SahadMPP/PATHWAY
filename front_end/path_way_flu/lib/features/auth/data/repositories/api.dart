@@ -1,10 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:path_way_flu/features/student_home_ui.dart';
-import 'package:path_way_flu/features/teacher_home.dart';
-import 'package:path_way_flu/main.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:path_way_flu/features/auth/domain/usecases/define_fun.dart';
 
 class AuthApi {
   static const baseUrl = "http://192.168.1.4/api/";
@@ -57,7 +54,7 @@ class AuthApi {
         //----------
 
         // ignore: use_build_context_synchronously
-        studentLogin(context);
+        AuthFuntion().studentLogin(context);
       } else if (res.statusCode == 404) {
         debugPrint("wrong password");
         //--------
@@ -83,7 +80,7 @@ class AuthApi {
         debugPrint('login success full');
         //----------
         // ignore: use_build_context_synchronously
-        teacherLogin(context);
+        AuthFuntion().teacherLogin(context);
       } else if (res.statusCode == 404) {
         debugPrint("wrong password");
         //--------
@@ -98,18 +95,4 @@ class AuthApi {
       debugPrint(e.toString());
     }
   }
-}
-
-studentLogin(context) async {
-  final sharepre = await SharedPreferences.getInstance();
-  sharepre.setString(SAVE_KEY_NAME, "studentLogined");
-  Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (ctx) => const StuHome()), (route) => false);
-}
-
-teacherLogin(context) async {
-  final sharepre = await SharedPreferences.getInstance();
-  sharepre.setString(SAVE_KEY_NAME, "teacherLogined");
-  Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (ctx) => const TeachHome()), (route) => false);
 }

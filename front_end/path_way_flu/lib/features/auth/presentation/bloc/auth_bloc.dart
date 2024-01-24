@@ -2,7 +2,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:path_way_flu/features/api.dart';
+import 'package:path_way_flu/features/auth/data/repositories/api.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
+import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
+import 'package:path_way_flu/features/auth/presentation/widgets/text_field.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   const ForgetPasswordScreen({super.key});
@@ -47,83 +49,26 @@ class ForgetPasswordScreen extends StatelessWidget {
                     obscuretext: false,
                     sufixIcon: false),
                 const SizedBox(height: 30),
-                SizedBox(
-                  height: 60,
-                  width: 350,
-                  child: ElevatedButton(
-                      style: const ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(
-                              Color.fromARGB(255, 0, 125, 228)),
-                          shape: MaterialStatePropertyAll(
-                              BeveledRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5))))),
-                      onPressed: () {
-                        PanaraInfoDialog.show(
-                          context,
-                          imagePath: 'asset/download (4).png',
-                          title: "Check your email",
-                          message:
-                              "We have send password recovery instrection in your email",
-                          buttonText: "Okay",
-                          onTapDismiss: () {
-                            Navigator.pop(context);
-                          },
-                          panaraDialogType: PanaraDialogType.normal,
-                        );
-                      },
-                      child: Text(
-                        'Resent Password',
-                        style: GoogleFonts.roboto(
-                          fontSize: 17,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      )),
-                ),
+                BuildButton(
+                    text: "Resent Password",
+                    fun: () {
+                      PanaraInfoDialog.show(
+                        context,
+                        imagePath: 'asset/download (4).png',
+                        title: "Check your email",
+                        message:
+                            "We have send password recovery instrection in your email",
+                        buttonText: "Okay",
+                        onTapDismiss: () {
+                          Navigator.pop(context);
+                        },
+                        panaraDialogType: PanaraDialogType.normal,
+                      );
+                    }),
               ],
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class BuilderTextField extends StatelessWidget {
-  final String hintText;
-  final bool obscuretext;
-  final bool? sufixIcon;
-  const BuilderTextField({
-    super.key,
-    required this.hintText,
-    required this.obscuretext,
-    required this.sufixIcon,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
-      child: TextFormField(
-        obscureText: obscuretext,
-        decoration: InputDecoration(
-            suffixIcon: sufixIcon!
-                ? const Icon(Icons.remove_red_eye_outlined,
-                    color: Color.fromARGB(255, 166, 166, 166))
-                : null,
-            contentPadding: const EdgeInsets.all(20),
-            border: UnderlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide.none),
-            filled: true,
-            fillColor: const Color.fromARGB(255, 242, 242, 242),
-            hintText: hintText,
-            hintStyle: GoogleFonts.aBeeZee(
-              color: Colors.grey,
-              fontWeight: FontWeight.w400,
-              fontSize: 17,
-            )),
       ),
     );
   }

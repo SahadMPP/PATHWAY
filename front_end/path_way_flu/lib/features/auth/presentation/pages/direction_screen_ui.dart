@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_in_ui.dart';
+import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 
 class DirectionScreen extends StatelessWidget {
   const DirectionScreen({super.key});
@@ -90,35 +91,17 @@ class DirectionScreen extends StatelessWidget {
             ],
           ),
           Center(
-            child: SizedBox(
-              height: 60,
-              width: 350,
-              child: BlocBuilder<AuthBloc, AuthState>(
-                builder: (context, state) {
-                  return ElevatedButton(
-                      style: const ButtonStyle(
-                          backgroundColor:
-                              MaterialStatePropertyAll(Colors.blue),
-                          shape: MaterialStatePropertyAll(
-                              BeveledRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5))))),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (ctx) => const SignInScreen()));
-                      },
-                      child: Text(
-                        'Continue as a ${state.directionText}',
-                        style: GoogleFonts.roboto(
-                          fontSize: 17,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ));
-                },
-              ),
+            child: BlocBuilder<AuthBloc, AuthState>(
+              builder: (context, state) {
+                return BuildButton(
+                    text: "Continue as a ${state.directionText}",
+                    fun: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (ctx) => const SignInScreen()));
+                    });
+              },
             ),
           )
         ],

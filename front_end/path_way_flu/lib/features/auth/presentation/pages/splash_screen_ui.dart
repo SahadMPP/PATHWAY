@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/features/auth/presentation/pages/direction_screen_ui.dart';
-import 'package:path_way_flu/features/student_home_ui.dart';
-import 'package:path_way_flu/features/teacher_home.dart';
-import 'package:path_way_flu/main.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:path_way_flu/features/auth/domain/usecases/define_fun.dart';
 
 class SpleshScreen extends StatefulWidget {
   const SpleshScreen({super.key});
@@ -16,7 +12,7 @@ class SpleshScreen extends StatefulWidget {
 class _SpleshScreenState extends State<SpleshScreen> {
   @override
   void initState() {
-    checklogin(context);
+    AuthFuntion().checklogin(context);
     super.initState();
   }
 
@@ -34,30 +30,5 @@ class _SpleshScreenState extends State<SpleshScreen> {
             )),
       ),
     );
-  }
-
-  Future<void> goToLogin(context) async {
-    await Future.delayed(const Duration(seconds: 3));
-    Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (cxt) => const DirectionScreen()),
-        (route) => false);
-  }
-
-  checklogin(BuildContext context) async {
-    final sharedPreferences = await SharedPreferences.getInstance();
-    final userLoggedIn = sharedPreferences.getString(SAVE_KEY_NAME);
-
-    if (userLoggedIn == null || userLoggedIn.isEmpty) {
-      // ignore: use_build_context_synchronously
-      goToLogin(context);
-    } else if (userLoggedIn == "teacherLogined") {
-      // ignore: use_build_context_synchronously
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (ctx) => const TeachHome()));
-    } else {
-      // ignore: use_build_context_synchronously
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (ctx) => const StuHome()));
-    }
   }
 }
