@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/api.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+  final String textValue;
+  const SignUpScreen({super.key, required this.textValue});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -92,8 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(5))))),
                       onPressed: () {
-                        int index = 0;
-                        if (index == 1) {
+                        if (widget.textValue == "Student") {
                           final data = {
                             "name": nameController.text,
                             "email": emailController.text,

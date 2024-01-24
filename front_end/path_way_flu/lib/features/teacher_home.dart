@@ -18,8 +18,12 @@ class TeachHome extends StatelessWidget {
                 final sharedpre = await SharedPreferences.getInstance();
                 sharedpre.clear();
                 // ignore: use_build_context_synchronously
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (ctx) => const SignInScreen()));
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        builder: (ctx) => const SignInScreen(
+                              textValue: "Teacher",
+                            )),
+                    (route) => false);
               },
               child: const Text('LogOut'))),
     );

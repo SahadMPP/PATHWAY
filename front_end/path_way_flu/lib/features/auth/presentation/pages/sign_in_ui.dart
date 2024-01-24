@@ -4,7 +4,8 @@ import 'package:path_way_flu/features/api.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_up_ui.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+  final String textValue;
+  const SignInScreen({super.key, required this.textValue});
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -79,8 +80,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(5))))),
                       onPressed: () {
-                        int index = 1;
-                        if (index == 1) {
+                        if (widget.textValue == "Student") {
                           final data = {
                             "email": emailController.text,
                             "password": passwordController.text,
@@ -118,7 +118,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) => const SignUpScreen()));
+                            builder: (ctx) => SignUpScreen(
+                                  textValue: widget.textValue,
+                                )));
                       },
                       child: Text('Sign Up',
                           style: GoogleFonts.roboto(

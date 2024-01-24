@@ -17,8 +17,13 @@ class StuHome extends StatelessWidget {
               onPressed: () async {
                 final sharepre = await SharedPreferences.getInstance();
                 sharepre.clear();
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (ctx) => const SignInScreen()));
+                // ignore: use_build_context_synchronously
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        builder: (ctx) => const SignInScreen(
+                              textValue: "Student",
+                            )),
+                    (route) => false);
               },
               child: const Text('LogOut'))),
     );
