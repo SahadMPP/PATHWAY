@@ -18,51 +18,55 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() checkTheUserLoginedOrNot,
-    required TResult Function() checkTheUserlogin,
-    required TResult Function() registerUser,
+    required TResult Function(String emailController, String passwordController,
+            BuildContext context)
+        userlogin,
+    required TResult Function(String nameController, String emailController,
+            String passwordController)
+        registerUser,
     required TResult Function() directionSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? checkTheUserLoginedOrNot,
-    TResult? Function()? checkTheUserlogin,
-    TResult? Function()? registerUser,
+    TResult? Function(String emailController, String passwordController,
+            BuildContext context)?
+        userlogin,
+    TResult? Function(String nameController, String emailController,
+            String passwordController)?
+        registerUser,
     TResult? Function()? directionSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? checkTheUserLoginedOrNot,
-    TResult Function()? checkTheUserlogin,
-    TResult Function()? registerUser,
+    TResult Function(String emailController, String passwordController,
+            BuildContext context)?
+        userlogin,
+    TResult Function(String nameController, String emailController,
+            String passwordController)?
+        registerUser,
     TResult Function()? directionSelection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_checkTheUserLoginedOrNot value)
-        checkTheUserLoginedOrNot,
-    required TResult Function(_checkTheUserlogin value) checkTheUserlogin,
+    required TResult Function(_userlogin value) userlogin,
     required TResult Function(_registerUser value) registerUser,
     required TResult Function(_directionSelection value) directionSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_checkTheUserLoginedOrNot value)?
-        checkTheUserLoginedOrNot,
-    TResult? Function(_checkTheUserlogin value)? checkTheUserlogin,
+    TResult? Function(_userlogin value)? userlogin,
     TResult? Function(_registerUser value)? registerUser,
     TResult? Function(_directionSelection value)? directionSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_checkTheUserLoginedOrNot value)? checkTheUserLoginedOrNot,
-    TResult Function(_checkTheUserlogin value)? checkTheUserlogin,
+    TResult Function(_userlogin value)? userlogin,
     TResult Function(_registerUser value)? registerUser,
     TResult Function(_directionSelection value)? directionSelection,
     required TResult orElse(),
@@ -88,76 +92,133 @@ class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
 }
 
 /// @nodoc
-abstract class _$$checkTheUserLoginedOrNotImplCopyWith<$Res> {
-  factory _$$checkTheUserLoginedOrNotImplCopyWith(
-          _$checkTheUserLoginedOrNotImpl value,
-          $Res Function(_$checkTheUserLoginedOrNotImpl) then) =
-      __$$checkTheUserLoginedOrNotImplCopyWithImpl<$Res>;
+abstract class _$$userloginImplCopyWith<$Res> {
+  factory _$$userloginImplCopyWith(
+          _$userloginImpl value, $Res Function(_$userloginImpl) then) =
+      __$$userloginImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String emailController,
+      String passwordController,
+      BuildContext context});
 }
 
 /// @nodoc
-class __$$checkTheUserLoginedOrNotImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$checkTheUserLoginedOrNotImpl>
-    implements _$$checkTheUserLoginedOrNotImplCopyWith<$Res> {
-  __$$checkTheUserLoginedOrNotImplCopyWithImpl(
-      _$checkTheUserLoginedOrNotImpl _value,
-      $Res Function(_$checkTheUserLoginedOrNotImpl) _then)
+class __$$userloginImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$userloginImpl>
+    implements _$$userloginImplCopyWith<$Res> {
+  __$$userloginImplCopyWithImpl(
+      _$userloginImpl _value, $Res Function(_$userloginImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? emailController = null,
+    Object? passwordController = null,
+    Object? context = null,
+  }) {
+    return _then(_$userloginImpl(
+      emailController: null == emailController
+          ? _value.emailController
+          : emailController // ignore: cast_nullable_to_non_nullable
+              as String,
+      passwordController: null == passwordController
+          ? _value.passwordController
+          : passwordController // ignore: cast_nullable_to_non_nullable
+              as String,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$checkTheUserLoginedOrNotImpl implements _checkTheUserLoginedOrNot {
-  const _$checkTheUserLoginedOrNotImpl();
+class _$userloginImpl implements _userlogin {
+  const _$userloginImpl(
+      {required this.emailController,
+      required this.passwordController,
+      required this.context});
+
+  @override
+  final String emailController;
+  @override
+  final String passwordController;
+  @override
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'AuthEvent.checkTheUserLoginedOrNot()';
+    return 'AuthEvent.userlogin(emailController: $emailController, passwordController: $passwordController, context: $context)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$checkTheUserLoginedOrNotImpl);
+            other is _$userloginImpl &&
+            (identical(other.emailController, emailController) ||
+                other.emailController == emailController) &&
+            (identical(other.passwordController, passwordController) ||
+                other.passwordController == passwordController) &&
+            (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, emailController, passwordController, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$userloginImplCopyWith<_$userloginImpl> get copyWith =>
+      __$$userloginImplCopyWithImpl<_$userloginImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() checkTheUserLoginedOrNot,
-    required TResult Function() checkTheUserlogin,
-    required TResult Function() registerUser,
+    required TResult Function(String emailController, String passwordController,
+            BuildContext context)
+        userlogin,
+    required TResult Function(String nameController, String emailController,
+            String passwordController)
+        registerUser,
     required TResult Function() directionSelection,
   }) {
-    return checkTheUserLoginedOrNot();
+    return userlogin(emailController, passwordController, context);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? checkTheUserLoginedOrNot,
-    TResult? Function()? checkTheUserlogin,
-    TResult? Function()? registerUser,
+    TResult? Function(String emailController, String passwordController,
+            BuildContext context)?
+        userlogin,
+    TResult? Function(String nameController, String emailController,
+            String passwordController)?
+        registerUser,
     TResult? Function()? directionSelection,
   }) {
-    return checkTheUserLoginedOrNot?.call();
+    return userlogin?.call(emailController, passwordController, context);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? checkTheUserLoginedOrNot,
-    TResult Function()? checkTheUserlogin,
-    TResult Function()? registerUser,
+    TResult Function(String emailController, String passwordController,
+            BuildContext context)?
+        userlogin,
+    TResult Function(String nameController, String emailController,
+            String passwordController)?
+        registerUser,
     TResult Function()? directionSelection,
     required TResult orElse(),
   }) {
-    if (checkTheUserLoginedOrNot != null) {
-      return checkTheUserLoginedOrNot();
+    if (userlogin != null) {
+      return userlogin(emailController, passwordController, context);
     }
     return orElse();
   }
@@ -165,161 +226,50 @@ class _$checkTheUserLoginedOrNotImpl implements _checkTheUserLoginedOrNot {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_checkTheUserLoginedOrNot value)
-        checkTheUserLoginedOrNot,
-    required TResult Function(_checkTheUserlogin value) checkTheUserlogin,
+    required TResult Function(_userlogin value) userlogin,
     required TResult Function(_registerUser value) registerUser,
     required TResult Function(_directionSelection value) directionSelection,
   }) {
-    return checkTheUserLoginedOrNot(this);
+    return userlogin(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_checkTheUserLoginedOrNot value)?
-        checkTheUserLoginedOrNot,
-    TResult? Function(_checkTheUserlogin value)? checkTheUserlogin,
+    TResult? Function(_userlogin value)? userlogin,
     TResult? Function(_registerUser value)? registerUser,
     TResult? Function(_directionSelection value)? directionSelection,
   }) {
-    return checkTheUserLoginedOrNot?.call(this);
+    return userlogin?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_checkTheUserLoginedOrNot value)? checkTheUserLoginedOrNot,
-    TResult Function(_checkTheUserlogin value)? checkTheUserlogin,
+    TResult Function(_userlogin value)? userlogin,
     TResult Function(_registerUser value)? registerUser,
     TResult Function(_directionSelection value)? directionSelection,
     required TResult orElse(),
   }) {
-    if (checkTheUserLoginedOrNot != null) {
-      return checkTheUserLoginedOrNot(this);
+    if (userlogin != null) {
+      return userlogin(this);
     }
     return orElse();
   }
 }
 
-abstract class _checkTheUserLoginedOrNot implements AuthEvent {
-  const factory _checkTheUserLoginedOrNot() = _$checkTheUserLoginedOrNotImpl;
-}
+abstract class _userlogin implements AuthEvent {
+  const factory _userlogin(
+      {required final String emailController,
+      required final String passwordController,
+      required final BuildContext context}) = _$userloginImpl;
 
-/// @nodoc
-abstract class _$$checkTheUserloginImplCopyWith<$Res> {
-  factory _$$checkTheUserloginImplCopyWith(_$checkTheUserloginImpl value,
-          $Res Function(_$checkTheUserloginImpl) then) =
-      __$$checkTheUserloginImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$checkTheUserloginImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$checkTheUserloginImpl>
-    implements _$$checkTheUserloginImplCopyWith<$Res> {
-  __$$checkTheUserloginImplCopyWithImpl(_$checkTheUserloginImpl _value,
-      $Res Function(_$checkTheUserloginImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$checkTheUserloginImpl implements _checkTheUserlogin {
-  const _$checkTheUserloginImpl();
-
-  @override
-  String toString() {
-    return 'AuthEvent.checkTheUserlogin()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$checkTheUserloginImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() checkTheUserLoginedOrNot,
-    required TResult Function() checkTheUserlogin,
-    required TResult Function() registerUser,
-    required TResult Function() directionSelection,
-  }) {
-    return checkTheUserlogin();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? checkTheUserLoginedOrNot,
-    TResult? Function()? checkTheUserlogin,
-    TResult? Function()? registerUser,
-    TResult? Function()? directionSelection,
-  }) {
-    return checkTheUserlogin?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? checkTheUserLoginedOrNot,
-    TResult Function()? checkTheUserlogin,
-    TResult Function()? registerUser,
-    TResult Function()? directionSelection,
-    required TResult orElse(),
-  }) {
-    if (checkTheUserlogin != null) {
-      return checkTheUserlogin();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_checkTheUserLoginedOrNot value)
-        checkTheUserLoginedOrNot,
-    required TResult Function(_checkTheUserlogin value) checkTheUserlogin,
-    required TResult Function(_registerUser value) registerUser,
-    required TResult Function(_directionSelection value) directionSelection,
-  }) {
-    return checkTheUserlogin(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_checkTheUserLoginedOrNot value)?
-        checkTheUserLoginedOrNot,
-    TResult? Function(_checkTheUserlogin value)? checkTheUserlogin,
-    TResult? Function(_registerUser value)? registerUser,
-    TResult? Function(_directionSelection value)? directionSelection,
-  }) {
-    return checkTheUserlogin?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_checkTheUserLoginedOrNot value)? checkTheUserLoginedOrNot,
-    TResult Function(_checkTheUserlogin value)? checkTheUserlogin,
-    TResult Function(_registerUser value)? registerUser,
-    TResult Function(_directionSelection value)? directionSelection,
-    required TResult orElse(),
-  }) {
-    if (checkTheUserlogin != null) {
-      return checkTheUserlogin(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _checkTheUserlogin implements AuthEvent {
-  const factory _checkTheUserlogin() = _$checkTheUserloginImpl;
+  String get emailController;
+  String get passwordController;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$userloginImplCopyWith<_$userloginImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -327,6 +277,11 @@ abstract class _$$registerUserImplCopyWith<$Res> {
   factory _$$registerUserImplCopyWith(
           _$registerUserImpl value, $Res Function(_$registerUserImpl) then) =
       __$$registerUserImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String nameController,
+      String emailController,
+      String passwordController});
 }
 
 /// @nodoc
@@ -336,60 +291,117 @@ class __$$registerUserImplCopyWithImpl<$Res>
   __$$registerUserImplCopyWithImpl(
       _$registerUserImpl _value, $Res Function(_$registerUserImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nameController = null,
+    Object? emailController = null,
+    Object? passwordController = null,
+  }) {
+    return _then(_$registerUserImpl(
+      nameController: null == nameController
+          ? _value.nameController
+          : nameController // ignore: cast_nullable_to_non_nullable
+              as String,
+      emailController: null == emailController
+          ? _value.emailController
+          : emailController // ignore: cast_nullable_to_non_nullable
+              as String,
+      passwordController: null == passwordController
+          ? _value.passwordController
+          : passwordController // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$registerUserImpl implements _registerUser {
-  const _$registerUserImpl();
+  const _$registerUserImpl(
+      {required this.nameController,
+      required this.emailController,
+      required this.passwordController});
+
+  @override
+  final String nameController;
+  @override
+  final String emailController;
+  @override
+  final String passwordController;
 
   @override
   String toString() {
-    return 'AuthEvent.registerUser()';
+    return 'AuthEvent.registerUser(nameController: $nameController, emailController: $emailController, passwordController: $passwordController)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$registerUserImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$registerUserImpl &&
+            (identical(other.nameController, nameController) ||
+                other.nameController == nameController) &&
+            (identical(other.emailController, emailController) ||
+                other.emailController == emailController) &&
+            (identical(other.passwordController, passwordController) ||
+                other.passwordController == passwordController));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, nameController, emailController, passwordController);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$registerUserImplCopyWith<_$registerUserImpl> get copyWith =>
+      __$$registerUserImplCopyWithImpl<_$registerUserImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() checkTheUserLoginedOrNot,
-    required TResult Function() checkTheUserlogin,
-    required TResult Function() registerUser,
+    required TResult Function(String emailController, String passwordController,
+            BuildContext context)
+        userlogin,
+    required TResult Function(String nameController, String emailController,
+            String passwordController)
+        registerUser,
     required TResult Function() directionSelection,
   }) {
-    return registerUser();
+    return registerUser(nameController, emailController, passwordController);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? checkTheUserLoginedOrNot,
-    TResult? Function()? checkTheUserlogin,
-    TResult? Function()? registerUser,
+    TResult? Function(String emailController, String passwordController,
+            BuildContext context)?
+        userlogin,
+    TResult? Function(String nameController, String emailController,
+            String passwordController)?
+        registerUser,
     TResult? Function()? directionSelection,
   }) {
-    return registerUser?.call();
+    return registerUser?.call(
+        nameController, emailController, passwordController);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? checkTheUserLoginedOrNot,
-    TResult Function()? checkTheUserlogin,
-    TResult Function()? registerUser,
+    TResult Function(String emailController, String passwordController,
+            BuildContext context)?
+        userlogin,
+    TResult Function(String nameController, String emailController,
+            String passwordController)?
+        registerUser,
     TResult Function()? directionSelection,
     required TResult orElse(),
   }) {
     if (registerUser != null) {
-      return registerUser();
+      return registerUser(nameController, emailController, passwordController);
     }
     return orElse();
   }
@@ -397,9 +409,7 @@ class _$registerUserImpl implements _registerUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_checkTheUserLoginedOrNot value)
-        checkTheUserLoginedOrNot,
-    required TResult Function(_checkTheUserlogin value) checkTheUserlogin,
+    required TResult Function(_userlogin value) userlogin,
     required TResult Function(_registerUser value) registerUser,
     required TResult Function(_directionSelection value) directionSelection,
   }) {
@@ -409,9 +419,7 @@ class _$registerUserImpl implements _registerUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_checkTheUserLoginedOrNot value)?
-        checkTheUserLoginedOrNot,
-    TResult? Function(_checkTheUserlogin value)? checkTheUserlogin,
+    TResult? Function(_userlogin value)? userlogin,
     TResult? Function(_registerUser value)? registerUser,
     TResult? Function(_directionSelection value)? directionSelection,
   }) {
@@ -421,8 +429,7 @@ class _$registerUserImpl implements _registerUser {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_checkTheUserLoginedOrNot value)? checkTheUserLoginedOrNot,
-    TResult Function(_checkTheUserlogin value)? checkTheUserlogin,
+    TResult Function(_userlogin value)? userlogin,
     TResult Function(_registerUser value)? registerUser,
     TResult Function(_directionSelection value)? directionSelection,
     required TResult orElse(),
@@ -435,7 +442,17 @@ class _$registerUserImpl implements _registerUser {
 }
 
 abstract class _registerUser implements AuthEvent {
-  const factory _registerUser() = _$registerUserImpl;
+  const factory _registerUser(
+      {required final String nameController,
+      required final String emailController,
+      required final String passwordController}) = _$registerUserImpl;
+
+  String get nameController;
+  String get emailController;
+  String get passwordController;
+  @JsonKey(ignore: true)
+  _$$registerUserImplCopyWith<_$registerUserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -476,9 +493,12 @@ class _$directionSelectionImpl implements _directionSelection {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() checkTheUserLoginedOrNot,
-    required TResult Function() checkTheUserlogin,
-    required TResult Function() registerUser,
+    required TResult Function(String emailController, String passwordController,
+            BuildContext context)
+        userlogin,
+    required TResult Function(String nameController, String emailController,
+            String passwordController)
+        registerUser,
     required TResult Function() directionSelection,
   }) {
     return directionSelection();
@@ -487,9 +507,12 @@ class _$directionSelectionImpl implements _directionSelection {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? checkTheUserLoginedOrNot,
-    TResult? Function()? checkTheUserlogin,
-    TResult? Function()? registerUser,
+    TResult? Function(String emailController, String passwordController,
+            BuildContext context)?
+        userlogin,
+    TResult? Function(String nameController, String emailController,
+            String passwordController)?
+        registerUser,
     TResult? Function()? directionSelection,
   }) {
     return directionSelection?.call();
@@ -498,9 +521,12 @@ class _$directionSelectionImpl implements _directionSelection {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? checkTheUserLoginedOrNot,
-    TResult Function()? checkTheUserlogin,
-    TResult Function()? registerUser,
+    TResult Function(String emailController, String passwordController,
+            BuildContext context)?
+        userlogin,
+    TResult Function(String nameController, String emailController,
+            String passwordController)?
+        registerUser,
     TResult Function()? directionSelection,
     required TResult orElse(),
   }) {
@@ -513,9 +539,7 @@ class _$directionSelectionImpl implements _directionSelection {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_checkTheUserLoginedOrNot value)
-        checkTheUserLoginedOrNot,
-    required TResult Function(_checkTheUserlogin value) checkTheUserlogin,
+    required TResult Function(_userlogin value) userlogin,
     required TResult Function(_registerUser value) registerUser,
     required TResult Function(_directionSelection value) directionSelection,
   }) {
@@ -525,9 +549,7 @@ class _$directionSelectionImpl implements _directionSelection {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_checkTheUserLoginedOrNot value)?
-        checkTheUserLoginedOrNot,
-    TResult? Function(_checkTheUserlogin value)? checkTheUserlogin,
+    TResult? Function(_userlogin value)? userlogin,
     TResult? Function(_registerUser value)? registerUser,
     TResult? Function(_directionSelection value)? directionSelection,
   }) {
@@ -537,8 +559,7 @@ class _$directionSelectionImpl implements _directionSelection {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_checkTheUserLoginedOrNot value)? checkTheUserLoginedOrNot,
-    TResult Function(_checkTheUserlogin value)? checkTheUserlogin,
+    TResult Function(_userlogin value)? userlogin,
     TResult Function(_registerUser value)? registerUser,
     TResult Function(_directionSelection value)? directionSelection,
     required TResult orElse(),

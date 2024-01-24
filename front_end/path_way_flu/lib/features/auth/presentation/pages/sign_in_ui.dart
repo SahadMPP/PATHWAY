@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/features/api.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_up_ui.dart';
 
@@ -69,44 +68,28 @@ class SignInScreen extends StatelessWidget {
                 SizedBox(
                   height: 60,
                   width: 350,
-                  child: BlocBuilder<AuthBloc, AuthState>(
-                    builder: (context, state) {
-                      return ElevatedButton(
-                          style: const ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll(
-                                  Color.fromARGB(255, 0, 125, 228)),
-                              shape: MaterialStatePropertyAll(
-                                  BeveledRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(5))))),
-                          onPressed: () {
-                            if (state.directionText == "Student") {
-                              final data = {
-                                "email": emailController.text,
-                                "password": passwordController.text,
-                              };
-                              AuthApi.loginStudent(data, context);
-                            } else if (state.directionText == "Teacher") {
-                              final data = {
-                                "email": emailController.text,
-                                "password": passwordController.text,
-                              };
-                              AuthApi.loginTeacher(data, context);
-                            } else {
-                              debugPrint("directon is not found");
-                            }
-                          },
-                          child: Text(
-                            'SIGN IN',
-                            style: GoogleFonts.roboto(
-                              fontSize: 17,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1,
-                            ),
-                          ));
-                    },
-                  ),
+                  child: ElevatedButton(
+                      style: const ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(
+                              Color.fromARGB(255, 0, 125, 228)),
+                          shape: MaterialStatePropertyAll(
+                              BeveledRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5))))),
+                      onPressed: () => context.read<AuthBloc>().add(
+                          AuthEvent.userlogin(
+                              emailController: emailController.text,
+                              passwordController: passwordController.text,
+                              context: context)),
+                      child: Text(
+                        'SIGN IN',
+                        style: GoogleFonts.roboto(
+                          fontSize: 17,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                        ),
+                      )),
                 ),
                 const SizedBox(height: 30),
                 Row(
