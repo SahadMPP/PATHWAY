@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/api.dart';
+import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_up_ui.dart';
 
-class SignInScreen extends StatefulWidget {
-  final String textValue;
-  const SignInScreen({super.key, required this.textValue});
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({
+    super.key,
+  });
 
-  @override
-  State<SignInScreen> createState() => _SignInScreenState();
-}
-
-class _SignInScreenState extends State<SignInScreen> {
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -71,38 +69,44 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(
                   height: 60,
                   width: 350,
-                  child: ElevatedButton(
-                      style: const ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(
-                              Color.fromARGB(255, 0, 125, 228)),
-                          shape: MaterialStatePropertyAll(
-                              BeveledRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5))))),
-                      onPressed: () {
-                        if (widget.textValue == "Student") {
-                          final data = {
-                            "email": emailController.text,
-                            "password": passwordController.text,
-                          };
-                          AuthApi.loginStudent(data, context);
-                        } else {
-                          final data = {
-                            "email": emailController.text,
-                            "password": passwordController.text,
-                          };
-                          AuthApi.loginTeacher(data, context);
-                        }
-                      },
-                      child: Text(
-                        'SIGN IN',
-                        style: GoogleFonts.roboto(
-                          fontSize: 17,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                        ),
-                      )),
+                  child: BlocBuilder<AuthBloc, AuthState>(
+                    builder: (context, state) {
+                      return ElevatedButton(
+                          style: const ButtonStyle(
+                              backgroundColor: MaterialStatePropertyAll(
+                                  Color.fromARGB(255, 0, 125, 228)),
+                              shape: MaterialStatePropertyAll(
+                                  BeveledRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(5))))),
+                          onPressed: () {
+                            if (state.directionText == "Student") {
+                              final data = {
+                                "email": emailController.text,
+                                "password": passwordController.text,
+                              };
+                              AuthApi.loginStudent(data, context);
+                            } else if (state.directionText == "Teacher") {
+                              final data = {
+                                "email": emailController.text,
+                                "password": passwordController.text,
+                              };
+                              AuthApi.loginTeacher(data, context);
+                            } else {
+                              debugPrint("directon is not found");
+                            }
+                          },
+                          child: Text(
+                            'SIGN IN',
+                            style: GoogleFonts.roboto(
+                              fontSize: 17,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1,
+                            ),
+                          ));
+                    },
+                  ),
                 ),
                 const SizedBox(height: 30),
                 Row(
@@ -118,9 +122,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) => SignUpScreen(
-                                  textValue: widget.textValue,
-                                )));
+                            builder: (ctx) => const SignUpScreen()));
                       },
                       child: Text('Sign Up',
                           style: GoogleFonts.roboto(

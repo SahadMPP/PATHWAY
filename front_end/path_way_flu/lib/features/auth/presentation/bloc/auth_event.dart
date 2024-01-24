@@ -1,8 +1,10 @@
-// part of 'auth_bloc.dart';
+part of 'auth_bloc.dart';
 
-// abstract class AuthEvent extends Equatable {
-//   const AuthEvent();
-
-//   @override
-//   List<Object> get props => [];
-// }
+@freezed
+class AuthEvent with _$AuthEvent {
+  const factory AuthEvent.checkTheUserLoginedOrNot() =
+      _checkTheUserLoginedOrNot;
+  const factory AuthEvent.checkTheUserlogin() = _checkTheUserlogin;
+  const factory AuthEvent.registerUser() = _registerUser;
+  const factory AuthEvent.directionSelection() = _directionSelection;
+}

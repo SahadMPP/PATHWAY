@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/api.dart';
+import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 
-class SignUpScreen extends StatefulWidget {
-  final String textValue;
-  const SignUpScreen({super.key, required this.textValue});
-
-  @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
-}
-
-class _SignUpScreenState extends State<SignUpScreen> {
-  var nameController = TextEditingController();
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var nameController = TextEditingController();
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
     return Scaffold(
       appBar: AppBar(),
       backgroundColor: Colors.white,
@@ -84,40 +79,46 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(
                   height: 60,
                   width: 350,
-                  child: ElevatedButton(
-                      style: const ButtonStyle(
-                          backgroundColor:
-                              MaterialStatePropertyAll(Colors.blue),
-                          shape: MaterialStatePropertyAll(
-                              BeveledRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5))))),
-                      onPressed: () {
-                        if (widget.textValue == "Student") {
-                          final data = {
-                            "name": nameController.text,
-                            "email": emailController.text,
-                            "password": passwordController.text,
-                          };
-                          AuthApi.addStudent(data);
-                        } else {
-                          final data = {
-                            "name": nameController.text,
-                            "email": emailController.text,
-                            "password": passwordController.text,
-                          };
-                          AuthApi.addTeacher(data);
-                        }
-                      },
-                      child: Text(
-                        'SIGN UP',
-                        style: GoogleFonts.roboto(
-                          fontSize: 17,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                        ),
-                      )),
+                  child: BlocBuilder<AuthBloc, AuthState>(
+                    builder: (context, state) {
+                      return ElevatedButton(
+                          style: const ButtonStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll(Colors.blue),
+                              shape: MaterialStatePropertyAll(
+                                  BeveledRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(5))))),
+                          onPressed: () {
+                            if (state.directionText == "Student") {
+                              final data = {
+                                "name": nameController.text,
+                                "email": emailController.text,
+                                "password": passwordController.text,
+                              };
+                              AuthApi.addStudent(data);
+                            } else if (state.directionText == "Teacher") {
+                              final data = {
+                                "name": nameController.text,
+                                "email": emailController.text,
+                                "password": passwordController.text,
+                              };
+                              AuthApi.addTeacher(data);
+                            } else {
+                              debugPrint("directon is not found");
+                            }
+                          },
+                          child: Text(
+                            'SIGN UP',
+                            style: GoogleFonts.roboto(
+                              fontSize: 17,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1,
+                            ),
+                          ));
+                    },
+                  ),
                 ),
                 const SizedBox(height: 30),
                 RichText(

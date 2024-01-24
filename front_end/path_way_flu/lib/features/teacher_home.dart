@@ -19,10 +19,7 @@ class TeachHome extends StatelessWidget {
                 sharedpre.clear();
                 // ignore: use_build_context_synchronously
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(
-                        builder: (ctx) => const SignInScreen(
-                              textValue: "Teacher",
-                            )),
+                    MaterialPageRoute(builder: (ctx) => const SignInScreen()),
                     (route) => false);
               },
               child: const Text('LogOut'))),

@@ -1,9 +1,12 @@
-// part of 'auth_bloc.dart';
+part of 'auth_bloc.dart';
 
-// abstract class AuthState extends Equatable {
-//   const AuthState();  
-
-//   @override
-//   List<Object> get props => [];
-// }
-// class AuthInitial extends AuthState {}
+@freezed
+class AuthState with _$AuthState {
+  const factory AuthState({
+    required bool directionValue,
+    required String directionText,
+  }) = _AuthState;
+  factory AuthState.initial() {
+    return const AuthState(directionValue: true, directionText: "Student");
+  }
+}
