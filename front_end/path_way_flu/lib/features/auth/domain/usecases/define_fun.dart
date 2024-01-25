@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/direction_screen_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_in_ui.dart';
-import 'package:path_way_flu/features/student_home_ui.dart';
-import 'package:path_way_flu/features/teacher_home.dart';
+import 'package:path_way_flu/features/student/presentation/pages/student_home_ui.dart';
+import 'package:path_way_flu/features/teacher/presentation/pages/teacher_home.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
