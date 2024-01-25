@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:path_way_flu/features/auth/presentation/pages/splash_screen_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path_way_flu/features/teacher_home.dart';
 
 // ignore: constant_identifier_names
 const SAVE_KEY_NAME = "userLogined";
@@ -17,9 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AuthBloc(),
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SpleshScreen(),
+        theme: ThemeData(),
+        home: const TeachHome(),
       ),
     );
   }
