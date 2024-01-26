@@ -12,8 +12,9 @@ class OtpScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: CircleAvatar(
-            child:
-                Center(child: SvgPicture.asset("asset/icons/arrow-left.svg"))),
+          backgroundColor: const Color.fromARGB(255, 245, 245, 245),
+          child: SvgPicture.asset("asset/icons/arrow-left.svg"),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
