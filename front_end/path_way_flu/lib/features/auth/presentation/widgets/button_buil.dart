@@ -17,7 +17,8 @@ class BuildButton extends StatelessWidget {
       width: 350,
       child: ElevatedButton(
           style: const ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(Colors.blue),
+              backgroundColor:
+                  MaterialStatePropertyAll(Color.fromARGB(255, 0, 96, 175)),
               shape: MaterialStatePropertyAll(BeveledRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(5))))),
           onPressed: fun,
