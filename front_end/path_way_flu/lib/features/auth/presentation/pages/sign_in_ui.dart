@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_way_flu/features/admin/presentation/pages/admin_dashbord.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/forgot_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_up_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field.dart';
@@ -15,6 +17,7 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
+    GlobalKey<FormState> formkey = GlobalKey();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -43,36 +46,62 @@ class SignInScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                BuilderTextField(
-                    controller: emailController,
-                    hintText: "Enter your email",
-                    obscuretext: false,
-                    sufixIcon: false),
-                const SizedBox(height: 20),
-                BuilderTextField(
-                    controller: passwordController,
-                    hintText: "Enter password",
-                    obscuretext: true,
-                    sufixIcon: true),
+                Form(
+                  key: formkey,
+                  child: Column(
+                    children: [
+                      BuilderTextField(
+                          validationText: "Enter your email",
+                          controller: emailController,
+                          hintText: "Enter your email",
+                          sufixIcon: false),
+                      const SizedBox(height: 20),
+                      BuilderTextField(
+                          validationText: "Enter your password",
+                          controller: passwordController,
+                          hintText: "Enter password",
+                          sufixIcon: true),
+                    ],
+                  ),
+                ),
                 const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.only(left: 230),
-                  child: Text(
-                    'Forget Password?',
-                    style: GoogleFonts.roboto(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15,
+                  child: InkWell(
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (ctx) => ForgetPasswordScreen(
+                              email: emailController,
+                              textToCheck: "Forgot",
+                            ))),
+                    child: Text(
+                      'Forget Password?',
+                      style: GoogleFonts.roboto(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15,
+                      ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 50),
                 BuildButton(
                   text: "SIGN IN",
-                  fun: () => context.read<AuthBloc>().add(AuthEvent.userlogin(
-                      emailController: emailController.text,
-                      passwordController: passwordController.text,
-                      context: context)),
+                  fun: () {
+                    if (emailController.text == "admin@gmail.com" &&
+                        passwordController.text == "12345") {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                              builder: (ctx) => const AdminDashbord()),
+                          (route) => false);
+                    }
+
+                    if (formkey.currentState!.validate()) {
+                      // context.read<AuthBloc>().add(AuthEvent.userlogin(
+                      //     emailController: emailController.text,
+                      //     passwordController: passwordController.text,
+                      //     context: context));
+                    }
+                  },
                 ),
                 const SizedBox(height: 30),
                 Row(

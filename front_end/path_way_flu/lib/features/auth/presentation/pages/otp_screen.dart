@@ -3,17 +3,22 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/sign_in_ui.dart';
 
 class OtpScreen extends StatelessWidget {
-  const OtpScreen({super.key});
+  final String emailtext;
+  const OtpScreen({super.key, required this.emailtext});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: CircleAvatar(
-          backgroundColor: const Color.fromARGB(255, 245, 245, 245),
-          child: SvgPicture.asset("asset/icons/arrow-left.svg"),
+        leading: InkWell(
+          onTap: () => Navigator.pop(context),
+          child: CircleAvatar(
+            backgroundColor: const Color.fromARGB(255, 245, 245, 245),
+            child: SvgPicture.asset("asset/icons/arrow-left.svg"),
+          ),
         ),
       ),
       body: Padding(
@@ -37,7 +42,7 @@ class OtpScreen extends StatelessWidget {
                     minWidth: 200,
                   ),
                   child: Text(
-                    'Please check your emali www.sahad@gmail.com to see the verification code',
+                    'Please check your emali $emailtext to see the verification code',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.aBeeZee(
                       color: const Color.fromARGB(255, 134, 134, 134),
@@ -187,37 +192,29 @@ class OtpScreen extends StatelessWidget {
               left: 0,
               right: 0,
               bottom: 0,
-              child: Container(
-                height: 100,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(40),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: const Offset(0, 4),
-                        blurRadius: 50,
-                        color: kTextColor.withOpacity(.1),
-                      )
-                    ]),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    BuildButtonOtp(
-                        borderColor: const Color.fromARGB(255, 224, 224, 224),
-                        backgroColor: Colors.white,
-                        textColor: Colors.blue,
-                        text: "Resend code",
-                        fun: () {}),
-                    BuildButtonOtp(
-                      borderColor: kBlueColor,
-                      backgroColor: kBlueColor,
-                      textColor: Colors.white,
-                      text: "Verify",
-                      fun: () {},
-                    ),
-                  ],
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  BuildButtonOtp(
+                      borderColor: const Color.fromARGB(255, 224, 224, 224),
+                      backgroColor: Colors.white,
+                      textColor: Colors.blue,
+                      text: "Resend code",
+                      fun: () {}),
+                  BuildButtonOtp(
+                    borderColor: kBlueColor,
+                    backgroColor: kBlueColor,
+                    textColor: Colors.white,
+                    text: "Verify",
+                    fun: () {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (ctx) => const SignInScreen()),
+                          (route) => false);
+                    },
+                  ),
+                ],
               ),
             )
           ],
