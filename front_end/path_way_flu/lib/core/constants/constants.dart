@@ -27,5 +27,4 @@ const kTitleTextStyle = TextStyle(
 const kSubtitleTextSyule = TextStyle(
   fontSize: 18,
   color: kTextColor,
-  // fontWeight: FontWeight.bold,
 );
