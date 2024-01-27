@@ -46,24 +46,28 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   BuilderTextField(
+                      prifixIcon: Icons.person,
                       controller: nameController,
                       hintText: "Enter your name",
                       validationText: "Enter your name",
                       sufixIcon: false),
                   const SizedBox(height: 20),
                   BuilderTextField(
+                      prifixIcon: Icons.email,
                       controller: emailController,
                       hintText: "Enter your email",
                       validationText: "Enter your email",
                       sufixIcon: false),
                   const SizedBox(height: 20),
                   BuilderTextField(
+                      prifixIcon: Icons.lock_open,
                       controller: passwordController,
                       hintText: "Enter password",
                       validationText: "Enter your password",
                       sufixIcon: true),
                   const SizedBox(height: 20),
                   const BuilderTextField(
+                    prifixIcon: Icons.lock_open,
                     hintText: "Conform password",
                     sufixIcon: true,
                     validationText: "Enter your password",

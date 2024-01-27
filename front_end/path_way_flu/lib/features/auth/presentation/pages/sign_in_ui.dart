@@ -51,12 +51,14 @@ class SignInScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       BuilderTextField(
+                          prifixIcon: Icons.mail,
                           validationText: "Enter your email",
                           controller: emailController,
                           hintText: "Enter your email",
                           sufixIcon: false),
                       const SizedBox(height: 20),
                       BuilderTextField(
+                          prifixIcon: Icons.lock_open,
                           validationText: "Enter your password",
                           controller: passwordController,
                           hintText: "Enter password",

@@ -1,3 +1,4 @@
+import 'package:email_otp/email_otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,10 +8,15 @@ import 'package:path_way_flu/features/auth/presentation/pages/sign_in_ui.dart';
 
 class OtpScreen extends StatelessWidget {
   final String emailtext;
-  const OtpScreen({super.key, required this.emailtext});
+  final EmailOTP myAuth;
+  const OtpScreen({super.key, required this.emailtext, required this.myAuth});
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController otp1Controller = TextEditingController();
+    TextEditingController otp2Controller = TextEditingController();
+    TextEditingController otp3Controller = TextEditingController();
+    TextEditingController otp4Controller = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
@@ -65,6 +71,7 @@ class OtpScreen extends StatelessWidget {
                       height: 68,
                       width: 64,
                       child: TextField(
+                        controller: otp1Controller,
                         onChanged: (value) {
                           if (value.length == 1) {
                             FocusScope.of(context).nextFocus();
@@ -89,6 +96,7 @@ class OtpScreen extends StatelessWidget {
                       height: 68,
                       width: 64,
                       child: TextField(
+                        controller: otp2Controller,
                         onChanged: (value) {
                           if (value.length == 1) {
                             FocusScope.of(context).nextFocus();
@@ -113,6 +121,7 @@ class OtpScreen extends StatelessWidget {
                       height: 68,
                       width: 64,
                       child: TextField(
+                        controller: otp3Controller,
                         onChanged: (value) {
                           if (value.length == 1) {
                             FocusScope.of(context).nextFocus();
@@ -137,6 +146,7 @@ class OtpScreen extends StatelessWidget {
                       height: 68,
                       width: 64,
                       child: TextField(
+                        controller: otp4Controller,
                         onChanged: (value) {
                           if (value.length == 1) {
                             FocusScope.of(context).nextFocus();
@@ -206,12 +216,36 @@ class OtpScreen extends StatelessWidget {
                     backgroColor: kBlueColor,
                     textColor: Colors.white,
                     text: "Verify",
-                    fun: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (ctx) => const SignInScreen()),
-                          (route) => false);
+                    fun: () async {
+                      if (await myAuth.verifyOTP(
+                              otp: otp1Controller.text +
+                                  otp2Controller.text +
+                                  otp3Controller.text +
+                                  otp4Controller.text) ==
+                          true) {
+                        // ignore: use_build_context_synchronously
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text('OTP is verified'),
+                          backgroundColor: Colors.green,
+                          padding: EdgeInsets.all(8),
+                          duration: Duration(seconds: 3),
+                        ));
+                        // ignore: use_build_context_synchronously
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                                builder: (ctx) => const SignInScreen()),
+                            (route) => false);
+                      } else {
+                        // ignore: use_build_context_synchronously
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text('Invalid OTP'),
+                          backgroundColor: Colors.red,
+                          padding: EdgeInsets.all(8),
+                          duration: Duration(seconds: 3),
+                        ));
+                      }
                     },
                   ),
                 ],

@@ -6,12 +6,14 @@ class BuilderTextField extends StatefulWidget {
   final bool? sufixIcon;
   final String validationText;
   final TextEditingController? controller;
+  final IconData prifixIcon;
   const BuilderTextField({
     super.key,
     required this.hintText,
     required this.sufixIcon,
     this.controller,
     required this.validationText,
+    required this.prifixIcon,
   });
 
   @override
@@ -19,7 +21,7 @@ class BuilderTextField extends StatefulWidget {
 }
 
 class _BuilderTextFieldState extends State<BuilderTextField> {
-  bool isSecurePassword = true;
+  bool isSecurePassword = false;
 
   Widget togglePassword() {
     return IconButton(
@@ -51,10 +53,11 @@ class _BuilderTextFieldState extends State<BuilderTextField> {
         controller: widget.controller,
         obscureText: isSecurePassword,
         decoration: InputDecoration(
-            // suffixIcon: widget.sufixIcon!
-            //     ? const Icon(Icons.remove_red_eye_outlined,
-            //         color: Color.fromARGB(255, 166, 166, 166))
-            //     : null,
+            prefixIcon: Icon(
+              widget.prifixIcon,
+              color: Colors.grey,
+              size: 27,
+            ),
             suffixIcon: widget.sufixIcon! ? togglePassword() : null,
             contentPadding: const EdgeInsets.all(20),
             border: UnderlineInputBorder(

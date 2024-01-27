@@ -4,6 +4,7 @@ import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/otp_screen.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field.dart';
+import 'package:email_otp/email_otp.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   final TextEditingController email;
@@ -13,6 +14,7 @@ class ForgetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EmailOTP myAuth = EmailOTP();
     TextEditingController emailController = TextEditingController();
     emailController = email;
     GlobalKey<FormState> formkey = GlobalKey();
@@ -71,6 +73,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 Form(
                   key: formkey,
                   child: BuilderTextField(
+                      prifixIcon: Icons.mail,
                       controller: emailController,
                       validationText: "Enter your email",
                       hintText: "Enter your email",
@@ -80,25 +83,41 @@ class ForgetPasswordScreen extends StatelessWidget {
                 BuildButton(
                     text:
                         textToCheck == "Forgot" ? "Resent Password" : "verify",
-                    fun: () {
+                    fun: () async {
                       if (formkey.currentState!.validate()) {
-                        PanaraInfoDialog.show(
-                          context,
-                          imagePath: 'asset/download (4).png',
-                          title: "Check your email",
-                          message:
-                              "We have send code in your email for futher verification",
-                          buttonText: "Okay",
-                          onTapDismiss: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (ctx) => OtpScreen(
-                                          emailtext: email.text,
-                                        )));
-                          },
-                          panaraDialogType: PanaraDialogType.normal,
-                        );
+                        myAuth.setConfig(
+                            appEmail: "pathWay@sahadmpdev.com",
+                            appName: "PathWay OTP Validation",
+                            userEmail: email.text,
+                            otpLength: 4,
+                            otpType: OTPType.digitsOnly);
+                        if (await myAuth.sendOTP() == true) {
+                          // ignore: use_build_context_synchronously
+                          PanaraInfoDialog.show(
+                            context,
+                            imagePath: 'asset/download (4).png',
+                            title: "Check your email",
+                            message:
+                                "We have send code in your email for futher verification",
+                            buttonText: "Okay",
+                            onTapDismiss: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (ctx) => OtpScreen(
+                                            myAuth: myAuth,
+                                            emailtext: email.text,
+                                          )));
+                            },
+                            panaraDialogType: PanaraDialogType.normal,
+                          );
+                        } else {
+                          // ignore: use_build_context_synchronously
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text('Oops, OTP send failed'),
+                          ));
+                        }
                       }
                     }),
               ],
