@@ -65,6 +65,7 @@ flutter:
     - asset/icons/
     - asset/images/
     - asset/subjucts_icon/
+    - asset/profiles/
     - asset/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -81,7 +82,7 @@ flutter:
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-  #   - family: Trajan Pro
+    # - family: Quicksand
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf

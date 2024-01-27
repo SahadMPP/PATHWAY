@@ -1,47 +1,73 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:path_way_flu/core/constants/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class ListOfTeachers extends StatelessWidget {
-  const ListOfTeachers({super.key});
+class ListOfTeacher extends StatelessWidget {
+  const ListOfTeacher({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<String> profileImage = [
+      "asset/profiles/chat111.png",
+      "asset/profiles/chat222.png",
+      "asset/profiles/chat333.png",
+      "asset/profiles/chat555.png",
+      "asset/profiles/chat666.png",
+      "asset/profiles/chat777.png",
+      "asset/profiles/chat888.png",
+      "asset/profiles/image22.png",
+    ];
     return Scaffold(
         appBar: AppBar(
-          toolbarHeight: 100,
-          title: Text(
-            'List of Teachers',
-            style: kTitleTextStyle.copyWith(
-                fontSize: 25, fontWeight: FontWeight.w400),
-          ),
-          leading: CircleAvatar(
-            backgroundColor: const Color.fromARGB(255, 235, 235, 235),
-            child: SvgPicture.asset("asset/icons/arrow-left.svg"),
+          title: Text('List of Teacher',
+              style: GoogleFonts.quicksand(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              )),
+          leading: GestureDetector(
+            onTap: () => Navigator.of(context).pop(),
+            child: CircleAvatar(
+              backgroundColor: const Color.fromARGB(255, 235, 235, 235),
+              child: SvgPicture.asset("asset/icons/arrow-left.svg"),
+            ),
           ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView.builder(
-              itemCount: 20,
+              itemCount: profileImage.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('Sabeela Sayma',
-                      style: kSubheadingextStyle.copyWith(color: Colors.black)),
-                  subtitle: Text('Che,Mal,Eng',
-                      style: kSubtitleTextSyule.copyWith(
-                          color: Colors.grey, fontSize: 15)),
-                  leading: const CircleAvatar(
-                    radius: 30,
-                    backgroundImage: AssetImage("asset/images/user.png"),
+                return Padding(
+                  padding: const EdgeInsets.only(left: 26, right: 10, top: 35),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage(profileImage[index]),
+                      ),
+                      const SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Danny Hopkins',
+                            style: GoogleFonts.quicksand(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            'dannyhopkins@gmail.com',
+                            style: GoogleFonts.quicksand(color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(width: 50),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.person_add_disabled))
+                    ],
                   ),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.person_add_disabled,
-                        color: Colors.grey,
-                        size: 30,
-                      )),
                 );
               }),
         ));
