@@ -37,7 +37,11 @@ class ListOfTutorial extends StatelessWidget {
           child: Column(
             children: [
               BuildHeadlinewithBack(
-                  fun: () {}, icon: Icons.arrow_back, headline: "Math"),
+                  fun: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: Icons.arrow_back,
+                  headline: "Math"),
               const SizedBox(height: 20),
               SizedBox(
                 height: 800,

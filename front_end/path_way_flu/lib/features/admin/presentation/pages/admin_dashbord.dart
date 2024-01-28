@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/features/admin/bar%20graph/bar_graph.dart';
+import 'package:path_way_flu/features/admin/presentation/pages/list_of_student.dart';
+import 'package:path_way_flu/features/admin/presentation/pages/list_of_teacher.dart';
 
 class AdminDashbord extends StatelessWidget {
   const AdminDashbord({super.key});
@@ -9,10 +11,10 @@ class AdminDashbord extends StatelessWidget {
   Widget build(BuildContext context) {
     List<double> weeklySummary = [
       20.40,
+      30.40,
       40.40,
-      40.40,
-      50.40,
-      20.40,
+      90.40,
+      60.40,
       30.40,
     ];
     return Scaffold(
@@ -71,12 +73,20 @@ class AdminDashbord extends StatelessWidget {
                 color: Color.fromARGB(255, 220, 220, 220),
                 thickness: 2,
               ),
-              const BuildPrograssIndicator(
+              BuildPrograssIndicator(
+                  function: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (ctx) => const ListOfTeacher()));
+                  },
                   title: "Tutor Prograss",
                   persenteg: "75% to compleate",
                   value: 0.7),
               const SizedBox(height: 20),
-              const BuildPrograssIndicator(
+              BuildPrograssIndicator(
+                  function: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (ctx) => const ListOfStudent()));
+                  },
                   title: "Student Prograss",
                   persenteg: "50% to compleate",
                   value: 0.5),
@@ -93,43 +103,50 @@ class BuildPrograssIndicator extends StatelessWidget {
   final String title;
   final String persenteg;
   final double value;
+  final VoidCallback function;
   const BuildPrograssIndicator({
     super.key,
     required this.title,
     required this.persenteg,
     required this.value,
+    required this.function,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: kSubtitleTextSyule.copyWith(
-                color: Colors.grey, fontSize: 13, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            persenteg,
-            style: kTitleTextStyle.copyWith(
-                color: const Color.fromARGB(255, 0, 78, 212), fontSize: 22),
-          ),
-          const SizedBox(height: 10),
-          ClipRRect(
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
-            child: LinearProgressIndicator(
-              minHeight: 10,
-              value: value,
-              color: Colors.grey,
-              valueColor:
-                  const AlwaysStoppedAnimation<Color>(Color(0xff00ff00)),
-              backgroundColor: const Color(0xffD6D6D6),
+    return InkWell(
+      onTap: function,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: kSubtitleTextSyule.copyWith(
+                  color: Colors.grey,
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold),
             ),
-          ),
-        ],
+            Text(
+              persenteg,
+              style: kTitleTextStyle.copyWith(
+                  color: const Color.fromARGB(255, 0, 78, 212), fontSize: 22),
+            ),
+            const SizedBox(height: 10),
+            ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              child: LinearProgressIndicator(
+                minHeight: 10,
+                value: value,
+                color: Colors.grey,
+                valueColor:
+                    const AlwaysStoppedAnimation<Color>(Color(0xff00ff00)),
+                backgroundColor: const Color(0xffD6D6D6),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

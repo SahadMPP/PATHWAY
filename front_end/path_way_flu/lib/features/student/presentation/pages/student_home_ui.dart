@@ -3,6 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/core/constants/model.dart';
+import 'package:path_way_flu/features/student/presentation/pages/see_all_category.dart';
 
 class StuHome extends StatelessWidget {
   const StuHome({super.key});
@@ -49,8 +50,14 @@ class StuHome extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text("Cateory", style: kTitleTextStyle),
-                Text("See All",
-                    style: kSubtitleTextSyule.copyWith(color: kBlueColor)),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (ctx) => const SeeAllCategory()));
+                  },
+                  child: Text("See All",
+                      style: kSubtitleTextSyule.copyWith(color: kBlueColor)),
+                ),
               ],
             ),
             const SizedBox(height: 10),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
+import 'package:path_way_flu/features/auth/domain/usecases/define_fun.dart';
 
 class StudentProfileScreen extends StatelessWidget {
   const StudentProfileScreen({super.key});
@@ -115,7 +117,19 @@ class StudentProfileScreen extends StatelessWidget {
                             icon: Icons.navigate_next),
                         BuildProfileCard(
                             text: "LogOut",
-                            fun: () {},
+                            fun: () {
+                              PanaraInfoDialog.show(
+                                context,
+                                message: "",
+                                imagePath: 'asset/alert.png',
+                                title: "Are you sure to LogOut?",
+                                buttonText: "YES",
+                                onTapDismiss: () {
+                                  AuthFuntion().logOut(context);
+                                },
+                                panaraDialogType: PanaraDialogType.normal,
+                              );
+                            },
                             icon: Icons.navigate_next),
                         const SizedBox(height: 90),
                       ],

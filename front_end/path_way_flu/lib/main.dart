@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:path_way_flu/features/admin/presentation/pages/complant_list.dart';
+import 'package:path_way_flu/features/admin/presentation/widgets/admin_bottom_navi.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: const ComplantList(),
+        home: const AdminBotmNavi(),
       ),
     );
   }

@@ -98,10 +98,10 @@ class SignInScreen extends StatelessWidget {
                     }
 
                     if (formkey.currentState!.validate()) {
-                      // context.read<AuthBloc>().add(AuthEvent.userlogin(
-                      //     emailController: emailController.text,
-                      //     passwordController: passwordController.text,
-                      //     context: context));
+                      context.read<AuthBloc>().add(AuthEvent.userlogin(
+                          emailController: emailController.text,
+                          passwordController: passwordController.text,
+                          context: context));
                     }
                   },
                 ),

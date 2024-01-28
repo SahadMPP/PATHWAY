@@ -1,9 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/core/constants/constants.dart';
-import 'package:path_way_flu/core/constants/model.dart';
+
 import 'package:path_way_flu/features/student/presentation/widgets/hedline_back.dart';
 
 class StudentDeatileScreen extends StatefulWidget {
