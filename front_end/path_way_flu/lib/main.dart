@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/features/admin/presentation/pages/adding_tutorial_form.dart';
+import 'package:path_way_flu/features/admin/presentation/pages/list_of_sub.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: const AddTotorialForm(),
+        home: const ListOfSubjects(),
       ),
     );
   }
