@@ -28,3 +28,13 @@ const kSubtitleTextSyule = TextStyle(
   fontSize: 18,
   color: kTextColor,
 );
+
+// icons for deatiles page
+
+const kPrimaryColor = Color(0xff6849ef);
+const kPrimaryLight = Color(0xff8a72f1);
+
+const kBottomNavigationBarItemSize = 24.0;
+const kCategoryCardImageSize = 120.0;
+
+//-------------------

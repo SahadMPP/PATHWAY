@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:path_way_flu/features/chat/presentation/pages/chat_profile.dart';
+import 'package:path_way_flu/features/teacher/presentation/pages/teacher_staus_scree.dart';
 
 // ignore: constant_identifier_names
 const SAVE_KEY_NAME = "userLogined";
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: const ChatScreen(),
+        home: const TeacherPrograssScreen(),
       ),
     );
   }
