@@ -8,8 +8,18 @@ import 'package:path_way_flu/features/auth/presentation/pages/sign_in_ui.dart';
 
 class OtpScreen extends StatelessWidget {
   final String emailtext;
+  final String? name;
+  final String? password;
+  final String textToCheck;
+
   final EmailOTP myAuth;
-  const OtpScreen({super.key, required this.emailtext, required this.myAuth});
+  const OtpScreen(
+      {super.key,
+      required this.emailtext,
+      required this.myAuth,
+      this.name,
+      this.password,
+      required this.textToCheck});
 
   @override
   Widget build(BuildContext context) {
@@ -231,6 +241,9 @@ class OtpScreen extends StatelessWidget {
                           padding: EdgeInsets.all(8),
                           duration: Duration(seconds: 3),
                         ));
+                        // if (textToCheck != "Forgot") {
+
+                        // }
                         // ignore: use_build_context_synchronously
                         Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
@@ -278,7 +291,7 @@ class BuildButtonOtp extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 60,
-      width: 180,
+      width: 150,
       child: ElevatedButton(
           style: ButtonStyle(
               side: MaterialStatePropertyAll(

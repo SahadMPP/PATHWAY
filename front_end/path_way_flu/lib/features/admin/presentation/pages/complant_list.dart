@@ -45,7 +45,7 @@ class ComplantList extends StatelessWidget {
                         ConstrainedBox(
                           constraints: const BoxConstraints(
                             maxHeight: 200,
-                            maxWidth: 250,
+                            maxWidth: 230,
                           ),
                           child: const SingleChildScrollView(
                             child: Column(
@@ -64,7 +64,7 @@ class ComplantList extends StatelessWidget {
                                   " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type",
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 14,
+                                    fontSize: 12,
                                     color: Colors.blueGrey,
                                   ),
                                 )

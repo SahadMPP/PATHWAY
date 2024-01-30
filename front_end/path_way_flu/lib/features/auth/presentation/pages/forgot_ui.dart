@@ -8,9 +8,15 @@ import 'package:email_otp/email_otp.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   final TextEditingController email;
+  final TextEditingController? name;
+  final TextEditingController? password;
   final String textToCheck;
   const ForgetPasswordScreen(
-      {super.key, required this.email, required this.textToCheck});
+      {super.key,
+      required this.email,
+      required this.textToCheck,
+      this.name,
+      this.password});
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +97,10 @@ class ForgetPasswordScreen extends StatelessWidget {
                             userEmail: email.text,
                             otpLength: 4,
                             otpType: OTPType.digitsOnly);
+
                         if (await myAuth.sendOTP() == true) {
+                          debugPrint("working");
+
                           // ignore: use_build_context_synchronously
                           PanaraInfoDialog.show(
                             context,
@@ -105,8 +114,11 @@ class ForgetPasswordScreen extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (ctx) => OtpScreen(
+                                            textToCheck: textToCheck,
                                             myAuth: myAuth,
                                             emailtext: email.text,
+                                            name: name!.text,
+                                            password: password!.text,
                                           )));
                             },
                             panaraDialogType: PanaraDialogType.normal,
@@ -118,6 +130,8 @@ class ForgetPasswordScreen extends StatelessWidget {
                             content: Text('Oops, OTP send failed'),
                           ));
                         }
+                      } else {
+                        debugPrint("Authenticaton Error");
                       }
                     }),
               ],

@@ -30,7 +30,7 @@ class TeacherRequestList extends StatelessWidget {
               itemCount: profileImage.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(left: 26, right: 10, top: 35),
+                  padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
                   child: Row(
                     children: [
                       CircleAvatar(

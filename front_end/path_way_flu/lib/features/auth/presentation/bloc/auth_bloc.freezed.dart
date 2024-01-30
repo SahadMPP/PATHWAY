@@ -22,7 +22,7 @@ mixin _$AuthEvent {
             BuildContext context)
         userlogin,
     required TResult Function(String nameController, String emailController,
-            String passwordController)
+            String passwordController, BuildContext context)
         registerUser,
     required TResult Function() directionSelection,
   }) =>
@@ -33,7 +33,7 @@ mixin _$AuthEvent {
             BuildContext context)?
         userlogin,
     TResult? Function(String nameController, String emailController,
-            String passwordController)?
+            String passwordController, BuildContext context)?
         registerUser,
     TResult? Function()? directionSelection,
   }) =>
@@ -44,7 +44,7 @@ mixin _$AuthEvent {
             BuildContext context)?
         userlogin,
     TResult Function(String nameController, String emailController,
-            String passwordController)?
+            String passwordController, BuildContext context)?
         registerUser,
     TResult Function()? directionSelection,
     required TResult orElse(),
@@ -184,7 +184,7 @@ class _$userloginImpl implements _userlogin {
             BuildContext context)
         userlogin,
     required TResult Function(String nameController, String emailController,
-            String passwordController)
+            String passwordController, BuildContext context)
         registerUser,
     required TResult Function() directionSelection,
   }) {
@@ -198,7 +198,7 @@ class _$userloginImpl implements _userlogin {
             BuildContext context)?
         userlogin,
     TResult? Function(String nameController, String emailController,
-            String passwordController)?
+            String passwordController, BuildContext context)?
         registerUser,
     TResult? Function()? directionSelection,
   }) {
@@ -212,7 +212,7 @@ class _$userloginImpl implements _userlogin {
             BuildContext context)?
         userlogin,
     TResult Function(String nameController, String emailController,
-            String passwordController)?
+            String passwordController, BuildContext context)?
         registerUser,
     TResult Function()? directionSelection,
     required TResult orElse(),
@@ -281,7 +281,8 @@ abstract class _$$registerUserImplCopyWith<$Res> {
   $Res call(
       {String nameController,
       String emailController,
-      String passwordController});
+      String passwordController,
+      BuildContext context});
 }
 
 /// @nodoc
@@ -298,6 +299,7 @@ class __$$registerUserImplCopyWithImpl<$Res>
     Object? nameController = null,
     Object? emailController = null,
     Object? passwordController = null,
+    Object? context = null,
   }) {
     return _then(_$registerUserImpl(
       nameController: null == nameController
@@ -312,6 +314,10 @@ class __$$registerUserImplCopyWithImpl<$Res>
           ? _value.passwordController
           : passwordController // ignore: cast_nullable_to_non_nullable
               as String,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
     ));
   }
 }
@@ -322,7 +328,8 @@ class _$registerUserImpl implements _registerUser {
   const _$registerUserImpl(
       {required this.nameController,
       required this.emailController,
-      required this.passwordController});
+      required this.passwordController,
+      required this.context});
 
   @override
   final String nameController;
@@ -330,10 +337,12 @@ class _$registerUserImpl implements _registerUser {
   final String emailController;
   @override
   final String passwordController;
+  @override
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'AuthEvent.registerUser(nameController: $nameController, emailController: $emailController, passwordController: $passwordController)';
+    return 'AuthEvent.registerUser(nameController: $nameController, emailController: $emailController, passwordController: $passwordController, context: $context)';
   }
 
   @override
@@ -346,12 +355,13 @@ class _$registerUserImpl implements _registerUser {
             (identical(other.emailController, emailController) ||
                 other.emailController == emailController) &&
             (identical(other.passwordController, passwordController) ||
-                other.passwordController == passwordController));
+                other.passwordController == passwordController) &&
+            (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, nameController, emailController, passwordController);
+  int get hashCode => Object.hash(runtimeType, nameController, emailController,
+      passwordController, context);
 
   @JsonKey(ignore: true)
   @override
@@ -366,11 +376,12 @@ class _$registerUserImpl implements _registerUser {
             BuildContext context)
         userlogin,
     required TResult Function(String nameController, String emailController,
-            String passwordController)
+            String passwordController, BuildContext context)
         registerUser,
     required TResult Function() directionSelection,
   }) {
-    return registerUser(nameController, emailController, passwordController);
+    return registerUser(
+        nameController, emailController, passwordController, context);
   }
 
   @override
@@ -380,12 +391,12 @@ class _$registerUserImpl implements _registerUser {
             BuildContext context)?
         userlogin,
     TResult? Function(String nameController, String emailController,
-            String passwordController)?
+            String passwordController, BuildContext context)?
         registerUser,
     TResult? Function()? directionSelection,
   }) {
     return registerUser?.call(
-        nameController, emailController, passwordController);
+        nameController, emailController, passwordController, context);
   }
 
   @override
@@ -395,13 +406,14 @@ class _$registerUserImpl implements _registerUser {
             BuildContext context)?
         userlogin,
     TResult Function(String nameController, String emailController,
-            String passwordController)?
+            String passwordController, BuildContext context)?
         registerUser,
     TResult Function()? directionSelection,
     required TResult orElse(),
   }) {
     if (registerUser != null) {
-      return registerUser(nameController, emailController, passwordController);
+      return registerUser(
+          nameController, emailController, passwordController, context);
     }
     return orElse();
   }
@@ -445,11 +457,13 @@ abstract class _registerUser implements AuthEvent {
   const factory _registerUser(
       {required final String nameController,
       required final String emailController,
-      required final String passwordController}) = _$registerUserImpl;
+      required final String passwordController,
+      required final BuildContext context}) = _$registerUserImpl;
 
   String get nameController;
   String get emailController;
   String get passwordController;
+  BuildContext get context;
   @JsonKey(ignore: true)
   _$$registerUserImplCopyWith<_$registerUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -497,7 +511,7 @@ class _$directionSelectionImpl implements _directionSelection {
             BuildContext context)
         userlogin,
     required TResult Function(String nameController, String emailController,
-            String passwordController)
+            String passwordController, BuildContext context)
         registerUser,
     required TResult Function() directionSelection,
   }) {
@@ -511,7 +525,7 @@ class _$directionSelectionImpl implements _directionSelection {
             BuildContext context)?
         userlogin,
     TResult? Function(String nameController, String emailController,
-            String passwordController)?
+            String passwordController, BuildContext context)?
         registerUser,
     TResult? Function()? directionSelection,
   }) {
@@ -525,7 +539,7 @@ class _$directionSelectionImpl implements _directionSelection {
             BuildContext context)?
         userlogin,
     TResult Function(String nameController, String emailController,
-            String passwordController)?
+            String passwordController, BuildContext context)?
         registerUser,
     TResult Function()? directionSelection,
     required TResult orElse(),

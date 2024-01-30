@@ -20,6 +20,7 @@ const Teacher = require("./user_teacher");
 //  connecting to mongodb
 const uri = "mongodb+srv://muhdsahad4916:kxvAcV0xZ5MePTKI@testmongo.se5zzhy.mongodb.net/flutter";
 
+
 mongoose.set("strictQuery", true);
 
 mongoose.connect(uri);
@@ -34,6 +35,7 @@ db.once("open", () => {
     console.log("connected in mongodb")
 
     app.post("/api/add_student", async (req, res) => {
+        console.log(req.body);
 
         const userEmail = req.body.email;
 

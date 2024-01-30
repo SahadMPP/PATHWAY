@@ -4,27 +4,39 @@ import 'package:http/http.dart' as http;
 import 'package:path_way_flu/features/auth/domain/usecases/define_fun.dart';
 
 class AuthApi {
-  static const baseUrl = "http://192.168.1.4/api/";
+  static const baseUrl = "http://192.168.1.5/api/";
 
-  static addStudent(Map sdata) async {
+  static addStudent(Map sdata, BuildContext context) async {
     final url = Uri.parse("${baseUrl}add_student");
     try {
       final res = await http.post(url, body: sdata);
 
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body.toString());
+        debugPrint("Your account is created succesfully");
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context, text: "created succesfully", color: Colors.green);
         debugPrint(data);
       } else if (res.statusCode == 404) {
         debugPrint("student already exist");
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context, text: "User already exist", color: Colors.red);
       } else {
         debugPrint("Faield to get response");
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context,
+            text: "Oops,faield to get response",
+            color: Colors.red);
       }
     } catch (e) {
       debugPrint(e.toString());
     }
   }
 
-  static addTeacher(Map tdata) async {
+  static addTeacher(Map tdata, BuildContext context) async {
     final url = Uri.parse("${baseUrl}add_teacher");
 
     try {
@@ -32,11 +44,24 @@ class AuthApi {
 
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body.toLowerCase());
+        debugPrint("Your account is created succesfully");
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context, text: "created succesfully", color: Colors.green);
+
         debugPrint(data);
       } else if (res.statusCode == 404) {
         debugPrint("teacher already exist");
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context, text: "User already exist", color: Colors.red);
       } else {
         debugPrint("Faield to get response");
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context,
+            text: "Oops,faield to get response",
+            color: Colors.red);
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -50,20 +75,32 @@ class AuthApi {
       final res = await http.post(url, body: sdata);
 
       if (res.statusCode == 200) {
-        debugPrint('login success full');
+        debugPrint('login successfully');
         //----------
-
         // ignore: use_build_context_synchronously
         AuthFuntion().studentLogin(context);
       } else if (res.statusCode == 404) {
         debugPrint("wrong password");
         //--------
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context,
+            text: "Password went to wrong",
+            color: Colors.red);
       } else if (res.statusCode == 400) {
         debugPrint("mail not registed");
         //----------
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context, text: "Email id not registed", color: Colors.red);
       } else {
         debugPrint("Faield to get response");
         //---------
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context,
+            text: "Oops,faield to get response",
+            color: Colors.red);
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -84,12 +121,25 @@ class AuthApi {
       } else if (res.statusCode == 404) {
         debugPrint("wrong password");
         //--------
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context,
+            text: "Password went to wrong",
+            color: Colors.red);
       } else if (res.statusCode == 400) {
         debugPrint("mail not registed");
         //----------
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context, text: "Email id not registed", color: Colors.red);
       } else {
         debugPrint("Faield to get response");
         //---------
+        // ignore: use_build_context_synchronously
+        AuthFuntion().snakbar(
+            context: context,
+            text: "Oops,faield to get response",
+            color: Colors.red);
       }
     } catch (e) {
       debugPrint(e.toString());

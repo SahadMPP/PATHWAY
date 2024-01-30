@@ -80,7 +80,7 @@ class SignUpScreen extends StatelessWidget {
                       style: GoogleFonts.roboto(
                         color: const Color.fromARGB(255, 77, 77, 77),
                         fontWeight: FontWeight.w300,
-                        fontSize: 15,
+                        fontSize: 12,
                         letterSpacing: .5,
                       ),
                     ),
@@ -90,14 +90,20 @@ class SignUpScreen extends StatelessWidget {
                     text: "SIGN UP",
                     fun: () {
                       if (formkey.currentState!.validate()) {
+                        // ignore: use_build_context_synchronously
+                        context.read<AuthBloc>().add(AuthEvent.registerUser(
+                              nameController: nameController.text,
+                              emailController: emailController.text,
+                              passwordController: passwordController.text,
+                              context: context,
+                            ));
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (ctx) => ForgetPasswordScreen(
-                                email: emailController,
-                                textToCheck: "varifymail")));
-                        context.read<AuthBloc>().add(AuthEvent.registerUser(
-                            nameController: nameController.text,
-                            emailController: emailController.text,
-                            passwordController: passwordController.text));
+                                  email: emailController,
+                                  textToCheck: "varifymail",
+                                  name: nameController,
+                                  password: passwordController,
+                                )));
                       }
                     },
                   ),

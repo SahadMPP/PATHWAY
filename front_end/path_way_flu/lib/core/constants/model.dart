@@ -7,6 +7,14 @@ var categoriesData = <Map<String, dynamic>>[
     'image': "assets/images/photography.png"
   },
   {"name": "Business", 'courses': 17, 'image': "asset/images/business.png"},
+  {"name": "Marketing", 'courses': 17, 'image': "asset/images/marketing.png"},
+  {"name": "UX Design", 'courses': 25, 'image': "assets/images/ux_design.png"},
+  {
+    "name": "Photography",
+    'courses': 13,
+    'image': "assets/images/photography.png"
+  },
+  {"name": "Business", 'courses': 17, 'image': "asset/images/business.png"},
 ];
 
 // Category---------

@@ -131,7 +131,7 @@ class StudentProfileScreen extends StatelessWidget {
                               );
                             },
                             icon: Icons.navigate_next),
-                        const SizedBox(height: 90),
+                        const SizedBox(height: 230),
                       ],
                     ),
                   ),

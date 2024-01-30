@@ -12,6 +12,7 @@ class AuthEvent with _$AuthEvent {
     required String nameController,
     required String emailController,
     required String passwordController,
+    required BuildContext context,
   }) = _registerUser;
   const factory AuthEvent.directionSelection() = _directionSelection;
 }

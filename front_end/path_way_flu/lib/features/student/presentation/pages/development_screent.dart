@@ -62,7 +62,7 @@ class StudentStatus extends StatelessWidget {
                                 )),
                             const SizedBox(height: 10),
                             SizedBox(
-                              width: 260,
+                              width: MediaQuery.of(context).size.width * 0.52,
                               child: LinearProgressIndicator(
                                 minHeight: 5,
                                 borderRadius: BorderRadius.circular(10),

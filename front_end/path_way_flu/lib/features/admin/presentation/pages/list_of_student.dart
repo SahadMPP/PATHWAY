@@ -39,7 +39,7 @@ class ListOfStudent extends StatelessWidget {
               itemCount: profileImage.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(left: 26, right: 10, top: 35),
+                  padding: const EdgeInsets.only(left: 10, right: 10, top: 35),
                   child: Row(
                     children: [
                       CircleAvatar(
@@ -63,7 +63,7 @@ class ListOfStudent extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(width: 50),
+                      const Spacer(),
                       IconButton(
                           onPressed: () {},
                           icon: const Icon(Icons.person_add_disabled))

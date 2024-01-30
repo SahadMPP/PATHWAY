@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
-import 'package:path_way_flu/core/constants/model.dart';
 import 'package:path_way_flu/features/student/presentation/pages/see_all_category.dart';
 
 class StuHome extends StatelessWidget {
@@ -63,7 +62,7 @@ class StuHome extends StatelessWidget {
             const SizedBox(height: 10),
             Expanded(
               child: GridView.builder(
-                itemCount: categoriesData.length,
+                itemCount: 10,
                 gridDelegate: SliverWovenGridDelegate.count(
                   pattern: [
                     const WovenGridTile(1),

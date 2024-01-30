@@ -25,14 +25,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           "email": event.emailController,
           "password": event.passwordController,
         };
-        AuthApi.addStudent(data);
+        AuthApi.addStudent(data, event.context);
       } else if (state.directionText == "Teacher") {
         final data = {
           "name": event.nameController,
           "email": event.emailController,
           "password": event.passwordController,
         };
-        AuthApi.addTeacher(data);
+        AuthApi.addTeacher(data, event.context);
       } else {
         debugPrint("directon is not found");
       }

@@ -55,4 +55,17 @@ class AuthFuntion {
           MaterialPageRoute(builder: (ctx) => const StuHome()));
     }
   }
+
+  snakbar(
+      {required BuildContext context,
+      required String text,
+      required Color color}) {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(text),
+      backgroundColor: color,
+      duration: const Duration(seconds: 3),
+      margin: const EdgeInsets.all(10),
+    ));
+  }
 }
