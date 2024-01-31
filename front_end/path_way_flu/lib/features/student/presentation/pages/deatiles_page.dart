@@ -2,9 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
+import 'package:appinio_video_player/appinio_video_player.dart';
 
-class StudentDeatileScreen extends StatelessWidget {
-  const StudentDeatileScreen({super.key});
+class StudentvideoPlay extends StatefulWidget {
+  const StudentvideoPlay({super.key});
+
+  @override
+  State<StudentvideoPlay> createState() => _StudentvideoPlayState();
+}
+
+class _StudentvideoPlayState extends State<StudentvideoPlay> {
+  late CachedVideoPlayerController videoPlayerController;
+  late CustomVideoPlayerController _customVideoPlayerController;
+
+  String videoUrl =
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+
+  @override
+  void initState() {
+    super.initState();
+    initilizeVideoPlayer();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,25 +47,20 @@ class StudentDeatileScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  Container(
-                    height: 220,
-                    width: double.infinity,
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("asset/images.jpg"),
-                            fit: BoxFit.cover)),
-                  ),
+                  CustomVideoPlayer(
+                      customVideoPlayerController:
+                          _customVideoPlayerController),
                   const SizedBox(height: 15),
                   Text("How to do multipucation",
-                      style: GoogleFonts.quicksand(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                      style: kSubtitleTextSyule.copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 19,
+                        height: 1.5,
                       )),
                   const SizedBox(height: 5),
                   Text("Created by Kumar mohan",
                       style: GoogleFonts.quicksand(
-                        fontSize: 12,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold,
                         color: Colors.grey,
                       )),
@@ -68,7 +81,6 @@ class StudentDeatileScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 15),
                 ],
               ),
             ),
@@ -94,68 +106,48 @@ class StudentDeatileScreen extends StatelessWidget {
                       SizedBox(
                         height: 350,
                         child: ListView(
-                          children: const [
-                            CourseContent(number: "01"),
-                            CourseContent(number: "02"),
+                          children: [
+                            GestureDetector(
+                              child: const CourseContent(number: "01"),
+                              onTap: () {
+                                _customVideoPlayerController.dispose();
+                              },
+                            ),
+                            GestureDetector(
+                              child: const CourseContent(number: "02"),
+                              onTap: () {
+                                setState(() {
+                                  initilizeVideoPlayer();
+                                });
+                              },
+                            ),
                             CourseContent(number: "03"),
                             CourseContent(number: "04"),
                             CourseContent(number: "05"),
                             CourseContent(number: "06"),
                             CourseContent(number: "07"),
-                            SizedBox(height: 100),
+                            const SizedBox(height: 20),
                           ],
                         ),
                       ),
                     ],
                   ),
                 ),
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: Container(
-                    height: 100,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(40),
-                        boxShadow: [
-                          BoxShadow(
-                            offset: const Offset(0, 4),
-                            blurRadius: 50,
-                            color: kTextColor.withOpacity(.1),
-                          )
-                        ]),
-                    child: Container(
-                      padding: const EdgeInsets.all(14),
-                      height: 56,
-                      width: 80,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFFEDEE),
-                        borderRadius: BorderRadius.circular(40),
-                      ),
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 56,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40),
-                            color: kBlueColor),
-                        child: Text(
-                          "Buy Now",
-                          style: kSubtitleTextSyule.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                )
               ]),
             )),
           ],
         ),
       ),
+    );
+  }
+
+  void initilizeVideoPlayer() {
+    CachedVideoPlayerController videoPlayerController;
+    videoPlayerController = CachedVideoPlayerController.network(videoUrl)
+      ..initialize().then((value) => setState(() {}));
+    _customVideoPlayerController = CustomVideoPlayerController(
+      context: context,
+      videoPlayerController: videoPlayerController,
     );
   }
 }

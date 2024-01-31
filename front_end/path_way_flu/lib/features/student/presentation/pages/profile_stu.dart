@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/features/auth/domain/usecases/define_fun.dart';
+import 'package:path_way_flu/features/student/presentation/widgets/complaint_alertbox.dart';
 
 class StudentProfileScreen extends StatelessWidget {
   const StudentProfileScreen({super.key});
@@ -110,6 +111,25 @@ class StudentProfileScreen extends StatelessWidget {
                         BuildProfileCard(
                             text: "About As",
                             fun: () {},
+                            icon: Icons.navigate_next),
+                        BuildProfileCard(
+                            text: "complaint",
+                            fun: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                        backgroundColor: Colors.white,
+                                        contentPadding:
+                                            const EdgeInsets.all(20),
+                                        content: ConstrainedBox(
+                                          constraints: const BoxConstraints(
+                                            maxHeight: 500,
+                                            minWidth: 350,
+                                          ),
+                                          child: const ComplantStudent(),
+                                        ),
+                                      ));
+                            },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
                             text: "Privacy Consern",
