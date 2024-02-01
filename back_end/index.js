@@ -11,11 +11,15 @@ app.use(express.urlencoded({
 }));
 
 
+// getting model instence
 
 const Student = require("./user_student");
 
 const Teacher = require("./user_teacher");
 
+const Tutorial = require("./tutorial");
+
+const Complaint = require("./complaint");
 
 //  connecting to mongodb
 const uri = "mongodb+srv://muhdsahad4916:kxvAcV0xZ5MePTKI@testmongo.se5zzhy.mongodb.net/flutter";
@@ -34,12 +38,17 @@ db.once("open", () => {
 
     console.log("connected in mongodb")
 
+
+
+    // Authentication Apis ------------------------
+
+    //  adding  student
     app.post("/api/add_student", async (req, res) => {
         console.log(req.body);
 
         const userEmail = req.body.email;
 
-        // not add student if already in here
+        // not add student if already in added
         const existingUser = await Student.findOne({ email: userEmail });
 
         if (existingUser) {
@@ -51,7 +60,7 @@ db.once("open", () => {
         }
 
         // adding student if not added
-        // console.log("result", req.body);
+
         let data = Student(req.body);
 
         try {
@@ -67,6 +76,7 @@ db.once("open", () => {
 
     })
 
+    //  adding  teacher
     app.post("/api/add_teacher", async (req, res) => {
 
         const userEmail = req.body.email;
@@ -103,7 +113,6 @@ db.once("open", () => {
     })
 
     //  login for student
-
     app.post("/api/log_student", async (req, res) => {
 
         console.log("student log is called");
@@ -131,7 +140,6 @@ db.once("open", () => {
     });
 
     //  login for teacher
-
     app.post("/api/log_teacher", async (req, res) => {
 
         console.log("teacher log is called");
@@ -157,11 +165,108 @@ db.once("open", () => {
         }
 
     });
+
+
+
+    // Admin side / tutorial crud Apis ------------------------
+
+    // add tutorial
+    app.post("/api/add_tutorial", async (req, res) => {
+        let data = Tutorial(req.body);
+
+        try {
+            let dataToStore = await data.save();
+            res.status(200).json(dataToStore);
+        } catch (error) {
+
+            res.status(400).json({
+                "status": error.massage
+            })
+        }
+
+    });
+
+    // get tutorial
+    app.get("/api/get_tutorial", async (req, res) => {
+        try {
+            let data = await Tutorial.find();
+            res.status(200).json(data);
+        } catch (error) {
+            res.status(404).json({
+                "Status": "Data not found",
+                "error": error.massage,
+            })
+        }
+    });
+    // update tutorial
+    
+    // delete tutorial
+    app.delete("/api/delete_tutorial/:id",async (req,res)=>{
+     let id = req.params.id;
+
+    try {
+        const data = await Tutorial.findByIdAndDelete(id);
+        res.status(200).json({
+           "status" : "delete successfully",
+        })
+    } catch (error) {
+        res.status(400).json(error.massage);
+    }
+    });
+
+    // complaint CURD Apis ------------------------
+
+    // add complaint
+
+    app.post("/api/add_complaint", async (req, res) => {
+        let data = Complaint(req.body);
+
+        try {
+            let dataToStore = await data.save();
+            res.status(200).json(dataToStore);
+        } catch (error) {
+
+            res.status(400).json({
+                "status": error.massage
+            })
+        }
+
+
+    });
+
+    // get all complaint  
+
+    app.get("/api/get_complaint", async (req, res) => {
+        try {
+            let data = await Complaint.find();
+            res.status(200).json(data);
+        } catch (error) {
+            res.status(404).json({
+                "Status": "Data not found",
+                "error": error.massage,
+            })
+        }
+    });
+
+    // delete complaint
+
+    app.delete("/api/delete_complaint/:id",async (req,res)=>{
+        let id = req.params.id;
+   
+       try {
+           const data = await Complaint.findByIdAndDelete(id);
+           res.status(200).json({
+              "status" : "delete successfully",
+           })
+       } catch (error) {
+           res.status(400).json(error.massage);
+       }
+       });
 });
 
 
 
-// stating server
+// connecting to server
 
 app.listen(5000, () => {
     console.log("connected to 5000 port");

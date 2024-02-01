@@ -7,8 +7,6 @@ import 'package:path_way_flu/features/auth/presentation/pages/forgot_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_up_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field.dart';
-import 'package:path_way_flu/features/student/presentation/widgets/student_bottom.dart';
-import 'package:path_way_flu/features/teacher/presentation/widgets/teacher_bottom_navi.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({
@@ -98,27 +96,27 @@ class SignInScreen extends StatelessWidget {
                               builder: (ctx) => const AdminBotmNavi()),
                           (route) => false);
                     }
-                    if (emailController.text == "teacher@gmail.com" &&
-                        passwordController.text == "12345") {
-                      Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                              builder: (ctx) => const TeacherBotmNavi()),
-                          (route) => false);
-                    }
-                    if (emailController.text == "student@gmail.com" &&
-                        passwordController.text == "12345") {
-                      Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                              builder: (ctx) => const StudentBotmNavi()),
-                          (route) => false);
-                    }
-
-                    // if (formkey.currentState!.validate()) {
-                    //   context.read<AuthBloc>().add(AuthEvent.userlogin(
-                    //       emailController: emailController.text,
-                    //       passwordController: passwordController.text,
-                    //       context: context));
+                    // if (emailController.text == "teacher@gmail.com" &&
+                    //     passwordController.text == "12345") {
+                    //   Navigator.of(context).pushAndRemoveUntil(
+                    //       MaterialPageRoute(
+                    //           builder: (ctx) => const TeacherBotmNavi()),
+                    //       (route) => false);
                     // }
+                    // if (emailController.text == "student@gmail.com" &&
+                    //     passwordController.text == "12345") {
+                    //   Navigator.of(context).pushAndRemoveUntil(
+                    //       MaterialPageRoute(
+                    //           builder: (ctx) => const StudentBotmNavi()),
+                    //       (route) => false);
+                    // }
+
+                    if (formkey.currentState!.validate()) {
+                      context.read<AuthBloc>().add(AuthEvent.userlogin(
+                          emailController: emailController.text,
+                          passwordController: passwordController.text,
+                          context: context));
+                    }
                   },
                 ),
                 const SizedBox(height: 30),
