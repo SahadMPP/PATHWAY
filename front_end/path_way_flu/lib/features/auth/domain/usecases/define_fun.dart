@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:path_way_flu/features/auth/presentation/pages/direction_screen_ui.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/indroduction/onbording_screen.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_in_ui.dart';
 import 'package:path_way_flu/features/student/presentation/pages/student_home_ui.dart';
 import 'package:path_way_flu/features/teacher/presentation/pages/teacher_home.dart';
@@ -34,7 +34,7 @@ class AuthFuntion {
   Future<void> goToLogin(context) async {
     await Future.delayed(const Duration(seconds: 3));
     Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (cxt) => const DirectionScreen()),
+        MaterialPageRoute(builder: (cxt) => const OnBordingScreen()),
         (route) => false);
   }
 

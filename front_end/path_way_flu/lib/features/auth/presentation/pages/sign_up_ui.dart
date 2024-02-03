@@ -40,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
                     style: GoogleFonts.aBeeZee(
                       color: const Color.fromARGB(255, 134, 134, 134),
                       fontWeight: FontWeight.w300,
-                      fontSize: 17,
+                      fontSize: 15,
                       letterSpacing: .3,
                     ),
                   ),
@@ -97,13 +97,13 @@ class SignUpScreen extends StatelessWidget {
                               passwordController: passwordController.text,
                               context: context,
                             ));
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) => ForgetPasswordScreen(
-                                  email: emailController,
-                                  textToCheck: "varifymail",
-                                  name: nameController,
-                                  password: passwordController,
-                                )));
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //     builder: (ctx) => ForgetPasswordScreen(
+                        //           email: emailController,
+                        //           textToCheck: "varifymail",
+                        //           name: nameController,
+                        //           password: passwordController,
+                        //         )));
                       }
                     },
                   ),
