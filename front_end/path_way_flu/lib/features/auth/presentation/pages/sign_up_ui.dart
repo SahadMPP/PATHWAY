@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:path_way_flu/features/auth/presentation/pages/forgot_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field.dart';
 

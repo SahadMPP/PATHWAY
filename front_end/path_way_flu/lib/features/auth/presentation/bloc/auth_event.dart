@@ -14,5 +14,6 @@ class AuthEvent with _$AuthEvent {
     required String passwordController,
     required BuildContext context,
   }) = _registerUser;
+
   const factory AuthEvent.directionSelection() = _directionSelection;
 }

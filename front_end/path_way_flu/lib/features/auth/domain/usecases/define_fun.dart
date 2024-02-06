@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/indroduction/onbording_screen.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_in_ui.dart';
 import 'package:path_way_flu/features/student/presentation/pages/student_home_ui.dart';
+import 'package:path_way_flu/features/student/presentation/widgets/student_bottom.dart';
 import 'package:path_way_flu/features/teacher/presentation/pages/teacher_home.dart';
+import 'package:path_way_flu/features/teacher/presentation/widgets/teacher_bottom_navi.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,21 +13,22 @@ class AuthFuntion {
     final sharepre = await SharedPreferences.getInstance();
     sharepre.setString(SAVE_KEY_NAME, "studentLogined");
     Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (ctx) => const StuHome()), (route) => false);
+        MaterialPageRoute(builder: (ctx) => const StudentBotmNavi()),
+        (route) => false);
   }
 
   teacherLogin(context) async {
     final sharepre = await SharedPreferences.getInstance();
     sharepre.setString(SAVE_KEY_NAME, "teacherLogined");
     Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (ctx) => const TeachHome()),
+        MaterialPageRoute(builder: (ctx) => const TeacherBotmNavi()),
         (route) => false);
   }
 
   logOut(context) async {
     final sharepre = await SharedPreferences.getInstance();
     sharepre.clear();
-    // ignore: use_build_context_synchronously
+
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (ctx) => const SignInScreen()),
         (route) => false);

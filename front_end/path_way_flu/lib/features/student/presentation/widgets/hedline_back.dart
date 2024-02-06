@@ -26,23 +26,26 @@ class BuildHeadlinewithBack extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          alignment: Alignment.center,
-          height: 45,
-          width: 45,
-          decoration: BoxDecoration(
-            boxShadow: const [
-              BoxShadow(blurRadius: .5),
-            ],
-            color: const Color.fromARGB(255, 248, 248, 248),
-            borderRadius: BorderRadius.circular(8),
+        Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: Container(
+            alignment: Alignment.center,
+            height: 45,
+            width: 45,
+            decoration: BoxDecoration(
+              boxShadow: const [
+                BoxShadow(blurRadius: .5),
+              ],
+              color: const Color.fromARGB(255, 248, 248, 248),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: IconButton(
+                onPressed: fun,
+                icon: Icon(
+                  icon,
+                  size: 20,
+                )),
           ),
-          child: IconButton(
-              onPressed: fun,
-              icon: Icon(
-                icon,
-                size: 20,
-              )),
         ),
       ],
     );

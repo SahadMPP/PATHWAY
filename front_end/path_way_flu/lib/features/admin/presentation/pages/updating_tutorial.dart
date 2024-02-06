@@ -2,20 +2,22 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_way_flu/features/admin/data/models/tutoral_model.dart';
 import 'package:path_way_flu/features/admin/data/repositories/admin_api.dart';
 import 'package:path_way_flu/features/admin/presentation/widgets/textfield.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/hedline_back.dart';
 import 'package:image_picker/image_picker.dart';
 
-class AddTotorialForm extends StatefulWidget {
-  const AddTotorialForm({super.key});
+class UpdatingTutorial extends StatefulWidget {
+  final Tutorial tutoral;
+  const UpdatingTutorial({super.key, required this.tutoral});
 
   @override
-  State<AddTotorialForm> createState() => _AddTotorialFormState();
+  State<UpdatingTutorial> createState() => _UpdatingTutorialState();
 }
 
-class _AddTotorialFormState extends State<AddTotorialForm> {
+class _UpdatingTutorialState extends State<UpdatingTutorial> {
   String? selectedImage;
 
   Future<String?> pikingImage(ImageSource source) async {
@@ -31,8 +33,8 @@ class _AddTotorialFormState extends State<AddTotorialForm> {
     }
   }
 
-  String subjectDropDown = "Computer";
-  String levelDropDown = "Basic";
+  late String subjectDropDown;
+  late String levelDropDown;
 
   TextEditingController titleController = TextEditingController();
   TextEditingController creatorController = TextEditingController();
@@ -40,6 +42,21 @@ class _AddTotorialFormState extends State<AddTotorialForm> {
   TextEditingController durationController = TextEditingController();
   TextEditingController videoUrlController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
+
+  @override
+  void initState() {
+    titleController.text = widget.tutoral.title.toString();
+    creatorController.text = widget.tutoral.creator.toString();
+    discriptionController.text = widget.tutoral.discription.toString();
+    durationController.text = widget.tutoral.duration.toString();
+    videoUrlController.text = widget.tutoral.videoUrl.toString();
+    subjectDropDown = widget.tutoral.category;
+    levelDropDown = widget.tutoral.level;
+    selectedImage = widget.tutoral.tumbnailImage;
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +75,7 @@ class _AddTotorialFormState extends State<AddTotorialForm> {
                         Navigator.of(context).pop();
                       },
                       icon: Icons.arrow_back,
-                      headline: 'Add tutorial'),
+                      headline: 'Update tutorial'),
                   const SizedBox(height: 20),
                   BuildAddTutorFormText(
                       validateText: "title",
@@ -294,11 +311,11 @@ class _AddTotorialFormState extends State<AddTotorialForm> {
                                 "duration": durationController.text,
                                 "discription": discriptionController.text,
                               };
-
-                              AdminApi.addTotorial(data, context);
+                              AdminApi.updateTotorial(
+                                  widget.tutoral.id, data, context);
                             }
                           },
-                          text: "Add")),
+                          text: "Update")),
                 ],
               ),
             ),

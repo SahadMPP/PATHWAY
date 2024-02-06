@@ -9,11 +9,13 @@ class ListOfSubjects extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, String>> subjectList = [
-      {"name": "Math", "image": "asset/subjucts_icon/mahts.png"},
-      {"name": "Science", "image": "asset/subjucts_icon/science.png"},
-      {"name": "Chemisry", "image": "asset/subjucts_icon/chemistry.jpg"},
-      {"name": "Physics", "image": "asset/subjucts_icon/physics.png"},
-      {"name": "Social", "image": "asset/subjucts_icon/social.jpg"},
+      {"name": "Mathematics", "image": "asset/subjucts_icon/mahts.png"},
+      {"name": "Art", "image": "asset/subjucts_icon/science.png"},
+      {"name": "Science", "image": "asset/subjucts_icon/chemistry.jpg"},
+      {"name": "Geography", "image": "asset/subjucts_icon/physics.png"},
+      {"name": "Social Studies", "image": "asset/subjucts_icon/social.jpg"},
+      {"name": "History", "image": "asset/subjucts_icon/history.jpg"},
+      {"name": "Computer", "image": "asset/subjucts_icon/computer.jpg"},
     ];
     return Scaffold(
       appBar: AppBar(
@@ -31,14 +33,16 @@ class ListOfSubjects extends StatelessWidget {
               return GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (ctx) => const ListOfTutorial()));
+                      builder: (ctx) => ListOfTutorial(
+                            category: subjectList[index]["name"]!,
+                          )));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: Container(
-                    height: 80,
+                    height: 70,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(18),
                       border: Border.all(
                           width: 3,
                           color: const Color.fromARGB(255, 236, 236, 236)),
@@ -52,7 +56,7 @@ class ListOfSubjects extends StatelessWidget {
                               height: 30,
                               width: 30,
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
+                                  shape: BoxShape.circle,
                                   border: Border.all(
                                       width: 3,
                                       color: const Color.fromARGB(
@@ -61,7 +65,7 @@ class ListOfSubjects extends StatelessWidget {
                         ),
                         const SizedBox(width: 10),
                         CircleAvatar(
-                          radius: 32,
+                          radius: 25,
                           backgroundImage:
                               AssetImage(subjectList[index]["image"]!),
                         ),
@@ -69,7 +73,7 @@ class ListOfSubjects extends StatelessWidget {
                         Text(
                           subjectList[index]["name"]!,
                           style: GoogleFonts.quicksand(
-                              fontSize: 22, fontWeight: FontWeight.w700),
+                              fontSize: 22, fontWeight: FontWeight.w600),
                         )
                       ],
                     ),

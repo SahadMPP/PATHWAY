@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -10,16 +12,17 @@ class AdminApi {
   // api for tutorial
   static const baseUrl = AuthApi.baseUrl;
 
-  static addTotorial(Map data, BuildContext condext) async {
+  static addTotorial(data, BuildContext context) async {
     final url = Uri.parse("${baseUrl}add_tutorial");
-
     try {
       final res = await http.post(url, body: data);
 
       if (res.statusCode == 200) {
-        var data = jsonDecode(res.body.toString());
-        debugPrint(data);
         debugPrint("Add tutorial is done");
+
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Add tutorial is done")));
+        Navigator.of(context).pop();
       } else {
         debugPrint("Faield to get response");
       }
@@ -28,7 +31,7 @@ class AdminApi {
     }
   }
 
-  static getTotorial() async {
+  static getTotorial(String catogory) async {
     List<Tutorial> tutorial = [];
     var url = Uri.parse("${baseUrl}get_tutorial");
 
@@ -38,19 +41,21 @@ class AdminApi {
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
 
-        for (var value in data["tutorial"]) {
-          tutorial.add(Tutorial(
-            title: value["title"],
-            creator: value["creator"],
-            category: value["category"],
-            tumbnailImage: value["tumbnailImage"],
-            videoUrl: value["videoUrl"],
-            duration: value["duration"],
-            discription: value["discription"],
-            id: value["id"],
-          ));
-          return tutorial;
+        for (var value in data) {
+          if (value["category"] == catogory) {
+            String? id = value["_id"] as String?;
+
+            if (id != null) {
+              return (jsonDecode(res.body) as List)
+                  .map((value) => Tutorial.fromJson(value))
+                  .toList();
+            } else {
+              debugPrint("id is null or not present");
+            }
+          }
         }
+
+        return tutorial;
       } else {
         return tutorial;
       }
@@ -59,7 +64,7 @@ class AdminApi {
     }
   }
 
-  static updateTotorial(id, Map data) async {
+  static updateTotorial(id, Map data, context) async {
     var url = Uri.parse("${baseUrl}update_tutorial/$id");
 
     try {
@@ -68,6 +73,9 @@ class AdminApi {
       if (res.statusCode == 200) {
         debugPrint(res.body);
         debugPrint("tutorial is updated");
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text("tutorial is updated")));
+        Navigator.of(context).pop();
       } else {
         debugPrint("Failed to update data");
       }
@@ -76,7 +84,7 @@ class AdminApi {
     }
   }
 
-  static deleteTotorial(id) async {
+  static deleteTotorial(id, context) async {
     var url = Uri.parse("${baseUrl}delete_tutorial/$id");
 
     try {
@@ -84,6 +92,8 @@ class AdminApi {
 
       if (res.statusCode == 200) {
         debugPrint("tutorial is deleted");
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text("tutorial is deleted")));
       } else {
         debugPrint("Oops,something went wrong");
       }
