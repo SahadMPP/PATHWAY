@@ -1,7 +1,3 @@
-import 'dart:typed_data';
-
-import 'package:flutter/foundation.dart';
-
 class Tutorial {
   final String? id;
 

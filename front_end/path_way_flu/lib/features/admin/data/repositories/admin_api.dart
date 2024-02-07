@@ -2,6 +2,8 @@
 
 import 'dart:convert';
 
+// ignore: unnecessary_import
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/features/admin/data/models/complaint_model.dart';
 import 'package:path_way_flu/features/admin/data/models/tutoral_model.dart';
@@ -64,7 +66,7 @@ class AdminApi {
     }
   }
 
-  static updateTotorial(id, Map data, context) async {
+  static updateTotorial(id, Map data, context, String category) async {
     var url = Uri.parse("${baseUrl}update_tutorial/$id");
 
     try {
@@ -75,7 +77,9 @@ class AdminApi {
         debugPrint("tutorial is updated");
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text("tutorial is updated")));
-        Navigator.of(context).pop();
+
+        // Navigator.of(context).pushReplacement(MaterialPageRoute(
+        //     builder: (ctx) => ListOfTutorial(category: category)));
       } else {
         debugPrint("Failed to update data");
       }

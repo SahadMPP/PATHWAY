@@ -1,64 +1,32 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/admin/data/models/tutoral_model.dart';
-import 'package:path_way_flu/features/admin/data/repositories/admin_api.dart';
+import 'package:path_way_flu/features/admin/presentation/bloc/admin_bloc.dart';
+import 'package:path_way_flu/features/admin/presentation/widgets/drop_down_update.dart';
 import 'package:path_way_flu/features/admin/presentation/widgets/textfield.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/hedline_back.dart';
-import 'package:image_picker/image_picker.dart';
 
-class UpdatingTutorial extends StatefulWidget {
+class UpdatingTutorial extends StatelessWidget {
   final Tutorial tutoral;
   const UpdatingTutorial({super.key, required this.tutoral});
 
   @override
-  State<UpdatingTutorial> createState() => _UpdatingTutorialState();
-}
-
-class _UpdatingTutorialState extends State<UpdatingTutorial> {
-  String? selectedImage;
-
-  Future<String?> pikingImage(ImageSource source) async {
-    final ImagePicker picker = ImagePicker();
-    XFile? image = await picker.pickImage(source: source);
-    if (image != null) {
-      setState(() {
-        selectedImage = image.path;
-      });
-      return image.path;
-    } else {
-      return "";
-    }
-  }
-
-  late String subjectDropDown;
-  late String levelDropDown;
-
-  TextEditingController titleController = TextEditingController();
-  TextEditingController creatorController = TextEditingController();
-  TextEditingController discriptionController = TextEditingController();
-  TextEditingController durationController = TextEditingController();
-  TextEditingController videoUrlController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey();
-
-  @override
-  void initState() {
-    titleController.text = widget.tutoral.title.toString();
-    creatorController.text = widget.tutoral.creator.toString();
-    discriptionController.text = widget.tutoral.discription.toString();
-    durationController.text = widget.tutoral.duration.toString();
-    videoUrlController.text = widget.tutoral.videoUrl.toString();
-    subjectDropDown = widget.tutoral.category;
-    levelDropDown = widget.tutoral.level;
-    selectedImage = widget.tutoral.tumbnailImage;
-
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    TextEditingController titleController = TextEditingController();
+    TextEditingController creatorController = TextEditingController();
+    TextEditingController descriptionController = TextEditingController();
+    TextEditingController durationController = TextEditingController();
+    TextEditingController videoUrlController = TextEditingController();
+    titleController.text = tutoral.title;
+    creatorController.text = tutoral.creator;
+    descriptionController.text = tutoral.discription;
+    durationController.text = tutoral.duration.toString();
+    videoUrlController.text = tutoral.videoUrl;
+    GlobalKey<FormState> formKey = GlobalKey();
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -89,161 +57,13 @@ class _UpdatingTutorialState extends State<UpdatingTutorial> {
                       title: "Creator name",
                       hintText: "Enter creator name"),
                   const SizedBox(height: 20),
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Level",
-                      style: GoogleFonts.roboto(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: const Color.fromARGB(255, 202, 202, 202),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.grey, width: 2)),
-                    width: double.infinity,
-                    height: 60,
-                    child: DropdownButton<String>(
-                        focusColor: Colors.blueGrey,
-                        dropdownColor: Colors.white,
-                        value: levelDropDown,
-                        style: GoogleFonts.roboto(fontSize: 18),
-                        items: const [
-                          DropdownMenuItem(
-                              value: "Basic",
-                              child: Text(
-                                'Basic',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              )),
-                          DropdownMenuItem(
-                              value: "Proficient",
-                              child: Text(
-                                'Proficient',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              )),
-                          DropdownMenuItem(
-                              value: "Advanced",
-                              child: Text(
-                                'Advanced',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              )),
-                        ],
-                        onChanged: (newValue) {
-                          setState(() {
-                            levelDropDown = newValue!;
-                          });
-                        }),
-                  ),
+                  const BuildUpdateDropLeve(),
                   const SizedBox(height: 20),
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Subjects",
-                      style: GoogleFonts.roboto(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: const Color.fromARGB(255, 202, 202, 202),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.grey, width: 2)),
-                    width: double.infinity,
-                    height: 60,
-                    child: DropdownButton<String>(
-                        focusColor: Colors.blueGrey,
-                        dropdownColor: Colors.white,
-                        value: subjectDropDown,
-                        style: GoogleFonts.roboto(fontSize: 18),
-                        items: const [
-                          DropdownMenuItem(
-                              value: "Mathematics",
-                              child: Text(
-                                'Mathematics',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              )),
-                          DropdownMenuItem(
-                              value: "Art",
-                              child: Text(
-                                'Art',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              )),
-                          DropdownMenuItem(
-                              value: "English",
-                              child: Text(
-                                'English',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              )),
-                          DropdownMenuItem(
-                              value: "Science",
-                              child: Text(
-                                'Science',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              )),
-                          DropdownMenuItem(
-                              value: "Geography",
-                              child: Text(
-                                'Geography',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              )),
-                          DropdownMenuItem(
-                              value: "Social Studies",
-                              child: Text(
-                                'Social Studies',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              )),
-                          DropdownMenuItem(
-                              value: "History",
-                              child: Text(
-                                'History',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              )),
-                          DropdownMenuItem(
-                              value: "Computer",
-                              child: Text(
-                                'Computer',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              )),
-                        ],
-                        onChanged: (newValue) {
-                          setState(() {
-                            subjectDropDown = newValue!;
-                          });
-                        }),
-                  ),
+                  const BuildUpdateDropSubject(),
                   const SizedBox(height: 20),
                   BuildAddTutorFormText(
                       validateText: "Description",
-                      controllre: discriptionController,
+                      controllre: descriptionController,
                       maxline: 5,
                       title: "Description",
                       hintText: "Fill the description"),
@@ -266,26 +86,33 @@ class _UpdatingTutorialState extends State<UpdatingTutorial> {
                           color: Colors.grey,
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          pikingImage(ImageSource.gallery);
+                      BlocBuilder<AdminBloc, AdminState>(
+                        builder: (context, state) {
+                          return GestureDetector(
+                            onTap: () {
+                              context
+                                  .read<AdminBloc>()
+                                  .add(const AdminEvent.imagePiker());
+                            },
+                            child: Container(
+                              height: 190,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 222, 222, 222),
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: state.selectedImage == null
+                                  ? Image.asset(
+                                      "asset/images(adding icon).png",
+                                      fit: BoxFit.cover,
+                                    )
+                                  : Image.file(
+                                      File(state.selectedImage!),
+                                      fit: BoxFit.cover,
+                                    ),
+                            ),
+                          );
                         },
-                        child: Container(
-                          height: 190,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 222, 222, 222),
-                              borderRadius: BorderRadius.circular(8)),
-                          child: selectedImage == null
-                              ? Image.asset(
-                                  "asset/images(adding icon).png",
-                                  fit: BoxFit.cover,
-                                )
-                              : Image.file(
-                                  File(selectedImage!),
-                                  fit: BoxFit.cover,
-                                ),
-                        ),
                       ),
                     ],
                   ),
@@ -298,24 +125,29 @@ class _UpdatingTutorialState extends State<UpdatingTutorial> {
                   const SizedBox(height: 20),
                   SizedBox(
                       width: 400,
-                      child: BuildButton(
-                          fun: () {
-                            if (formKey.currentState!.validate()) {
-                              var data = {
-                                "title": titleController.text,
-                                "creator": creatorController.text,
-                                "level": levelDropDown,
-                                "category": subjectDropDown,
-                                "tumbnailImage": selectedImage!,
-                                "videoUrl": videoUrlController.text,
-                                "duration": durationController.text,
-                                "discription": discriptionController.text,
-                              };
-                              AdminApi.updateTotorial(
-                                  widget.tutoral.id, data, context);
-                            }
-                          },
-                          text: "Update")),
+                      child: BlocBuilder<AdminBloc, AdminState>(
+                        builder: (context, state) {
+                          return BuildButton(
+                              fun: () {
+                                if (formKey.currentState!.validate()) {
+                                  context.read<AdminBloc>().add(
+                                      AdminEvent.updateTutoral(
+                                          titleCon: titleController.text,
+                                          creatorCon: creatorController.text,
+                                          levelCon: state.levelDropDown,
+                                          categoryCon: state.subjectDropDown,
+                                          thumnilCon: state.selectedImage!,
+                                          videoUrlCon: videoUrlController.text,
+                                          durationCon: durationController.text,
+                                          discriptionCon:
+                                              descriptionController.text,
+                                          id: tutoral.id!,
+                                          context: context));
+                                }
+                              },
+                              text: "Update");
+                        },
+                      )),
                 ],
               ),
             ),
