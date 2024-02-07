@@ -114,7 +114,7 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                 const BuildExpDropDown(),
                 const SizedBox(height: 10),
                 BuildAddTutorFormText(
-                  title: "Officer Name",
+                  title: "State",
                   hintText: "Chief administrative officer",
                   controllre: nameController,
                   validateText: "Name is empty",
