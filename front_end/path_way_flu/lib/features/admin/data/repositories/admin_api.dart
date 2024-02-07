@@ -9,6 +9,7 @@ import 'package:path_way_flu/features/admin/data/models/complaint_model.dart';
 import 'package:path_way_flu/features/admin/data/models/tutoral_model.dart';
 import 'package:path_way_flu/features/auth/data/repositories/api.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_way_flu/features/teacher/data/models/teacher_model.dart';
 
 class AdminApi {
   // api for tutorial
@@ -143,6 +144,50 @@ class AdminApi {
         debugPrint("complaint deleted");
       } else {
         debugPrint("Oops,something went wrong");
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  // getting teacher application
+
+  static getTeacherApplication() async {
+    List<Teacher> teacher = [];
+    final url = Uri.parse("${baseUrl}get_teacher");
+
+    try {
+      final res = await http.get(url);
+
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
+
+        for (var value in data) {
+          teacher.add(Teacher.fromJson(value));
+        }
+        return teacher;
+      } else {
+        return teacher;
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  static subjectApproving(id, Map data, BuildContext context) async {
+    final url = Uri.parse("${baseUrl}update_teacher/$id");
+
+    try {
+      final res = await http.put(url, body: data);
+
+      if (res.statusCode == 200) {
+        debugPrint("Approved as a teacher");
+        //-------
+        // show success messege
+      } else {
+        debugPrint("Faield to get response");
+        //-------
+        // show success messege
       }
     } catch (e) {
       debugPrint(e.toString());

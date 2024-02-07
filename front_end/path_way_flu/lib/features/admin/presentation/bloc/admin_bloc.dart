@@ -27,7 +27,6 @@ class AdminBloc extends Bloc<AdminEvent, AdminState> {
       AdminApi.addTotorial(data, event.context);
     });
     on<_updateTutoral>((event, emit) {
-      //  AdminApi.updateTotorial(id, data, context);
       var data = {
         "title": event.titleCon,
         "creator": event.creatorCon,
@@ -42,6 +41,8 @@ class AdminBloc extends Bloc<AdminEvent, AdminState> {
 
       Navigator.of(event.context).pushReplacement(MaterialPageRoute(
           builder: (ctx) => ListOfTutorial(category: event.categoryCon)));
+
+      emit(state.copyWith(selectedImage: null));
     });
     on<_deleteTutorial>((event, emit) {
       AdminApi.deleteTotorial(event.id, event.context);
