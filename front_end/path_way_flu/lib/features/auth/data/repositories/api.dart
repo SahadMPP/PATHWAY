@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:path_way_flu/features/auth/domain/usecases/define_fun.dart';
 
 class AuthApi {
-  static const baseUrl = "http://65.0.168.149:5000/api/";
+  static const baseUrl = "http://learnpro.today:5000/api/";
 
   static addStudent(Map sdata, BuildContext context) async {
     final url = Uri.parse("${baseUrl}add_student");

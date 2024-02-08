@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/features/admin/presentation/bloc/admin_bloc.dart';
-import 'package:path_way_flu/features/admin/presentation/pages/tutors_form.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path_way_flu/features/teacher/presentation/bloc/teacher_bloc.dart';
+import 'package:path_way_flu/features/teacher/presentation/pages/application_form.dart';
 
 // ignore: constant_identifier_names
 const SAVE_KEY_NAME = "userLogined";
@@ -19,12 +20,13 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AuthBloc()),
-        BlocProvider(create: (context) => AdminBloc())
+        BlocProvider(create: (context) => AdminBloc()),
+        BlocProvider(create: (context) => TeacherBloc())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: const TutorsApplicationDetile(),
+        home: const TeacherApplicationFormSc(),
       ),
     );
   }
