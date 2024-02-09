@@ -8,4 +8,11 @@ class Complaint {
     required this.description,
     this.id,
   });
+
+  factory Complaint.fromJson(Map<String, dynamic> json) {
+    return Complaint(
+        id: json["_id"],
+        title: json["title"],
+        description: json["description"]);
+  }
 }

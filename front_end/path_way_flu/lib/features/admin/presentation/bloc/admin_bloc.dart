@@ -72,5 +72,9 @@ class AdminBloc extends Bloc<AdminEvent, AdminState> {
     on<_subjectClickEventInAddingTutoral>((event, emit) {
       emit(state.copyWith(subjectDropDown: event.subject));
     });
+
+    on<_deleteComplaint>((event, emit) {
+      AdminApi.deleteComplates(event.id, event.context);
+    });
   }
 }

@@ -118,13 +118,10 @@ class AdminApi {
 
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
-        for (var value in data["complaint"]) {
-          complaints.add(Complaint(
-            title: value["title"],
-            description: value["description"],
-            id: value["id"],
-          ));
+        for (var value in data) {
+          complaints.add(Complaint.fromJson(value));
         }
+
         return complaints;
       } else {
         return complaints;
@@ -134,14 +131,16 @@ class AdminApi {
     }
   }
 
-  static deleteComplates(id) async {
-    var url = Uri.parse("${baseUrl}delete_complaint");
+  static deleteComplates(id, context) async {
+    var url = Uri.parse("${baseUrl}delete_complaint/$id");
 
     try {
       final res = await http.delete(url);
 
       if (res.statusCode == 200) {
         debugPrint("complaint deleted");
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("complaint is deleted")));
       } else {
         debugPrint("Oops,something went wrong");
       }

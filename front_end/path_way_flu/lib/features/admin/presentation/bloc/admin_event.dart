@@ -34,6 +34,11 @@ class AdminEvent with _$AdminEvent {
     required BuildContext context,
   }) = _deleteTutorial;
 
+  const factory AdminEvent.deleteComplaint({
+    required String id,
+    required BuildContext context,
+  }) = _deleteComplaint;
+
   const factory AdminEvent.updateTutoraPageButtonClick({
     required Tutorial tutorial,
   }) = _updateTutoralButtonClick;

@@ -43,6 +43,7 @@ mixin _$AdminEvent {
             BuildContext context)
         updateTutoral,
     required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(String id, BuildContext context) deleteComplaint,
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
@@ -75,6 +76,7 @@ mixin _$AdminEvent {
             BuildContext context)?
         updateTutoral,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(String id, BuildContext context)? deleteComplaint,
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
@@ -107,6 +109,7 @@ mixin _$AdminEvent {
             BuildContext context)?
         updateTutoral,
     TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(String id, BuildContext context)? deleteComplaint,
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
@@ -119,6 +122,7 @@ mixin _$AdminEvent {
     required TResult Function(_imagePiker value) imagePiker,
     required TResult Function(_updateTutoral value) updateTutoral,
     required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_deleteComplaint value) deleteComplaint,
     required TResult Function(_updateTutoralButtonClick value)
         updateTutoraPageButtonClick,
     required TResult Function(_levelclickEventInAddiTutorial value)
@@ -133,6 +137,7 @@ mixin _$AdminEvent {
     TResult? Function(_imagePiker value)? imagePiker,
     TResult? Function(_updateTutoral value)? updateTutoral,
     TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_deleteComplaint value)? deleteComplaint,
     TResult? Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult? Function(_levelclickEventInAddiTutorial value)?
@@ -147,6 +152,7 @@ mixin _$AdminEvent {
     TResult Function(_imagePiker value)? imagePiker,
     TResult Function(_updateTutoral value)? updateTutoral,
     TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_deleteComplaint value)? deleteComplaint,
     TResult Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult Function(_levelclickEventInAddiTutorial value)?
@@ -365,6 +371,7 @@ class _$addTutorialImpl implements _addTutorial {
             BuildContext context)
         updateTutoral,
     required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(String id, BuildContext context) deleteComplaint,
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
@@ -401,6 +408,7 @@ class _$addTutorialImpl implements _addTutorial {
             BuildContext context)?
         updateTutoral,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(String id, BuildContext context)? deleteComplaint,
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
@@ -437,6 +445,7 @@ class _$addTutorialImpl implements _addTutorial {
             BuildContext context)?
         updateTutoral,
     TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(String id, BuildContext context)? deleteComplaint,
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
@@ -456,6 +465,7 @@ class _$addTutorialImpl implements _addTutorial {
     required TResult Function(_imagePiker value) imagePiker,
     required TResult Function(_updateTutoral value) updateTutoral,
     required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_deleteComplaint value) deleteComplaint,
     required TResult Function(_updateTutoralButtonClick value)
         updateTutoraPageButtonClick,
     required TResult Function(_levelclickEventInAddiTutorial value)
@@ -473,6 +483,7 @@ class _$addTutorialImpl implements _addTutorial {
     TResult? Function(_imagePiker value)? imagePiker,
     TResult? Function(_updateTutoral value)? updateTutoral,
     TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_deleteComplaint value)? deleteComplaint,
     TResult? Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult? Function(_levelclickEventInAddiTutorial value)?
@@ -490,6 +501,7 @@ class _$addTutorialImpl implements _addTutorial {
     TResult Function(_imagePiker value)? imagePiker,
     TResult Function(_updateTutoral value)? updateTutoral,
     TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_deleteComplaint value)? deleteComplaint,
     TResult Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult Function(_levelclickEventInAddiTutorial value)?
@@ -594,6 +606,7 @@ class _$imagePikerImpl implements _imagePiker {
             BuildContext context)
         updateTutoral,
     required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(String id, BuildContext context) deleteComplaint,
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
@@ -629,6 +642,7 @@ class _$imagePikerImpl implements _imagePiker {
             BuildContext context)?
         updateTutoral,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(String id, BuildContext context)? deleteComplaint,
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
@@ -664,6 +678,7 @@ class _$imagePikerImpl implements _imagePiker {
             BuildContext context)?
         updateTutoral,
     TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(String id, BuildContext context)? deleteComplaint,
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
@@ -682,6 +697,7 @@ class _$imagePikerImpl implements _imagePiker {
     required TResult Function(_imagePiker value) imagePiker,
     required TResult Function(_updateTutoral value) updateTutoral,
     required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_deleteComplaint value) deleteComplaint,
     required TResult Function(_updateTutoralButtonClick value)
         updateTutoraPageButtonClick,
     required TResult Function(_levelclickEventInAddiTutorial value)
@@ -699,6 +715,7 @@ class _$imagePikerImpl implements _imagePiker {
     TResult? Function(_imagePiker value)? imagePiker,
     TResult? Function(_updateTutoral value)? updateTutoral,
     TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_deleteComplaint value)? deleteComplaint,
     TResult? Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult? Function(_levelclickEventInAddiTutorial value)?
@@ -716,6 +733,7 @@ class _$imagePikerImpl implements _imagePiker {
     TResult Function(_imagePiker value)? imagePiker,
     TResult Function(_updateTutoral value)? updateTutoral,
     TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_deleteComplaint value)? deleteComplaint,
     TResult Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult Function(_levelclickEventInAddiTutorial value)?
@@ -935,6 +953,7 @@ class _$updateTutoralImpl implements _updateTutoral {
             BuildContext context)
         updateTutoral,
     required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(String id, BuildContext context) deleteComplaint,
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
@@ -971,6 +990,7 @@ class _$updateTutoralImpl implements _updateTutoral {
             BuildContext context)?
         updateTutoral,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(String id, BuildContext context)? deleteComplaint,
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
@@ -1007,6 +1027,7 @@ class _$updateTutoralImpl implements _updateTutoral {
             BuildContext context)?
         updateTutoral,
     TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(String id, BuildContext context)? deleteComplaint,
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
@@ -1026,6 +1047,7 @@ class _$updateTutoralImpl implements _updateTutoral {
     required TResult Function(_imagePiker value) imagePiker,
     required TResult Function(_updateTutoral value) updateTutoral,
     required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_deleteComplaint value) deleteComplaint,
     required TResult Function(_updateTutoralButtonClick value)
         updateTutoraPageButtonClick,
     required TResult Function(_levelclickEventInAddiTutorial value)
@@ -1043,6 +1065,7 @@ class _$updateTutoralImpl implements _updateTutoral {
     TResult? Function(_imagePiker value)? imagePiker,
     TResult? Function(_updateTutoral value)? updateTutoral,
     TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_deleteComplaint value)? deleteComplaint,
     TResult? Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult? Function(_levelclickEventInAddiTutorial value)?
@@ -1060,6 +1083,7 @@ class _$updateTutoralImpl implements _updateTutoral {
     TResult Function(_imagePiker value)? imagePiker,
     TResult Function(_updateTutoral value)? updateTutoral,
     TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_deleteComplaint value)? deleteComplaint,
     TResult Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult Function(_levelclickEventInAddiTutorial value)?
@@ -1201,6 +1225,7 @@ class _$deleteTutorialImpl implements _deleteTutorial {
             BuildContext context)
         updateTutoral,
     required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(String id, BuildContext context) deleteComplaint,
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
@@ -1236,6 +1261,7 @@ class _$deleteTutorialImpl implements _deleteTutorial {
             BuildContext context)?
         updateTutoral,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(String id, BuildContext context)? deleteComplaint,
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
@@ -1271,6 +1297,7 @@ class _$deleteTutorialImpl implements _deleteTutorial {
             BuildContext context)?
         updateTutoral,
     TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(String id, BuildContext context)? deleteComplaint,
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
@@ -1289,6 +1316,7 @@ class _$deleteTutorialImpl implements _deleteTutorial {
     required TResult Function(_imagePiker value) imagePiker,
     required TResult Function(_updateTutoral value) updateTutoral,
     required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_deleteComplaint value) deleteComplaint,
     required TResult Function(_updateTutoralButtonClick value)
         updateTutoraPageButtonClick,
     required TResult Function(_levelclickEventInAddiTutorial value)
@@ -1306,6 +1334,7 @@ class _$deleteTutorialImpl implements _deleteTutorial {
     TResult? Function(_imagePiker value)? imagePiker,
     TResult? Function(_updateTutoral value)? updateTutoral,
     TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_deleteComplaint value)? deleteComplaint,
     TResult? Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult? Function(_levelclickEventInAddiTutorial value)?
@@ -1323,6 +1352,7 @@ class _$deleteTutorialImpl implements _deleteTutorial {
     TResult Function(_imagePiker value)? imagePiker,
     TResult Function(_updateTutoral value)? updateTutoral,
     TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_deleteComplaint value)? deleteComplaint,
     TResult Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult Function(_levelclickEventInAddiTutorial value)?
@@ -1347,6 +1377,259 @@ abstract class _deleteTutorial implements AdminEvent {
   BuildContext get context;
   @JsonKey(ignore: true)
   _$$deleteTutorialImplCopyWith<_$deleteTutorialImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$deleteComplaintImplCopyWith<$Res> {
+  factory _$$deleteComplaintImplCopyWith(_$deleteComplaintImpl value,
+          $Res Function(_$deleteComplaintImpl) then) =
+      __$$deleteComplaintImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id, BuildContext context});
+}
+
+/// @nodoc
+class __$$deleteComplaintImplCopyWithImpl<$Res>
+    extends _$AdminEventCopyWithImpl<$Res, _$deleteComplaintImpl>
+    implements _$$deleteComplaintImplCopyWith<$Res> {
+  __$$deleteComplaintImplCopyWithImpl(
+      _$deleteComplaintImpl _value, $Res Function(_$deleteComplaintImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? context = null,
+  }) {
+    return _then(_$deleteComplaintImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$deleteComplaintImpl implements _deleteComplaint {
+  const _$deleteComplaintImpl({required this.id, required this.context});
+
+  @override
+  final String id;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'AdminEvent.deleteComplaint(id: $id, context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$deleteComplaintImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$deleteComplaintImplCopyWith<_$deleteComplaintImpl> get copyWith =>
+      __$$deleteComplaintImplCopyWithImpl<_$deleteComplaintImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            BuildContext context)
+        addTutorial,
+    required TResult Function() imagePiker,
+    required TResult Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            String id,
+            BuildContext context)
+        updateTutoral,
+    required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(String id, BuildContext context) deleteComplaint,
+    required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
+    required TResult Function(String level) levelclickEventInAddiTutorial,
+    required TResult Function(String subject) subjectClickEventInAddingTutoral,
+  }) {
+    return deleteComplaint(id, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            BuildContext context)?
+        addTutorial,
+    TResult? Function()? imagePiker,
+    TResult? Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            String id,
+            BuildContext context)?
+        updateTutoral,
+    TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(String id, BuildContext context)? deleteComplaint,
+    TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
+    TResult? Function(String level)? levelclickEventInAddiTutorial,
+    TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+  }) {
+    return deleteComplaint?.call(id, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            BuildContext context)?
+        addTutorial,
+    TResult Function()? imagePiker,
+    TResult Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            String id,
+            BuildContext context)?
+        updateTutoral,
+    TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(String id, BuildContext context)? deleteComplaint,
+    TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
+    TResult Function(String level)? levelclickEventInAddiTutorial,
+    TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    required TResult orElse(),
+  }) {
+    if (deleteComplaint != null) {
+      return deleteComplaint(id, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_addTutorial value) addTutorial,
+    required TResult Function(_imagePiker value) imagePiker,
+    required TResult Function(_updateTutoral value) updateTutoral,
+    required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_deleteComplaint value) deleteComplaint,
+    required TResult Function(_updateTutoralButtonClick value)
+        updateTutoraPageButtonClick,
+    required TResult Function(_levelclickEventInAddiTutorial value)
+        levelclickEventInAddiTutorial,
+    required TResult Function(_subjectClickEventInAddingTutoral value)
+        subjectClickEventInAddingTutoral,
+  }) {
+    return deleteComplaint(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_addTutorial value)? addTutorial,
+    TResult? Function(_imagePiker value)? imagePiker,
+    TResult? Function(_updateTutoral value)? updateTutoral,
+    TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_deleteComplaint value)? deleteComplaint,
+    TResult? Function(_updateTutoralButtonClick value)?
+        updateTutoraPageButtonClick,
+    TResult? Function(_levelclickEventInAddiTutorial value)?
+        levelclickEventInAddiTutorial,
+    TResult? Function(_subjectClickEventInAddingTutoral value)?
+        subjectClickEventInAddingTutoral,
+  }) {
+    return deleteComplaint?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_addTutorial value)? addTutorial,
+    TResult Function(_imagePiker value)? imagePiker,
+    TResult Function(_updateTutoral value)? updateTutoral,
+    TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_deleteComplaint value)? deleteComplaint,
+    TResult Function(_updateTutoralButtonClick value)?
+        updateTutoraPageButtonClick,
+    TResult Function(_levelclickEventInAddiTutorial value)?
+        levelclickEventInAddiTutorial,
+    TResult Function(_subjectClickEventInAddingTutoral value)?
+        subjectClickEventInAddingTutoral,
+    required TResult orElse(),
+  }) {
+    if (deleteComplaint != null) {
+      return deleteComplaint(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _deleteComplaint implements AdminEvent {
+  const factory _deleteComplaint(
+      {required final String id,
+      required final BuildContext context}) = _$deleteComplaintImpl;
+
+  String get id;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$deleteComplaintImplCopyWith<_$deleteComplaintImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1443,6 +1726,7 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
             BuildContext context)
         updateTutoral,
     required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(String id, BuildContext context) deleteComplaint,
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
@@ -1478,6 +1762,7 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
             BuildContext context)?
         updateTutoral,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(String id, BuildContext context)? deleteComplaint,
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
@@ -1513,6 +1798,7 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
             BuildContext context)?
         updateTutoral,
     TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(String id, BuildContext context)? deleteComplaint,
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
@@ -1531,6 +1817,7 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
     required TResult Function(_imagePiker value) imagePiker,
     required TResult Function(_updateTutoral value) updateTutoral,
     required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_deleteComplaint value) deleteComplaint,
     required TResult Function(_updateTutoralButtonClick value)
         updateTutoraPageButtonClick,
     required TResult Function(_levelclickEventInAddiTutorial value)
@@ -1548,6 +1835,7 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
     TResult? Function(_imagePiker value)? imagePiker,
     TResult? Function(_updateTutoral value)? updateTutoral,
     TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_deleteComplaint value)? deleteComplaint,
     TResult? Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult? Function(_levelclickEventInAddiTutorial value)?
@@ -1565,6 +1853,7 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
     TResult Function(_imagePiker value)? imagePiker,
     TResult Function(_updateTutoral value)? updateTutoral,
     TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_deleteComplaint value)? deleteComplaint,
     TResult Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult Function(_levelclickEventInAddiTutorial value)?
@@ -1684,6 +1973,7 @@ class _$levelclickEventInAddiTutorialImpl
             BuildContext context)
         updateTutoral,
     required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(String id, BuildContext context) deleteComplaint,
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
@@ -1719,6 +2009,7 @@ class _$levelclickEventInAddiTutorialImpl
             BuildContext context)?
         updateTutoral,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(String id, BuildContext context)? deleteComplaint,
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
@@ -1754,6 +2045,7 @@ class _$levelclickEventInAddiTutorialImpl
             BuildContext context)?
         updateTutoral,
     TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(String id, BuildContext context)? deleteComplaint,
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
@@ -1772,6 +2064,7 @@ class _$levelclickEventInAddiTutorialImpl
     required TResult Function(_imagePiker value) imagePiker,
     required TResult Function(_updateTutoral value) updateTutoral,
     required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_deleteComplaint value) deleteComplaint,
     required TResult Function(_updateTutoralButtonClick value)
         updateTutoraPageButtonClick,
     required TResult Function(_levelclickEventInAddiTutorial value)
@@ -1789,6 +2082,7 @@ class _$levelclickEventInAddiTutorialImpl
     TResult? Function(_imagePiker value)? imagePiker,
     TResult? Function(_updateTutoral value)? updateTutoral,
     TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_deleteComplaint value)? deleteComplaint,
     TResult? Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult? Function(_levelclickEventInAddiTutorial value)?
@@ -1806,6 +2100,7 @@ class _$levelclickEventInAddiTutorialImpl
     TResult Function(_imagePiker value)? imagePiker,
     TResult Function(_updateTutoral value)? updateTutoral,
     TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_deleteComplaint value)? deleteComplaint,
     TResult Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult Function(_levelclickEventInAddiTutorial value)?
@@ -1927,6 +2222,7 @@ class _$subjectClickEventInAddingTutoralImpl
             BuildContext context)
         updateTutoral,
     required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(String id, BuildContext context) deleteComplaint,
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
@@ -1962,6 +2258,7 @@ class _$subjectClickEventInAddingTutoralImpl
             BuildContext context)?
         updateTutoral,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(String id, BuildContext context)? deleteComplaint,
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
@@ -1997,6 +2294,7 @@ class _$subjectClickEventInAddingTutoralImpl
             BuildContext context)?
         updateTutoral,
     TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(String id, BuildContext context)? deleteComplaint,
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
@@ -2015,6 +2313,7 @@ class _$subjectClickEventInAddingTutoralImpl
     required TResult Function(_imagePiker value) imagePiker,
     required TResult Function(_updateTutoral value) updateTutoral,
     required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_deleteComplaint value) deleteComplaint,
     required TResult Function(_updateTutoralButtonClick value)
         updateTutoraPageButtonClick,
     required TResult Function(_levelclickEventInAddiTutorial value)
@@ -2032,6 +2331,7 @@ class _$subjectClickEventInAddingTutoralImpl
     TResult? Function(_imagePiker value)? imagePiker,
     TResult? Function(_updateTutoral value)? updateTutoral,
     TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_deleteComplaint value)? deleteComplaint,
     TResult? Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult? Function(_levelclickEventInAddiTutorial value)?
@@ -2049,6 +2349,7 @@ class _$subjectClickEventInAddingTutoralImpl
     TResult Function(_imagePiker value)? imagePiker,
     TResult Function(_updateTutoral value)? updateTutoral,
     TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_deleteComplaint value)? deleteComplaint,
     TResult Function(_updateTutoralButtonClick value)?
         updateTutoraPageButtonClick,
     TResult Function(_levelclickEventInAddiTutorial value)?
