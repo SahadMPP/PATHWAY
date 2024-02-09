@@ -3,6 +3,7 @@ import 'package:path_way_flu/features/admin/presentation/bloc/admin_bloc.dart';
 import 'package:path_way_flu/features/admin/presentation/widgets/admin_bottom_navi.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path_way_flu/features/student/presentation/pages/profile_stu.dart';
 import 'package:path_way_flu/features/teacher/presentation/bloc/teacher_bloc.dart';
 
 // ignore: constant_identifier_names
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: const AdminBotmNavi(),
+        home: const StudentProfileScreen(),
       ),
     );
   }
