@@ -12,6 +12,7 @@ class ListOfTutorial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       floatingActionButton: ClipRRect(
         borderRadius: BorderRadius.circular(30),
         child: FloatingActionButton(
@@ -19,7 +20,7 @@ class ListOfTutorial extends StatelessWidget {
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (ctx) => const AddTotorialForm()));
             },
-            backgroundColor: const Color.fromARGB(255, 0, 111, 202),
+            backgroundColor: Theme.of(context).colorScheme.onSecondary,
             child: const Icon(
               Icons.add,
               size: 30,

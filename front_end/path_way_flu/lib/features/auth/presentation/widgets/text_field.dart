@@ -55,7 +55,7 @@ class _BuilderTextFieldState extends State<BuilderTextField> {
         decoration: InputDecoration(
             prefixIcon: Icon(
               widget.prifixIcon,
-              color: Colors.grey,
+              // color: Theme.of(context).iconTheme.color,
               size: 27,
             ),
             suffixIcon: widget.sufixIcon! ? togglePassword() : null,
@@ -64,10 +64,9 @@ class _BuilderTextFieldState extends State<BuilderTextField> {
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none),
             filled: true,
-            fillColor: const Color.fromARGB(255, 242, 242, 242),
+            fillColor: Theme.of(context).colorScheme.secondary,
             hintText: widget.hintText,
             hintStyle: GoogleFonts.aBeeZee(
-              color: Colors.grey,
               fontWeight: FontWeight.w400,
               fontSize: 17,
             )),

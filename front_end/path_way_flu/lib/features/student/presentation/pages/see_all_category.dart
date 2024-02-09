@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:path_way_flu/core/constants/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/list_of_category.dart';
 
 class SeeAllCategory extends StatelessWidget {
@@ -8,7 +8,33 @@ class SeeAllCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Theme.of(context).colorScheme.background,
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: Container(
+            height: 45,
+            width: 45,
+            decoration: BoxDecoration(
+              border: Border.all(
+                  color: Theme.of(context).colorScheme.secondary, width: 3),
+              boxShadow: const [
+                BoxShadow(blurRadius: .5),
+              ],
+              color: Theme.of(context).colorScheme.background,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                  size: 20,
+                )),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -16,8 +42,8 @@ class SeeAllCategory extends StatelessWidget {
             children: [
               Text(
                 'Find a course you want to learn',
-                style: kHeadingextStyle.copyWith(
-                  fontSize: 32,
+                style: GoogleFonts.aBeeZee(
+                  fontSize: 30,
                 ),
               ),
               const ListOfCategory(),

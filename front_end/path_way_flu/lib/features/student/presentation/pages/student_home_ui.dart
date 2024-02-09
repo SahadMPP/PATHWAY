@@ -10,6 +10,7 @@ class StuHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Padding(
         padding: const EdgeInsets.only(left: 20, top: 50, right: 20),
         child: Column(
@@ -18,7 +19,12 @@ class StuHome extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SvgPicture.asset("asset/icons/menu.svg"),
+                // ignore: deprecated_member_use
+                SvgPicture.asset(
+                  "asset/icons/menu.svg",
+                  // ignore: deprecated_member_use
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
                 Image.asset("asset/images/user.png"),
               ],
             ),

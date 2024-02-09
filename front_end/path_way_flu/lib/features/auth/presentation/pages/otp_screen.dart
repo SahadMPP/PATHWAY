@@ -28,11 +28,11 @@ class OtpScreen extends StatelessWidget {
     TextEditingController otp3Controller = TextEditingController();
     TextEditingController otp4Controller = TextEditingController();
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         leading: InkWell(
           onTap: () => Navigator.pop(context),
           child: CircleAvatar(
-            backgroundColor: const Color.fromARGB(255, 245, 245, 245),
             child: SvgPicture.asset("asset/icons/arrow-left.svg"),
           ),
         ),
@@ -164,7 +164,7 @@ class OtpScreen extends StatelessWidget {
                         },
                         decoration: InputDecoration(
                             filled: true,
-                            fillColor: const Color.fromARGB(255, 237, 237, 237),
+                            fillColor: Theme.of(context).colorScheme.secondary,
                             border: OutlineInputBorder(
                                 borderSide: BorderSide.none,
                                 borderRadius: BorderRadius.circular(15))),

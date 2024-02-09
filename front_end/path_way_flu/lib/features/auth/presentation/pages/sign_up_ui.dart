@@ -16,7 +16,7 @@ class SignUpScreen extends StatelessWidget {
     GlobalKey<FormState> formkey = GlobalKey();
     return Scaffold(
       appBar: AppBar(),
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -37,7 +37,6 @@ class SignUpScreen extends StatelessWidget {
                   Text(
                     'Please fill the deatiles and create account',
                     style: GoogleFonts.aBeeZee(
-                      color: const Color.fromARGB(255, 134, 134, 134),
                       fontWeight: FontWeight.w300,
                       fontSize: 15,
                       letterSpacing: .3,
@@ -77,7 +76,6 @@ class SignUpScreen extends StatelessWidget {
                     child: Text(
                       'Password must be 8 character',
                       style: GoogleFonts.roboto(
-                        color: const Color.fromARGB(255, 77, 77, 77),
                         fontWeight: FontWeight.w300,
                         fontSize: 12,
                         letterSpacing: .5,
@@ -107,30 +105,35 @@ class SignUpScreen extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 30),
-                  RichText(
-                      text: TextSpan(children: [
-                    TextSpan(
-                        text: 'Already an account  ',
-                        style: GoogleFonts.roboto(
-                          color: const Color.fromARGB(255, 77, 77, 77),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Already an account ',
+                        style: GoogleFonts.aBeeZee(
                           fontWeight: FontWeight.w300,
                           fontSize: 16,
                           letterSpacing: .5,
-                        )),
-                    TextSpan(
-                        text: 'Sign in',
-                        style: GoogleFonts.roboto(
-                          color: Colors.green,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                          letterSpacing: .5,
-                        )),
-                  ])),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () => Navigator.of(context).pop(),
+                        child: Text(
+                          'Sign In',
+                          style: GoogleFonts.aBeeZee(
+                            color: Colors.green[500],
+                            fontWeight: FontWeight.w300,
+                            fontSize: 16,
+                            letterSpacing: .5,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 10),
                   Text(
                     'Or connect',
-                    style: GoogleFonts.roboto(
-                      color: const Color.fromARGB(255, 77, 77, 77),
+                    style: GoogleFonts.aBeeZee(
                       fontWeight: FontWeight.w300,
                       fontSize: 16,
                       letterSpacing: .5,

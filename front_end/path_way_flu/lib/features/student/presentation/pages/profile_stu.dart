@@ -10,7 +10,7 @@ class StudentProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 0, 81, 255),
+      backgroundColor: Theme.of(context).colorScheme.onBackground,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -19,9 +19,9 @@ class StudentProfileScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20, top: 40),
                 child: Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.settings,
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onPrimary,
                       size: 50,
                     ),
                     const SizedBox(width: 15),
@@ -35,7 +35,7 @@ class StudentProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Container(
@@ -64,9 +64,12 @@ class StudentProfileScreen extends StatelessWidget {
                                 minWidth: 50,
                                 maxWidth: 100,
                               ),
-                              child: const Text(
+                              child: Text(
                                 'Yennefer Doe',
-                                style: kTitleTextStyle,
+                                style: kTitleTextStyle.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .background),
                               ),
                             )
                           ],
@@ -101,7 +104,9 @@ class StudentProfileScreen extends StatelessWidget {
                         BuildProfileWithToggle(
                             text: "Push Notification", fun: () {}),
                         BuildProfileWithToggle(text: "Dark mode", fun: () {}),
-                        const Divider(),
+                        const Divider(
+                            color: Color.fromARGB(255, 228, 228, 228),
+                            thickness: 1),
                         const SizedBox(height: 10),
                         Text(
                           'More',
@@ -187,7 +192,8 @@ class BuildProfileCard extends StatelessWidget {
             width: 100,
             child: Text(
               text,
-              style: kTitleTextStyle.copyWith(fontSize: 20),
+              style:
+                  kTitleTextStyle.copyWith(fontSize: 20, color: Colors.black),
             ),
           ),
           IconButton(
@@ -230,13 +236,16 @@ class _BuildProfileWithToggleState extends State<BuildProfileWithToggle> {
             width: 120,
             child: Text(
               widget.text,
-              style: kTitleTextStyle.copyWith(fontSize: 20),
+              style:
+                  kTitleTextStyle.copyWith(fontSize: 20, color: Colors.black),
             ),
           ),
           SizedBox(
             height: 20,
             width: 70,
             child: Switch(
+                thumbColor: MaterialStatePropertyAll(
+                    Theme.of(context).colorScheme.onSecondary),
                 value: isSwitched,
                 onChanged: (value) {
                   setState(() {

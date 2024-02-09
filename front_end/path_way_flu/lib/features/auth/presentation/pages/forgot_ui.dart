@@ -25,7 +25,10 @@ class ForgetPasswordScreen extends StatelessWidget {
     emailController = email;
     GlobalKey<FormState> formkey = GlobalKey();
     return Scaffold(
-      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.background,
+      ),
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),

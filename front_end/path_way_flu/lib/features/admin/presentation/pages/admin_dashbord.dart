@@ -28,11 +28,13 @@ class AdminDashbord extends StatelessWidget {
               const SizedBox(height: 30),
               Text(
                 "Dashboard",
-                style: kHeadingextStyle.copyWith(fontWeight: FontWeight.w500),
+                style: kHeadingextStyle.copyWith(
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-              const SizedBox(height: 30),
-              const Divider(
-                color: Color.fromARGB(255, 220, 220, 220),
+              const SizedBox(height: 10),
+              Divider(
+                color: Theme.of(context).colorScheme.secondary,
                 thickness: 2,
               ),
               SizedBox(
@@ -69,8 +71,8 @@ class AdminDashbord extends StatelessWidget {
                 child: MyBarGraph(weeklySummary: weeklySummary),
               ),
               const SizedBox(height: 50),
-              const Divider(
-                color: Color.fromARGB(255, 220, 220, 220),
+              Divider(
+                color: Theme.of(context).colorScheme.secondary,
                 thickness: 2,
               ),
               BuildPrograssIndicator(
@@ -130,8 +132,7 @@ class BuildPrograssIndicator extends StatelessWidget {
             ),
             Text(
               persenteg,
-              style: kTitleTextStyle.copyWith(
-                  color: const Color.fromARGB(255, 0, 78, 212), fontSize: 22),
+              style: kTitleTextStyle.copyWith(fontSize: 22),
             ),
             const SizedBox(height: 10),
             ClipRRect(

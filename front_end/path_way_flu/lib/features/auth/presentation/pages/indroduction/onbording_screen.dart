@@ -18,7 +18,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: Stack(
           children: [
             SizedBox(

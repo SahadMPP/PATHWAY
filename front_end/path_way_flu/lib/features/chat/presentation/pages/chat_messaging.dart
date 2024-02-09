@@ -7,8 +7,7 @@ class MassagingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color(0xff1B202D),
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Padding(
         padding: const EdgeInsets.only(left: 14, right: 14),
         child: SafeArea(
@@ -36,8 +35,6 @@ class MassagingScreen extends StatelessWidget {
                         Text(
                           'Danny Hopkins',
                           style: GoogleFonts.quicksand(
-                            // color: Colors.white,
-                            color: Colors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
@@ -45,9 +42,8 @@ class MassagingScreen extends StatelessWidget {
                         Text(
                           'Active Now',
                           style: GoogleFonts.quicksand(
-                              // color: Colors.white70,
                               fontWeight: FontWeight.w600,
-                              color: const Color.fromARGB(255, 80, 80, 80)),
+                              color: Colors.green[500]),
                         ),
                       ],
                     ),
@@ -74,7 +70,7 @@ class MassagingScreen extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: const Color.fromARGB(255, 240, 240, 240)),
+                    color: Theme.of(context).colorScheme.onSecondary),
                 child: const Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Text(
@@ -171,7 +167,7 @@ class MassagingScreen extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: const Color.fromARGB(255, 221, 221, 221)),
+                      color: Theme.of(context).colorScheme.secondary),
                   child: Row(
                     children: [
                       Padding(
@@ -182,21 +178,22 @@ class MassagingScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                               color: Colors.black12,
                               borderRadius: BorderRadius.circular(50)),
-                          child: const Icon(Icons.camera_alt_outlined),
+                          child: Icon(
+                            Icons.camera_alt_outlined,
+                            color: Theme.of(context).iconTheme.color,
+                          ),
                         ),
                       ),
                       const SizedBox(width: 15),
                       const Text(
                         'Write your Message',
-                        style:
-                            TextStyle(color: Color.fromARGB(255, 98, 98, 98)),
                       ),
                       const Spacer(),
-                      const Padding(
-                        padding: EdgeInsets.only(right: 8.0),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
                         child: Icon(
                           Icons.mic,
-                          color: Colors.black,
+                          color: Theme.of(context).iconTheme.color,
                         ),
                       ),
                     ],

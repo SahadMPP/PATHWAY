@@ -21,6 +21,7 @@ class AddTotorialForm extends StatelessWidget {
     TextEditingController videoUrlController = TextEditingController();
     GlobalKey<FormState> formKey = GlobalKey();
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),

@@ -19,7 +19,7 @@ class SignInScreen extends StatelessWidget {
     var passwordController = TextEditingController();
     GlobalKey<FormState> formkey = GlobalKey();
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -31,6 +31,7 @@ class SignInScreen extends StatelessWidget {
                 Text(
                   'Sign in now',
                   style: GoogleFonts.roboto(
+                    // color: Theme.of(context).colorScheme.secondary,
                     fontWeight: FontWeight.w500,
                     fontSize: 30,
                   ),
@@ -39,7 +40,6 @@ class SignInScreen extends StatelessWidget {
                 Text(
                   'Please sign to continue our app',
                   style: GoogleFonts.aBeeZee(
-                    color: const Color.fromARGB(255, 134, 134, 134),
                     fontWeight: FontWeight.w300,
                     fontSize: 17,
                     letterSpacing: .3,
@@ -78,7 +78,7 @@ class SignInScreen extends StatelessWidget {
                     child: Text(
                       'Forget Password?',
                       style: GoogleFonts.roboto(
-                        color: Colors.blue,
+                        color: Colors.red[300],
                         fontWeight: FontWeight.w600,
                         fontSize: 12,
                       ),
@@ -124,8 +124,7 @@ class SignInScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Don\'t have any account?  ',
-                        style: GoogleFonts.roboto(
-                          color: const Color.fromARGB(255, 77, 77, 77),
+                        style: GoogleFonts.aBeeZee(
                           fontWeight: FontWeight.w300,
                           fontSize: 16,
                           letterSpacing: .5,
@@ -148,8 +147,7 @@ class SignInScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 Text(
                   'Or connect',
-                  style: GoogleFonts.roboto(
-                    color: const Color.fromARGB(255, 77, 77, 77),
+                  style: GoogleFonts.aBeeZee(
                     fontWeight: FontWeight.w300,
                     fontSize: 16,
                     letterSpacing: .5,

@@ -33,9 +33,10 @@ class TutoralCard extends StatelessWidget {
                       context: context, id: tutorial[index].id!));
                 },
                 background: Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 255, 224, 222),
-                      borderRadius: BorderRadius.all(Radius.circular(18))),
+                  decoration: BoxDecoration(
+                      color: Colors.red[200],
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(18))),
                   child: const Align(
                     alignment: Alignment.centerRight,
                     child: Padding(
@@ -43,7 +44,7 @@ class TutoralCard extends StatelessWidget {
                       child: Icon(
                         Icons.delete,
                         size: 25,
-                        color: Colors.grey,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -73,10 +74,13 @@ class TutoralCard extends StatelessWidget {
                             height: 30,
                             width: 30,
                             decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: Theme.of(context).colorScheme.background,
                                 shape: BoxShape.circle,
-                                border:
-                                    Border.all(width: 3, color: Colors.grey)),
+                                border: Border.all(
+                                    width: 3,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSecondary)),
                             child: Center(
                                 child: Text(
                               "${index + 1}",
@@ -87,55 +91,66 @@ class TutoralCard extends StatelessWidget {
                           bottom: 0,
                           child: Container(
                             width: MediaQuery.of(context).size.width,
-                            color: const Color.fromARGB(255, 234, 234, 234),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(tutorial[index].title.toUpperCase(),
-                                        style: GoogleFonts.roboto(
-                                            fontSize: 16,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w700)),
-                                    Text(
-                                      tutorial[index].creator,
-                                      style: GoogleFonts.quicksand(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black),
-                                    ),
-                                    Text(
-                                      tutorial[index].level.toUpperCase(),
-                                      style: GoogleFonts.quicksand(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 50),
-                                  child: IconButton(
-                                      onPressed: () {
-                                        context.read<AdminBloc>().add(AdminEvent
-                                            .updateTutoraPageButtonClick(
-                                                tutorial: tutorial[index]));
+                            color: Theme.of(context).colorScheme.onSecondary,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 10, right: 10),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(tutorial[index].title.toUpperCase(),
+                                          style: GoogleFonts.roboto(
+                                              fontSize: 16,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w700)),
+                                      Text(
+                                        tutorial[index].creator,
+                                        style: GoogleFonts.quicksand(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.black),
+                                      ),
+                                      Text(
+                                        tutorial[index].level.toUpperCase(),
+                                        style: GoogleFonts.quicksand(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.black),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 50),
+                                    child: IconButton(
+                                        onPressed: () {
+                                          context.read<AdminBloc>().add(
+                                              AdminEvent
+                                                  .updateTutoraPageButtonClick(
+                                                      tutorial:
+                                                          tutorial[index]));
 
-                                        Navigator.of(context).pushReplacement(
-                                            MaterialPageRoute(
-                                                builder: (ctx) =>
-                                                    UpdatingTutorial(
-                                                        tutoral:
-                                                            tutorial[index])));
-                                      },
-                                      icon: const Icon(
-                                        Icons.edit,
-                                        size: 20,
-                                      )),
-                                )
-                              ],
+                                          Navigator.of(context).pushReplacement(
+                                              MaterialPageRoute(
+                                                  builder: (ctx) =>
+                                                      UpdatingTutorial(
+                                                          tutoral: tutorial[
+                                                              index])));
+                                        },
+                                        icon: Icon(
+                                          Icons.edit,
+                                          size: 20,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                        )),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         )

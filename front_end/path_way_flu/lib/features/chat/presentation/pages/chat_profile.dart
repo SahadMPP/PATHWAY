@@ -19,8 +19,7 @@ class ChatScreen extends StatelessWidget {
       {"name": "Kumar", "image": "asset/profiles/chat111.png"},
     ];
     return Scaffold(
-      // backgroundColor: const Color(0xff1B202D),
-      backgroundColor: const Color.fromARGB(255, 0, 140, 255),
+      backgroundColor: Theme.of(context).colorScheme.onBackground,
       body: SafeArea(
         child: ListView(
           // crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,10 +98,9 @@ class ChatScreen extends StatelessWidget {
               child: Container(
                 height: 605,
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                  // color: Color(0xff292f3f),
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(50),
                     topRight: Radius.circular(50),
                   ),

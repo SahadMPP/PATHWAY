@@ -8,17 +8,16 @@ class StudentStatus extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 240, 240, 240),
         centerTitle: true,
         title: Text(
-          "Math",
+          "Status",
           style: GoogleFonts.quicksand(
             fontSize: 28,
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
-      backgroundColor: const Color.fromARGB(255, 240, 240, 240),
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Padding(
         padding: const EdgeInsets.only(left: 15, right: 15, top: 30),
         child: ListView.builder(
@@ -28,7 +27,7 @@ class StudentStatus extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 10),
                 child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onSecondary,
                         borderRadius: BorderRadius.circular(15)),
                     child: Row(
                       children: [
@@ -51,22 +50,25 @@ class StudentStatus extends StatelessWidget {
                                 style: GoogleFonts.roboto(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.black,
+                                  color:
+                                      Theme.of(context).colorScheme.background,
                                 )),
-                            const SizedBox(height: 5),
                             Text('Kumar Mohan',
                                 style: GoogleFonts.roboto(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.grey,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                 )),
                             const SizedBox(height: 10),
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.52,
                               child: LinearProgressIndicator(
+                                backgroundColor: Colors.white,
                                 minHeight: 5,
                                 borderRadius: BorderRadius.circular(10),
-                                color: Colors.blueAccent,
+                                color:
+                                    Theme.of(context).colorScheme.onBackground,
                                 value: 3 / 5,
                               ),
                             )

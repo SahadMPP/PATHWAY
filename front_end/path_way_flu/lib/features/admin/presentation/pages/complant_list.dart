@@ -11,6 +11,7 @@ class ComplantList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           centerTitle: true,
           title: const Text(
@@ -48,7 +49,7 @@ class ComplantList extends StatelessWidget {
                               background: Container(
                                 height: 110,
                                 width: double.infinity,
-                                color: Colors.red[100],
+                                color: Colors.red[200],
                                 child: Align(
                                   alignment: Alignment.centerRight,
                                   child: Padding(
@@ -56,7 +57,7 @@ class ComplantList extends StatelessWidget {
                                     child: IconButton(
                                         onPressed: () {},
                                         icon: const Icon(Icons.delete,
-                                            color: Colors.grey)),
+                                            color: Colors.white)),
                                   ),
                                 ),
                               ),
@@ -64,16 +65,17 @@ class ComplantList extends StatelessWidget {
                                 padding: const EdgeInsets.all(20),
                                 height: 110,
                                 width: double.infinity,
-                                decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 235, 235, 235),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(8))),
+                                decoration: BoxDecoration(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(8))),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Icon(
                                       Icons.arrow_back_ios_new,
-                                      color: Colors.grey,
+                                      // color: Colors.grey,
                                       size: 20,
                                     ),
                                     const SizedBox(width: 15),
@@ -92,17 +94,19 @@ class ComplantList extends StatelessWidget {
                                               style: const TextStyle(
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 16,
-                                                color: Color.fromARGB(
-                                                    255, 62, 62, 62),
+                                                // color: Color.fromARGB(
+                                                //     255, 62, 62, 62),
                                               ),
                                             ),
                                             const SizedBox(height: 10),
                                             Text(
                                               complaint[index].description,
-                                              style: const TextStyle(
+                                              style: TextStyle(
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 12,
-                                                color: Colors.blueGrey,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSecondary,
                                               ),
                                             )
                                           ],

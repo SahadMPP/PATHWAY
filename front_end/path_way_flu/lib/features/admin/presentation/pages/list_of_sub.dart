@@ -18,6 +18,7 @@ class ListOfSubjects extends StatelessWidget {
       {"name": "Computer", "image": "asset/subjucts_icon/computer.jpg"},
     ];
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
@@ -45,7 +46,7 @@ class ListOfSubjects extends StatelessWidget {
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(
                           width: 3,
-                          color: const Color.fromARGB(255, 236, 236, 236)),
+                          color: Theme.of(context).colorScheme.onSecondary),
                     ),
                     width: double.infinity,
                     child: Row(
@@ -59,8 +60,9 @@ class ListOfSubjects extends StatelessWidget {
                                   shape: BoxShape.circle,
                                   border: Border.all(
                                       width: 3,
-                                      color: const Color.fromARGB(
-                                          255, 236, 236, 236))),
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSecondary)),
                               child: Center(child: Text("${index + 1}"))),
                         ),
                         const SizedBox(width: 10),
