@@ -1,15 +1,26 @@
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/hedline_back.dart';
+import 'package:path_way_flu/features/teacher/data/models/teacher_model.dart';
 
 class TutorsApplicationDetile extends StatelessWidget {
-  const TutorsApplicationDetile({super.key});
+  final Teacher teacher;
+  const TutorsApplicationDetile({super.key, required this.teacher});
 
   @override
   Widget build(BuildContext context) {
+    // String text = teacher.signatureImage!; // Example String
+    // Uint8List uint8List =
+    //     Uint8List.fromList(utf8.encode(text)); // Convert String to Uint8List
+    Uint8List decodedSignature = base64Decode(teacher.signatureImage!);
     return Scaffold(
       appBar: AppBar(
+        leading: null,
         title: BuildHeadlinewithBack(
             fun: () {
               Navigator.of(context).pop();
@@ -27,22 +38,23 @@ class TutorsApplicationDetile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 20),
-                  const BuildTutorApplicationCard(
-                      content: "Sahad Mp", title: "Name"),
-                  const BuildTutorApplicationCard(
-                      content: "7306713024", title: "Mobile Number"),
-                  const BuildTutorApplicationCard(
-                      content: "English", title: "Subject"),
-                  const BuildTutorApplicationCard(
-                      content: "2 Year", title: "Experience"),
-                  const BuildTutorApplicationCard(
-                      content: "Kannur University", title: "University"),
-                  const BuildTutorApplicationCard(
-                      content: "Kannur", title: "University Place"),
-                  const BuildTutorApplicationCard(
-                      content: "Kerala", title: "State"),
-                  const BuildTutorApplicationCard(
-                      content: "Mohan Kumar",
+                  BuildTutorApplicationCard(
+                      content: teacher.name!, title: "Name"),
+                  BuildTutorApplicationCard(
+                      content: teacher.mobNumber!, title: "Mobile Number"),
+                  BuildTutorApplicationCard(
+                      content: teacher.appledSubject!, title: "Subject"),
+                  BuildTutorApplicationCard(
+                      content: teacher.experience!, title: "Experience"),
+                  BuildTutorApplicationCard(
+                      content: teacher.universityName!, title: "University"),
+                  BuildTutorApplicationCard(
+                      content: teacher.universityPlace!,
+                      title: "University Place"),
+                  BuildTutorApplicationCard(
+                      content: teacher.universityState!, title: "State"),
+                  BuildTutorApplicationCard(
+                      content: teacher.officerName!,
                       title: "Chief administrative officer"),
                   Text(
                     "Certificates",
@@ -53,22 +65,36 @@ class TutorsApplicationDetile extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                          height: 110,
-                          width: 130,
-                          color: Colors.grey,
-                          child: const Image(
-                              fit: BoxFit.cover,
-                              image:
-                                  AssetImage("asset/images(adding icon).png"))),
+                        height: 110,
+                        width: 130,
+                        color: Colors.grey,
+                        child: teacher.certificateOne == null
+                            ? const Image(
+                                image:
+                                    AssetImage("asset/images(adding icon).png"),
+                                fit: BoxFit.cover,
+                              )
+                            : Image(
+                                fit: BoxFit.cover,
+                                image:
+                                    FileImage(File(teacher.certificateOne!))),
+                      ),
                       const SizedBox(width: 30),
                       Container(
-                          height: 110,
-                          width: 130,
-                          color: Colors.grey,
-                          child: const Image(
-                              fit: BoxFit.cover,
-                              image:
-                                  AssetImage("asset/images(adding icon).png"))),
+                        height: 110,
+                        width: 130,
+                        color: Colors.grey,
+                        child: teacher.certificateTwo == null
+                            ? const Image(
+                                image:
+                                    AssetImage("asset/images(adding icon).png"),
+                                fit: BoxFit.cover,
+                              )
+                            : Image(
+                                fit: BoxFit.cover,
+                                image:
+                                    FileImage(File(teacher.certificateTwo!))),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 20),
@@ -85,7 +111,11 @@ class TutorsApplicationDetile extends StatelessWidget {
                     height: 150,
                     width: double.infinity,
                     color: Colors.yellow[100],
-                    // child: Image(image: MemoryImage()),
+                    child: teacher.signatureImage == null
+                        ? const Center(child: Text("Signature not added"))
+                        : Image(
+                            image: MemoryImage(decodedSignature),
+                            fit: BoxFit.cover),
                   ),
                   const SizedBox(height: 50),
                 ],

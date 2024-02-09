@@ -41,5 +41,9 @@ class TeacherBloc extends Bloc<TeacherEvent, TeacherState> {
     on<_subjectClickEventInAddingTutoral>((event, emit) {
       emit(state.copyWith(subjectDropDown: event.subject));
     });
+
+    on<_colloctingSignatureImage>((event, emit) {
+      emit(state.copyWith(signatureImage: event.imageString));
+    });
   }
 }

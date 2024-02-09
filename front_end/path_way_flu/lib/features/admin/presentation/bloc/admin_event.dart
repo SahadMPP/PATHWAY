@@ -15,6 +15,7 @@ class AdminEvent with _$AdminEvent {
   }) = _addTutorial;
 
   const factory AdminEvent.imagePiker() = _imagePiker;
+
   const factory AdminEvent.updateTutoral({
     required String titleCon,
     required String creatorCon,

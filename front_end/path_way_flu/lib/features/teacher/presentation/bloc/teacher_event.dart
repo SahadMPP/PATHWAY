@@ -19,4 +19,8 @@ class TeacherEvent with _$TeacherEvent {
   const factory TeacherEvent.subjectClickEventInAddingTutoral({
     required String subject,
   }) = _subjectClickEventInAddingTutoral;
+
+  const factory TeacherEvent.colloctingSignatureImage({
+    required String imageString,
+  }) = _colloctingSignatureImage;
 }

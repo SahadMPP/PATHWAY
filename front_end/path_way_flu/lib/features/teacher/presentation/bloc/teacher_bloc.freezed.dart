@@ -25,6 +25,7 @@ mixin _$TeacherEvent {
     required TResult Function() certificatePikerTwo,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(String imageString) colloctingSignatureImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$TeacherEvent {
     TResult? Function()? certificatePikerTwo,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(String imageString)? colloctingSignatureImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$TeacherEvent {
     TResult Function()? certificatePikerTwo,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(String imageString)? colloctingSignatureImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,8 @@ mixin _$TeacherEvent {
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_colloctingSignatureImage value)
+        colloctingSignatureImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +75,8 @@ mixin _$TeacherEvent {
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_colloctingSignatureImage value)?
+        colloctingSignatureImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +88,7 @@ mixin _$TeacherEvent {
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_colloctingSignatureImage value)? colloctingSignatureImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -212,6 +220,7 @@ class _$updateDataImpl with DiagnosticableTreeMixin implements _updateData {
     required TResult Function() certificatePikerTwo,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(String imageString) colloctingSignatureImage,
   }) {
     return updateData(id, data, context);
   }
@@ -226,6 +235,7 @@ class _$updateDataImpl with DiagnosticableTreeMixin implements _updateData {
     TResult? Function()? certificatePikerTwo,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(String imageString)? colloctingSignatureImage,
   }) {
     return updateData?.call(id, data, context);
   }
@@ -240,6 +250,7 @@ class _$updateDataImpl with DiagnosticableTreeMixin implements _updateData {
     TResult Function()? certificatePikerTwo,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(String imageString)? colloctingSignatureImage,
     required TResult orElse(),
   }) {
     if (updateData != null) {
@@ -258,6 +269,8 @@ class _$updateDataImpl with DiagnosticableTreeMixin implements _updateData {
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_colloctingSignatureImage value)
+        colloctingSignatureImage,
   }) {
     return updateData(this);
   }
@@ -272,6 +285,8 @@ class _$updateDataImpl with DiagnosticableTreeMixin implements _updateData {
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_colloctingSignatureImage value)?
+        colloctingSignatureImage,
   }) {
     return updateData?.call(this);
   }
@@ -286,6 +301,7 @@ class _$updateDataImpl with DiagnosticableTreeMixin implements _updateData {
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_colloctingSignatureImage value)? colloctingSignatureImage,
     required TResult orElse(),
   }) {
     if (updateData != null) {
@@ -364,6 +380,7 @@ class _$certificatePikerOneImpl
     required TResult Function() certificatePikerTwo,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(String imageString) colloctingSignatureImage,
   }) {
     return certificatePikerOne();
   }
@@ -378,6 +395,7 @@ class _$certificatePikerOneImpl
     TResult? Function()? certificatePikerTwo,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(String imageString)? colloctingSignatureImage,
   }) {
     return certificatePikerOne?.call();
   }
@@ -392,6 +410,7 @@ class _$certificatePikerOneImpl
     TResult Function()? certificatePikerTwo,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(String imageString)? colloctingSignatureImage,
     required TResult orElse(),
   }) {
     if (certificatePikerOne != null) {
@@ -410,6 +429,8 @@ class _$certificatePikerOneImpl
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_colloctingSignatureImage value)
+        colloctingSignatureImage,
   }) {
     return certificatePikerOne(this);
   }
@@ -424,6 +445,8 @@ class _$certificatePikerOneImpl
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_colloctingSignatureImage value)?
+        colloctingSignatureImage,
   }) {
     return certificatePikerOne?.call(this);
   }
@@ -438,6 +461,7 @@ class _$certificatePikerOneImpl
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_colloctingSignatureImage value)? colloctingSignatureImage,
     required TResult orElse(),
   }) {
     if (certificatePikerOne != null) {
@@ -506,6 +530,7 @@ class _$certificatePikerTwoImpl
     required TResult Function() certificatePikerTwo,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(String imageString) colloctingSignatureImage,
   }) {
     return certificatePikerTwo();
   }
@@ -520,6 +545,7 @@ class _$certificatePikerTwoImpl
     TResult? Function()? certificatePikerTwo,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(String imageString)? colloctingSignatureImage,
   }) {
     return certificatePikerTwo?.call();
   }
@@ -534,6 +560,7 @@ class _$certificatePikerTwoImpl
     TResult Function()? certificatePikerTwo,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(String imageString)? colloctingSignatureImage,
     required TResult orElse(),
   }) {
     if (certificatePikerTwo != null) {
@@ -552,6 +579,8 @@ class _$certificatePikerTwoImpl
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_colloctingSignatureImage value)
+        colloctingSignatureImage,
   }) {
     return certificatePikerTwo(this);
   }
@@ -566,6 +595,8 @@ class _$certificatePikerTwoImpl
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_colloctingSignatureImage value)?
+        colloctingSignatureImage,
   }) {
     return certificatePikerTwo?.call(this);
   }
@@ -580,6 +611,7 @@ class _$certificatePikerTwoImpl
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_colloctingSignatureImage value)? colloctingSignatureImage,
     required TResult orElse(),
   }) {
     if (certificatePikerTwo != null) {
@@ -680,6 +712,7 @@ class _$levelclickEventInAddiTutorialImpl
     required TResult Function() certificatePikerTwo,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(String imageString) colloctingSignatureImage,
   }) {
     return levelclickEventInAddiTutorial(level);
   }
@@ -694,6 +727,7 @@ class _$levelclickEventInAddiTutorialImpl
     TResult? Function()? certificatePikerTwo,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(String imageString)? colloctingSignatureImage,
   }) {
     return levelclickEventInAddiTutorial?.call(level);
   }
@@ -708,6 +742,7 @@ class _$levelclickEventInAddiTutorialImpl
     TResult Function()? certificatePikerTwo,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(String imageString)? colloctingSignatureImage,
     required TResult orElse(),
   }) {
     if (levelclickEventInAddiTutorial != null) {
@@ -726,6 +761,8 @@ class _$levelclickEventInAddiTutorialImpl
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_colloctingSignatureImage value)
+        colloctingSignatureImage,
   }) {
     return levelclickEventInAddiTutorial(this);
   }
@@ -740,6 +777,8 @@ class _$levelclickEventInAddiTutorialImpl
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_colloctingSignatureImage value)?
+        colloctingSignatureImage,
   }) {
     return levelclickEventInAddiTutorial?.call(this);
   }
@@ -754,6 +793,7 @@ class _$levelclickEventInAddiTutorialImpl
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_colloctingSignatureImage value)? colloctingSignatureImage,
     required TResult orElse(),
   }) {
     if (levelclickEventInAddiTutorial != null) {
@@ -861,6 +901,7 @@ class _$subjectClickEventInAddingTutoralImpl
     required TResult Function() certificatePikerTwo,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(String imageString) colloctingSignatureImage,
   }) {
     return subjectClickEventInAddingTutoral(subject);
   }
@@ -875,6 +916,7 @@ class _$subjectClickEventInAddingTutoralImpl
     TResult? Function()? certificatePikerTwo,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(String imageString)? colloctingSignatureImage,
   }) {
     return subjectClickEventInAddingTutoral?.call(subject);
   }
@@ -889,6 +931,7 @@ class _$subjectClickEventInAddingTutoralImpl
     TResult Function()? certificatePikerTwo,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(String imageString)? colloctingSignatureImage,
     required TResult orElse(),
   }) {
     if (subjectClickEventInAddingTutoral != null) {
@@ -907,6 +950,8 @@ class _$subjectClickEventInAddingTutoralImpl
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_colloctingSignatureImage value)
+        colloctingSignatureImage,
   }) {
     return subjectClickEventInAddingTutoral(this);
   }
@@ -921,6 +966,8 @@ class _$subjectClickEventInAddingTutoralImpl
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_colloctingSignatureImage value)?
+        colloctingSignatureImage,
   }) {
     return subjectClickEventInAddingTutoral?.call(this);
   }
@@ -935,6 +982,7 @@ class _$subjectClickEventInAddingTutoralImpl
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_colloctingSignatureImage value)? colloctingSignatureImage,
     required TResult orElse(),
   }) {
     if (subjectClickEventInAddingTutoral != null) {
@@ -956,7 +1004,195 @@ abstract class _subjectClickEventInAddingTutoral implements TeacherEvent {
 }
 
 /// @nodoc
+abstract class _$$colloctingSignatureImageImplCopyWith<$Res> {
+  factory _$$colloctingSignatureImageImplCopyWith(
+          _$colloctingSignatureImageImpl value,
+          $Res Function(_$colloctingSignatureImageImpl) then) =
+      __$$colloctingSignatureImageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String imageString});
+}
+
+/// @nodoc
+class __$$colloctingSignatureImageImplCopyWithImpl<$Res>
+    extends _$TeacherEventCopyWithImpl<$Res, _$colloctingSignatureImageImpl>
+    implements _$$colloctingSignatureImageImplCopyWith<$Res> {
+  __$$colloctingSignatureImageImplCopyWithImpl(
+      _$colloctingSignatureImageImpl _value,
+      $Res Function(_$colloctingSignatureImageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? imageString = null,
+  }) {
+    return _then(_$colloctingSignatureImageImpl(
+      imageString: null == imageString
+          ? _value.imageString
+          : imageString // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$colloctingSignatureImageImpl
+    with DiagnosticableTreeMixin
+    implements _colloctingSignatureImage {
+  const _$colloctingSignatureImageImpl({required this.imageString});
+
+  @override
+  final String imageString;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TeacherEvent.colloctingSignatureImage(imageString: $imageString)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'TeacherEvent.colloctingSignatureImage'))
+      ..add(DiagnosticsProperty('imageString', imageString));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$colloctingSignatureImageImpl &&
+            (identical(other.imageString, imageString) ||
+                other.imageString == imageString));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, imageString);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$colloctingSignatureImageImplCopyWith<_$colloctingSignatureImageImpl>
+      get copyWith => __$$colloctingSignatureImageImplCopyWithImpl<
+          _$colloctingSignatureImageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String id, Map<dynamic, dynamic> data, BuildContext context)
+        updateData,
+    required TResult Function() certificatePikerOne,
+    required TResult Function() certificatePikerTwo,
+    required TResult Function(String level) levelclickEventInAddiTutorial,
+    required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(String imageString) colloctingSignatureImage,
+  }) {
+    return colloctingSignatureImage(imageString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String id, Map<dynamic, dynamic> data, BuildContext context)?
+        updateData,
+    TResult? Function()? certificatePikerOne,
+    TResult? Function()? certificatePikerTwo,
+    TResult? Function(String level)? levelclickEventInAddiTutorial,
+    TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(String imageString)? colloctingSignatureImage,
+  }) {
+    return colloctingSignatureImage?.call(imageString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String id, Map<dynamic, dynamic> data, BuildContext context)?
+        updateData,
+    TResult Function()? certificatePikerOne,
+    TResult Function()? certificatePikerTwo,
+    TResult Function(String level)? levelclickEventInAddiTutorial,
+    TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(String imageString)? colloctingSignatureImage,
+    required TResult orElse(),
+  }) {
+    if (colloctingSignatureImage != null) {
+      return colloctingSignatureImage(imageString);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_updateData value) updateData,
+    required TResult Function(_certificatePikerOne value) certificatePikerOne,
+    required TResult Function(_certificatePikerTwo value) certificatePikerTwo,
+    required TResult Function(_levelclickEventInAddiTutorial value)
+        levelclickEventInAddiTutorial,
+    required TResult Function(_subjectClickEventInAddingTutoral value)
+        subjectClickEventInAddingTutoral,
+    required TResult Function(_colloctingSignatureImage value)
+        colloctingSignatureImage,
+  }) {
+    return colloctingSignatureImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_updateData value)? updateData,
+    TResult? Function(_certificatePikerOne value)? certificatePikerOne,
+    TResult? Function(_certificatePikerTwo value)? certificatePikerTwo,
+    TResult? Function(_levelclickEventInAddiTutorial value)?
+        levelclickEventInAddiTutorial,
+    TResult? Function(_subjectClickEventInAddingTutoral value)?
+        subjectClickEventInAddingTutoral,
+    TResult? Function(_colloctingSignatureImage value)?
+        colloctingSignatureImage,
+  }) {
+    return colloctingSignatureImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_updateData value)? updateData,
+    TResult Function(_certificatePikerOne value)? certificatePikerOne,
+    TResult Function(_certificatePikerTwo value)? certificatePikerTwo,
+    TResult Function(_levelclickEventInAddiTutorial value)?
+        levelclickEventInAddiTutorial,
+    TResult Function(_subjectClickEventInAddingTutoral value)?
+        subjectClickEventInAddingTutoral,
+    TResult Function(_colloctingSignatureImage value)? colloctingSignatureImage,
+    required TResult orElse(),
+  }) {
+    if (colloctingSignatureImage != null) {
+      return colloctingSignatureImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _colloctingSignatureImage implements TeacherEvent {
+  const factory _colloctingSignatureImage({required final String imageString}) =
+      _$colloctingSignatureImageImpl;
+
+  String get imageString;
+  @JsonKey(ignore: true)
+  _$$colloctingSignatureImageImplCopyWith<_$colloctingSignatureImageImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$TeacherState {
+  String? get signatureImage => throw _privateConstructorUsedError;
   String? get cetificateImageOne => throw _privateConstructorUsedError;
   String? get cetificateImageTwo => throw _privateConstructorUsedError;
   String get subjectDropDown => throw _privateConstructorUsedError;
@@ -974,7 +1210,8 @@ abstract class $TeacherStateCopyWith<$Res> {
       _$TeacherStateCopyWithImpl<$Res, TeacherState>;
   @useResult
   $Res call(
-      {String? cetificateImageOne,
+      {String? signatureImage,
+      String? cetificateImageOne,
       String? cetificateImageTwo,
       String subjectDropDown,
       String expDropDown});
@@ -993,12 +1230,17 @@ class _$TeacherStateCopyWithImpl<$Res, $Val extends TeacherState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? signatureImage = freezed,
     Object? cetificateImageOne = freezed,
     Object? cetificateImageTwo = freezed,
     Object? subjectDropDown = null,
     Object? expDropDown = null,
   }) {
     return _then(_value.copyWith(
+      signatureImage: freezed == signatureImage
+          ? _value.signatureImage
+          : signatureImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       cetificateImageOne: freezed == cetificateImageOne
           ? _value.cetificateImageOne
           : cetificateImageOne // ignore: cast_nullable_to_non_nullable
@@ -1028,7 +1270,8 @@ abstract class _$$TeacherStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? cetificateImageOne,
+      {String? signatureImage,
+      String? cetificateImageOne,
       String? cetificateImageTwo,
       String subjectDropDown,
       String expDropDown});
@@ -1045,12 +1288,17 @@ class __$$TeacherStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? signatureImage = freezed,
     Object? cetificateImageOne = freezed,
     Object? cetificateImageTwo = freezed,
     Object? subjectDropDown = null,
     Object? expDropDown = null,
   }) {
     return _then(_$TeacherStateImpl(
+      signatureImage: freezed == signatureImage
+          ? _value.signatureImage
+          : signatureImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       cetificateImageOne: freezed == cetificateImageOne
           ? _value.cetificateImageOne
           : cetificateImageOne // ignore: cast_nullable_to_non_nullable
@@ -1075,11 +1323,14 @@ class __$$TeacherStateImplCopyWithImpl<$Res>
 
 class _$TeacherStateImpl with DiagnosticableTreeMixin implements _TeacherState {
   const _$TeacherStateImpl(
-      {this.cetificateImageOne,
+      {this.signatureImage,
+      this.cetificateImageOne,
       this.cetificateImageTwo,
       required this.subjectDropDown,
       required this.expDropDown});
 
+  @override
+  final String? signatureImage;
   @override
   final String? cetificateImageOne;
   @override
@@ -1091,7 +1342,7 @@ class _$TeacherStateImpl with DiagnosticableTreeMixin implements _TeacherState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TeacherState(cetificateImageOne: $cetificateImageOne, cetificateImageTwo: $cetificateImageTwo, subjectDropDown: $subjectDropDown, expDropDown: $expDropDown)';
+    return 'TeacherState(signatureImage: $signatureImage, cetificateImageOne: $cetificateImageOne, cetificateImageTwo: $cetificateImageTwo, subjectDropDown: $subjectDropDown, expDropDown: $expDropDown)';
   }
 
   @override
@@ -1099,6 +1350,7 @@ class _$TeacherStateImpl with DiagnosticableTreeMixin implements _TeacherState {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'TeacherState'))
+      ..add(DiagnosticsProperty('signatureImage', signatureImage))
       ..add(DiagnosticsProperty('cetificateImageOne', cetificateImageOne))
       ..add(DiagnosticsProperty('cetificateImageTwo', cetificateImageTwo))
       ..add(DiagnosticsProperty('subjectDropDown', subjectDropDown))
@@ -1110,6 +1362,8 @@ class _$TeacherStateImpl with DiagnosticableTreeMixin implements _TeacherState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TeacherStateImpl &&
+            (identical(other.signatureImage, signatureImage) ||
+                other.signatureImage == signatureImage) &&
             (identical(other.cetificateImageOne, cetificateImageOne) ||
                 other.cetificateImageOne == cetificateImageOne) &&
             (identical(other.cetificateImageTwo, cetificateImageTwo) ||
@@ -1121,8 +1375,8 @@ class _$TeacherStateImpl with DiagnosticableTreeMixin implements _TeacherState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cetificateImageOne,
-      cetificateImageTwo, subjectDropDown, expDropDown);
+  int get hashCode => Object.hash(runtimeType, signatureImage,
+      cetificateImageOne, cetificateImageTwo, subjectDropDown, expDropDown);
 
   @JsonKey(ignore: true)
   @override
@@ -1133,11 +1387,14 @@ class _$TeacherStateImpl with DiagnosticableTreeMixin implements _TeacherState {
 
 abstract class _TeacherState implements TeacherState {
   const factory _TeacherState(
-      {final String? cetificateImageOne,
+      {final String? signatureImage,
+      final String? cetificateImageOne,
       final String? cetificateImageTwo,
       required final String subjectDropDown,
       required final String expDropDown}) = _$TeacherStateImpl;
 
+  @override
+  String? get signatureImage;
   @override
   String? get cetificateImageOne;
   @override

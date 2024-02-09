@@ -1,13 +1,14 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/features/teacher/data/models/teacher_model.dart';
-import 'package:path_way_flu/features/teacher/data/repositories/teacher_api_calls.dart';
 import 'package:path_way_flu/features/teacher/presentation/bloc/teacher_bloc.dart';
+import 'package:path_way_flu/features/teacher/presentation/widgets/certificate_image_collector.dart';
+import 'package:path_way_flu/features/teacher/presentation/widgets/exp_drop_down.dart';
 import 'package:signature/signature.dart';
 import 'package:path_way_flu/features/admin/presentation/widgets/sub_drop_down_addtutorial.dart';
 import 'package:path_way_flu/features/admin/presentation/widgets/textfield.dart';
@@ -23,20 +24,19 @@ class TeacherApplicationFormSc extends StatefulWidget {
 }
 
 class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController numberController = TextEditingController();
-  TextEditingController universityController = TextEditingController();
-  TextEditingController placeController = TextEditingController();
-  TextEditingController stateController = TextEditingController();
-  TextEditingController officerController = TextEditingController();
-
-  final SignatureController _signatureController = SignatureController(
-    penStrokeWidth: 2,
-    penColor: Colors.black,
-    exportBackgroundColor: const Color.fromARGB(255, 234, 234, 234),
-  );
   @override
   Widget build(BuildContext context) {
+    TextEditingController nameController = TextEditingController();
+    TextEditingController numberController = TextEditingController();
+    TextEditingController universityController = TextEditingController();
+    TextEditingController placeController = TextEditingController();
+    TextEditingController stateController = TextEditingController();
+    TextEditingController officerController = TextEditingController();
+    final SignatureController signatureController = SignatureController(
+      penStrokeWidth: 2,
+      penColor: Colors.black,
+      exportBackgroundColor: const Color.fromARGB(255, 234, 234, 234),
+    );
     GlobalKey<FormState> key = GlobalKey();
     return Scaffold(
       appBar: AppBar(
@@ -66,6 +66,7 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                   ),
                   const SizedBox(height: 10),
                   BuildAddTutorFormText(
+                    textInputType: TextInputType.number,
                     title: "Number",
                     hintText: "Enter mobile number",
                     controllre: numberController,
@@ -121,55 +122,7 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  SizedBox(
-                    child: BlocBuilder<TeacherBloc, TeacherState>(
-                      builder: (context, state) {
-                        return Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                context.read<TeacherBloc>().add(
-                                    const TeacherEvent.certificatePikerOne());
-                              },
-                              child: Container(
-                                  height: 110,
-                                  width: 130,
-                                  color: Colors.grey,
-                                  child: state.cetificateImageOne == null
-                                      ? const Image(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              "asset/images(adding icon).png"))
-                                      : Image.file(
-                                          File(state.cetificateImageOne!),
-                                          fit: BoxFit.cover,
-                                        )),
-                            ),
-                            const SizedBox(width: 30),
-                            GestureDetector(
-                              onTap: () {
-                                context.read<TeacherBloc>().add(
-                                    const TeacherEvent.certificatePikerTwo());
-                              },
-                              child: Container(
-                                  height: 110,
-                                  width: 130,
-                                  color: Colors.grey,
-                                  child: state.cetificateImageTwo == null
-                                      ? const Image(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              "asset/images(adding icon).png"))
-                                      : Image.file(
-                                          File(state.cetificateImageTwo!),
-                                          fit: BoxFit.cover,
-                                        )),
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                  ),
+                  const ImageCertificateCollector(),
                   const SizedBox(height: 30),
                   Text(
                     "chief administrative officer signature",
@@ -183,19 +136,36 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                   Stack(
                     children: [
                       Container(
-                        height: 150,
+                        height: 170,
                         width: double.infinity,
                         color: Colors.yellow[200],
-                        child: Signature(controller: _signatureController),
+                        child: Signature(controller: signatureController),
                       ),
                       Positioned(
                         right: 0,
                         bottom: 0,
-                        child: TextButton(
-                            onPressed: () {
-                              _signatureController.clear();
-                            },
-                            child: const Text("Clear")),
+                        child: Row(
+                          children: [
+                            TextButton(
+                                onPressed: () {
+                                  signatureController.clear();
+                                },
+                                child: const Text("Clear")),
+                            TextButton(
+                                onPressed: () async {
+                                  Uint8List? signatute =
+                                      await signatureController.toPngBytes();
+
+                                  String signatureBase64 =
+                                      base64Encode(signatute!);
+
+                                  context.read<TeacherBloc>().add(
+                                      TeacherEvent.colloctingSignatureImage(
+                                          imageString: signatureBase64));
+                                },
+                                child: const Text("save")),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -206,29 +176,26 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                         builder: (context, state) {
                           return BuildButton(
                               text: "Apply",
-                              fun: () async {
-                                Uint8List? signatute =
-                                    await _signatureController.toPngBytes();
-                                String id = "65c4cd5bde894c12bb0ebab1";
-                                var data = {
-                                  "name": nameController.text,
-                                  "mobNumber": numberController.text,
-                                  "universityName": universityController.text,
-                                  "appledSubject": state.subjectDropDown,
-                                  "appledStatus": true.toString(),
-                                  "universityPlace": placeController.text,
-                                  "universityState": stateController.text,
-                                  "experience": state.expDropDown,
-                                  "officerName": officerController.text,
-                                  "signatureImage": signatute.toString(),
-                                  "certificateOne": state.cetificateImageOne,
-                                  "certificateTwo": state.cetificateImageTwo,
-                                };
+                              fun: () {
+                                String id = "65c4f9ddde894c12bb0ebab2";
 
                                 if (key.currentState!.validate()) {
-                                  // ignore: use_build_context_synchronously
+                                  var data = {
+                                    "name": nameController.text,
+                                    "mobNumber": numberController.text,
+                                    "universityName": universityController.text,
+                                    "appledSubject": state.subjectDropDown,
+                                    "appledStatus": true.toString(),
+                                    "universityPlace": placeController.text,
+                                    "universityState": stateController.text,
+                                    "experience": state.expDropDown,
+                                    "officerName": officerController.text,
+                                    // "signatureImage": state.signatureImage!,
+                                    "certificateOne": state.cetificateImageOne,
+                                    "certificateTwo": state.cetificateImageTwo,
+                                  };
+
                                   context.read<TeacherBloc>().add(
-                                      // ignore: use_build_context_synchronously
                                       TeacherEvent.updateData(
                                           id: id,
                                           data: data,
@@ -243,91 +210,6 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class BuildExpDropDown extends StatelessWidget {
-  const BuildExpDropDown({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 450),
-      child: Column(
-        children: [
-          Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              "Level",
-              style: GoogleFonts.roboto(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: const Color.fromARGB(255, 202, 202, 202),
-              ),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.grey, width: 1)),
-            width: double.infinity,
-            height: 60,
-            child: BlocBuilder<TeacherBloc, TeacherState>(
-              builder: (context, state) {
-                return DropdownButton<String>(
-                    borderRadius: BorderRadius.circular(15),
-                    focusColor: Colors.blueGrey,
-                    dropdownColor: Colors.white,
-                    value: state.expDropDown,
-                    style: GoogleFonts.roboto(fontSize: 18),
-                    items: const [
-                      DropdownMenuItem(
-                          value: "1",
-                          child: Text(
-                            '1',
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          )),
-                      DropdownMenuItem(
-                          value: "2",
-                          child: Text(
-                            '2',
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          )),
-                      DropdownMenuItem(
-                          value: "3",
-                          child: Text(
-                            '3',
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          )),
-                      DropdownMenuItem(
-                          value: "4",
-                          child: Text(
-                            '3>',
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          )),
-                    ],
-                    onChanged: (newValue) {
-                      context.read<TeacherBloc>().add(
-                          TeacherEvent.levelclickEventInAddiTutorial(
-                              level: newValue!));
-                    });
-              },
-            ),
-          ),
-        ],
       ),
     );
   }
