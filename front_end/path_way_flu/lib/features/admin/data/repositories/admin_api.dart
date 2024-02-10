@@ -162,7 +162,9 @@ class AdminApi {
         var data = jsonDecode(res.body);
 
         for (var value in data) {
-          teacher.add(Teacher.fromJson(value));
+          if (value['appledStatus'] == true) {
+            teacher.add(Teacher.fromJson(value));
+          }
         }
         return teacher;
       } else {
@@ -181,6 +183,7 @@ class AdminApi {
 
       if (res.statusCode == 200) {
         debugPrint("Approved as a teacher");
+        Navigator.of(context).pop();
         //-------
         // show success messege
       } else {

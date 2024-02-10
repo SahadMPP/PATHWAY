@@ -15,7 +15,7 @@ class TeacherRequestList extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-          title: Text('Requests',
+          title: Text('Requests'.toUpperCase(),
               style: GoogleFonts.quicksand(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -69,7 +69,7 @@ class TeacherRequestList extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      teacher[index].name!,
+                                      teacher[index].name!.toUpperCase(),
                                       style: GoogleFonts.quicksand(
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold,

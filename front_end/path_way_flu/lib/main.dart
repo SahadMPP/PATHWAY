@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: lightTheme,
         darkTheme: darkTheme,
-        home: const TeacherBotmNavi(),
+        home: const AdminBotmNavi(),
       ),
     );
   }

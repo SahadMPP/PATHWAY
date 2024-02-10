@@ -3,9 +3,10 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
-import 'package:path_way_flu/features/student/presentation/widgets/hedline_back.dart';
+import 'package:path_way_flu/features/admin/presentation/bloc/admin_bloc.dart';
 import 'package:path_way_flu/features/teacher/data/models/teacher_model.dart';
 
 class TutorsApplicationDetile extends StatelessWidget {
@@ -14,19 +15,41 @@ class TutorsApplicationDetile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // String text = teacher.signatureImage!; // Example String
-    // Uint8List uint8List =
-    //     Uint8List.fromList(utf8.encode(text)); // Convert String to Uint8List
     Uint8List decodedSignature = base64Decode(teacher.signatureImage!);
     return Scaffold(
       appBar: AppBar(
-        leading: null,
-        title: BuildHeadlinewithBack(
-            fun: () {
-              Navigator.of(context).pop();
-            },
-            icon: Icons.arrow_back,
-            headline: "Deatile"),
+        centerTitle: true,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Container(
+            alignment: Alignment.center,
+            width: 45,
+            decoration: BoxDecoration(
+              border: Border.all(
+                  color: Theme.of(context).colorScheme.secondary, width: 3),
+              boxShadow: const [
+                BoxShadow(blurRadius: .5),
+              ],
+              color: Theme.of(context).colorScheme.background,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                  size: 20,
+                )),
+          ),
+        ),
+        title: Text(
+          "headline",
+          style: GoogleFonts.quicksand(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: Stack(
         children: [
@@ -137,13 +160,32 @@ class TutorsApplicationDetile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   BuildSmallButtonAdmin(
-                      color: Colors.blue[500]!, text: "Accept"),
+                      function: () {
+                        var data = {
+                          "appledSubject": "",
+                          "appledStatus": false.toString(),
+                        };
+                        context.read<AdminBloc>().add(
+                            AdminEvent.tutorApplicationSubmition(
+                                id: teacher.id!, context: context, data: data));
+                      },
+                      color: Colors.blue[500]!,
+                      text: "Accept"),
                   BuildSmallButtonAdmin(
-                      color: Colors.red[500]!, text: "Reject"),
+                      function: () {
+                        var data = {
+                          "appledStatus": false.toString(),
+                        };
+                        context.read<AdminBloc>().add(
+                            AdminEvent.tutorApplicationSubmition(
+                                id: teacher.id!, context: context, data: data));
+                      },
+                      color: Colors.red[500]!,
+                      text: "Reject"),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -153,10 +195,12 @@ class TutorsApplicationDetile extends StatelessWidget {
 class BuildSmallButtonAdmin extends StatelessWidget {
   final String text;
   final Color color;
+  final VoidCallback function;
   const BuildSmallButtonAdmin({
     super.key,
     required this.text,
     required this.color,
+    required this.function,
   });
 
   @override
@@ -169,7 +213,7 @@ class BuildSmallButtonAdmin extends StatelessWidget {
               backgroundColor: MaterialStatePropertyAll(color),
               shape: const MaterialStatePropertyAll(BeveledRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(3))))),
-          onPressed: () {},
+          onPressed: function,
           child: Text(
             text,
             style: const TextStyle(

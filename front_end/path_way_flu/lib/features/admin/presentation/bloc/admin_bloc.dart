@@ -76,5 +76,9 @@ class AdminBloc extends Bloc<AdminEvent, AdminState> {
     on<_deleteComplaint>((event, emit) {
       AdminApi.deleteComplates(event.id, event.context);
     });
+
+    on<_tutorApplicationSubmition>((event, emit) {
+      AdminApi.subjectApproving(event.id, event.data, event.context);
+    });
   }
 }

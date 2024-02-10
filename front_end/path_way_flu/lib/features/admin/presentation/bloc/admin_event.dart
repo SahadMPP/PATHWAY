@@ -50,4 +50,10 @@ class AdminEvent with _$AdminEvent {
   const factory AdminEvent.subjectClickEventInAddingTutoral({
     required String subject,
   }) = _subjectClickEventInAddingTutoral;
+
+  const factory AdminEvent.tutorApplicationSubmition({
+    required String id,
+    required BuildContext context,
+    required Map data,
+  }) = _tutorApplicationSubmition;
 }

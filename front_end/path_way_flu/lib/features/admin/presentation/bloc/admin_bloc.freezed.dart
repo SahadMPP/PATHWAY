@@ -47,6 +47,9 @@ mixin _$AdminEvent {
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)
+        tutorApplicationSubmition,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +83,9 @@ mixin _$AdminEvent {
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -113,6 +119,9 @@ mixin _$AdminEvent {
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -129,6 +138,8 @@ mixin _$AdminEvent {
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_tutorApplicationSubmition value)
+        tutorApplicationSubmition,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -144,6 +155,8 @@ mixin _$AdminEvent {
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -159,6 +172,8 @@ mixin _$AdminEvent {
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -375,6 +390,9 @@ class _$addTutorialImpl implements _addTutorial {
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)
+        tutorApplicationSubmition,
   }) {
     return addTutorial(titleCon, creatorCon, levelCon, categoryCon, thumnilCon,
         videoUrlCon, durationCon, discriptionCon, context);
@@ -412,6 +430,9 @@ class _$addTutorialImpl implements _addTutorial {
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
   }) {
     return addTutorial?.call(titleCon, creatorCon, levelCon, categoryCon,
         thumnilCon, videoUrlCon, durationCon, discriptionCon, context);
@@ -449,6 +470,9 @@ class _$addTutorialImpl implements _addTutorial {
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (addTutorial != null) {
@@ -472,6 +496,8 @@ class _$addTutorialImpl implements _addTutorial {
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_tutorApplicationSubmition value)
+        tutorApplicationSubmition,
   }) {
     return addTutorial(this);
   }
@@ -490,6 +516,8 @@ class _$addTutorialImpl implements _addTutorial {
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
   }) {
     return addTutorial?.call(this);
   }
@@ -508,6 +536,8 @@ class _$addTutorialImpl implements _addTutorial {
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (addTutorial != null) {
@@ -610,6 +640,9 @@ class _$imagePikerImpl implements _imagePiker {
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)
+        tutorApplicationSubmition,
   }) {
     return imagePiker();
   }
@@ -646,6 +679,9 @@ class _$imagePikerImpl implements _imagePiker {
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
   }) {
     return imagePiker?.call();
   }
@@ -682,6 +718,9 @@ class _$imagePikerImpl implements _imagePiker {
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (imagePiker != null) {
@@ -704,6 +743,8 @@ class _$imagePikerImpl implements _imagePiker {
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_tutorApplicationSubmition value)
+        tutorApplicationSubmition,
   }) {
     return imagePiker(this);
   }
@@ -722,6 +763,8 @@ class _$imagePikerImpl implements _imagePiker {
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
   }) {
     return imagePiker?.call(this);
   }
@@ -740,6 +783,8 @@ class _$imagePikerImpl implements _imagePiker {
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (imagePiker != null) {
@@ -957,6 +1002,9 @@ class _$updateTutoralImpl implements _updateTutoral {
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)
+        tutorApplicationSubmition,
   }) {
     return updateTutoral(titleCon, creatorCon, levelCon, categoryCon,
         thumnilCon, videoUrlCon, durationCon, discriptionCon, id, context);
@@ -994,6 +1042,9 @@ class _$updateTutoralImpl implements _updateTutoral {
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
   }) {
     return updateTutoral?.call(titleCon, creatorCon, levelCon, categoryCon,
         thumnilCon, videoUrlCon, durationCon, discriptionCon, id, context);
@@ -1031,6 +1082,9 @@ class _$updateTutoralImpl implements _updateTutoral {
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (updateTutoral != null) {
@@ -1054,6 +1108,8 @@ class _$updateTutoralImpl implements _updateTutoral {
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_tutorApplicationSubmition value)
+        tutorApplicationSubmition,
   }) {
     return updateTutoral(this);
   }
@@ -1072,6 +1128,8 @@ class _$updateTutoralImpl implements _updateTutoral {
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
   }) {
     return updateTutoral?.call(this);
   }
@@ -1090,6 +1148,8 @@ class _$updateTutoralImpl implements _updateTutoral {
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (updateTutoral != null) {
@@ -1229,6 +1289,9 @@ class _$deleteTutorialImpl implements _deleteTutorial {
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)
+        tutorApplicationSubmition,
   }) {
     return deleteTutorial(id, context);
   }
@@ -1265,6 +1328,9 @@ class _$deleteTutorialImpl implements _deleteTutorial {
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
   }) {
     return deleteTutorial?.call(id, context);
   }
@@ -1301,6 +1367,9 @@ class _$deleteTutorialImpl implements _deleteTutorial {
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (deleteTutorial != null) {
@@ -1323,6 +1392,8 @@ class _$deleteTutorialImpl implements _deleteTutorial {
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_tutorApplicationSubmition value)
+        tutorApplicationSubmition,
   }) {
     return deleteTutorial(this);
   }
@@ -1341,6 +1412,8 @@ class _$deleteTutorialImpl implements _deleteTutorial {
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
   }) {
     return deleteTutorial?.call(this);
   }
@@ -1359,6 +1432,8 @@ class _$deleteTutorialImpl implements _deleteTutorial {
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (deleteTutorial != null) {
@@ -1482,6 +1557,9 @@ class _$deleteComplaintImpl implements _deleteComplaint {
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)
+        tutorApplicationSubmition,
   }) {
     return deleteComplaint(id, context);
   }
@@ -1518,6 +1596,9 @@ class _$deleteComplaintImpl implements _deleteComplaint {
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
   }) {
     return deleteComplaint?.call(id, context);
   }
@@ -1554,6 +1635,9 @@ class _$deleteComplaintImpl implements _deleteComplaint {
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (deleteComplaint != null) {
@@ -1576,6 +1660,8 @@ class _$deleteComplaintImpl implements _deleteComplaint {
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_tutorApplicationSubmition value)
+        tutorApplicationSubmition,
   }) {
     return deleteComplaint(this);
   }
@@ -1594,6 +1680,8 @@ class _$deleteComplaintImpl implements _deleteComplaint {
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
   }) {
     return deleteComplaint?.call(this);
   }
@@ -1612,6 +1700,8 @@ class _$deleteComplaintImpl implements _deleteComplaint {
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (deleteComplaint != null) {
@@ -1730,6 +1820,9 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)
+        tutorApplicationSubmition,
   }) {
     return updateTutoraPageButtonClick(tutorial);
   }
@@ -1766,6 +1859,9 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
   }) {
     return updateTutoraPageButtonClick?.call(tutorial);
   }
@@ -1802,6 +1898,9 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (updateTutoraPageButtonClick != null) {
@@ -1824,6 +1923,8 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_tutorApplicationSubmition value)
+        tutorApplicationSubmition,
   }) {
     return updateTutoraPageButtonClick(this);
   }
@@ -1842,6 +1943,8 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
   }) {
     return updateTutoraPageButtonClick?.call(this);
   }
@@ -1860,6 +1963,8 @@ class _$updateTutoralButtonClickImpl implements _updateTutoralButtonClick {
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (updateTutoraPageButtonClick != null) {
@@ -1977,6 +2082,9 @@ class _$levelclickEventInAddiTutorialImpl
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)
+        tutorApplicationSubmition,
   }) {
     return levelclickEventInAddiTutorial(level);
   }
@@ -2013,6 +2121,9 @@ class _$levelclickEventInAddiTutorialImpl
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
   }) {
     return levelclickEventInAddiTutorial?.call(level);
   }
@@ -2049,6 +2160,9 @@ class _$levelclickEventInAddiTutorialImpl
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (levelclickEventInAddiTutorial != null) {
@@ -2071,6 +2185,8 @@ class _$levelclickEventInAddiTutorialImpl
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_tutorApplicationSubmition value)
+        tutorApplicationSubmition,
   }) {
     return levelclickEventInAddiTutorial(this);
   }
@@ -2089,6 +2205,8 @@ class _$levelclickEventInAddiTutorialImpl
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
   }) {
     return levelclickEventInAddiTutorial?.call(this);
   }
@@ -2107,6 +2225,8 @@ class _$levelclickEventInAddiTutorialImpl
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (levelclickEventInAddiTutorial != null) {
@@ -2226,6 +2346,9 @@ class _$subjectClickEventInAddingTutoralImpl
     required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
     required TResult Function(String level) levelclickEventInAddiTutorial,
     required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)
+        tutorApplicationSubmition,
   }) {
     return subjectClickEventInAddingTutoral(subject);
   }
@@ -2262,6 +2385,9 @@ class _$subjectClickEventInAddingTutoralImpl
     TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult? Function(String level)? levelclickEventInAddiTutorial,
     TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
   }) {
     return subjectClickEventInAddingTutoral?.call(subject);
   }
@@ -2298,6 +2424,9 @@ class _$subjectClickEventInAddingTutoralImpl
     TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
     TResult Function(String level)? levelclickEventInAddiTutorial,
     TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (subjectClickEventInAddingTutoral != null) {
@@ -2320,6 +2449,8 @@ class _$subjectClickEventInAddingTutoralImpl
         levelclickEventInAddiTutorial,
     required TResult Function(_subjectClickEventInAddingTutoral value)
         subjectClickEventInAddingTutoral,
+    required TResult Function(_tutorApplicationSubmition value)
+        tutorApplicationSubmition,
   }) {
     return subjectClickEventInAddingTutoral(this);
   }
@@ -2338,6 +2469,8 @@ class _$subjectClickEventInAddingTutoralImpl
         levelclickEventInAddiTutorial,
     TResult? Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult? Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
   }) {
     return subjectClickEventInAddingTutoral?.call(this);
   }
@@ -2356,6 +2489,8 @@ class _$subjectClickEventInAddingTutoralImpl
         levelclickEventInAddiTutorial,
     TResult Function(_subjectClickEventInAddingTutoral value)?
         subjectClickEventInAddingTutoral,
+    TResult Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
     required TResult orElse(),
   }) {
     if (subjectClickEventInAddingTutoral != null) {
@@ -2373,6 +2508,297 @@ abstract class _subjectClickEventInAddingTutoral implements AdminEvent {
   @JsonKey(ignore: true)
   _$$subjectClickEventInAddingTutoralImplCopyWith<
           _$subjectClickEventInAddingTutoralImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$tutorApplicationSubmitionImplCopyWith<$Res> {
+  factory _$$tutorApplicationSubmitionImplCopyWith(
+          _$tutorApplicationSubmitionImpl value,
+          $Res Function(_$tutorApplicationSubmitionImpl) then) =
+      __$$tutorApplicationSubmitionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id, BuildContext context, Map<dynamic, dynamic> data});
+}
+
+/// @nodoc
+class __$$tutorApplicationSubmitionImplCopyWithImpl<$Res>
+    extends _$AdminEventCopyWithImpl<$Res, _$tutorApplicationSubmitionImpl>
+    implements _$$tutorApplicationSubmitionImplCopyWith<$Res> {
+  __$$tutorApplicationSubmitionImplCopyWithImpl(
+      _$tutorApplicationSubmitionImpl _value,
+      $Res Function(_$tutorApplicationSubmitionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? context = null,
+    Object? data = null,
+  }) {
+    return _then(_$tutorApplicationSubmitionImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<dynamic, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$tutorApplicationSubmitionImpl implements _tutorApplicationSubmition {
+  const _$tutorApplicationSubmitionImpl(
+      {required this.id,
+      required this.context,
+      required final Map<dynamic, dynamic> data})
+      : _data = data;
+
+  @override
+  final String id;
+  @override
+  final BuildContext context;
+  final Map<dynamic, dynamic> _data;
+  @override
+  Map<dynamic, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'AdminEvent.tutorApplicationSubmition(id: $id, context: $context, data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$tutorApplicationSubmitionImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.context, context) || other.context == context) &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, context, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$tutorApplicationSubmitionImplCopyWith<_$tutorApplicationSubmitionImpl>
+      get copyWith => __$$tutorApplicationSubmitionImplCopyWithImpl<
+          _$tutorApplicationSubmitionImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            BuildContext context)
+        addTutorial,
+    required TResult Function() imagePiker,
+    required TResult Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            String id,
+            BuildContext context)
+        updateTutoral,
+    required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(String id, BuildContext context) deleteComplaint,
+    required TResult Function(Tutorial tutorial) updateTutoraPageButtonClick,
+    required TResult Function(String level) levelclickEventInAddiTutorial,
+    required TResult Function(String subject) subjectClickEventInAddingTutoral,
+    required TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)
+        tutorApplicationSubmition,
+  }) {
+    return tutorApplicationSubmition(id, context, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            BuildContext context)?
+        addTutorial,
+    TResult? Function()? imagePiker,
+    TResult? Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            String id,
+            BuildContext context)?
+        updateTutoral,
+    TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(String id, BuildContext context)? deleteComplaint,
+    TResult? Function(Tutorial tutorial)? updateTutoraPageButtonClick,
+    TResult? Function(String level)? levelclickEventInAddiTutorial,
+    TResult? Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult? Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
+  }) {
+    return tutorApplicationSubmition?.call(id, context, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            BuildContext context)?
+        addTutorial,
+    TResult Function()? imagePiker,
+    TResult Function(
+            String titleCon,
+            String creatorCon,
+            String levelCon,
+            String categoryCon,
+            String thumnilCon,
+            String videoUrlCon,
+            String durationCon,
+            String discriptionCon,
+            String id,
+            BuildContext context)?
+        updateTutoral,
+    TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(String id, BuildContext context)? deleteComplaint,
+    TResult Function(Tutorial tutorial)? updateTutoraPageButtonClick,
+    TResult Function(String level)? levelclickEventInAddiTutorial,
+    TResult Function(String subject)? subjectClickEventInAddingTutoral,
+    TResult Function(
+            String id, BuildContext context, Map<dynamic, dynamic> data)?
+        tutorApplicationSubmition,
+    required TResult orElse(),
+  }) {
+    if (tutorApplicationSubmition != null) {
+      return tutorApplicationSubmition(id, context, data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_addTutorial value) addTutorial,
+    required TResult Function(_imagePiker value) imagePiker,
+    required TResult Function(_updateTutoral value) updateTutoral,
+    required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_deleteComplaint value) deleteComplaint,
+    required TResult Function(_updateTutoralButtonClick value)
+        updateTutoraPageButtonClick,
+    required TResult Function(_levelclickEventInAddiTutorial value)
+        levelclickEventInAddiTutorial,
+    required TResult Function(_subjectClickEventInAddingTutoral value)
+        subjectClickEventInAddingTutoral,
+    required TResult Function(_tutorApplicationSubmition value)
+        tutorApplicationSubmition,
+  }) {
+    return tutorApplicationSubmition(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_addTutorial value)? addTutorial,
+    TResult? Function(_imagePiker value)? imagePiker,
+    TResult? Function(_updateTutoral value)? updateTutoral,
+    TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_deleteComplaint value)? deleteComplaint,
+    TResult? Function(_updateTutoralButtonClick value)?
+        updateTutoraPageButtonClick,
+    TResult? Function(_levelclickEventInAddiTutorial value)?
+        levelclickEventInAddiTutorial,
+    TResult? Function(_subjectClickEventInAddingTutoral value)?
+        subjectClickEventInAddingTutoral,
+    TResult? Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
+  }) {
+    return tutorApplicationSubmition?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_addTutorial value)? addTutorial,
+    TResult Function(_imagePiker value)? imagePiker,
+    TResult Function(_updateTutoral value)? updateTutoral,
+    TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_deleteComplaint value)? deleteComplaint,
+    TResult Function(_updateTutoralButtonClick value)?
+        updateTutoraPageButtonClick,
+    TResult Function(_levelclickEventInAddiTutorial value)?
+        levelclickEventInAddiTutorial,
+    TResult Function(_subjectClickEventInAddingTutoral value)?
+        subjectClickEventInAddingTutoral,
+    TResult Function(_tutorApplicationSubmition value)?
+        tutorApplicationSubmition,
+    required TResult orElse(),
+  }) {
+    if (tutorApplicationSubmition != null) {
+      return tutorApplicationSubmition(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _tutorApplicationSubmition implements AdminEvent {
+  const factory _tutorApplicationSubmition(
+          {required final String id,
+          required final BuildContext context,
+          required final Map<dynamic, dynamic> data}) =
+      _$tutorApplicationSubmitionImpl;
+
+  String get id;
+  BuildContext get context;
+  Map<dynamic, dynamic> get data;
+  @JsonKey(ignore: true)
+  _$$tutorApplicationSubmitionImplCopyWith<_$tutorApplicationSubmitionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
