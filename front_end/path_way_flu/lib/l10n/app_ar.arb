@@ -1,0 +1,21 @@
+{
+    "language": "اللغة العربية",
+    "helloWorld": "مرحبا بالعالم",
+    "multiLanguage": "متعدد اللغات",
+    "dashbord": "لوحة القيادة",
+    "primaryText": "النص الأساسي",
+    "secondaryText": "النص الثانوي",
+    "tutorProgress": "تقدم المدرس",
+    "studentProgress": "تقدم الطالب",
+    "toComplete": "لإكمال",
+    "request": "طلب",
+    "complaint": "شكوى",
+    "subject": "موضوع",
+    "mathematics": "الرياضيات",
+    "art": "الفن",
+    "science": "العلوم",
+    "geography": "الجغرافيا",
+    "history": "التاريخ",
+    "computer": "الحاسوب",
+    "socialStudies": "العلوم الإجتماعية"
+}

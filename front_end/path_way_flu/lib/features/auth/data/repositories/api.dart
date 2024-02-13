@@ -1,8 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_way_flu/core/constants/snacbar.dart';
 import 'package:path_way_flu/features/auth/domain/usecases/define_fun.dart';
 
 class AuthApi {
@@ -14,21 +14,14 @@ class AuthApi {
       final res = await http.post(url, body: sdata);
 
       if (res.statusCode == 200) {
-        var data = jsonDecode(res.body.toString());
         debugPrint("Your account is created succesfully");
-        // AuthFuntion().snakbar(
-        //     context: context, text: "created succesfully", color: Colors.green);
-        debugPrint(data);
+        buildShowSnacbar(context, "Your account is created", Colors.green);
       } else if (res.statusCode == 404) {
         debugPrint("student already exist");
-        // AuthFuntion().snakbar(
-        //     context: context, text: "User already exist", color: Colors.red);
+        buildShowSnacbar(context, "User already exist", Colors.grey);
       } else {
         debugPrint("Faield to get response");
-        // AuthFuntion().snakbar(
-        //     context: context,
-        //     text: "Oops,faield to get response",
-        //     color: Colors.red);
+        buildShowSnacbar(context, "Oop's somthing went wrong", Colors.red);
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -42,22 +35,14 @@ class AuthApi {
       final res = await http.post(url, body: tdata);
 
       if (res.statusCode == 200) {
-        var data = jsonDecode(res.body.toLowerCase());
         debugPrint("Your account is created succesfully");
-        AuthFuntion().snakbar(
-            context: context, text: "created succesfully", color: Colors.green);
-
-        debugPrint(data);
+        buildShowSnacbar(context, "Your account is created", Colors.green);
       } else if (res.statusCode == 404) {
         debugPrint("teacher already exist");
-        AuthFuntion().snakbar(
-            context: context, text: "User already exist", color: Colors.red);
+        buildShowSnacbar(context, "User already exist", Colors.grey);
       } else {
         debugPrint("Faield to get response");
-        AuthFuntion().snakbar(
-            context: context,
-            text: "Oops,faield to get response",
-            color: Colors.red);
+        buildShowSnacbar(context, "Oop's somthing went wrong", Colors.red);
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -76,23 +61,13 @@ class AuthApi {
         AuthFuntion().studentLogin(context);
       } else if (res.statusCode == 404) {
         debugPrint("wrong password");
-        //--------
-        // AuthFuntion().snakbar(
-        //     context: context,
-        //     text: "Password went to wrong",
-        //     color: Colors.red);
+        buildShowSnacbar(context, "Password went to wrong", Colors.red);
       } else if (res.statusCode == 400) {
         debugPrint("mail not registed");
-        //----------
-        // AuthFuntion().snakbar(
-        //     context: context, text: "Email id not registed", color: Colors.red);
+        buildShowSnacbar(context, "User id not registed", Colors.red);
       } else {
         debugPrint("Faield to get response");
-        //---------
-        // AuthFuntion().snakbar(
-        //     context: context,
-        //     text: "Oops,faield to get response",
-        //     color: Colors.red);
+        buildShowSnacbar(context, "Oops,faield to get response", Colors.red);
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -107,27 +82,21 @@ class AuthApi {
 
       if (res.statusCode == 200) {
         debugPrint('login success full');
-        //----------
+
+        //---------
         AuthFuntion().teacherLogin(context);
       } else if (res.statusCode == 404) {
         debugPrint("wrong password");
         //--------
-        AuthFuntion().snakbar(
-            context: context,
-            text: "Password went to wrong",
-            color: Colors.red);
+        buildShowSnacbar(context, "Password went to wrong", Colors.red);
       } else if (res.statusCode == 400) {
         debugPrint("mail not registed");
         //----------
-        AuthFuntion().snakbar(
-            context: context, text: "Email id not registed", color: Colors.red);
+        buildShowSnacbar(context, "User id not registed", Colors.red);
       } else {
         debugPrint("Faield to get response");
         //---------
-        AuthFuntion().snakbar(
-            context: context,
-            text: "Oops,faield to get response",
-            color: Colors.red);
+        buildShowSnacbar(context, "Oops,faield to get response", Colors.red);
       }
     } catch (e) {
       debugPrint(e.toString());

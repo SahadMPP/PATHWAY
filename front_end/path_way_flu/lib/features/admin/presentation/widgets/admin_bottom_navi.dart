@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:path_way_flu/features/admin/presentation/pages/admin_dashbord.dart';
 import 'package:path_way_flu/features/admin/presentation/pages/complant_list.dart';
 import 'package:path_way_flu/features/admin/presentation/pages/list_of_sub.dart';
-import 'package:path_way_flu/features/admin/presentation/pages/tuters_request_list.dart';
+import 'package:path_way_flu/features/admin/presentation/pages/tutors_request_list.dart';
 
 class AdminBotmNavi extends StatefulWidget {
   const AdminBotmNavi({super.key});

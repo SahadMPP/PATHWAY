@@ -17,7 +17,9 @@ class ListOfTutorial extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
         child: FloatingActionButton(
             onPressed: () {
-              Navigator.of(context).push(
+              // Navigator.of(context).push(
+              //     MaterialPageRoute(builder: (ctx) => const AddTotorialForm()));
+              Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (ctx) => const AddTotorialForm()));
             },
             backgroundColor: Theme.of(context).colorScheme.onSecondary,
@@ -52,7 +54,21 @@ class ListOfTutorial extends StatelessWidget {
                         ));
                       } else {
                         List<Tutorial> tutorial = snapshot.data;
-                        return TutoralCard(tutorial: tutorial);
+                        if (tutorial.isEmpty) {
+                          return Center(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * .6,
+                              width: MediaQuery.of(context).size.width * .9,
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: AssetImage(
+                                          "asset/default image/Screenshot 2024-02-12 122805.png"))),
+                            ),
+                          );
+                        } else {
+                          return TutoralCard(tutorial: tutorial);
+                        }
                       }
                     }),
               ),

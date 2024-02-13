@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/features/auth/domain/usecases/define_fun.dart';
+import 'package:path_way_flu/features/teacher/presentation/pages/application_form.dart';
 
 class TeacherProfileScreen extends StatelessWidget {
   const TeacherProfileScreen({super.key});
@@ -66,9 +67,7 @@ class TeacherProfileScreen extends StatelessWidget {
                               child: Text(
                                 'Yennefer Doe',
                                 style: kTitleTextStyle.copyWith(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .background),
+                                    color: Theme.of(context).iconTheme.color),
                               ),
                             )
                           ],
@@ -91,6 +90,14 @@ class TeacherProfileScreen extends StatelessWidget {
                         BuildProfileCard(
                             text: "Edit profile",
                             fun: () {},
+                            icon: Icons.navigate_next),
+                        BuildProfileCard(
+                            text: "Apply as teacher",
+                            fun: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx) =>
+                                      const TeacherApplicationFormSc()));
+                            },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
                             text: "Change password",

@@ -5,10 +5,12 @@ import 'dart:convert';
 // ignore: unnecessary_import
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:path_way_flu/core/constants/snacbar.dart';
 import 'package:path_way_flu/features/admin/data/models/complaint_model.dart';
 import 'package:path_way_flu/features/admin/data/models/tutoral_model.dart';
 import 'package:path_way_flu/features/auth/data/repositories/api.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_way_flu/features/auth/domain/entities/student_model.dart';
 import 'package:path_way_flu/features/teacher/data/models/teacher_model.dart';
 
 class AdminApi {
@@ -23,8 +25,7 @@ class AdminApi {
       if (res.statusCode == 200) {
         debugPrint("Add tutorial is done");
 
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Add tutorial is done")));
+        buildShowSnacbar(context, "Add tutorial is done", Colors.grey);
         Navigator.of(context).pop();
       } else {
         debugPrint("Faield to get response");
@@ -76,11 +77,8 @@ class AdminApi {
       if (res.statusCode == 200) {
         debugPrint(res.body);
         debugPrint("tutorial is updated");
-        ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text("tutorial is updated")));
-
-        // Navigator.of(context).pushReplacement(MaterialPageRoute(
-        //     builder: (ctx) => ListOfTutorial(category: category)));
+        buildShowSnacbar(context, "tutorial is updated", Colors.grey);
+        Navigator.of(context).pop();
       } else {
         debugPrint("Failed to update data");
       }
@@ -97,8 +95,7 @@ class AdminApi {
 
       if (res.statusCode == 200) {
         debugPrint("tutorial is deleted");
-        ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text("tutorial is deleted")));
+        buildShowSnacbar(context, "tutorial is deleted", Colors.red);
       } else {
         debugPrint("Oops,something went wrong");
       }
@@ -139,8 +136,7 @@ class AdminApi {
 
       if (res.statusCode == 200) {
         debugPrint("complaint deleted");
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("complaint is deleted")));
+        buildShowSnacbar(context, "complaint is deleted", Colors.red);
       } else {
         debugPrint("Oops,something went wrong");
       }
@@ -183,13 +179,59 @@ class AdminApi {
 
       if (res.statusCode == 200) {
         debugPrint("Approved as a teacher");
+        buildShowSnacbar(context, "Approved as a teacher", Colors.green);
         Navigator.of(context).pop();
-        //-------
-        // show success messege
       } else {
         debugPrint("Faield to get response");
-        //-------
-        // show success messege
+
+        buildShowSnacbar(context, "Oop's something went wrong", Colors.red);
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  // getting student list
+
+  static getStudents() async {
+    List<Student> studentList = [];
+    final url = Uri.parse('${baseUrl}get_student');
+
+    try {
+      final res = await http.get(url);
+
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
+
+        for (var value in data) {
+          studentList.add(Student.fromJson(value));
+        }
+        return studentList;
+      } else {
+        return debugPrint('faield to get data');
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+  // getting teacher list
+
+  static getTeacher() async {
+    List<Teacher> teacher = [];
+    final url = Uri.parse("${baseUrl}get_teacher");
+
+    try {
+      final res = await http.get(url);
+
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
+
+        for (var value in data) {
+          teacher.add(Teacher.fromJson(value));
+        }
+        return teacher;
+      } else {
+        return teacher;
       }
     } catch (e) {
       debugPrint(e.toString());

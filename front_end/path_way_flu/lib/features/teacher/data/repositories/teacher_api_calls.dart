@@ -1,4 +1,6 @@
+// ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
+import 'package:path_way_flu/core/constants/snacbar.dart';
 import 'package:path_way_flu/features/auth/data/repositories/api.dart';
 import 'package:http/http.dart' as http;
 
@@ -12,9 +14,10 @@ class TeacherApi {
       final res = await http.put(url, body: data);
 
       if (res.statusCode == 200) {
+        // var data = jsonDecode(res.body);
         debugPrint("Apply success fully");
-        //-------
-        // show success messege
+        buildShowSnacbar(context, "Application registed", Colors.green);
+        Navigator.of(context).pop();
       } else {
         debugPrint("Faield to get response");
         //-------

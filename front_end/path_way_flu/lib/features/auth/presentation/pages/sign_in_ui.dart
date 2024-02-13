@@ -7,6 +7,7 @@ import 'package:path_way_flu/features/auth/presentation/pages/forgot_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_up_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field.dart';
+import 'package:path_way_flu/features/auth/presentation/widgets/text_field_password.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({
@@ -31,7 +32,6 @@ class SignInScreen extends StatelessWidget {
                 Text(
                   'Sign in now',
                   style: GoogleFonts.roboto(
-                    // color: Theme.of(context).colorScheme.secondary,
                     fontWeight: FontWeight.w500,
                     fontSize: 30,
                   ),
@@ -51,13 +51,31 @@ class SignInScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       BuilderTextField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Enter your email";
+                            } else {
+                              return null;
+                            }
+                          },
+                          onChanged: (value) {
+                            context.read<AuthBloc>().add(
+                                AuthEvent.emailvalidationintext(value: value));
+                          },
                           prifixIcon: Icons.mail,
                           validationText: "Enter your email",
                           controller: emailController,
                           hintText: "Enter your email",
                           sufixIcon: false),
                       const SizedBox(height: 20),
-                      BuilderTextField(
+                      BuilderTextFieldPass(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Enter your password";
+                            } else {
+                              return null;
+                            }
+                          },
                           prifixIcon: Icons.lock_open,
                           validationText: "Enter your password",
                           controller: passwordController,
@@ -95,27 +113,13 @@ class SignInScreen extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (ctx) => const AdminBotmNavi()),
                           (route) => false);
-                    }
-                    // if (emailController.text == "teacher@gmail.com" &&
-                    //     passwordController.text == "12345") {
-                    //   Navigator.of(context).pushAndRemoveUntil(
-                    //       MaterialPageRoute(
-                    //           builder: (ctx) => const TeacherBotmNavi()),
-                    //       (route) => false);
-                    // }
-                    // if (emailController.text == "student@gmail.com" &&
-                    //     passwordController.text == "12345") {
-                    //   Navigator.of(context).pushAndRemoveUntil(
-                    //       MaterialPageRoute(
-                    //           builder: (ctx) => const StudentBotmNavi()),
-                    //       (route) => false);
-                    // }
-
-                    if (formkey.currentState!.validate()) {
-                      context.read<AuthBloc>().add(AuthEvent.userlogin(
-                          emailController: emailController.text,
-                          passwordController: passwordController.text,
-                          context: context));
+                    } else {
+                      if (formkey.currentState!.validate()) {
+                        context.read<AuthBloc>().add(AuthEvent.userlogin(
+                            emailController: emailController.text.trim(),
+                            passwordController: passwordController.text.trim(),
+                            context: context));
+                      }
                     }
                   },
                 ),

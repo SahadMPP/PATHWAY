@@ -55,5 +55,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         debugPrint("directon is not found");
       }
     });
+
+    on<_emailvalidationintext>((event, emit) {
+      if (event.value.contains("@")) {
+        emit(state.copyWith(lettercondition: true));
+      } else {
+        emit(state.copyWith(lettercondition: false));
+      }
+    });
   }
 }

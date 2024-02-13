@@ -1,0 +1,78 @@
+{
+  "language": "English",
+  "@language": {
+    "description": "The current Language"
+  },
+  "helloWorld": "Hello world!",
+  "@helloWorld": {
+    "description": "A Programmer greeting"
+  },
+  "multiLanguage": "Multi Language",
+  "@multiLanguage": {
+    "description": "App Tile"
+  },
+  "dashbord": "Dashbord",
+  "@dashbord": {
+    "description": "Admin Home"
+  },
+  "primaryText": "Primary Text",
+  "@primaryText": {
+    "description": "Text used as primary content"
+  },
+  "secondaryText": "Secondary Text",
+  "@secondaryText": {
+    "description": "Text used as secondary content"
+  },
+  "tutorProgress": "Tutor Progress",
+  "@tutorProgress": {
+    "description": "Progress of the tutor"
+  },
+  "studentProgress": "Student Progress",
+  "@studentProgress": {
+    "description": "Progress of the student"
+  },
+  "toComplete": "75% Completed",
+  "@toComplete": {
+    "description": "Indicates something needs to be finished or accomplished"
+  },
+  "request": "Request",
+  "@request": {
+    "description": "Indicates something needs to be finished or accomplished"
+  },
+  "complaint": "Complaint",
+  "@complaint": {
+    "description": "Indicates something needs to be finished or accomplished"
+  },
+  "subject": "Subject",
+  "@subject": {
+    "description": "A particular branch of study, such as mathematics, art, science, etc."
+  },
+  "mathematics": "Mathematics",
+  "@mathematics": {
+    "description": "The study of numbers, quantities, shapes, and patterns"
+  },
+  "art": "Art",
+  "@art": {
+    "description": "Creative expression through various mediums such as painting, sculpture, etc."
+  },
+  "science": "Science",
+  "@science": {
+    "description": "The systematic study of the structure and behavior of the physical and natural world"
+  },
+  "geography": "Geography",
+  "@geography": {
+    "description": "The study of the Earth's landscapes, environments, and inhabitants"
+  },
+  "history": "History",
+  "@history": {
+    "description": "The study of past events, particularly in human affairs"
+  },
+  "computer": "Computer",
+  "@computer": {
+    "description": "A programmable electronic device that processes data and performs tasks according to instructions"
+  },
+  "socialStudies": "Social Studies",
+  "@socialStudies": {
+    "description": "The study of human societies and their interactions"
+  }
+}

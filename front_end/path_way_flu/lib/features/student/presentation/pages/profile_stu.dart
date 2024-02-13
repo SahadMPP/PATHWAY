@@ -67,9 +67,7 @@ class StudentProfileScreen extends StatelessWidget {
                               child: Text(
                                 'Yennefer Doe',
                                 style: kTitleTextStyle.copyWith(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .background),
+                                    color: Theme.of(context).iconTheme.color),
                               ),
                             )
                           ],

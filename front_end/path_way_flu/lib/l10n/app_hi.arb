@@ -1,0 +1,21 @@
+{
+    "language": "हिन्दी",
+    "helloWorld": "नमस्ते दुनिया!",
+    "multiLanguage": "बहु भाषा",
+    "dashbord": "डैशबोर्ड",
+    "primaryText": "प्राथमिक पाठ",
+    "secondaryText": "माध्यमिक पाठ",
+    "tutorProgress": "शिक्षक की प्रगति",
+    "studentProgress": "छात्र की प्रगति",
+    "toComplete": "पूरा करने के लिए",
+    "request": "अनुरोध",
+    "complaint": "शिकायत",
+    "subject": "विषय",
+    "mathematics": "गणित",
+    "art": "कला",
+    "science": "विज्ञान",
+    "geography": "भूगोल",
+    "history": "इतिहास",
+    "computer": "कंप्यूटर",
+    "socialStudies": "सामाजिक अध्ययन"
+}

@@ -25,6 +25,7 @@ mixin _$AuthEvent {
             String passwordController, BuildContext context)
         registerUser,
     required TResult Function() directionSelection,
+    required TResult Function(String value) emailvalidationintext,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$AuthEvent {
             String passwordController, BuildContext context)?
         registerUser,
     TResult? Function()? directionSelection,
+    TResult? Function(String value)? emailvalidationintext,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$AuthEvent {
             String passwordController, BuildContext context)?
         registerUser,
     TResult Function()? directionSelection,
+    TResult Function(String value)? emailvalidationintext,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,8 @@ mixin _$AuthEvent {
     required TResult Function(_userlogin value) userlogin,
     required TResult Function(_registerUser value) registerUser,
     required TResult Function(_directionSelection value) directionSelection,
+    required TResult Function(_emailvalidationintext value)
+        emailvalidationintext,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +67,7 @@ mixin _$AuthEvent {
     TResult? Function(_userlogin value)? userlogin,
     TResult? Function(_registerUser value)? registerUser,
     TResult? Function(_directionSelection value)? directionSelection,
+    TResult? Function(_emailvalidationintext value)? emailvalidationintext,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +75,7 @@ mixin _$AuthEvent {
     TResult Function(_userlogin value)? userlogin,
     TResult Function(_registerUser value)? registerUser,
     TResult Function(_directionSelection value)? directionSelection,
+    TResult Function(_emailvalidationintext value)? emailvalidationintext,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -187,6 +194,7 @@ class _$userloginImpl implements _userlogin {
             String passwordController, BuildContext context)
         registerUser,
     required TResult Function() directionSelection,
+    required TResult Function(String value) emailvalidationintext,
   }) {
     return userlogin(emailController, passwordController, context);
   }
@@ -201,6 +209,7 @@ class _$userloginImpl implements _userlogin {
             String passwordController, BuildContext context)?
         registerUser,
     TResult? Function()? directionSelection,
+    TResult? Function(String value)? emailvalidationintext,
   }) {
     return userlogin?.call(emailController, passwordController, context);
   }
@@ -215,6 +224,7 @@ class _$userloginImpl implements _userlogin {
             String passwordController, BuildContext context)?
         registerUser,
     TResult Function()? directionSelection,
+    TResult Function(String value)? emailvalidationintext,
     required TResult orElse(),
   }) {
     if (userlogin != null) {
@@ -229,6 +239,8 @@ class _$userloginImpl implements _userlogin {
     required TResult Function(_userlogin value) userlogin,
     required TResult Function(_registerUser value) registerUser,
     required TResult Function(_directionSelection value) directionSelection,
+    required TResult Function(_emailvalidationintext value)
+        emailvalidationintext,
   }) {
     return userlogin(this);
   }
@@ -239,6 +251,7 @@ class _$userloginImpl implements _userlogin {
     TResult? Function(_userlogin value)? userlogin,
     TResult? Function(_registerUser value)? registerUser,
     TResult? Function(_directionSelection value)? directionSelection,
+    TResult? Function(_emailvalidationintext value)? emailvalidationintext,
   }) {
     return userlogin?.call(this);
   }
@@ -249,6 +262,7 @@ class _$userloginImpl implements _userlogin {
     TResult Function(_userlogin value)? userlogin,
     TResult Function(_registerUser value)? registerUser,
     TResult Function(_directionSelection value)? directionSelection,
+    TResult Function(_emailvalidationintext value)? emailvalidationintext,
     required TResult orElse(),
   }) {
     if (userlogin != null) {
@@ -379,6 +393,7 @@ class _$registerUserImpl implements _registerUser {
             String passwordController, BuildContext context)
         registerUser,
     required TResult Function() directionSelection,
+    required TResult Function(String value) emailvalidationintext,
   }) {
     return registerUser(
         nameController, emailController, passwordController, context);
@@ -394,6 +409,7 @@ class _$registerUserImpl implements _registerUser {
             String passwordController, BuildContext context)?
         registerUser,
     TResult? Function()? directionSelection,
+    TResult? Function(String value)? emailvalidationintext,
   }) {
     return registerUser?.call(
         nameController, emailController, passwordController, context);
@@ -409,6 +425,7 @@ class _$registerUserImpl implements _registerUser {
             String passwordController, BuildContext context)?
         registerUser,
     TResult Function()? directionSelection,
+    TResult Function(String value)? emailvalidationintext,
     required TResult orElse(),
   }) {
     if (registerUser != null) {
@@ -424,6 +441,8 @@ class _$registerUserImpl implements _registerUser {
     required TResult Function(_userlogin value) userlogin,
     required TResult Function(_registerUser value) registerUser,
     required TResult Function(_directionSelection value) directionSelection,
+    required TResult Function(_emailvalidationintext value)
+        emailvalidationintext,
   }) {
     return registerUser(this);
   }
@@ -434,6 +453,7 @@ class _$registerUserImpl implements _registerUser {
     TResult? Function(_userlogin value)? userlogin,
     TResult? Function(_registerUser value)? registerUser,
     TResult? Function(_directionSelection value)? directionSelection,
+    TResult? Function(_emailvalidationintext value)? emailvalidationintext,
   }) {
     return registerUser?.call(this);
   }
@@ -444,6 +464,7 @@ class _$registerUserImpl implements _registerUser {
     TResult Function(_userlogin value)? userlogin,
     TResult Function(_registerUser value)? registerUser,
     TResult Function(_directionSelection value)? directionSelection,
+    TResult Function(_emailvalidationintext value)? emailvalidationintext,
     required TResult orElse(),
   }) {
     if (registerUser != null) {
@@ -514,6 +535,7 @@ class _$directionSelectionImpl implements _directionSelection {
             String passwordController, BuildContext context)
         registerUser,
     required TResult Function() directionSelection,
+    required TResult Function(String value) emailvalidationintext,
   }) {
     return directionSelection();
   }
@@ -528,6 +550,7 @@ class _$directionSelectionImpl implements _directionSelection {
             String passwordController, BuildContext context)?
         registerUser,
     TResult? Function()? directionSelection,
+    TResult? Function(String value)? emailvalidationintext,
   }) {
     return directionSelection?.call();
   }
@@ -542,6 +565,7 @@ class _$directionSelectionImpl implements _directionSelection {
             String passwordController, BuildContext context)?
         registerUser,
     TResult Function()? directionSelection,
+    TResult Function(String value)? emailvalidationintext,
     required TResult orElse(),
   }) {
     if (directionSelection != null) {
@@ -556,6 +580,8 @@ class _$directionSelectionImpl implements _directionSelection {
     required TResult Function(_userlogin value) userlogin,
     required TResult Function(_registerUser value) registerUser,
     required TResult Function(_directionSelection value) directionSelection,
+    required TResult Function(_emailvalidationintext value)
+        emailvalidationintext,
   }) {
     return directionSelection(this);
   }
@@ -566,6 +592,7 @@ class _$directionSelectionImpl implements _directionSelection {
     TResult? Function(_userlogin value)? userlogin,
     TResult? Function(_registerUser value)? registerUser,
     TResult? Function(_directionSelection value)? directionSelection,
+    TResult? Function(_emailvalidationintext value)? emailvalidationintext,
   }) {
     return directionSelection?.call(this);
   }
@@ -576,6 +603,7 @@ class _$directionSelectionImpl implements _directionSelection {
     TResult Function(_userlogin value)? userlogin,
     TResult Function(_registerUser value)? registerUser,
     TResult Function(_directionSelection value)? directionSelection,
+    TResult Function(_emailvalidationintext value)? emailvalidationintext,
     required TResult orElse(),
   }) {
     if (directionSelection != null) {
@@ -590,7 +618,169 @@ abstract class _directionSelection implements AuthEvent {
 }
 
 /// @nodoc
+abstract class _$$emailvalidationintextImplCopyWith<$Res> {
+  factory _$$emailvalidationintextImplCopyWith(
+          _$emailvalidationintextImpl value,
+          $Res Function(_$emailvalidationintextImpl) then) =
+      __$$emailvalidationintextImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$emailvalidationintextImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$emailvalidationintextImpl>
+    implements _$$emailvalidationintextImplCopyWith<$Res> {
+  __$$emailvalidationintextImplCopyWithImpl(_$emailvalidationintextImpl _value,
+      $Res Function(_$emailvalidationintextImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$emailvalidationintextImpl(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$emailvalidationintextImpl implements _emailvalidationintext {
+  const _$emailvalidationintextImpl({required this.value});
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'AuthEvent.emailvalidationintext(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$emailvalidationintextImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$emailvalidationintextImplCopyWith<_$emailvalidationintextImpl>
+      get copyWith => __$$emailvalidationintextImplCopyWithImpl<
+          _$emailvalidationintextImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailController, String passwordController,
+            BuildContext context)
+        userlogin,
+    required TResult Function(String nameController, String emailController,
+            String passwordController, BuildContext context)
+        registerUser,
+    required TResult Function() directionSelection,
+    required TResult Function(String value) emailvalidationintext,
+  }) {
+    return emailvalidationintext(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String emailController, String passwordController,
+            BuildContext context)?
+        userlogin,
+    TResult? Function(String nameController, String emailController,
+            String passwordController, BuildContext context)?
+        registerUser,
+    TResult? Function()? directionSelection,
+    TResult? Function(String value)? emailvalidationintext,
+  }) {
+    return emailvalidationintext?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailController, String passwordController,
+            BuildContext context)?
+        userlogin,
+    TResult Function(String nameController, String emailController,
+            String passwordController, BuildContext context)?
+        registerUser,
+    TResult Function()? directionSelection,
+    TResult Function(String value)? emailvalidationintext,
+    required TResult orElse(),
+  }) {
+    if (emailvalidationintext != null) {
+      return emailvalidationintext(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_userlogin value) userlogin,
+    required TResult Function(_registerUser value) registerUser,
+    required TResult Function(_directionSelection value) directionSelection,
+    required TResult Function(_emailvalidationintext value)
+        emailvalidationintext,
+  }) {
+    return emailvalidationintext(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_userlogin value)? userlogin,
+    TResult? Function(_registerUser value)? registerUser,
+    TResult? Function(_directionSelection value)? directionSelection,
+    TResult? Function(_emailvalidationintext value)? emailvalidationintext,
+  }) {
+    return emailvalidationintext?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_userlogin value)? userlogin,
+    TResult Function(_registerUser value)? registerUser,
+    TResult Function(_directionSelection value)? directionSelection,
+    TResult Function(_emailvalidationintext value)? emailvalidationintext,
+    required TResult orElse(),
+  }) {
+    if (emailvalidationintext != null) {
+      return emailvalidationintext(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _emailvalidationintext implements AuthEvent {
+  const factory _emailvalidationintext({required final String value}) =
+      _$emailvalidationintextImpl;
+
+  String get value;
+  @JsonKey(ignore: true)
+  _$$emailvalidationintextImplCopyWith<_$emailvalidationintextImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AuthState {
+  bool get lettercondition => throw _privateConstructorUsedError;
   bool get directionValue => throw _privateConstructorUsedError;
   String get directionText => throw _privateConstructorUsedError;
 
@@ -604,7 +794,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({bool directionValue, String directionText});
+  $Res call({bool lettercondition, bool directionValue, String directionText});
 }
 
 /// @nodoc
@@ -620,10 +810,15 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? lettercondition = null,
     Object? directionValue = null,
     Object? directionText = null,
   }) {
     return _then(_value.copyWith(
+      lettercondition: null == lettercondition
+          ? _value.lettercondition
+          : lettercondition // ignore: cast_nullable_to_non_nullable
+              as bool,
       directionValue: null == directionValue
           ? _value.directionValue
           : directionValue // ignore: cast_nullable_to_non_nullable
@@ -644,7 +839,7 @@ abstract class _$$AuthStateImplCopyWith<$Res>
       __$$AuthStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool directionValue, String directionText});
+  $Res call({bool lettercondition, bool directionValue, String directionText});
 }
 
 /// @nodoc
@@ -658,10 +853,15 @@ class __$$AuthStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? lettercondition = null,
     Object? directionValue = null,
     Object? directionText = null,
   }) {
     return _then(_$AuthStateImpl(
+      lettercondition: null == lettercondition
+          ? _value.lettercondition
+          : lettercondition // ignore: cast_nullable_to_non_nullable
+              as bool,
       directionValue: null == directionValue
           ? _value.directionValue
           : directionValue // ignore: cast_nullable_to_non_nullable
@@ -678,8 +878,12 @@ class __$$AuthStateImplCopyWithImpl<$Res>
 
 class _$AuthStateImpl implements _AuthState {
   const _$AuthStateImpl(
-      {required this.directionValue, required this.directionText});
+      {required this.lettercondition,
+      required this.directionValue,
+      required this.directionText});
 
+  @override
+  final bool lettercondition;
   @override
   final bool directionValue;
   @override
@@ -687,7 +891,7 @@ class _$AuthStateImpl implements _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(directionValue: $directionValue, directionText: $directionText)';
+    return 'AuthState(lettercondition: $lettercondition, directionValue: $directionValue, directionText: $directionText)';
   }
 
   @override
@@ -695,6 +899,8 @@ class _$AuthStateImpl implements _AuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthStateImpl &&
+            (identical(other.lettercondition, lettercondition) ||
+                other.lettercondition == lettercondition) &&
             (identical(other.directionValue, directionValue) ||
                 other.directionValue == directionValue) &&
             (identical(other.directionText, directionText) ||
@@ -702,7 +908,8 @@ class _$AuthStateImpl implements _AuthState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, directionValue, directionText);
+  int get hashCode =>
+      Object.hash(runtimeType, lettercondition, directionValue, directionText);
 
   @JsonKey(ignore: true)
   @override
@@ -713,9 +920,12 @@ class _$AuthStateImpl implements _AuthState {
 
 abstract class _AuthState implements AuthState {
   const factory _AuthState(
-      {required final bool directionValue,
+      {required final bool lettercondition,
+      required final bool directionValue,
       required final String directionText}) = _$AuthStateImpl;
 
+  @override
+  bool get lettercondition;
   @override
   bool get directionValue;
   @override

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field.dart';
+import 'package:path_way_flu/features/auth/presentation/widgets/text_field_password.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -44,6 +45,13 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   BuilderTextField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Enter your name";
+                        } else {
+                          return null;
+                        }
+                      },
                       prifixIcon: Icons.person,
                       controller: nameController,
                       hintText: "Enter your name",
@@ -51,37 +59,54 @@ class SignUpScreen extends StatelessWidget {
                       sufixIcon: false),
                   const SizedBox(height: 20),
                   BuilderTextField(
-                      prifixIcon: Icons.email,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Enter your email";
+                        } else {
+                          return null;
+                        }
+                      },
+                      onChanged: (value) {
+                        context
+                            .read<AuthBloc>()
+                            .add(AuthEvent.emailvalidationintext(value: value));
+                      },
+                      prifixIcon: Icons.mail,
+                      validationText: "Enter your email",
                       controller: emailController,
                       hintText: "Enter your email",
-                      validationText: "Enter your email",
                       sufixIcon: false),
                   const SizedBox(height: 20),
-                  BuilderTextField(
+                  BuilderTextFieldPass(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Enter your password";
+                        } else {
+                          return null;
+                        }
+                      },
                       prifixIcon: Icons.lock_open,
                       controller: passwordController,
                       hintText: "Enter password",
                       validationText: "Enter your password",
                       sufixIcon: true),
                   const SizedBox(height: 20),
-                  const BuilderTextField(
+                  BuilderTextFieldPass(
+                    validator: (value) {
+                      if (value == null ||
+                          value.isEmpty ||
+                          passwordController.text != value) {
+                        return "Password does not match";
+                      } else {
+                        return null;
+                      }
+                    },
                     prifixIcon: Icons.lock_open,
                     hintText: "Conform password",
                     sufixIcon: true,
                     validationText: "Enter your password",
                   ),
-                  const SizedBox(height: 5),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 140),
-                    child: Text(
-                      'Password must be 8 character',
-                      style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 12,
-                        letterSpacing: .5,
-                      ),
-                    ),
-                  ),
+                  const SizedBox(height: 15),
                   const SizedBox(height: 10),
                   BuildButton(
                     text: "SIGN UP",
@@ -94,6 +119,8 @@ class SignUpScreen extends StatelessWidget {
                               passwordController: passwordController.text,
                               context: context,
                             ));
+                        Navigator.of(context).pop();
+
                         // Navigator.of(context).push(MaterialPageRoute(
                         //     builder: (ctx) => ForgetPasswordScreen(
                         //           email: emailController,

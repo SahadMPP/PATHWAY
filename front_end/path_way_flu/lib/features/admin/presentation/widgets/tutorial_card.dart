@@ -133,7 +133,6 @@ class TutoralCard extends StatelessWidget {
                                                   .updateTutoraPageButtonClick(
                                                       tutorial:
                                                           tutorial[index]));
-
                                           Navigator.of(context).pushReplacement(
                                               MaterialPageRoute(
                                                   builder: (ctx) =>

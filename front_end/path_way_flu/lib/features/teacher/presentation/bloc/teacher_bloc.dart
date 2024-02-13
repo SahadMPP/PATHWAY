@@ -14,6 +14,10 @@ class TeacherBloc extends Bloc<TeacherEvent, TeacherState> {
   TeacherBloc() : super(TeacherState.initial()) {
     on<_updateData>((event, emit) {
       TeacherApi.applyingForSubject(event.id, event.data, event.context);
+      emit(state.copyWith(
+          cetificateImageOne: null,
+          cetificateImageTwo: null,
+          signatureImage: null));
     });
 
     on<_certificatePikerOne>((event, emit) async {
@@ -25,6 +29,7 @@ class TeacherBloc extends Bloc<TeacherEvent, TeacherState> {
         return;
       }
     });
+
     on<_certificatePikerTwo>((event, emit) async {
       final ImagePicker picker = ImagePicker();
       XFile? image = await picker.pickImage(source: ImageSource.gallery);
@@ -38,6 +43,7 @@ class TeacherBloc extends Bloc<TeacherEvent, TeacherState> {
     on<_levelclickEventInAddiTutorial>((event, emit) {
       emit(state.copyWith(expDropDown: event.level));
     });
+
     on<_subjectClickEventInAddingTutoral>((event, emit) {
       emit(state.copyWith(subjectDropDown: event.subject));
     });

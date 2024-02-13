@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
+import 'package:path_way_flu/core/constants/snacbar.dart';
 import 'package:path_way_flu/features/student/data/repositories/student_api.dart';
 
 class ComplantStudent extends StatelessWidget {
@@ -159,8 +160,9 @@ class ComplantStudent extends StatelessWidget {
                       };
                       StudentApi.addComplaint(data);
                     }
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('complaint successfully registed')));
+
+                    buildShowSnacbar(
+                        context, 'complaint registed', Colors.grey);
                     Navigator.of(context).pop();
                   },
                   child: const Text(

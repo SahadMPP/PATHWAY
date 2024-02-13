@@ -82,6 +82,13 @@ class ForgetPasswordScreen extends StatelessWidget {
                 Form(
                   key: formkey,
                   child: BuilderTextField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Enter your email";
+                        } else {
+                          return null;
+                        }
+                      },
                       prifixIcon: Icons.mail,
                       controller: emailController,
                       validationText: "Enter your email",

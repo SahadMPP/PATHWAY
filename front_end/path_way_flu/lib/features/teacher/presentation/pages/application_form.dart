@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_way_flu/core/constants/snacbar.dart';
 import 'package:path_way_flu/features/teacher/presentation/bloc/teacher_bloc.dart';
 import 'package:path_way_flu/features/teacher/presentation/widgets/certificate_image_collector.dart';
 import 'package:path_way_flu/features/teacher/presentation/widgets/exp_drop_down.dart';
@@ -13,7 +14,6 @@ import 'package:signature/signature.dart';
 import 'package:path_way_flu/features/admin/presentation/widgets/sub_drop_down_addtutorial.dart';
 import 'package:path_way_flu/features/admin/presentation/widgets/textfield.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
-import 'package:path_way_flu/features/student/presentation/widgets/hedline_back.dart';
 
 class TeacherApplicationFormSc extends StatefulWidget {
   const TeacherApplicationFormSc({super.key});
@@ -40,12 +40,34 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
     GlobalKey<FormState> key = GlobalKey();
     return Scaffold(
       appBar: AppBar(
-        title: BuildHeadlinewithBack(
-            fun: () {
-              Navigator.of(context).pop();
-            },
-            icon: Icons.arrow_back,
-            headline: "Fill Up"),
+        centerTitle: true,
+        title: Text(
+          "Fill Up",
+          style: GoogleFonts.quicksand(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        leading: Container(
+          alignment: Alignment.center,
+          height: 40,
+          width: 40,
+          decoration: BoxDecoration(
+            border: Border.all(
+                color: Theme.of(context).colorScheme.secondary, width: 3),
+            boxShadow: const [
+              BoxShadow(blurRadius: .5),
+            ],
+            color: Theme.of(context).colorScheme.background,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: IconButton(
+              onPressed: () => Navigator.of(context).pop(),
+              icon: const Icon(
+                Icons.arrow_back,
+                size: 20,
+              )),
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -177,29 +199,40 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                           return BuildButton(
                               text: "Apply",
                               fun: () {
-                                String id = "65c4f9ddde894c12bb0ebab2";
+                                String id = "65c8dcb01ee24d7c0bffc880";
+                                if (state.cetificateImageOne == null ||
+                                    state.cetificateImageTwo == null) {
+                                  buildShowSnacbar(context,
+                                      "Certificate not added", Colors.red);
+                                } else if (state.signatureImage == null) {
+                                  buildShowSnacbar(context,
+                                      "signature not added", Colors.red);
+                                } else {
+                                  if (key.currentState!.validate()) {
+                                    var data = {
+                                      "name": nameController.text,
+                                      "mobNumber": numberController.text,
+                                      "universityName":
+                                          universityController.text,
+                                      "appledSubject": state.subjectDropDown,
+                                      "appledStatus": true.toString(),
+                                      "universityPlace": placeController.text,
+                                      "universityState": stateController.text,
+                                      "experience": state.expDropDown,
+                                      "officerName": officerController.text,
+                                      "signatureImage": state.signatureImage!,
+                                      "certificateOne":
+                                          state.cetificateImageOne,
+                                      "certificateTwo":
+                                          state.cetificateImageTwo,
+                                    };
 
-                                if (key.currentState!.validate()) {
-                                  var data = {
-                                    "name": nameController.text,
-                                    "mobNumber": numberController.text,
-                                    "universityName": universityController.text,
-                                    "appledSubject": state.subjectDropDown,
-                                    "appledStatus": true.toString(),
-                                    "universityPlace": placeController.text,
-                                    "universityState": stateController.text,
-                                    "experience": state.expDropDown,
-                                    "officerName": officerController.text,
-                                    // "signatureImage": state.signatureImage!,
-                                    "certificateOne": state.cetificateImageOne,
-                                    "certificateTwo": state.cetificateImageTwo,
-                                  };
-
-                                  context.read<TeacherBloc>().add(
-                                      TeacherEvent.updateData(
-                                          id: id,
-                                          data: data,
-                                          context: context));
+                                    context.read<TeacherBloc>().add(
+                                        TeacherEvent.updateData(
+                                            id: id,
+                                            data: data,
+                                            context: context));
+                                  }
                                 }
                               });
                         },

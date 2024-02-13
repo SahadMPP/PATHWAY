@@ -138,22 +138,35 @@ class AddTotorialForm extends StatelessWidget {
                           builder: (context, state) {
                             return BuildButton(
                                 fun: () {
-                                  if (formKey.currentState!.validate()) {
-                                    context.read<AdminBloc>().add(
-                                        AdminEvent.addTutorial(
-                                            titleCon: titleController.text,
-                                            creatorCon: creatorController.text,
-                                            levelCon: state.levelDropDown,
-                                            categoryCon: state.subjectDropDown,
-                                            thumnilCon:
-                                                state.selectedImage.toString(),
-                                            videoUrlCon:
-                                                videoUrlController.text,
-                                            durationCon:
-                                                durationController.text,
-                                            discriptionCon:
-                                                discriptionController.text,
-                                            context: context));
+                                  if (state.selectedImage == null) {
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: const Text("Image not added"),
+                                      behavior: SnackBarBehavior.floating,
+                                      backgroundColor: Colors.red[400],
+                                      margin: const EdgeInsets.only(
+                                          left: 5, right: 5, bottom: 5),
+                                    ));
+                                  } else {
+                                    if (formKey.currentState!.validate()) {
+                                      context.read<AdminBloc>().add(
+                                          AdminEvent.addTutorial(
+                                              titleCon: titleController.text,
+                                              creatorCon:
+                                                  creatorController.text,
+                                              levelCon: state.levelDropDown,
+                                              categoryCon:
+                                                  state.subjectDropDown,
+                                              thumnilCon: state.selectedImage
+                                                  .toString(),
+                                              videoUrlCon:
+                                                  videoUrlController.text,
+                                              durationCon:
+                                                  durationController.text,
+                                              discriptionCon:
+                                                  discriptionController.text,
+                                              context: context));
+                                    }
                                   }
                                 },
                                 text: "Add");

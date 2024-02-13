@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/features/admin/bar%20graph/bar_graph.dart';
 import 'package:path_way_flu/features/admin/presentation/pages/list_of_student.dart';
 import 'package:path_way_flu/features/admin/presentation/pages/list_of_teacher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AdminDashbord extends StatelessWidget {
   const AdminDashbord({super.key});
@@ -26,11 +28,20 @@ class AdminDashbord extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 30),
-              Text(
-                "Dashboard",
-                style: kHeadingextStyle.copyWith(
-                  fontWeight: FontWeight.w500,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.dashbord,
+                    style: kHeadingextStyle.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: SvgPicture.asset("asset/icons/menu.svg"),
+                  ),
+                ],
               ),
               const SizedBox(height: 10),
               Divider(
@@ -45,7 +56,7 @@ class AdminDashbord extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Primary Text",
+                      Text(AppLocalizations.of(context)!.primaryText,
                           style: kTitleTextStyle.copyWith(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
@@ -55,7 +66,7 @@ class AdminDashbord extends StatelessWidget {
                               fontSize: 34,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 1.0)),
-                      Text("Secondary text",
+                      Text(AppLocalizations.of(context)!.secondaryText,
                           style: kSubheadingextStyle.copyWith(
                             fontSize: 17,
                             fontWeight: FontWeight.w500,
@@ -80,8 +91,8 @@ class AdminDashbord extends StatelessWidget {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (ctx) => const ListOfTeacher()));
                   },
-                  title: "Tutor Prograss",
-                  persenteg: "75% to compleate",
+                  title: AppLocalizations.of(context)!.tutorProgress,
+                  persenteg: AppLocalizations.of(context)!.toComplete,
                   value: 0.7),
               const SizedBox(height: 20),
               BuildPrograssIndicator(
@@ -89,8 +100,8 @@ class AdminDashbord extends StatelessWidget {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (ctx) => const ListOfStudent()));
                   },
-                  title: "Student Prograss",
-                  persenteg: "50% to compleate",
+                  title: AppLocalizations.of(context)!.studentProgress,
+                  persenteg: AppLocalizations.of(context)!.toComplete,
                   value: 0.5),
               const SizedBox(height: 50),
             ],

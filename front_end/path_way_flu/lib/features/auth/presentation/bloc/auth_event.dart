@@ -16,4 +16,8 @@ class AuthEvent with _$AuthEvent {
   }) = _registerUser;
 
   const factory AuthEvent.directionSelection() = _directionSelection;
+
+  const factory AuthEvent.emailvalidationintext({
+    required String value,
+  }) = _emailvalidationintext;
 }
