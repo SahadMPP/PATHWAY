@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:path_way_flu/core/constants/constants.dart';
+import 'package:path_way_flu/core/constants/subject_list.dart';
+import 'package:path_way_flu/features/student/presentation/widgets/build_see_all_subject.dart';
 
 class ListOfCategory extends StatelessWidget {
   const ListOfCategory({
@@ -11,7 +12,7 @@ class ListOfCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: GridView.builder(
-        itemCount: 10,
+        itemCount: subjectList.length,
         gridDelegate: SliverWovenGridDelegate.count(
           pattern: [
             const WovenGridTile(1),
@@ -26,15 +27,10 @@ class ListOfCategory extends StatelessWidget {
           crossAxisSpacing: 8,
         ),
         itemBuilder: (context, index) {
-          return Container(
-            height: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: kBlueColor,
-              image: const DecorationImage(
-                  image: AssetImage("asset/images/ux_big.png"),
-                  fit: BoxFit.cover),
-            ),
+          return BuildSeeAllSub(
+            subjectList: subjectList,
+            index: index,
+            function: () {},
           );
         },
       ),

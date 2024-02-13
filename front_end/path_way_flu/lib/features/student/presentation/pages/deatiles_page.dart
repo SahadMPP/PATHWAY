@@ -3,9 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:appinio_video_player/appinio_video_player.dart';
+import 'package:path_way_flu/features/admin/data/models/tutoral_model.dart';
+import 'package:path_way_flu/features/student/data/repositories/student_api.dart';
 
 class StudentvideoPlay extends StatefulWidget {
-  const StudentvideoPlay({super.key});
+  final String subject;
+  const StudentvideoPlay({super.key, required this.subject});
 
   @override
   State<StudentvideoPlay> createState() => _StudentvideoPlayState();
@@ -15,23 +18,25 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
   late CachedVideoPlayerController videoPlayerController;
   late CustomVideoPlayerController _customVideoPlayerController;
 
-  String videoUrl =
+  String videoUrlDefult =
       "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
   @override
   void initState() {
     super.initState();
-    initilizeVideoPlayer();
+    initilizeVideoPlayer(videoUrlDefult);
   }
 
   @override
   Widget build(BuildContext context) {
+    // setState(() {
+    //   initilizeVideoPlayer();
+    // });
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Color(0xFFF5F4E5),
-        ),
+        decoration: const BoxDecoration(),
         child: ListView(
           children: [
             Padding(
@@ -47,9 +52,13 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  CustomVideoPlayer(
-                      customVideoPlayerController:
-                          _customVideoPlayerController),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey, width: .5)),
+                    child: CustomVideoPlayer(
+                        customVideoPlayerController:
+                            _customVideoPlayerController),
+                  ),
                   const SizedBox(height: 15),
                   Text("How to do multipucation",
                       style: kSubtitleTextSyule.copyWith(
@@ -62,7 +71,6 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                       style: GoogleFonts.quicksand(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey,
                       )),
                   const SizedBox(height: 10),
                   ConstrainedBox(
@@ -90,7 +98,7 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.secondary,
               ),
               child: Stack(children: [
                 Padding(
@@ -98,38 +106,47 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Course Content',
-                        style: kHeadingextStyle,
+                        style: kHeadingextStyle.copyWith(color: Colors.black),
                       ),
                       const SizedBox(height: 30),
-                      SizedBox(
-                        height: 350,
-                        child: ListView(
-                          children: [
-                            GestureDetector(
-                              child: const CourseContent(number: "01"),
-                              onTap: () {
-                                _customVideoPlayerController.dispose();
-                              },
-                            ),
-                            GestureDetector(
-                              child: const CourseContent(number: "02"),
-                              onTap: () {
-                                setState(() {
-                                  initilizeVideoPlayer();
-                                });
-                              },
-                            ),
-                            const CourseContent(number: "03"),
-                            const CourseContent(number: "04"),
-                            const CourseContent(number: "05"),
-                            const CourseContent(number: "06"),
-                            const CourseContent(number: "07"),
-                            const SizedBox(height: 20),
-                          ],
-                        ),
-                      ),
+                      FutureBuilder(
+                          future: StudentApi.getTotorialStudent(widget.subject),
+                          builder: (context, AsyncSnapshot snapshot) {
+                            if (!snapshot.hasData) {
+                              return const Center(
+                                  child: CircularProgressIndicator());
+                            } else {
+                              List<Tutorial> tutoral = snapshot.data!;
+
+                              if (tutoral.isEmpty) {
+                                return const Center(
+                                    child: Text("No Tutorial in available"));
+                              } else {
+                                return SizedBox(
+                                  height: 350,
+                                  child: ListView.builder(
+                                      itemCount: tutoral.length,
+                                      itemBuilder: (context, index) {
+                                        return CourseContent(
+                                            functionn: () {
+                                              _customVideoPlayerController
+                                                  .dispose();
+                                              setState(() {
+                                                initilizeVideoPlayer(
+                                                    tutoral[index].videoUrl);
+                                              });
+                                            },
+                                            number: index,
+                                            title: tutoral[index].title,
+                                            creatorName:
+                                                tutoral[index].creator);
+                                      }),
+                                );
+                              }
+                            }
+                          }),
                     ],
                   ),
                 ),
@@ -141,7 +158,7 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
     );
   }
 
-  void initilizeVideoPlayer() {
+  void initilizeVideoPlayer(videoUrl) {
     CachedVideoPlayerController videoPlayerController;
     videoPlayerController = CachedVideoPlayerController.network(videoUrl)
       ..initialize().then((value) => setState(() {}));
@@ -153,10 +170,16 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
 }
 
 class CourseContent extends StatelessWidget {
-  final String number;
+  final String title;
+  final String creatorName;
+  final int number;
+  final VoidCallback functionn;
   const CourseContent({
     super.key,
     required this.number,
+    required this.title,
+    required this.creatorName,
+    required this.functionn,
   });
 
   @override
@@ -166,41 +189,44 @@ class CourseContent extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            number,
+            "0${number + 1}".toString(),
             style: kHeadingextStyle.copyWith(
               color: kTextColor.withOpacity(.15),
               fontSize: 32,
             ),
           ),
           const SizedBox(width: 20),
-          RichText(
-              text: TextSpan(children: [
-            TextSpan(
-                text: "5.35 min\n",
-                style: TextStyle(
-                  color: kTextColor.withOpacity(.5),
-                  fontSize: 18,
-                )),
-            TextSpan(
-                text: "Welcome to the Course",
-                style: kSubtitleTextSyule.copyWith(
-                  fontWeight: FontWeight.w600,
-                  height: 1.5,
-                )),
-          ])),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(title,
+                  style: TextStyle(
+                    color: kTextColor.withOpacity(.5),
+                    fontSize: 18,
+                  )),
+              Text(creatorName,
+                  style: TextStyle(
+                    color: kTextColor.withOpacity(.5),
+                    fontSize: 18,
+                  ))
+            ],
+          ),
           const Spacer(),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            width: 40,
-            height: 40,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              // color: kGreenColor.withOpacity(isDone ? 1:.5),
-              color: kGreenColor,
-            ),
-            child: const Icon(
-              Icons.play_arrow,
-              color: Colors.white,
+          GestureDetector(
+            onTap: functionn,
+            child: Container(
+              margin: const EdgeInsets.only(left: 20),
+              width: 40,
+              height: 40,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                // color: kGreenColor.withOpacity(isDone ? 1:.5),
+                color: kGreenColor,
+              ),
+              child: const Icon(
+                Icons.play_arrow,
+                color: Colors.white,
+              ),
             ),
           )
         ],
