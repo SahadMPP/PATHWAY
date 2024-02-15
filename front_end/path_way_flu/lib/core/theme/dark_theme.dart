@@ -14,5 +14,7 @@ ThemeData darkTheme = ThemeData(
     onBackground: Colors.grey[900]!,
     onPrimary: Colors.grey[300]!,
     // chat------
+      onSurface: Colors.white,
+
   ),
 );

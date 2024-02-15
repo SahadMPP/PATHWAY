@@ -29,9 +29,7 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
 
   @override
   Widget build(BuildContext context) {
-    // setState(() {
-    //   initilizeVideoPlayer();
-    // });
+    // 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Container(

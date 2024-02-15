@@ -91,9 +91,7 @@ class StuHome extends StatelessWidget {
                     index: index,
                     function: () =>
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) => StudentvideoPlay(
-                                  subject: subjectList[index]['name']!,
-                                ))),
+                            builder: (ctx) =>  StudentvideoPlay(subject: subjectList[index]["name"]!,))),
                   );
                 },
               ),

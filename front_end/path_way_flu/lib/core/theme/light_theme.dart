@@ -20,4 +20,5 @@ ThemeData lightTheme = ThemeData(
       onBackground: const Color.fromARGB(255, 0, 140, 255),
       onPrimary: Colors.white,
       // chat------
+      onSurface: Colors.black,
     ));
