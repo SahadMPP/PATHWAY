@@ -6,8 +6,7 @@ import 'package:http/http.dart' as http;
 
 class TeacherApi {
   static const baseUrl = AuthApi.baseUrl;
-
-  static applyingForSubject(id, data, BuildContext context) async {
+ static applyingForSubject(id, data, BuildContext context) async {
     final url = Uri.parse("${baseUrl}update_teacher/$id");
 
     try {
@@ -27,4 +26,8 @@ class TeacherApi {
       debugPrint(e.toString());
     }
   }
+
+
+
+
 }

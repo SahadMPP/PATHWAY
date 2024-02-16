@@ -97,6 +97,7 @@ class DirectionScreen extends StatelessWidget {
                 return BuildButton(
                     text: "Continue as a ${state.directionText}",
                     fun: () {
+                      // createUser();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -109,4 +110,44 @@ class DirectionScreen extends StatelessWidget {
       ),
     );
   }
+
+//   Future<void> createUser() async {
+//   const String url = 'http://learnpro.today:5000/api/update_teacher/65ce11b9ff9e8e327ac47301'; // Replace with your actual API URL
+
+//   // Sample user data
+//   var userData = {
+//     "name": "Jooooo",
+//     "email": "john.doe@exam",
+//     "password": "password123",
+//     "mobNumber": "1234567890",
+//     "universityName": "Example University",
+//     "universityPlace": "Example City",
+//     "universityState": "Example State",
+//     "experience": "Some experience",
+//     "officerName": "Officer Name",
+//     "certificates": {"certificate1": "url1", "certificate2": "url2"},
+//     "signatureImage": "signature-url",
+//     "active": true,
+//     "subjects": {"subject1": true, "subject2": false}
+// };
+
+//   try {
+//     final response = await http.put(
+//       Uri.parse(url),
+//        headers: <String, String>{
+//         'Content-Type': 'application/json',
+//       },
+//       body: jsonEncode(userData),
+//     );
+
+//     if (response.statusCode == 200) {
+//       debugPrint('User update successfully');
+//     } else {
+//       debugPrint('Failed to create user: ${response.statusCode}');
+//       debugPrint(response.body);
+//     }
+//   } catch (e) {
+//     debugPrint('Error creating user: $e');
+//   }
+// }
 }

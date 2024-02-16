@@ -66,7 +66,7 @@ class TutorsApplicationDetile extends StatelessWidget {
                   BuildTutorApplicationCard(
                       content: teacher.mobNumber!, title: "Mobile Number"),
                   BuildTutorApplicationCard(
-                      content: teacher.appledSubject!, title: "Subject"),
+                      content: teacher.appliedSubject!, title: "Subject"),
                   BuildTutorApplicationCard(
                       content: teacher.experience!, title: "Experience"),
                   BuildTutorApplicationCard(
@@ -91,7 +91,7 @@ class TutorsApplicationDetile extends StatelessWidget {
                         height: 110,
                         width: 130,
                         color: Colors.grey,
-                        child: teacher.certificateOne == null
+                        child: teacher.certificates == null
                             ? const Image(
                                 image:
                                     AssetImage("asset/images(adding icon).png"),
@@ -100,14 +100,14 @@ class TutorsApplicationDetile extends StatelessWidget {
                             : Image(
                                 fit: BoxFit.cover,
                                 image:
-                                    FileImage(File(teacher.certificateOne!))),
+                                    FileImage(File(teacher.certificates as String))),
                       ),
                       const SizedBox(width: 30),
                       Container(
                         height: 110,
                         width: 130,
                         color: Colors.grey,
-                        child: teacher.certificateTwo == null
+                        child: teacher.certificates == null
                             ? const Image(
                                 image:
                                     AssetImage("asset/images(adding icon).png"),
@@ -116,7 +116,7 @@ class TutorsApplicationDetile extends StatelessWidget {
                             : Image(
                                 fit: BoxFit.cover,
                                 image:
-                                    FileImage(File(teacher.certificateTwo!))),
+                                    FileImage(File(teacher.certificates as String))),
                       ),
                     ],
                   ),

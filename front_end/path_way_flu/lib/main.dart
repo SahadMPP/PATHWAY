@@ -6,8 +6,7 @@ import 'package:path_way_flu/core/theme/light_theme.dart';
 import 'package:path_way_flu/features/admin/presentation/bloc/admin_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:path_way_flu/features/student/presentation/pages/student_age_piking.dart';
-import 'package:path_way_flu/features/student/presentation/widgets/student_bottom.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/splash_screen_ui.dart';
 import 'package:path_way_flu/features/teacher/presentation/bloc/teacher_bloc.dart';
 import 'package:path_way_flu/l10n/l10n.dart';
 
@@ -40,7 +39,7 @@ class MyApp extends StatelessWidget {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home: const StudentAgePiking(),
+        home: const SpleshScreen() ,
       ),
     );
   }
