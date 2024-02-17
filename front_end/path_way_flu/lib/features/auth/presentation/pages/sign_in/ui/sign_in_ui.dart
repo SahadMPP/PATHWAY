@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/admin/presentation/widgets/admin_bottom_navi.dart';
-import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/forgot_ui.dart';
-import 'package:path_way_flu/features/auth/presentation/pages/sign_up_ui.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/sign_up/ui/sign_up_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field_password.dart';
 
 class SignInScreen extends StatelessWidget {
+  final String directiontext;
   const SignInScreen({
-    super.key,
+    super.key, required this.directiontext,
   });
 
   @override
@@ -59,8 +60,7 @@ class SignInScreen extends StatelessWidget {
                             }
                           },
                           onChanged: (value) {
-                            context.read<AuthBloc>().add(
-                                AuthEvent.emailvalidationintext(value: value));
+                           
                           },
                           prifixIcon: Icons.mail,
                           validationText: "Enter your email",
@@ -90,6 +90,7 @@ class SignInScreen extends StatelessWidget {
                   child: InkWell(
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
                         builder: (ctx) => ForgetPasswordScreen(
+                          directiontext: directiontext,
                               email: emailController,
                               textToCheck: "Forgot",
                             ))),
@@ -115,7 +116,9 @@ class SignInScreen extends StatelessWidget {
                           (route) => false);
                     } else {
                       if (formkey.currentState!.validate()) {
-                        context.read<AuthBloc>().add(AuthEvent.userlogin(
+                        context.read<SignInBloc>().add(SignInEvent.userlogin(
+
+                          directionText: directiontext,
                             emailController: emailController.text.trim(),
                             passwordController: passwordController.text.trim(),
                             context: context));
@@ -136,7 +139,7 @@ class SignInScreen extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) => const SignUpScreen()));
+                            builder: (ctx) =>  SignUpScreen(directionText: directiontext)));
                       },
                       child: Text('Sign Up',
                           style: GoogleFonts.roboto(

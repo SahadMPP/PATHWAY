@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 
 class BuildDirectionScr extends StatelessWidget {
   final String title;
@@ -18,9 +18,9 @@ class BuildDirectionScr extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () => context
-              .read<AuthBloc>()
-              .add(const AuthEvent.directionSelection()),
-          child: BlocBuilder<AuthBloc, AuthState>(
+              .read<DirectionBloc>()
+              .add(const DirectionEvent.directionSelection()),
+          child: BlocBuilder<DirectionBloc, DirectionState>(
             builder: (context, state) {
               return Container(
                 decoration: BoxDecoration(

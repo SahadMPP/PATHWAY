@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:path_way_flu/features/auth/presentation/pages/sign_in_ui.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/direction/bloc/direction_bloc.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/sign_in/ui/sign_in_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 
 class DirectionScreen extends StatelessWidget {
@@ -19,9 +19,9 @@ class DirectionScreen extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () => context
-                    .read<AuthBloc>()
-                    .add(const AuthEvent.directionSelection()),
-                child: BlocBuilder<AuthBloc, AuthState>(
+                    .read<DirectionBloc>()
+                    .add(const DirectionEvent.directionSelection()),
+                child: BlocBuilder<DirectionBloc, DirectionState>(
                   builder: (context, state) {
                     return Container(
                       decoration: BoxDecoration(
@@ -57,9 +57,9 @@ class DirectionScreen extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () => context
-                    .read<AuthBloc>()
-                    .add(const AuthEvent.directionSelection()),
-                child: BlocBuilder<AuthBloc, AuthState>(
+                    .read<DirectionBloc>()
+                    .add(const DirectionEvent.directionSelection()),
+                child: BlocBuilder<DirectionBloc, DirectionState>(
                   builder: (context, state) {
                     return Container(
                       decoration: BoxDecoration(
@@ -92,7 +92,7 @@ class DirectionScreen extends StatelessWidget {
             ],
           ),
           Center(
-            child: BlocBuilder<AuthBloc, AuthState>(
+            child: BlocBuilder<DirectionBloc, DirectionState>(
               builder: (context, state) {
                 return BuildButton(
                     text: "Continue as a ${state.directionText}",
@@ -101,7 +101,7 @@ class DirectionScreen extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (ctx) => const SignInScreen()));
+                              builder: (ctx) =>  SignInScreen(directiontext: state.directionText,)));
                     });
               },
             ),

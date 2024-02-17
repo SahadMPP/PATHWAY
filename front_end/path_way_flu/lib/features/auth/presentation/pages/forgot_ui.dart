@@ -11,12 +11,13 @@ class ForgetPasswordScreen extends StatelessWidget {
   final TextEditingController? name;
   final TextEditingController? password;
   final String textToCheck;
+  final String directiontext;
   const ForgetPasswordScreen(
       {super.key,
       required this.email,
       required this.textToCheck,
       this.name,
-      this.password});
+      this.password, required this.directiontext});
 
   @override
   Widget build(BuildContext context) {
@@ -124,6 +125,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (ctx) => OtpScreen(
+                                        directiontext: directiontext,
                                             textToCheck: textToCheck,
                                             myAuth: myAuth,
                                             emailtext: email.text,

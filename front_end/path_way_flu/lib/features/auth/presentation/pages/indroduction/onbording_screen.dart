@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:path_way_flu/features/auth/presentation/pages/direction_screen_ui.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/direction/ui/direction_screen_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/indroduction/intro_page_1.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/indroduction/intro_page_2.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/indroduction/intro_page_3.dart';

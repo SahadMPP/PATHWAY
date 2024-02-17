@@ -4,13 +4,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
-import 'package:path_way_flu/features/auth/presentation/pages/sign_in_ui.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/sign_in/ui/sign_in_ui.dart';
 
 class OtpScreen extends StatelessWidget {
   final String emailtext;
   final String? name;
   final String? password;
   final String textToCheck;
+  final String directiontext;
 
   final EmailOTP myAuth;
   const OtpScreen(
@@ -19,7 +20,7 @@ class OtpScreen extends StatelessWidget {
       required this.myAuth,
       this.name,
       this.password,
-      required this.textToCheck});
+      required this.textToCheck, required this.directiontext});
 
   @override
   Widget build(BuildContext context) {
@@ -247,7 +248,7 @@ class OtpScreen extends StatelessWidget {
                         // ignore: use_build_context_synchronously
                         Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
-                                builder: (ctx) => const SignInScreen()),
+                                builder: (ctx) =>  SignInScreen(directiontext:directiontext ,)),
                             (route) => false);
                       } else {
                         // ignore: use_build_context_synchronously

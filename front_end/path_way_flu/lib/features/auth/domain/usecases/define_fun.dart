@@ -1,7 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:path_way_flu/features/auth/presentation/pages/direction_screen_ui.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/direction/ui/direction_screen_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/indroduction/onbording_screen.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/student_bottom.dart';
 import 'package:path_way_flu/features/teacher/presentation/widgets/teacher_bottom_navi.dart';

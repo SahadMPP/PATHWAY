@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field_password.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+  final String directionText;
+  const SignUpScreen({super.key, required this.directionText});
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +68,7 @@ class SignUpScreen extends StatelessWidget {
                         }
                       },
                       onChanged: (value) {
-                        context
-                            .read<AuthBloc>()
-                            .add(AuthEvent.emailvalidationintext(value: value));
+                       
                       },
                       prifixIcon: Icons.mail,
                       validationText: "Enter your email",
@@ -113,7 +112,8 @@ class SignUpScreen extends StatelessWidget {
                     fun: () {
                       if (formkey.currentState!.validate()) {
                         // ignore: use_build_context_synchronously
-                        context.read<AuthBloc>().add(AuthEvent.registerUser(
+                        context.read<SignUpBloc>().add(SignUpEvent.registerUser(
+                          directionText: directionText,
                               nameController: nameController.text,
                               emailController: emailController.text,
                               passwordController: passwordController.text,
