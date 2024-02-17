@@ -8,9 +8,9 @@ import 'package:path_way_flu/features/student/presentation/widgets/course_con_wi
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class StudentDeatileWithoutPay extends StatefulWidget {
-  final String subjuct;
+  final String subject;
 
-  const StudentDeatileWithoutPay({super.key, required this.subjuct});
+  const StudentDeatileWithoutPay({super.key, required this.subject});
 
   @override
   State<StudentDeatileWithoutPay> createState() =>
@@ -158,7 +158,7 @@ class _StudentDeatileWithoutPayState extends State<StudentDeatileWithoutPay> {
                       ),
                       const SizedBox(height: 30),
                       FutureBuilder(
-                          future: StudentApi.getTotorialStudent(widget.subjuct),
+                          future: StudentApi.getTotorialStudent(widget.subject),
                           builder: (context, AsyncSnapshot snapshot) {
                             if (!snapshot.hasData) {
                               return Center(

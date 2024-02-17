@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "550429868908",
+    "project_id": "pathway-b9fb3",
+    "storage_bucket": "pathway-b9fb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550429868908:android:622ad74d7dc42ecf34e949",
+        "android_client_info": {
+          "package_name": "com.example.path_way_flu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrYSO19KNlyIbrkYn0bZ7mGyvyFMsajiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

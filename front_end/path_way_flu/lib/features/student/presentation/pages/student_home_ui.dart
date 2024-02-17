@@ -3,7 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/core/constants/subject_list.dart';
-import 'package:path_way_flu/features/student/presentation/pages/deatiles_page.dart';
+import 'package:path_way_flu/features/student/presentation/pages/deatiles_page_with_outpay.dart';
 import 'package:path_way_flu/features/student/presentation/pages/see_all_category.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/build_see_all_subject.dart';
 
@@ -91,7 +91,7 @@ class StuHome extends StatelessWidget {
                     index: index,
                     function: () =>
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) =>  StudentvideoPlay(subject: subjectList[index]["name"]!,))),
+                            builder: (ctx) =>  StudentDeatileWithoutPay(subject: subjectList[index]["name"]!,))),
                   );
                 },
               ),
