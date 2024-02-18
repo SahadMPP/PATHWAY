@@ -1,7 +1,8 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_way_flu/features/chat/data/models/message.dart';
+import 'package:path_way_flu/features/chat/presentation/controller/chat_controller.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:socket_io_client/socket_io_client.dart';
 
@@ -15,11 +16,11 @@ class MassagingScreen extends StatefulWidget {
 class _MassagingScreenState extends State<MassagingScreen> {
   TextEditingController msgInputController = TextEditingController();
   late IO.Socket socket;
-
+  ChatController chatController = ChatController();
   @override
   void initState() {
     socket = IO.io(
-        'http://localhost:5000',
+        'http://learnpro.today:5000',
         OptionBuilder()
             .setTransports(['websocket']) // for Flutter or Dart VM
             .disableAutoConnect() // disable auto-connection
@@ -51,12 +52,15 @@ class _MassagingScreenState extends State<MassagingScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
-                  'Active Now',
-                  style: GoogleFonts.quicksand(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.green[500],
-                      fontSize: 15),
+                Obx(
+                  () => Text(
+                    // 'Active Now',
+                    'connected User ${chatController.count}',
+                    style: GoogleFonts.quicksand(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.green[500],
+                        fontSize: 15),
+                  ),
                 ),
               ],
             ),
@@ -72,16 +76,19 @@ class _MassagingScreenState extends State<MassagingScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            Container(
+            SizedBox(
               width: double.infinity,
-              color: Colors.yellow,
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return const MessengerItem(
-                    sentByme: false,
-                  );
-                },
-                itemCount: 10,
+              child: Obx(
+                () => ListView.builder(
+                  itemBuilder: (context, index) {
+                    var currentChat = chatController.chatMessages[index];
+                    return MessengerItem(
+                      message: currentChat.message,
+                      sentByme: currentChat.sentByMe == socket.id,
+                    );
+                  },
+                  itemCount: chatController.chatMessages.length,
+                ),
               ),
             ),
             Positioned(
@@ -148,27 +155,31 @@ class _MassagingScreenState extends State<MassagingScreen> {
     );
   }
 
-  void sendMessege(String text) async{
+  void sendMessege(String text) async {
     var messegeJson = {
-      "message":text,
-      "sentByme":socket.id,
+      "message": text,
+      "sentByMe": socket.id,
     };
-    socket.emit('message',messegeJson.toString());
+    socket.emit('message', messegeJson);
+    chatController.chatMessages.add(Message.fromJson(messegeJson));
   }
-  
-  void setUpsocketListener()async {
-  debugPrint("working");
+
+  void setUpsocketListener() async {
     socket.on('message-receive', (data) {
-  debugPrint(data);
-      
-      
+      chatController.chatMessages.add(Message.fromJson(data));
+    });
+
+    socket.on('connected-user', (data) {
+      chatController.count.value = data;
     });
   }
 }
 
 class MessengerItem extends StatelessWidget {
+  final String message;
   final bool sentByme;
-  const MessengerItem({super.key, required this.sentByme});
+  const MessengerItem(
+      {super.key, required this.sentByme, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -184,23 +195,23 @@ class MessengerItem extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: sentByme ? blue : grey),
-          child: const Padding(
-            padding: EdgeInsets.all(10.0),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
               children: [
                 Text(
-                  'Heloo',
-                  style: TextStyle(
+                  message,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 15,
                   ),
                 ),
-                SizedBox(width: 5),
-                Text(
-                  '01:10 AM',
+                const SizedBox(width: 5),
+                const Text(
+                  '01:23 AM',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 10,
