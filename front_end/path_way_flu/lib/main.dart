@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
-import 'package:path_way_flu/features/auth/presentation/pages/splash_screen_ui.dart';
+import 'package:path_way_flu/features/chat/presentation/pages/chat_messaging.dart';
 import 'package:path_way_flu/features/teacher/presentation/bloc/teacher_bloc.dart';
 import 'package:path_way_flu/firebase_options.dart';
 import 'package:path_way_flu/l10n/l10n.dart';
@@ -45,6 +45,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
  ); 
   }
 
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -53,7 +54,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         BlocProvider(create: (context) => SignUpBloc()),
         BlocProvider(create: (context) => SignInBloc()),
         BlocProvider(create: (context) => AdminBloc()),
-        BlocProvider(create: (context) => TeacherBloc())
+        BlocProvider(create: (context) => TeacherBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -67,7 +68,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home: const SpleshScreen() ,
+        home: const MassagingScreen() ,
       ),
     );
   }
