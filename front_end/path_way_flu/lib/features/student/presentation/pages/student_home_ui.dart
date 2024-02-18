@@ -6,6 +6,7 @@ import 'package:path_way_flu/core/constants/subject_list.dart';
 import 'package:path_way_flu/features/student/presentation/pages/deatiles_page_with_outpay.dart';
 import 'package:path_way_flu/features/student/presentation/pages/see_all_category.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/build_see_all_subject.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class StuHome extends StatelessWidget {
   const StuHome({super.key});
@@ -32,8 +33,8 @@ class StuHome extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 30),
-            const Text("Hey Alex,", style: kHeadingextStyle),
-            const Text("Find a course you want to learn",
+             Text("${AppLocalizations.of(context)!.hey} Alex,", style: kHeadingextStyle),
+             Text(AppLocalizations.of(context)!.findCourse,
                 style: kSubheadingextStyle),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 30),
@@ -47,9 +48,9 @@ class StuHome extends StatelessWidget {
                 children: [
                   SvgPicture.asset("asset/icons/search.svg"),
                   const SizedBox(width: 18),
-                  const Text(
-                    'Search for anything',
-                    style: TextStyle(fontSize: 18, color: Color(0xFFA0A5BD)),
+                   Text(
+                    AppLocalizations.of(context)!.search,
+                    style: const TextStyle(fontSize: 18, color: Color(0xFFA0A5BD)),
                   )
                 ],
               ),
@@ -57,13 +58,13 @@ class StuHome extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text("Cateory", style: kTitleTextStyle),
+                 Text(AppLocalizations.of(context)!.category, style: kTitleTextStyle),
                 InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (ctx) => const SeeAllCategory()));
                   },
-                  child: Text("See All",
+                  child: Text(AppLocalizations.of(context)!.seeAll,
                       style: kSubtitleTextSyule.copyWith(color: kBlueColor)),
                 ),
               ],

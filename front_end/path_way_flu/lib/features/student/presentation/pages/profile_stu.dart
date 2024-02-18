@@ -3,6 +3,7 @@ import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/features/auth/domain/usecases/define_fun.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/complaint_alertbox.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class StudentProfileScreen extends StatelessWidget {
   const StudentProfileScreen({super.key});
@@ -25,7 +26,7 @@ class StudentProfileScreen extends StatelessWidget {
                       size: 50,
                     ),
                     const SizedBox(width: 15),
-                    Text("Settings",
+                    Text(AppLocalizations.of(context)!.settings,
                         style: kHeadingextStyle.copyWith(
                           color: Colors.white,
                           fontSize: 35,
@@ -80,7 +81,7 @@ class StudentProfileScreen extends StatelessWidget {
                         SizedBox(
                           width: 100,
                           child: Text(
-                            'Account Settings',
+                            AppLocalizations.of(context)!.accountSettings,
                             style: kTitleTextStyle.copyWith(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w400),
@@ -88,19 +89,21 @@ class StudentProfileScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         BuildProfileCard(
-                            text: "Edit profile",
+                            text: AppLocalizations.of(context)!.editProfile,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: "Change password",
+                            text: AppLocalizations.of(context)!.changePassword,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: "Add location",
+                            text: AppLocalizations.of(context)!.addLocation,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileWithToggle(
-                            text: "Push Notification", fun: () {}),
+                            text:
+                                AppLocalizations.of(context)!.pushNotification,
+                            fun: () {}),
                         BuildProfileWithToggle(text: "Dark mode", fun: () {}),
                         const Divider(
                             color: Color.fromARGB(255, 228, 228, 228),
@@ -112,11 +115,11 @@ class StudentProfileScreen extends StatelessWidget {
                               color: Colors.grey, fontWeight: FontWeight.w400),
                         ),
                         BuildProfileCard(
-                            text: "About As",
+                            text: AppLocalizations.of(context)!.aboutUs,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: "complaint",
+                            text: AppLocalizations.of(context)!.complaint,
                             fun: () {
                               showDialog(
                                   context: context,
@@ -135,11 +138,11 @@ class StudentProfileScreen extends StatelessWidget {
                             },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: "Privacy Consern",
+                            text: AppLocalizations.of(context)!.privacyConcern,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: "LogOut",
+                            text: AppLocalizations.of(context)!.logout,
                             fun: () {
                               PanaraInfoDialog.show(
                                 context,

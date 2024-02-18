@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/subject_list.dart';
 import 'package:path_way_flu/features/student/presentation/pages/subcription%20model/ui/subcription_detailepage.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class SubcriptionScreen extends StatelessWidget {
   const SubcriptionScreen({super.key});
 
@@ -46,7 +46,7 @@ class SubcriptionScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "For totel course",
+                      AppLocalizations.of(context)!.forTotalCourse,
                       style: GoogleFonts.aBeeZee(
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0,
@@ -61,20 +61,20 @@ class SubcriptionScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SubcriptionMiniCard(
-                      text: "Manage subs",
+                      text: AppLocalizations.of(context)!.moreSubs,
                       icon: Icons.settings,
                       bgcolor: Colors.transparent,
                       borderColor: Colors.grey[800]),
                   const Spacer(),
                   SubcriptionMiniCard(
-                      text: "Add new sub",
+                      text: AppLocalizations.of(context)!.addNewSub,
                       icon: Icons.add,
                       bgcolor: Theme.of(context).colorScheme.primary,
                       borderColor: Theme.of(context).colorScheme.secondary),
                 ],
               ),
               const SizedBox(height: 40),
-              const BuildSubcriptionSubhead(text: "Upcoming subjects payment"),
+               BuildSubcriptionSubhead(text: AppLocalizations.of(context)!.upcomingSubjectPayment),
               const SizedBox(height: 10),
               const BuildMainCardSubcirption(
                   image: "asset/subjucts_icon/mahts.png",
@@ -88,7 +88,7 @@ class SubcriptionScreen extends StatelessWidget {
                   date: "Nov 24,2023",
                   rate: "\$11.50"),
               const SizedBox(height: 30),
-              const BuildSubcriptionSubhead(text: "Subcriptions(7)"),
+               BuildSubcriptionSubhead(text: "${AppLocalizations.of(context)!.subscriptions}(7)"),
               const SizedBox(height: 10),
               Container(
                 width: MediaQuery.of(context).size.width,

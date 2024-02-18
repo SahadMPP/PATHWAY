@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SubcriptionDeatilePage extends StatelessWidget {
   const SubcriptionDeatilePage({super.key});
@@ -57,7 +58,7 @@ class SubcriptionDeatilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Payment date",
+                              AppLocalizations.of(context)!.paymentDate,
                               style: kSubtitleTextSyule.copyWith(
                                   color: Colors.grey[400]),
                             ),
@@ -72,7 +73,7 @@ class SubcriptionDeatilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              "Price",
+                               AppLocalizations.of(context)!.price,
                               style: kSubtitleTextSyule.copyWith(
                                   color: Colors.grey[400]),
                             ),
@@ -93,7 +94,7 @@ class SubcriptionDeatilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Cycle",
+                               AppLocalizations.of(context)!.cycle,
                               style: kSubtitleTextSyule.copyWith(
                                   color: Colors.grey[400]),
                             ),
@@ -108,12 +109,12 @@ class SubcriptionDeatilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              "Type",
+                               AppLocalizations.of(context)!.type,
                               style: kSubtitleTextSyule.copyWith(
                                   color: Colors.grey[400]),
                             ),
                             Text(
-                              "Induvidula",
+                               AppLocalizations.of(context)!.individual,
                               style: kSubheadingextStyle.copyWith(
                                   height: 0, fontWeight: FontWeight.w400),
                             ),

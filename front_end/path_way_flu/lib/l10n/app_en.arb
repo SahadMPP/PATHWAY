@@ -74,5 +74,125 @@
   "socialStudies": "Social Studies",
   "@socialStudies": {
     "description": "The study of human societies and their interactions"
+  },
+   "hey": "Hey",
+  "@hey": {
+    "description": "Informal greeting or getting someone's attention"
+  },
+  "findCourse": "Find a course you want to learn",
+  "@findCourse": {
+    "description": "Prompt to search for a desired course or subject to study"
+  },
+  "search": "Search for anything",
+  "@search": {
+    "description": "Action to find or look up something specific"
+  },
+  "category": "Category",
+  "@category": {
+    "description": "A grouping or classification of items based on shared characteristics"
+  },
+  "seeAll": "See all",
+  "@seeAll": {
+    "description": "Action to view all items or content within a category or list"
+  },
+  "hi": "Hi",
+  "@hi": {
+    "description": "Informal greeting or getting someone's attention"
+  },
+  "forTotalCourse": "For Total Course",
+  "@forTotalCourse": {
+    "description": "Indicates action related to the entire course or curriculum"
+  },
+  "moreSubs": "More Subs",
+  "@moreSubs": {
+    "description": "Additional subscriptions or options available"
+  },
+  "addNewSub": "Add a New Sub",
+  "@addNewSub": {
+    "description": "Action to include a new subscription or subject"
+  },
+  "upcomingSubjectPayment": "Upcoming Subject Payment",
+  "@upcomingSubjectPayment": {
+    "description": "Notification or reminder about forthcoming payment for a subject"
+  },
+  "subscriptions": "Subscriptions",
+  "@subscriptions": {
+    "description": "Services or subjects for which one has paid or agreed to pay regularly"
+  },
+  "paymentDate": "Payment Date",
+  "@paymentDate": {
+    "description": "Date for making a payment"
+  },
+  "price": "Price",
+  "@price": {
+    "description": "Amount of money expected or required for payment"
+  },
+  "cycle": "Cycle",
+  "@cycle": {
+    "description": "Repeating pattern or sequence"
+  },
+  "month": "Month",
+  "@month": {
+    "description": "A unit of time, approximately equal to the period of the moon's revolution around the Earth"
+  },
+  "individual": "Individual",
+  "@individual": {
+    "description": "Relating to one single person or thing"
+  },
+  "type": "Type",
+  "@type": {
+    "description": "Category or classification"
+  },
+  "cancelSubscription": "Cancel Subscription",
+  "@cancelSubscription": {
+    "description": "Action to terminate or end a subscription service"
+  },
+  "messages": "Messages",
+  "@messages": {
+    "description": "Communication or correspondence between individuals or groups"
+  },
+  "status": "Status",
+  "@status": {
+    "description": "Condition or state of affairs"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Options or configurations for customization"
+  },
+  "accountSettings": "Account Settings",
+  "@accountSettings": {
+    "description": "Customization options related to one's account"
+  },
+  "editProfile": "Edit Profile",
+  "@editProfile": {
+    "description": "Action to modify or update personal information"
+  },
+  "changePassword": "Change Password",
+  "@changePassword": {
+    "description": "Action to alter or set a new password"
+  },
+  "addLocation": "Add Location",
+  "@addLocation": {
+    "description": "Action to include or update a geographical position"
+  },
+  "pushNotification": "Push Notification",
+  "@pushNotification": {
+    "description": "A message or alert delivered to a device or application"
+  },
+  "darkMode": "Dark Mode",
+  "@darkMode": {
+    "description": "Display setting that reduces light emission for use in low-light environments"
+  },
+  "aboutUs": "About Us",
+  "@aboutUs": {
+    "description": "Information regarding the organization or individuals behind the product or service"
+  },
+  "privacyConcern": "Privacy Concern",
+  "@privacyConcern": {
+    "description": "Issues or worries regarding the protection of personal information"
+  },
+  "logout": "Log Out",
+  "@logout": {
+    "description": "Action to end a session or sign out"
   }
 }

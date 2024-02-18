@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class StudentStatus extends StatelessWidget {
   const StudentStatus({super.key});
 
@@ -10,7 +10,7 @@ class StudentStatus extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Status",
+          AppLocalizations.of(context)!.status,
           style: GoogleFonts.quicksand(
             fontSize: 28,
             fontWeight: FontWeight.bold,
