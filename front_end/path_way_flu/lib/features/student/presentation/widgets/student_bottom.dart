@@ -3,7 +3,7 @@ import 'package:path_way_flu/features/chat/presentation/pages/chat_profile.dart'
 import 'package:path_way_flu/features/student/presentation/pages/development_screent.dart';
 import 'package:path_way_flu/features/student/presentation/pages/profile_stu.dart';
 import 'package:path_way_flu/features/student/presentation/pages/student_home_ui.dart';
-import 'package:path_way_flu/features/student/presentation/pages/student_inbox.dart';
+import 'package:path_way_flu/features/student/presentation/pages/subcription%20model/ui/subcription_models.dart';
 
 class StudentBotmNavi extends StatefulWidget {
   const StudentBotmNavi({super.key});
@@ -16,7 +16,7 @@ class _StudentBotmNaviState extends State<StudentBotmNavi> {
   int currentIndex = 0;
   List<Widget> body = [
     const StuHome(),
-    const StudentInboxScreen(),
+    const SubcriptionScreen(),
     const ChatScreen(),
     const StudentStatus(),
     const StudentProfileScreen(),

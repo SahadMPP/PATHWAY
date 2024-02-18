@@ -21,4 +21,7 @@ ThemeData lightTheme = ThemeData(
       onPrimary: Colors.white,
       // chat------
       onSurface: Colors.black,
+      //subcription page---
+      onPrimaryContainer: Colors.grey[200],
+
     ));

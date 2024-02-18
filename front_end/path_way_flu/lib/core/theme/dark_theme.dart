@@ -6,7 +6,8 @@ ThemeData darkTheme = ThemeData(
     color: Colors.grey[600],
   ),
   colorScheme: ColorScheme.dark(
-    background: Colors.black,
+    // background: Colors.black,
+    background: Colors.black12,
     primary: Colors.grey[900]!,
     secondary: Colors.grey[800]!,
     onSecondary: Colors.grey[400]!,
@@ -16,5 +17,8 @@ ThemeData darkTheme = ThemeData(
     // chat------
       onSurface: Colors.white,
 
+      // subcripton---
+      onPrimaryContainer:Colors.grey[900],
+  
   ),
 );

@@ -12,7 +12,7 @@ const kHeadingextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 const kSubheadingextStyle = TextStyle(
-  fontSize: 24,
+  fontSize: 22,
   height: 2,
 );
 
