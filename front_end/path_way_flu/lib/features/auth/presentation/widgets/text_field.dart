@@ -47,32 +47,42 @@ class _BuilderTextFieldState extends State<BuilderTextField> {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: TextFormField(
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            onChanged: widget.onChanged,
-            validator: widget.validator,
-            controller: widget.controller,
-            obscureText: isSecurePassword,
-            decoration: InputDecoration(
-            
-                prefixIcon: Icon(
-                  widget.prifixIcon,
-                  size: 27,
-                ),
-                suffixIcon: widget.sufixIcon! ? togglePassword() : null,
-                contentPadding: const EdgeInsets.all(20),
-                border: UnderlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide.none),
-                filled: true,
-                fillColor: Theme.of(context).colorScheme.secondary,
-                hintText: widget.hintText,
-                hintStyle: GoogleFonts.aBeeZee(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 17,
-                )),
-          ),
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        onChanged: widget.onChanged,
+        validator: widget.validator,
+        controller: widget.controller,
+        obscureText: isSecurePassword,
+        decoration: InputDecoration(
+            labelText: 'Name',
+            labelStyle: const TextStyle(
+                color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w300),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: Theme.of(context).iconTheme.color!, width: 1),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            floatingLabelStyle: const TextStyle(
+              color: Colors.grey,
+              fontWeight: FontWeight.w300,
+              fontSize: 18,
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.green, width: 2),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            prefixIcon: Icon(widget.prifixIcon,
+                color: Theme.of(context).iconTheme.color),
+            suffixIcon: widget.sufixIcon! ? togglePassword() : null,
+            contentPadding: const EdgeInsets.all(20),
+            border: UnderlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none),
+            hintText: widget.hintText,
+            hintStyle: GoogleFonts.aBeeZee(
+              fontWeight: FontWeight.w400,
+              fontSize: 17,
+            )),
+      ),
     );
-    
-    
   }
 }

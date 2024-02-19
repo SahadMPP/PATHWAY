@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field.dart';
+import 'package:path_way_flu/features/auth/presentation/widgets/text_field_email.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field_password.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -30,7 +31,7 @@ class SignUpScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Sign up now',
-                    style: GoogleFonts.roboto(
+                    style: GoogleFonts.pragatiNarrow(
                       fontWeight: FontWeight.w500,
                       fontSize: 30,
                     ),
@@ -59,16 +60,13 @@ class SignUpScreen extends StatelessWidget {
                       validationText: "Enter your name",
                       sufixIcon: false),
                   const SizedBox(height: 20),
-                  BuilderTextField(
+                  BuilderTextFieldEmail(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Enter your email";
                         } else {
                           return null;
                         }
-                      },
-                      onChanged: (value) {
-                       
                       },
                       prifixIcon: Icons.mail,
                       validationText: "Enter your email",
@@ -113,7 +111,7 @@ class SignUpScreen extends StatelessWidget {
                       if (formkey.currentState!.validate()) {
                         // ignore: use_build_context_synchronously
                         context.read<SignUpBloc>().add(SignUpEvent.registerUser(
-                          directionText: directionText,
+                              directionText: directionText,
                               nameController: nameController.text,
                               emailController: emailController.text,
                               passwordController: passwordController.text,

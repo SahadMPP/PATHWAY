@@ -6,7 +6,7 @@ import 'package:path_way_flu/features/auth/presentation/pages/forgot_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_up/ui/sign_up_ui.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/button_buil.dart';
-import 'package:path_way_flu/features/auth/presentation/widgets/text_field.dart';
+import 'package:path_way_flu/features/auth/presentation/widgets/text_field_email.dart';
 import 'package:path_way_flu/features/auth/presentation/widgets/text_field_password.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -51,7 +51,7 @@ class SignInScreen extends StatelessWidget {
                   key: formkey,
                   child: Column(
                     children: [
-                      BuilderTextField(
+                      BuilderTextFieldEmail(
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return "Enter your email";

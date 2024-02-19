@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
-import 'package:path_way_flu/features/student/presentation/widgets/student_bottom.dart';
+import 'package:path_way_flu/features/auth/presentation/pages/splash_screen_ui.dart';
 import 'package:path_way_flu/features/teacher/presentation/bloc/teacher_bloc.dart';
 import 'package:path_way_flu/firebase_options.dart';
 import 'package:path_way_flu/l10n/l10n.dart';
@@ -68,7 +68,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home: const StudentBotmNavi() ,
+        home: const SpleshScreen() ,
       ),
     );
   }
