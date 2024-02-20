@@ -87,7 +87,7 @@ class TeacherRequestList extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        teacher[index].name!.toUpperCase(),
+                                        teacher[index].name.toUpperCase(),
                                         style: GoogleFonts.quicksand(
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold,

@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -202,11 +203,17 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                                 String id = "65c8dcb01ee24d7c0bffc880";
                                 if (state.cetificateImageOne == null ||
                                     state.cetificateImageTwo == null) {
-                                  buildShowSnacbar(context,
-                                      "Certificate not added", Colors.red);
+                                  buildShowSnacbar(
+                                      context: context,
+                                      content: "Certificate not added",
+                                      title: 'Warning!',
+                                      contentType: ContentType.warning);
                                 } else if (state.signatureImage == null) {
-                                  buildShowSnacbar(context,
-                                      "signature not added", Colors.red);
+                                  buildShowSnacbar(
+                                      context: context,
+                                      content: "signature not added",
+                                      title: 'Warning!',
+                                      contentType: ContentType.warning);
                                 } else {
                                   if (key.currentState!.validate()) {
                                     var data = {

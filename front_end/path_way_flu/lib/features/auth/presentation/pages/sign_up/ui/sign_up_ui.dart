@@ -31,7 +31,7 @@ class SignUpScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Sign up now',
-                    style: GoogleFonts.pragatiNarrow(
+                    style: GoogleFonts.quicksand(
                       fontWeight: FontWeight.w500,
                       fontSize: 30,
                     ),
@@ -63,16 +63,16 @@ class SignUpScreen extends StatelessWidget {
                   BuilderTextFieldEmail(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Enter your email";
+                          return "Enter your Email";
                         } else {
                           return null;
                         }
                       },
                       prifixIcon: Icons.mail,
-                      validationText: "Enter your email",
+                     
                       controller: emailController,
-                      hintText: "Enter your email",
-                      sufixIcon: false),
+                     
+                      ),
                   const SizedBox(height: 20),
                   BuilderTextFieldPass(
                       validator: (value) {
@@ -117,7 +117,7 @@ class SignUpScreen extends StatelessWidget {
                               passwordController: passwordController.text,
                               context: context,
                             ));
-                        Navigator.of(context).pop();
+                        // Navigator.of(context).pop();
 
                         // Navigator.of(context).push(MaterialPageRoute(
                         //     builder: (ctx) => ForgetPasswordScreen(

@@ -7,7 +7,7 @@ import 'package:path_way_flu/features/admin/data/models/tutoral_model.dart';
 import 'package:path_way_flu/features/admin/presentation/bloc/admin_bloc.dart';
 import 'package:path_way_flu/features/admin/presentation/pages/updating_tutorial.dart';
 
-class TutoralCard extends StatelessWidget {
+class TutoralCard extends StatefulWidget {
   const TutoralCard({
     super.key,
     required this.tutorial,
@@ -16,11 +16,16 @@ class TutoralCard extends StatelessWidget {
   final List<Tutorial> tutorial;
 
   @override
+  State<TutoralCard> createState() => _TutoralCardState();
+}
+
+class _TutoralCardState extends State<TutoralCard> {
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * .9,
       child: ListView.builder(
-          itemCount: tutorial.length,
+          itemCount: widget.tutorial.length,
           itemBuilder: (context, index) {
             GlobalKey<FormState> dimissebleKey = GlobalKey();
             return Padding(
@@ -29,8 +34,30 @@ class TutoralCard extends StatelessWidget {
                 direction: DismissDirection.endToStart,
                 key: dimissebleKey,
                 onDismissed: (onDismiss) {
-                  context.read<AdminBloc>().add(AdminEvent.deleteTutorial(
-                      context: context, id: tutorial[index].id!));
+               
+                  showDialog(context: context, builder: (context) =>  AlertDialog(
+                    content: const Text("Are you sure ?",style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold),),
+                    actionsAlignment: MainAxisAlignment.spaceEvenly,
+                    icon: const Icon(Icons.dangerous,color: Colors.red,size: 30),
+                    backgroundColor: Colors.grey[400],
+                    alignment: Alignment.bottomCenter,
+                    actions: [
+                      ElevatedButton(onPressed: (){
+                           context.read<AdminBloc>().add(AdminEvent.deleteTutorial(
+                      context: context, id: widget.tutorial[index].id!));
+                        Navigator.of(context).pop();
+                        
+                      }, child: const Text('Yes',style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold,color: Colors.black),)),
+                      ElevatedButton(onPressed: (){
+                        setState(() {
+                        Navigator.of(context).pop();
+                        });
+                      }, child: const Text('No',style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold,color: Colors.black),)),
+                    ],
+                  ),);
                 },
                 background: Container(
                   decoration: BoxDecoration(
@@ -66,7 +93,7 @@ class TutoralCard extends StatelessWidget {
                           width: double.infinity,
                           decoration: const BoxDecoration(),
                           child: Image.file(
-                            File(tutorial[index].tumbnailImage),
+                            File(widget.tutorial[index].tumbnailImage),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -103,20 +130,20 @@ class TutoralCard extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(tutorial[index].title.toUpperCase(),
+                                      Text(widget.tutorial[index].title.toUpperCase(),
                                           style: GoogleFonts.roboto(
                                               fontSize: 16,
                                               color: Colors.black,
                                               fontWeight: FontWeight.w700)),
                                       Text(
-                                        tutorial[index].creator,
+                                        widget.tutorial[index].creator,
                                         style: GoogleFonts.quicksand(
                                             fontSize: 15,
                                             fontWeight: FontWeight.w400,
                                             color: Colors.black),
                                       ),
                                       Text(
-                                        tutorial[index].level.toUpperCase(),
+                                        widget.tutorial[index].level.toUpperCase(),
                                         style: GoogleFonts.quicksand(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w400,
@@ -132,12 +159,12 @@ class TutoralCard extends StatelessWidget {
                                               AdminEvent
                                                   .updateTutoraPageButtonClick(
                                                       tutorial:
-                                                          tutorial[index]));
+                                                          widget.tutorial[index]));
                                           Navigator.of(context).pushReplacement(
                                               MaterialPageRoute(
                                                   builder: (ctx) =>
                                                       UpdatingTutorial(
-                                                          tutoral: tutorial[
+                                                          tutoral: widget.tutorial[
                                                               index])));
                                         },
                                         icon: Icon(

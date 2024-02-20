@@ -2,22 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:validators/validators.dart';
 
 class BuilderTextFieldEmail extends StatefulWidget {
-  final String hintText;
-  final bool? sufixIcon;
-  final String validationText;
   final TextEditingController? controller;
   final IconData prifixIcon;
-  final Function(String)? onChanged;
   final String? Function(String?)? validator;
 
   const BuilderTextFieldEmail({
     super.key,
-    required this.hintText,
-    required this.sufixIcon,
     this.controller,
-    required this.validationText,
     required this.prifixIcon,
-    this.onChanged,
     required this.validator,
   });
 
@@ -31,17 +23,18 @@ class _BuilderTextFieldEmailState extends State<BuilderTextFieldEmail> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
-      child: TextField(
+      child: TextFormField(
+        validator: widget.validator,
         controller: widget.controller,
         onChanged: (value) {
           setState(() {
             isEmailCurrect = isEmail(value);
           });
         },
-        showCursor: true,
-        style: const TextStyle(color: Colors.white),
+       
+       
         decoration: InputDecoration(
-          labelText: 'Email',
+          labelText: "Email",
           labelStyle: const TextStyle(
               color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w300),
           hintText: 'Something@email.com',

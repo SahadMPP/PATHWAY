@@ -12,7 +12,8 @@ import 'package:path_way_flu/features/auth/presentation/widgets/text_field_passw
 class SignInScreen extends StatelessWidget {
   final String directiontext;
   const SignInScreen({
-    super.key, required this.directiontext,
+    super.key,
+    required this.directiontext,
   });
 
   @override
@@ -52,21 +53,17 @@ class SignInScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       BuilderTextFieldEmail(
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Enter your email";
-                            } else {
-                              return null;
-                            }
-                          },
-                          onChanged: (value) {
-                           
-                          },
-                          prifixIcon: Icons.mail,
-                          validationText: "Enter your email",
-                          controller: emailController,
-                          hintText: "Enter your email",
-                          sufixIcon: false),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Enter your email";
+                          } else {
+                            return null;
+                          }
+                        },
+                        prifixIcon: Icons.mail,
+                        controller: emailController,
+                        
+                      ),
                       const SizedBox(height: 20),
                       BuilderTextFieldPass(
                           validator: (value) {
@@ -90,7 +87,7 @@ class SignInScreen extends StatelessWidget {
                   child: InkWell(
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
                         builder: (ctx) => ForgetPasswordScreen(
-                          directiontext: directiontext,
+                              directiontext: directiontext,
                               email: emailController,
                               textToCheck: "Forgot",
                             ))),
@@ -117,8 +114,7 @@ class SignInScreen extends StatelessWidget {
                     } else {
                       if (formkey.currentState!.validate()) {
                         context.read<SignInBloc>().add(SignInEvent.userlogin(
-
-                          directionText: directiontext,
+                            directionText: directiontext,
                             emailController: emailController.text.trim(),
                             passwordController: passwordController.text.trim(),
                             context: context));
@@ -139,7 +135,8 @@ class SignInScreen extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) =>  SignUpScreen(directionText: directiontext)));
+                            builder: (ctx) =>
+                                SignUpScreen(directionText: directiontext)));
                       },
                       child: Text('Sign Up',
                           style: GoogleFonts.roboto(

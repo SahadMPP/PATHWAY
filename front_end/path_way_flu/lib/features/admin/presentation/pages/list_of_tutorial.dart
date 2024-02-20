@@ -17,8 +17,6 @@ class ListOfTutorial extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
         child: FloatingActionButton(
             onPressed: () {
-              // Navigator.of(context).push(
-              //     MaterialPageRoute(builder: (ctx) => const AddTotorialForm()));
               Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (ctx) => const AddTotorialForm()));
             },
@@ -42,36 +40,33 @@ class ListOfTutorial extends StatelessWidget {
                   icon: Icons.arrow_back,
                   headline: category),
               const SizedBox(height: 10),
-              RefreshIndicator(
-                onRefresh: () => AdminApi.getTotorial(category),
-                child: FutureBuilder(
-                    future: AdminApi.getTotorial(category),
-                    builder: (context, AsyncSnapshot snapshot) {
-                      if (!snapshot.hasData) {
-                        return const Center(
-                            child: CircularProgressIndicator(
-                          color: Colors.grey,
-                        ));
+              FutureBuilder(
+                  future: AdminApi.getTotorial(category),
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (!snapshot.hasData) {
+                      return const Center(
+                          child: CircularProgressIndicator(
+                        color: Colors.grey,
+                      ));
+                    } else {
+                      List<Tutorial> tutorial = snapshot.data;
+                      if (tutorial.isEmpty) {
+                        return Center(
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * .6,
+                            width: MediaQuery.of(context).size.width * .9,
+                            decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage(
+                                        "asset/default image/Screenshot 2024-02-12 122805.png"))),
+                          ),
+                        );
                       } else {
-                        List<Tutorial> tutorial = snapshot.data;
-                        if (tutorial.isEmpty) {
-                          return Center(
-                            child: Container(
-                              height: MediaQuery.of(context).size.height * .6,
-                              width: MediaQuery.of(context).size.width * .9,
-                              decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                      fit: BoxFit.fill,
-                                      image: AssetImage(
-                                          "asset/default image/Screenshot 2024-02-12 122805.png"))),
-                            ),
-                          );
-                        } else {
-                          return TutoralCard(tutorial: tutorial);
-                        }
+                        return TutoralCard(tutorial: tutorial);
                       }
-                    }),
-              ),
+                    }
+                  }),
             ],
           ),
         ),

@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 // ignore: unnecessary_import
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/core/constants/snacbar.dart';
@@ -10,7 +11,7 @@ import 'package:path_way_flu/features/admin/data/models/complaint_model.dart';
 import 'package:path_way_flu/features/admin/data/models/tutoral_model.dart';
 import 'package:path_way_flu/features/auth/data/repositories/api.dart';
 import 'package:http/http.dart' as http;
-import 'package:path_way_flu/features/auth/domain/entities/student_model.dart';
+import 'package:path_way_flu/features/student/data/models/student.dart';
 import 'package:path_way_flu/features/teacher/data/models/teacher_model.dart';
 
 class AdminApi {
@@ -25,7 +26,11 @@ class AdminApi {
       if (res.statusCode == 200) {
         debugPrint("Add tutorial is done");
 
-        buildShowSnacbar(context, "Add tutorial is done", Colors.grey);
+        buildShowSnacbar(
+            context: context,
+            content: "Adding tutorial is done",
+            title: 'Hi There!',
+            contentType: ContentType.success);
         Navigator.of(context).pop();
       } else {
         debugPrint("Faield to get response");
@@ -46,21 +51,13 @@ class AdminApi {
         var data = jsonDecode(res.body);
 
         for (var value in data) {
+          debugPrint(value["category"]);
           if (value["category"] == catogory) {
             String? id = value["_id"] as String?;
-
             if (id != null) {
-
-
-
-
               return (jsonDecode(res.body) as List)
                   .map((value) => Tutorial.fromJson(value))
                   .toList();
-
-
-
-                  
             } else {
               debugPrint("id is null or not present");
             }
@@ -85,7 +82,12 @@ class AdminApi {
       if (res.statusCode == 200) {
         debugPrint(res.body);
         debugPrint("tutorial is updated");
-        buildShowSnacbar(context, "tutorial is updated", Colors.grey);
+
+        buildShowSnacbar(
+            context: context,
+            content: "tutorial is updated",
+            title: 'Hi There!',
+            contentType: ContentType.success);
         Navigator.of(context).pop();
       } else {
         debugPrint("Failed to update data");
@@ -103,9 +105,18 @@ class AdminApi {
 
       if (res.statusCode == 200) {
         debugPrint("tutorial is deleted");
-        buildShowSnacbar(context, "tutorial is deleted", Colors.red);
+        buildShowSnacbar(
+            context: context,
+            content: "Tutorial is deleted",
+            title: 'Hi There!',
+            contentType: ContentType.warning);
       } else {
         debugPrint("Oops,something went wrong");
+        buildShowSnacbar(
+            context: context,
+            content: "Oops,something went wrong",
+            title: 'Oh Hey!!',
+            contentType: ContentType.failure);
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -144,7 +155,12 @@ class AdminApi {
 
       if (res.statusCode == 200) {
         debugPrint("complaint deleted");
-        buildShowSnacbar(context, "complaint is deleted", Colors.red);
+
+        buildShowSnacbar(
+            context: context,
+            content: "Complaint is deleted",
+            title: 'Hi There!',
+            contentType: ContentType.warning);
       } else {
         debugPrint("Oops,something went wrong");
       }
@@ -187,12 +203,20 @@ class AdminApi {
 
       if (res.statusCode == 200) {
         debugPrint("Approved as a teacher");
-        buildShowSnacbar(context, "Approved as a teacher", Colors.green);
+        buildShowSnacbar(
+            context: context,
+            content: "Approved as a teacher",
+            title: 'Hi There!',
+            contentType: ContentType.help);
         Navigator.of(context).pop();
       } else {
         debugPrint("Faield to get response");
 
-        buildShowSnacbar(context, "Oop's something went wrong", Colors.red);
+        buildShowSnacbar(
+            context: context,
+            content: "Oop's something went wrong",
+            title: 'Oh Hey!',
+            contentType: ContentType.failure);
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -230,9 +254,9 @@ class AdminApi {
 
     try {
       final res = await http.get(url);
-
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
+        debugPrint('heloo');
 
         for (var value in data) {
           teacher.add(Teacher.fromJson(value));

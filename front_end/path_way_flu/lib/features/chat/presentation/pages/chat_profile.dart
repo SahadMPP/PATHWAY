@@ -3,6 +3,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/chat/presentation/pages/chat_messaging.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
+
+
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
 

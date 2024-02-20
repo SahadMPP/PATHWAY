@@ -1,12 +1,20 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 
-void buildShowSnacbar(BuildContext context, String content, Color color) {
+void buildShowSnacbar({
+  required BuildContext context,
+  required String content,
+  required String title,
+  required ContentType contentType,
+}) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    content: Text(
-      content,
-    ),
     behavior: SnackBarBehavior.floating,
-    backgroundColor: color,
-    margin: const EdgeInsets.all(10),
+    backgroundColor: Theme.of(context).colorScheme.background,
+    margin: const EdgeInsets.all(0),
+    content: AwesomeSnackbarContent(
+      title:title,
+      message: content,
+      contentType: contentType,
+    ),
   ));
 }

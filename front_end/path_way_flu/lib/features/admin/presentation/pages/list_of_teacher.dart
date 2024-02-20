@@ -41,8 +41,10 @@ class ListOfTeacher extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               } else {
                 List<Teacher> teacher = snapshot.data;
-
-                return Padding(
+                if (teacher.isEmpty) {
+                  return const Center(child: Text('List is empty'));
+                } else {
+                   return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListView.builder(
                       itemCount: teacher.length,
@@ -62,14 +64,14 @@ class ListOfTeacher extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    teacher[index].name!,
+                                    teacher[index].name,
                                     style: GoogleFonts.quicksand(
                                       fontSize: 17,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Text(
-                                    teacher[index].email!,
+                                    teacher[index].email,
                                     style: GoogleFonts.quicksand(
                                         color: Colors.grey),
                                   ),
@@ -84,6 +86,8 @@ class ListOfTeacher extends StatelessWidget {
                         );
                       }),
                 );
+                }
+               
               }
             }));
   }

@@ -1,3 +1,4 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
@@ -162,7 +163,11 @@ class ComplantStudent extends StatelessWidget {
                     }
 
                     buildShowSnacbar(
-                        context, 'complaint registed', Colors.grey);
+                        context: context,
+                        content: 'Complaint registed',
+                        title: 'Hi There!',
+                        contentType: ContentType.help);
+
                     Navigator.of(context).pop();
                   },
                   child: const Text(

@@ -62,7 +62,7 @@ class TutorsApplicationDetile extends StatelessWidget {
                 children: [
                   const SizedBox(height: 20),
                   BuildTutorApplicationCard(
-                      content: teacher.name!, title: "Name"),
+                      content: teacher.name, title: "Name"),
                   BuildTutorApplicationCard(
                       content: teacher.mobNumber!, title: "Mobile Number"),
                   BuildTutorApplicationCard(
@@ -167,7 +167,7 @@ class TutorsApplicationDetile extends StatelessWidget {
                         };
                         context.read<AdminBloc>().add(
                             AdminEvent.tutorApplicationSubmition(
-                                id: teacher.id!, context: context, data: data));
+                                id: teacher.id, context: context, data: data));
                       },
                       color: Colors.blue[500]!,
                       text: "Accept"),
@@ -178,7 +178,7 @@ class TutorsApplicationDetile extends StatelessWidget {
                         };
                         context.read<AdminBloc>().add(
                             AdminEvent.tutorApplicationSubmition(
-                                id: teacher.id!, context: context, data: data));
+                                id: teacher.id, context: context, data: data));
                       },
                       color: Colors.red[500]!,
                       text: "Reject"),

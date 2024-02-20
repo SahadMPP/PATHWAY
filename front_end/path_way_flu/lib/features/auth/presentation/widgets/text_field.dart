@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class BuilderTextField extends StatefulWidget {
   final String hintText;
@@ -53,35 +52,22 @@ class _BuilderTextFieldState extends State<BuilderTextField> {
         controller: widget.controller,
         obscureText: isSecurePassword,
         decoration: InputDecoration(
-            labelText: 'Name',
-            labelStyle: const TextStyle(
-                color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w300),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: Theme.of(context).iconTheme.color!, width: 1),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            floatingLabelStyle: const TextStyle(
-              color: Colors.grey,
-              fontWeight: FontWeight.w300,
-              fontSize: 18,
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.green, width: 2),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            prefixIcon: Icon(widget.prifixIcon,
-                color: Theme.of(context).iconTheme.color),
-            suffixIcon: widget.sufixIcon! ? togglePassword() : null,
-            contentPadding: const EdgeInsets.all(20),
-            border: UnderlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide.none),
-            hintText: widget.hintText,
-            hintStyle: GoogleFonts.aBeeZee(
-              fontWeight: FontWeight.w400,
-              fontSize: 17,
-            )),
+          labelText: "Name",
+          labelStyle: const TextStyle(
+              color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w300),
+          prefixIcon: Icon(Icons.email_outlined,
+              color: Theme.of(context).iconTheme.color),
+          enabledBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: Theme.of(context).iconTheme.color!, width: 1),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          floatingLabelStyle: const TextStyle(
+            color: Colors.grey,
+            fontWeight: FontWeight.w300,
+            fontSize: 18,
+          ),
+        ),
       ),
     );
   }
