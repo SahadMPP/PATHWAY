@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names, non_constant_identifier_names, prefer_const_declarations
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -15,8 +17,10 @@ import 'package:path_way_flu/features/teacher/presentation/bloc/teacher_bloc.dar
 import 'package:path_way_flu/firebase_options.dart';
 import 'package:path_way_flu/l10n/l10n.dart';
 
-// ignore: constant_identifier_names
-const SAVE_KEY_NAME = "userLogined";
+
+var SAVE_KEY_LOGGIN = "userLogined";
+var SAVE_KEY_ID = "userid";
+var SAVE_KEY_NAME = "username";
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(

@@ -3,6 +3,7 @@ import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/features/auth/domain/usecases/define_fun.dart';
 import 'package:path_way_flu/features/teacher/presentation/pages/application_form.dart';
+import 'package:path_way_flu/main.dart';
 
 class TeacherProfileScreen extends StatelessWidget {
   const TeacherProfileScreen({super.key});
@@ -65,7 +66,7 @@ class TeacherProfileScreen extends StatelessWidget {
                                 maxWidth: 100,
                               ),
                               child: Text(
-                                'Yennefer Doe',
+                                SAVE_KEY_NAME,
                                 style: kTitleTextStyle.copyWith(
                                     color: Theme.of(context).iconTheme.color),
                               ),

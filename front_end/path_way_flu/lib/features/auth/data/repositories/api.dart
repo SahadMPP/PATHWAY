@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:convert';
+
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -55,7 +57,6 @@ class AuthApi {
             content: "You have successfully created your account",
             title: 'Congratulations!',
             contentType: ContentType.success);
-
         debugPrint("Your account is created succesfully");
       } else if (res.statusCode == 404) {
         debugPrint("teacher already exist");
@@ -84,9 +85,12 @@ class AuthApi {
       final res = await http.post(url, body: sdata);
 
       if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
         debugPrint('login successfully');
         //----------
-        AuthFuntion().studentLogin(context);
+        String id = data['_id'];
+        String name = data['name'];
+        AuthFuntion().studentLogin(context: context, id: id, name: name);
       } else if (res.statusCode == 404) {
         buildShowSnacbar(
             context: context,
@@ -121,10 +125,14 @@ class AuthApi {
       final res = await http.post(url, body: tdata);
 
       if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
+
         debugPrint('login success full');
 
         //---------
-        AuthFuntion().teacherLogin(context);
+        String id = data['_id'];
+        String name = data['name'];
+        AuthFuntion().teacherLogin(context: context, id: id, name: name);
       } else if (res.statusCode == 404) {
         debugPrint("wrong password");
         //--------

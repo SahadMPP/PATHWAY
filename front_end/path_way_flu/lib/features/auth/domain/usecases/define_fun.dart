@@ -9,17 +9,34 @@ import 'package:path_way_flu/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthFuntion {
-  studentLogin(context) async {
+  studentLogin(
+      {required BuildContext context,
+      required String id,
+      required String name}) async {
+    SAVE_KEY_LOGGIN = 'studentLogined';
+    SAVE_KEY_ID = id;
+    SAVE_KEY_NAME = name;
     final sharepre = await SharedPreferences.getInstance();
-    sharepre.setString(SAVE_KEY_NAME, "studentLogined");
+
+    sharepre.setString(SAVE_KEY_LOGGIN, "studentLogined");
+    sharepre.setString(SAVE_KEY_ID, id);
+    sharepre.setString(SAVE_KEY_NAME, name);
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (ctx) => const StudentBotmNavi()),
         (route) => false);
   }
 
-  teacherLogin(context) async {
+  teacherLogin(
+      {required BuildContext context,
+      required String id,
+      required String name}) async {
+    SAVE_KEY_LOGGIN = 'teacherLogined';
+    SAVE_KEY_ID = id;
+    SAVE_KEY_NAME = name;
     final sharepre = await SharedPreferences.getInstance();
-    sharepre.setString(SAVE_KEY_NAME, "teacherLogined");
+    sharepre.setString(SAVE_KEY_LOGGIN, "teacherLogined");
+    sharepre.setString(SAVE_KEY_ID, id);
+    sharepre.setString(SAVE_KEY_NAME, name);
 
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (ctx) => const TeacherBotmNavi()),
@@ -56,5 +73,4 @@ class AuthFuntion {
           MaterialPageRoute(builder: (ctx) => const StudentBotmNavi()));
     }
   }
-
 }

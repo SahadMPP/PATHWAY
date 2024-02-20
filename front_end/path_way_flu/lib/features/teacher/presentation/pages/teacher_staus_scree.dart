@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
+import 'package:path_way_flu/main.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
@@ -18,7 +19,7 @@ class TeacherPrograssScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 30),
-                const Text("Hey Alex,", style: kHeadingextStyle),
+                 Text("Hey $SAVE_KEY_NAME,", style: kHeadingextStyle),
                 const Text("Here is your status.", style: kSubheadingextStyle),
                 const SizedBox(height: 30),
                 Column(
