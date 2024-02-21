@@ -86,8 +86,10 @@ class AuthApi {
 
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
-        debugPrint('login successfully');
-        //----------
+
+        debugPrint('login success full');
+
+        //---------
         String id = data['_id'];
         String name = data['name'];
         AuthFuntion().studentLogin(context: context, id: id, name: name);

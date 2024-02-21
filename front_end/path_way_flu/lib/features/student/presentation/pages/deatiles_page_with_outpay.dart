@@ -1,75 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/features/admin/data/models/tutoral_model.dart';
 import 'package:path_way_flu/features/student/data/repositories/student_api.dart';
+import 'package:path_way_flu/features/student/presentation/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/course_con_without_payment.dart';
-import 'package:razorpay_flutter/razorpay_flutter.dart';
+import 'package:path_way_flu/main.dart';
 
-class StudentDeatileWithoutPay extends StatefulWidget {
+
+class StudentDeatileWithoutPay extends StatelessWidget {
   final String subject;
 
   const StudentDeatileWithoutPay({super.key, required this.subject});
 
   @override
-  State<StudentDeatileWithoutPay> createState() =>
-      _StudentDeatileWithoutPayState();
-}
-
-class _StudentDeatileWithoutPayState extends State<StudentDeatileWithoutPay> {
-  late Razorpay _razorpay;
-  void openCheckOut() async {
-    int amount = 99*100;
-    var options = {
-      'key': 'rzp_test_ZKvZdREQ8HDWXq',
-      'amount': amount,
-      'name': 'Pathwaytest',
-      'description': 'Learning app',
-      'prefill': {'contact': '12345667', 'email': 'teast@razorpay.com'}
-    };
-    try {
-      _razorpay.open(options);
-    } catch (e) {
-      debugPrint("error : $e");
-    }
-  }
-
-  void handlePaymentSuccess(PaymentSuccessResponse response) {
-    Fluttertoast.showToast(
-        msg: "payment sucessful${response.paymentId!}",
-        toastLength: Toast.LENGTH_SHORT);
-  }
-
-  void handlePaymentError(PaymentFailureResponse response) {
-    Fluttertoast.showToast(
-        msg: "payment fail ${response.message!}",
-        toastLength: Toast.LENGTH_SHORT);
-  }
-
-  void handleExternalWallet(ExternalWalletResponse response) {
-    Fluttertoast.showToast(
-        msg: "External wallet ${response.walletName!}",
-        toastLength: Toast.LENGTH_SHORT);
-  }
-
-  @override
-  void dispose() {
-    _razorpay.clear();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    _razorpay = Razorpay();
-    _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, handlePaymentSuccess);
-    _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, handlePaymentError);
-    _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, handleExternalWallet);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    context.read<SubcriptionBloc>().add(const SubcriptionEvent.makeinginstence());
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -158,7 +105,7 @@ class _StudentDeatileWithoutPayState extends State<StudentDeatileWithoutPay> {
                       ),
                       const SizedBox(height: 30),
                       FutureBuilder(
-                          future: StudentApi.getTotorialStudent(widget.subject),
+                          future: StudentApi.getTotorialStudent(subject),
                           builder: (context, AsyncSnapshot snapshot) {
                             if (!snapshot.hasData) {
                               return Center(
@@ -198,10 +145,12 @@ class _StudentDeatileWithoutPayState extends State<StudentDeatileWithoutPay> {
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          openCheckOut();
-                        });
+                      onTap: ()async {
+
+                      // var data = await StudentApi.getSingleStudent(SAVE_KEY_ID);
+                        
+                        // context.read<SubcriptionBloc>().add(SubcriptionEvent.makingsubcription(amount:99*100 , mob: '9876543211', subject:subject, email: 'sahad@gmail.com'));
+                        context.read<SubcriptionBloc>().add(SubcriptionEvent.updataStudentdata(subject: subject.toLowerCase(), id: SAVE_KEY_ID, context: context));
                       },
                       child: Container(
                         padding: const EdgeInsets.all(14),

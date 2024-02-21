@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/subject_list.dart';
 import 'package:path_way_flu/features/student/presentation/pages/subcription%20model/ui/subcription_detailepage.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:path_way_flu/main.dart';
 class SubcriptionScreen extends StatelessWidget {
   const SubcriptionScreen({super.key});
 
@@ -14,7 +15,7 @@ class SubcriptionScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.background,
         centerTitle: true,
         title: Text(
-          'Hi,Anna',
+          'Hi,$SAVE_KEY_NAME',
           style: GoogleFonts.aBeeZee(
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -88,7 +89,7 @@ class SubcriptionScreen extends StatelessWidget {
                   date: "Nov 24,2023",
                   rate: "\$11.50"),
               const SizedBox(height: 30),
-               BuildSubcriptionSubhead(text: "${AppLocalizations.of(context)!.subscriptions}(7)"),
+               BuildSubcriptionSubhead(text: "${AppLocalizations.of(context)!.subscriptions}(${subjectList.length})"),
               const SizedBox(height: 10),
               Container(
                 width: MediaQuery.of(context).size.width,
@@ -149,7 +150,7 @@ class BuildSubcriptionListViewCard extends StatelessWidget {
           ),
           const Spacer(),
           Text(
-            "\$12.70",
+            subjectList[index]['amount']!,
             style: GoogleFonts.aBeeZee(
               fontSize: 30,
             ),

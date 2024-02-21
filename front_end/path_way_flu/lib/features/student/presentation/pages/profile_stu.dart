@@ -4,6 +4,7 @@ import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/features/auth/domain/usecases/define_fun.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/complaint_alertbox.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:path_way_flu/main.dart';
 
 class StudentProfileScreen extends StatelessWidget {
   const StudentProfileScreen({super.key});
@@ -66,7 +67,7 @@ class StudentProfileScreen extends StatelessWidget {
                                 maxWidth: 100,
                               ),
                               child: Text(
-                                'Yennefer Doe',
+                                SAVE_KEY_NAME,
                                 style: kTitleTextStyle.copyWith(
                                     color: Theme.of(context).iconTheme.color),
                               ),

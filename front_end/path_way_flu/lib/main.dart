@@ -13,19 +13,24 @@ import 'package:path_way_flu/features/auth/presentation/pages/direction/bloc/dir
 import 'package:path_way_flu/features/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
 import 'package:path_way_flu/features/auth/presentation/pages/splash_screen_ui.dart';
+import 'package:path_way_flu/features/student/presentation/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/features/teacher/presentation/bloc/teacher_bloc.dart';
 import 'package:path_way_flu/firebase_options.dart';
 import 'package:path_way_flu/l10n/l10n.dart';
 
 
-var SAVE_KEY_LOGGIN = "userLogined";
-var SAVE_KEY_ID = "userid";
-var SAVE_KEY_NAME = "username";
+const SAVE_KEY_LOGGIN = "userLogined";
+const SAVE_KEY_ID = "userId";
+const SAVE_KEY_NAME = "username";
+
+String? userName;
+String? userId;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
+
   runApp(const MyApp());
 }
 
@@ -59,6 +64,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         BlocProvider(create: (context) => SignInBloc()),
         BlocProvider(create: (context) => AdminBloc()),
         BlocProvider(create: (context) => TeacherBloc()),
+        BlocProvider(create: (context) => SubcriptionBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

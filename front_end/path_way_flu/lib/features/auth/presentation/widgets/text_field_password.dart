@@ -48,7 +48,7 @@ class _BuilderTextFieldPassState extends State<BuilderTextFieldPass> {
       child: TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         onChanged: (val) {
-          if (val.length == 8) {
+          if (val.length >= 8) {
             setState(() {
               isPasswordCurrect = true;
             });

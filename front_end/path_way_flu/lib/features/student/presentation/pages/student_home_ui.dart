@@ -7,12 +7,16 @@ import 'package:path_way_flu/features/student/presentation/pages/deatiles_page_w
 import 'package:path_way_flu/features/student/presentation/pages/see_all_category.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/build_see_all_subject.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:path_way_flu/main.dart';
+
 
 class StuHome extends StatelessWidget {
   const StuHome({super.key});
 
   @override
   Widget build(BuildContext context) {
+ 
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Padding(
@@ -33,7 +37,7 @@ class StuHome extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 30),
-             Text("${AppLocalizations.of(context)!.hey} Alex,", style: kHeadingextStyle),
+             Text("${AppLocalizations.of(context)!.hey} $userName,", style: kHeadingextStyle),
              Text(AppLocalizations.of(context)!.findCourse,
                 style: kSubheadingextStyle),
             Container(
