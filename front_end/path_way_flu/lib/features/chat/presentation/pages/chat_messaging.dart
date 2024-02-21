@@ -7,7 +7,8 @@ import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:socket_io_client/socket_io_client.dart';
 
 class MassagingScreen extends StatefulWidget {
-  const MassagingScreen({super.key});
+  final dynamic data;
+  const MassagingScreen({super.key, required this.data});
 
   @override
   State<MassagingScreen> createState() => _MassagingScreenState();
@@ -46,7 +47,7 @@ class _MassagingScreenState extends State<MassagingScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Danny Hopkins',
+                  widget.data.name,
                   style: GoogleFonts.quicksand(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

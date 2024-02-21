@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/admin/data/repositories/admin_api.dart';
 import 'package:path_way_flu/features/chat/presentation/pages/chat_messaging.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:path_way_flu/features/teacher/data/models/teacher_model.dart';
+import 'package:path_way_flu/features/student/data/models/student.dart';
 
-class ChatScreenTeacher extends StatelessWidget {
-  const ChatScreenTeacher({super.key});
+class ChatScreenStudent extends StatelessWidget {
+  const ChatScreenStudent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,21 +60,21 @@ class ChatScreenTeacher extends StatelessWidget {
                   const SizedBox(height: 20),
                   Builder(builder: (context) {
                     return FutureBuilder(
-                        future: AdminApi.getTeacher(),
+                        future: AdminApi.getStudents(),
                         builder: (context, AsyncSnapshot snapshot) {
                           if (!snapshot.hasData) {
                             return const Center(
                                 child: CircularProgressIndicator());
                           } else {
-                            List<Teacher> teacher = snapshot.data;
-                            if (teacher.isEmpty) {
+                            List<Student> student = snapshot.data;
+                            if (student.isEmpty) {
                               return const Center(
                                   child: Text("Condacts is Empty"));
                             } else {
                               return SizedBox(
                                 height: 110,
                                 child: ListView.builder(
-                                    itemCount: teacher.length,
+                                    itemCount: student.length,
                                     scrollDirection: Axis.horizontal,
                                     itemBuilder: (context, index) {
                                       return Padding(
@@ -94,7 +94,7 @@ class ChatScreenTeacher extends StatelessWidget {
                                             ),
                                             const SizedBox(height: 5),
                                             Text(
-                                                teacher[index].name
+                                                student[index].name
                                                     .toString(),
                                                 style: GoogleFonts.roboto(
                                                   fontSize: 20,
@@ -131,25 +131,25 @@ class ChatScreenTeacher extends StatelessWidget {
                   ),
                 ),
                 child: FutureBuilder(
-                    future: AdminApi.getTeacher(),
+                    future: AdminApi.getStudents(),
                     builder: (context, AsyncSnapshot snapshot) {
                       if (!snapshot.hasData) {
                         return const Center(child: CircularProgressIndicator());
                       } else {
-                        List<Teacher> teacher = snapshot.data;
-                        if (teacher.isEmpty) {
+                        List<Student> student = snapshot.data;
+                        if (student.isEmpty) {
                           return const Center(child: Text("Condacts is Empty"));
                         } else {
                           return SizedBox(
                             child: ListView.builder(
-                                itemCount: teacher.length,
+                                itemCount: student.length,
                                 itemBuilder: (context, index) {
                                   return GestureDetector(
                                     onTap: () {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (ctx) =>
-                                                   MassagingScreen(data: teacher[index],)));
+                                                   MassagingScreen(data: student[index],)));
                                     },
                                     child: Padding(
                                       padding: const EdgeInsets.only(
@@ -167,7 +167,7 @@ class ChatScreenTeacher extends StatelessWidget {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                teacher[index].name,
+                                                student[index].name,
                                                 style: GoogleFonts.quicksand(
                                                   // color: Colors.white,
                                                   color: Colors.black,
@@ -176,7 +176,7 @@ class ChatScreenTeacher extends StatelessWidget {
                                                 ),
                                               ),
                                               Text(
-                                                teacher[index].email,
+                                                student[index].email,
                                                 style: GoogleFonts.quicksand(
                                                     // color: Colors.white70,
                                                     fontWeight: FontWeight.w500,

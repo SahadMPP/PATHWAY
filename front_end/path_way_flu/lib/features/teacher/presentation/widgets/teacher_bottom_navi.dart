@@ -15,7 +15,7 @@ class _TeacherBotmNaviState extends State<TeacherBotmNavi> {
   int currentIndex = 0;
   List<Widget> body = [
     const TeachHome(),
-    const ChatScreen(),
+    const ChatScreenTeacher(),
     const TeacherPrograssScreen(),
     const TeacherProfileScreen(),
   ];

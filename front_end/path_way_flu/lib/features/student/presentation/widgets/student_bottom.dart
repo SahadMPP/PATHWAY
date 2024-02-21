@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:path_way_flu/features/chat/presentation/pages/chat_profile.dart';
+import 'package:path_way_flu/features/student/presentation/pages/chat_ui_student.dart';
 import 'package:path_way_flu/features/student/presentation/pages/development_screent.dart';
 import 'package:path_way_flu/features/student/presentation/pages/profile_stu.dart';
 import 'package:path_way_flu/features/student/presentation/pages/student_home_ui.dart';
@@ -17,7 +17,7 @@ class _StudentBotmNaviState extends State<StudentBotmNavi> {
   List<Widget> body = [
     const StuHome(),
     const SubcriptionScreen(),
-    const ChatScreen(),
+    const ChatScreenStudent(),
     const StudentStatus(),
     const StudentProfileScreen(),
   ];
