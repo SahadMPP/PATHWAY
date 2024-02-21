@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
 import 'package:path_way_flu/core/constants/subject_list.dart';
-import 'package:path_way_flu/features/student/presentation/pages/deatiles_page_with_outpay.dart';
 import 'package:path_way_flu/features/student/presentation/pages/see_all_category.dart';
+import 'package:path_way_flu/features/student/presentation/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/features/student/presentation/widgets/build_see_all_subject.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/main.dart';
@@ -95,8 +96,7 @@ class StuHome extends StatelessWidget {
                     subjectList: subjectList,
                     index: index,
                     function: () =>
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) =>  StudentDeatileWithoutPay(subject: subjectList[index]["name"]!,))),
+                        context.read<SubcriptionBloc>().add(SubcriptionEvent.naviagatedToDeatilePage(subject: subjectList[index]["name"]!, id: userId!, context: context)),
                   );
                 },
               ),

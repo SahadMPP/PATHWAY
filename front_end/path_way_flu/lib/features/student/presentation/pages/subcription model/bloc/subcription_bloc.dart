@@ -1,11 +1,18 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:path_way_flu/core/constants/snacbar.dart';
 import 'package:path_way_flu/features/auth/data/repositories/api.dart';
 import 'package:path_way_flu/features/student/data/repositories/student_api.dart';
+import 'package:path_way_flu/features/student/presentation/pages/deatiles_page.dart';
+import 'package:path_way_flu/features/student/presentation/pages/deatiles_page_with_outpay.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:http/http.dart' as http;
 
@@ -72,21 +79,68 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
       }
       //----------getting previous data --------------
 
-      
-      List<String> list =[];
+      List<String> list = [];
+      int c = 0;
       for (var element in state.subject) {
-      list.add(element);
+        list.add(element);
       }
       if (!list.contains(event.subject)) {
-      list.add(event.subject);
-        
+        c = 1;
+        list.add(event.subject);
       }
-      var data = {
-        "subjects": list
-      };
+      var data = {"subjects": list};
 
-      // ignore: use_build_context_synchronously
-      StudentApi.studentSubcriptionAdding(event.id, data, event.context);
+      if (c == 0) {
+        buildShowSnacbar(
+            context: event.context,
+            content: "this subject you alredy purchesed",
+            title: "Hi There!",
+            contentType: ContentType.help);
+      } else {
+        StudentApi.studentSubcriptionAdding(event.id, data, event.context);
+      }
+
+      emit(state.copyWith(subject: []));
+    });
+
+    on<_naviagatedToDeatilePage>((event, emit) async {
+
+      List<String> subjectsList =[];
+      final url = Uri.parse("${AuthApi.baseUrl}get_studentById/${event.id}");
+
+      try {
+        final res = await http.get(url);
+
+        if (res.statusCode == 200) {
+          var data = jsonDecode(res.body);
+         subjectsList = List<String>.from(data['subjects']);
+          emit(state.copyWith(subject: subjectsList));
+        } else {
+          debugPrint('field to get response');
+        }
+      } catch (e) {
+        debugPrint(e.toString());
+      }
+      //----------getting previous data --------------
+
+      bool madePayment = false;
+
+       
+      
+      if (subjectsList.contains(event.subject.toLowerCase())) {
+        madePayment = true;
+      }
+        debugPrint(madePayment.toString());
+     
+      if (madePayment) {
+        Navigator.of(event.context).push(MaterialPageRoute(
+            builder: (ctx) => StudentvideoPlay(subject: event.subject)));
+      } else {
+        Navigator.of(event.context).push(MaterialPageRoute(
+            builder: (ctx) =>
+                StudentDeatileWithoutPay(subject: event.subject)));
+      }
+      emit(state.copyWith(subject: []));
     });
   }
 }

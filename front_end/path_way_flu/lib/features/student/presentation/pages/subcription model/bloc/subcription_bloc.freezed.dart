@@ -24,6 +24,8 @@ mixin _$SubcriptionEvent {
     required TResult Function() makeinginstence,
     required TResult Function(String subject, String id, BuildContext context)
         updataStudentdata,
+    required TResult Function(String subject, String id, BuildContext context)
+        naviagatedToDeatilePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,6 +35,8 @@ mixin _$SubcriptionEvent {
     TResult? Function()? makeinginstence,
     TResult? Function(String subject, String id, BuildContext context)?
         updataStudentdata,
+    TResult? Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +46,8 @@ mixin _$SubcriptionEvent {
     TResult Function()? makeinginstence,
     TResult Function(String subject, String id, BuildContext context)?
         updataStudentdata,
+    TResult Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +56,8 @@ mixin _$SubcriptionEvent {
     required TResult Function(_makingsubcription value) makingsubcription,
     required TResult Function(_makeinginstence value) makeinginstence,
     required TResult Function(_updataStudentdata value) updataStudentdata,
+    required TResult Function(_naviagatedToDeatilePage value)
+        naviagatedToDeatilePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +65,7 @@ mixin _$SubcriptionEvent {
     TResult? Function(_makingsubcription value)? makingsubcription,
     TResult? Function(_makeinginstence value)? makeinginstence,
     TResult? Function(_updataStudentdata value)? updataStudentdata,
+    TResult? Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +73,7 @@ mixin _$SubcriptionEvent {
     TResult Function(_makingsubcription value)? makingsubcription,
     TResult Function(_makeinginstence value)? makeinginstence,
     TResult Function(_updataStudentdata value)? updataStudentdata,
+    TResult Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -186,6 +196,8 @@ class _$makingsubcriptionImpl implements _makingsubcription {
     required TResult Function() makeinginstence,
     required TResult Function(String subject, String id, BuildContext context)
         updataStudentdata,
+    required TResult Function(String subject, String id, BuildContext context)
+        naviagatedToDeatilePage,
   }) {
     return makingsubcription(amount, mob, subject, email);
   }
@@ -198,6 +210,8 @@ class _$makingsubcriptionImpl implements _makingsubcription {
     TResult? Function()? makeinginstence,
     TResult? Function(String subject, String id, BuildContext context)?
         updataStudentdata,
+    TResult? Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
   }) {
     return makingsubcription?.call(amount, mob, subject, email);
   }
@@ -210,6 +224,8 @@ class _$makingsubcriptionImpl implements _makingsubcription {
     TResult Function()? makeinginstence,
     TResult Function(String subject, String id, BuildContext context)?
         updataStudentdata,
+    TResult Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
     required TResult orElse(),
   }) {
     if (makingsubcription != null) {
@@ -224,6 +240,8 @@ class _$makingsubcriptionImpl implements _makingsubcription {
     required TResult Function(_makingsubcription value) makingsubcription,
     required TResult Function(_makeinginstence value) makeinginstence,
     required TResult Function(_updataStudentdata value) updataStudentdata,
+    required TResult Function(_naviagatedToDeatilePage value)
+        naviagatedToDeatilePage,
   }) {
     return makingsubcription(this);
   }
@@ -234,6 +252,7 @@ class _$makingsubcriptionImpl implements _makingsubcription {
     TResult? Function(_makingsubcription value)? makingsubcription,
     TResult? Function(_makeinginstence value)? makeinginstence,
     TResult? Function(_updataStudentdata value)? updataStudentdata,
+    TResult? Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
   }) {
     return makingsubcription?.call(this);
   }
@@ -244,6 +263,7 @@ class _$makingsubcriptionImpl implements _makingsubcription {
     TResult Function(_makingsubcription value)? makingsubcription,
     TResult Function(_makeinginstence value)? makeinginstence,
     TResult Function(_updataStudentdata value)? updataStudentdata,
+    TResult Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
     required TResult orElse(),
   }) {
     if (makingsubcription != null) {
@@ -313,6 +333,8 @@ class _$makeinginstenceImpl implements _makeinginstence {
     required TResult Function() makeinginstence,
     required TResult Function(String subject, String id, BuildContext context)
         updataStudentdata,
+    required TResult Function(String subject, String id, BuildContext context)
+        naviagatedToDeatilePage,
   }) {
     return makeinginstence();
   }
@@ -325,6 +347,8 @@ class _$makeinginstenceImpl implements _makeinginstence {
     TResult? Function()? makeinginstence,
     TResult? Function(String subject, String id, BuildContext context)?
         updataStudentdata,
+    TResult? Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
   }) {
     return makeinginstence?.call();
   }
@@ -337,6 +361,8 @@ class _$makeinginstenceImpl implements _makeinginstence {
     TResult Function()? makeinginstence,
     TResult Function(String subject, String id, BuildContext context)?
         updataStudentdata,
+    TResult Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
     required TResult orElse(),
   }) {
     if (makeinginstence != null) {
@@ -351,6 +377,8 @@ class _$makeinginstenceImpl implements _makeinginstence {
     required TResult Function(_makingsubcription value) makingsubcription,
     required TResult Function(_makeinginstence value) makeinginstence,
     required TResult Function(_updataStudentdata value) updataStudentdata,
+    required TResult Function(_naviagatedToDeatilePage value)
+        naviagatedToDeatilePage,
   }) {
     return makeinginstence(this);
   }
@@ -361,6 +389,7 @@ class _$makeinginstenceImpl implements _makeinginstence {
     TResult? Function(_makingsubcription value)? makingsubcription,
     TResult? Function(_makeinginstence value)? makeinginstence,
     TResult? Function(_updataStudentdata value)? updataStudentdata,
+    TResult? Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
   }) {
     return makeinginstence?.call(this);
   }
@@ -371,6 +400,7 @@ class _$makeinginstenceImpl implements _makeinginstence {
     TResult Function(_makingsubcription value)? makingsubcription,
     TResult Function(_makeinginstence value)? makeinginstence,
     TResult Function(_updataStudentdata value)? updataStudentdata,
+    TResult Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
     required TResult orElse(),
   }) {
     if (makeinginstence != null) {
@@ -472,6 +502,8 @@ class _$updataStudentdataImpl implements _updataStudentdata {
     required TResult Function() makeinginstence,
     required TResult Function(String subject, String id, BuildContext context)
         updataStudentdata,
+    required TResult Function(String subject, String id, BuildContext context)
+        naviagatedToDeatilePage,
   }) {
     return updataStudentdata(subject, id, context);
   }
@@ -484,6 +516,8 @@ class _$updataStudentdataImpl implements _updataStudentdata {
     TResult? Function()? makeinginstence,
     TResult? Function(String subject, String id, BuildContext context)?
         updataStudentdata,
+    TResult? Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
   }) {
     return updataStudentdata?.call(subject, id, context);
   }
@@ -496,6 +530,8 @@ class _$updataStudentdataImpl implements _updataStudentdata {
     TResult Function()? makeinginstence,
     TResult Function(String subject, String id, BuildContext context)?
         updataStudentdata,
+    TResult Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
     required TResult orElse(),
   }) {
     if (updataStudentdata != null) {
@@ -510,6 +546,8 @@ class _$updataStudentdataImpl implements _updataStudentdata {
     required TResult Function(_makingsubcription value) makingsubcription,
     required TResult Function(_makeinginstence value) makeinginstence,
     required TResult Function(_updataStudentdata value) updataStudentdata,
+    required TResult Function(_naviagatedToDeatilePage value)
+        naviagatedToDeatilePage,
   }) {
     return updataStudentdata(this);
   }
@@ -520,6 +558,7 @@ class _$updataStudentdataImpl implements _updataStudentdata {
     TResult? Function(_makingsubcription value)? makingsubcription,
     TResult? Function(_makeinginstence value)? makeinginstence,
     TResult? Function(_updataStudentdata value)? updataStudentdata,
+    TResult? Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
   }) {
     return updataStudentdata?.call(this);
   }
@@ -530,6 +569,7 @@ class _$updataStudentdataImpl implements _updataStudentdata {
     TResult Function(_makingsubcription value)? makingsubcription,
     TResult Function(_makeinginstence value)? makeinginstence,
     TResult Function(_updataStudentdata value)? updataStudentdata,
+    TResult Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
     required TResult orElse(),
   }) {
     if (updataStudentdata != null) {
@@ -551,6 +591,187 @@ abstract class _updataStudentdata implements SubcriptionEvent {
   @JsonKey(ignore: true)
   _$$updataStudentdataImplCopyWith<_$updataStudentdataImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$naviagatedToDeatilePageImplCopyWith<$Res> {
+  factory _$$naviagatedToDeatilePageImplCopyWith(
+          _$naviagatedToDeatilePageImpl value,
+          $Res Function(_$naviagatedToDeatilePageImpl) then) =
+      __$$naviagatedToDeatilePageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String subject, String id, BuildContext context});
+}
+
+/// @nodoc
+class __$$naviagatedToDeatilePageImplCopyWithImpl<$Res>
+    extends _$SubcriptionEventCopyWithImpl<$Res, _$naviagatedToDeatilePageImpl>
+    implements _$$naviagatedToDeatilePageImplCopyWith<$Res> {
+  __$$naviagatedToDeatilePageImplCopyWithImpl(
+      _$naviagatedToDeatilePageImpl _value,
+      $Res Function(_$naviagatedToDeatilePageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? subject = null,
+    Object? id = null,
+    Object? context = null,
+  }) {
+    return _then(_$naviagatedToDeatilePageImpl(
+      subject: null == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$naviagatedToDeatilePageImpl implements _naviagatedToDeatilePage {
+  const _$naviagatedToDeatilePageImpl(
+      {required this.subject, required this.id, required this.context});
+
+  @override
+  final String subject;
+  @override
+  final String id;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'SubcriptionEvent.naviagatedToDeatilePage(subject: $subject, id: $id, context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$naviagatedToDeatilePageImpl &&
+            (identical(other.subject, subject) || other.subject == subject) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, subject, id, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$naviagatedToDeatilePageImplCopyWith<_$naviagatedToDeatilePageImpl>
+      get copyWith => __$$naviagatedToDeatilePageImplCopyWithImpl<
+          _$naviagatedToDeatilePageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            int amount, String mob, String subject, String email)
+        makingsubcription,
+    required TResult Function() makeinginstence,
+    required TResult Function(String subject, String id, BuildContext context)
+        updataStudentdata,
+    required TResult Function(String subject, String id, BuildContext context)
+        naviagatedToDeatilePage,
+  }) {
+    return naviagatedToDeatilePage(subject, id, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int amount, String mob, String subject, String email)?
+        makingsubcription,
+    TResult? Function()? makeinginstence,
+    TResult? Function(String subject, String id, BuildContext context)?
+        updataStudentdata,
+    TResult? Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
+  }) {
+    return naviagatedToDeatilePage?.call(subject, id, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int amount, String mob, String subject, String email)?
+        makingsubcription,
+    TResult Function()? makeinginstence,
+    TResult Function(String subject, String id, BuildContext context)?
+        updataStudentdata,
+    TResult Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
+    required TResult orElse(),
+  }) {
+    if (naviagatedToDeatilePage != null) {
+      return naviagatedToDeatilePage(subject, id, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_makingsubcription value) makingsubcription,
+    required TResult Function(_makeinginstence value) makeinginstence,
+    required TResult Function(_updataStudentdata value) updataStudentdata,
+    required TResult Function(_naviagatedToDeatilePage value)
+        naviagatedToDeatilePage,
+  }) {
+    return naviagatedToDeatilePage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_makingsubcription value)? makingsubcription,
+    TResult? Function(_makeinginstence value)? makeinginstence,
+    TResult? Function(_updataStudentdata value)? updataStudentdata,
+    TResult? Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+  }) {
+    return naviagatedToDeatilePage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_makingsubcription value)? makingsubcription,
+    TResult Function(_makeinginstence value)? makeinginstence,
+    TResult Function(_updataStudentdata value)? updataStudentdata,
+    TResult Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    required TResult orElse(),
+  }) {
+    if (naviagatedToDeatilePage != null) {
+      return naviagatedToDeatilePage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _naviagatedToDeatilePage implements SubcriptionEvent {
+  const factory _naviagatedToDeatilePage(
+      {required final String subject,
+      required final String id,
+      required final BuildContext context}) = _$naviagatedToDeatilePageImpl;
+
+  String get subject;
+  String get id;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$naviagatedToDeatilePageImplCopyWith<_$naviagatedToDeatilePageImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
