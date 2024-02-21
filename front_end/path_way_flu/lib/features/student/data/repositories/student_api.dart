@@ -63,30 +63,14 @@ class StudentApi {
     }
   }
 
-  // static getSingleStudent(id) async {
 
-  //   final url = Uri.parse("${baseUrl}get_studentById/$id");
-  //   try {
-  //     final res = await http.get(url);
-  //     if (res.statusCode == 200) {
-  //       print('heyyyy3');
-  //       var data = jsonDecode(res.body);
-  //       debugPrint("data form server $data");
-  //       return data;
-  //     }else if(res.statusCode == 404){
-  //       res.printError();
-  //     }
-  //   } catch (e) {
-  //     debugPrint(e.toString());
-  //   }
-  // }
 
   static studentSubcriptionAdding(id, Map data, BuildContext context)async{
       
       final url = Uri.parse("${baseUrl}update_student/$id");
 
       try {
-        final res = await http.put(url, body: jsonEncode(data),headers: {'Content-Type': 'application/json'});
+        final res = await http.patch(url, body: jsonEncode(data),headers: {'Content-Type': 'application/json'});
 
         if (res.statusCode == 200) {
         debugPrint("subject purcher successfull");

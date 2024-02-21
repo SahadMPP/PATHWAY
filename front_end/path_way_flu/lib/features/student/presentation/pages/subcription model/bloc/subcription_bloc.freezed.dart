@@ -556,6 +556,7 @@ abstract class _updataStudentdata implements SubcriptionEvent {
 /// @nodoc
 mixin _$SubcriptionState {
   Razorpay get razorpay => throw _privateConstructorUsedError;
+  List<String> get subject => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SubcriptionStateCopyWith<SubcriptionState> get copyWith =>
@@ -568,7 +569,7 @@ abstract class $SubcriptionStateCopyWith<$Res> {
           SubcriptionState value, $Res Function(SubcriptionState) then) =
       _$SubcriptionStateCopyWithImpl<$Res, SubcriptionState>;
   @useResult
-  $Res call({Razorpay razorpay});
+  $Res call({Razorpay razorpay, List<String> subject});
 }
 
 /// @nodoc
@@ -585,12 +586,17 @@ class _$SubcriptionStateCopyWithImpl<$Res, $Val extends SubcriptionState>
   @override
   $Res call({
     Object? razorpay = null,
+    Object? subject = null,
   }) {
     return _then(_value.copyWith(
       razorpay: null == razorpay
           ? _value.razorpay
           : razorpay // ignore: cast_nullable_to_non_nullable
               as Razorpay,
+      subject: null == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -603,7 +609,7 @@ abstract class _$$SubcriptionStateImplCopyWith<$Res>
       __$$SubcriptionStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Razorpay razorpay});
+  $Res call({Razorpay razorpay, List<String> subject});
 }
 
 /// @nodoc
@@ -618,12 +624,17 @@ class __$$SubcriptionStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? razorpay = null,
+    Object? subject = null,
   }) {
     return _then(_$SubcriptionStateImpl(
       razorpay: null == razorpay
           ? _value.razorpay
           : razorpay // ignore: cast_nullable_to_non_nullable
               as Razorpay,
+      subject: null == subject
+          ? _value._subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -631,14 +642,23 @@ class __$$SubcriptionStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SubcriptionStateImpl implements _SubcriptionState {
-  const _$SubcriptionStateImpl({required this.razorpay});
+  const _$SubcriptionStateImpl(
+      {required this.razorpay, required final List<String> subject})
+      : _subject = subject;
 
   @override
   final Razorpay razorpay;
+  final List<String> _subject;
+  @override
+  List<String> get subject {
+    if (_subject is EqualUnmodifiableListView) return _subject;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_subject);
+  }
 
   @override
   String toString() {
-    return 'SubcriptionState(razorpay: $razorpay)';
+    return 'SubcriptionState(razorpay: $razorpay, subject: $subject)';
   }
 
   @override
@@ -647,11 +667,13 @@ class _$SubcriptionStateImpl implements _SubcriptionState {
         (other.runtimeType == runtimeType &&
             other is _$SubcriptionStateImpl &&
             (identical(other.razorpay, razorpay) ||
-                other.razorpay == razorpay));
+                other.razorpay == razorpay) &&
+            const DeepCollectionEquality().equals(other._subject, _subject));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, razorpay);
+  int get hashCode => Object.hash(
+      runtimeType, razorpay, const DeepCollectionEquality().hash(_subject));
 
   @JsonKey(ignore: true)
   @override
@@ -662,11 +684,14 @@ class _$SubcriptionStateImpl implements _SubcriptionState {
 }
 
 abstract class _SubcriptionState implements SubcriptionState {
-  const factory _SubcriptionState({required final Razorpay razorpay}) =
-      _$SubcriptionStateImpl;
+  const factory _SubcriptionState(
+      {required final Razorpay razorpay,
+      required final List<String> subject}) = _$SubcriptionStateImpl;
 
   @override
   Razorpay get razorpay;
+  @override
+  List<String> get subject;
   @override
   @JsonKey(ignore: true)
   _$$SubcriptionStateImplCopyWith<_$SubcriptionStateImpl> get copyWith =>

@@ -150,7 +150,7 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                       // var data = await StudentApi.getSingleStudent(SAVE_KEY_ID);
                         
                         // context.read<SubcriptionBloc>().add(SubcriptionEvent.makingsubcription(amount:99*100 , mob: '9876543211', subject:subject, email: 'sahad@gmail.com'));
-                        context.read<SubcriptionBloc>().add(SubcriptionEvent.updataStudentdata(subject: subject.toLowerCase(), id: SAVE_KEY_ID, context: context));
+                        context.read<SubcriptionBloc>().add(SubcriptionEvent.updataStudentdata(subject: subject.toLowerCase(), id: userId!, context: context));
                       },
                       child: Container(
                         padding: const EdgeInsets.all(14),

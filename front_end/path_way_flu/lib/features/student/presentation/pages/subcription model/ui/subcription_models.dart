@@ -15,7 +15,7 @@ class SubcriptionScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.background,
         centerTitle: true,
         title: Text(
-          'Hi,$SAVE_KEY_NAME',
+          'Hi,$userName',
           style: GoogleFonts.aBeeZee(
             fontSize: 18,
             fontWeight: FontWeight.bold,

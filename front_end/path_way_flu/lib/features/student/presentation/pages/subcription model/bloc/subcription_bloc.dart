@@ -1,9 +1,13 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:path_way_flu/features/auth/data/repositories/api.dart';
 import 'package:path_way_flu/features/student/data/repositories/student_api.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
+import 'package:http/http.dart' as http;
 
 part 'subcription_event.dart';
 part 'subcription_state.dart';
@@ -50,10 +54,38 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
       state.razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, handleExternalWallet);
     });
 
-    on<_updataStudentdata>((event, emit) {
+    on<_updataStudentdata>((event, emit) async {
+      final url = Uri.parse("${AuthApi.baseUrl}get_studentById/${event.id}");
+
+      try {
+        final res = await http.get(url);
+
+        if (res.statusCode == 200) {
+          var data = jsonDecode(res.body);
+          List<String> subjectsList = List<String>.from(data['subjects']);
+          emit(state.copyWith(subject: subjectsList));
+        } else {
+          debugPrint('field to get response');
+        }
+      } catch (e) {
+        debugPrint(e.toString());
+      }
+      //----------getting previous data --------------
+
+      
+      List<String> list =[];
+      for (var element in state.subject) {
+      list.add(element);
+      }
+      if (!list.contains(event.subject)) {
+      list.add(event.subject);
+        
+      }
       var data = {
-        "subjects": {"art": false}
+        "subjects": list
       };
+
+      // ignore: use_build_context_synchronously
       StudentApi.studentSubcriptionAdding(event.id, data, event.context);
     });
   }
