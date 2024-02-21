@@ -1,42 +1,43 @@
+
 class Student {
-  final String? id;
-  final String? name;
-  final String? age;
-  final String? email;
-  final String? password;
-  final Map<String, bool>? subjects;
-  final bool? active;
-  final String? level;
-  final String? profileImage;
+  final String id;
+  final String name;
+  final String age;
+  final String email;
+  final String password;
   final String? mobNumber;
+  final List<String>? subjects;
+  final bool active;
+  final String level;
+  final String? profileImage;
 
   Student({
-    this.id,
+    required this.id,
+    required this.name,
+    required this.age,
+    required this.email,
+    required this.password,
     this.mobNumber,
-    this.profileImage,
-    this.name,
-    this.age,
-    this.email,
-    this.password,
     this.subjects,
-    this.active,
-    this.level,
+    required this.active,
+    required this.level,
+    this.profileImage,
   });
 
   factory Student.fromJson(Map<String, dynamic> json) {
     return Student(
-      id: json['_id'],
-      profileImage: json['profileImage'],
+      id: json['_id'] ?? '',
+      name: json['name'] ?? '',
+      age: json['age'] ?? '',
+      email: json['email'] ?? '',
+      password: json['password'] ?? '',
       mobNumber: json['mobNumber'],
-      name: json['name'],
-      age: json['age'],
-      email: json['email'],
-      password: json['password'],
       subjects: json['subjects'] != null
-          ? Map<String, bool>.from(json['subjects'])
+          ? List<String>.from(json['subjects'])
           : null,
-      active: json['active'],
-      level: json['level'],
+      active: json['active'] ?? false,
+      level: json['level'] ?? '',
+      profileImage: json['profileImage'] ?? '',
     );
   }
 }

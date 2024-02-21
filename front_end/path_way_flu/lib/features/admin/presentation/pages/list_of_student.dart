@@ -65,14 +65,14 @@ class ListOfStudent extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      student[index].name!,
+                                      student[index].name,
                                       style: GoogleFonts.quicksand(
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Text(
-                                      student[index].email!,
+                                      student[index].email,
                                       style: GoogleFonts.quicksand(
                                           color: Colors.grey),
                                     ),

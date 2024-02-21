@@ -11,6 +11,7 @@ import 'package:path_way_flu/core/constants/snacbar.dart';
 import 'package:path_way_flu/features/teacher/presentation/bloc/teacher_bloc.dart';
 import 'package:path_way_flu/features/teacher/presentation/widgets/certificate_image_collector.dart';
 import 'package:path_way_flu/features/teacher/presentation/widgets/exp_drop_down.dart';
+import 'package:path_way_flu/main.dart';
 import 'package:signature/signature.dart';
 import 'package:path_way_flu/features/admin/presentation/widgets/sub_drop_down_addtutorial.dart';
 import 'package:path_way_flu/features/admin/presentation/widgets/textfield.dart';
@@ -200,7 +201,7 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                           return BuildButton(
                               text: "Apply",
                               fun: () {
-                                String id = "65c8dcb01ee24d7c0bffc880";
+                                String id = userId!;
                                 if (state.cetificateImageOne == null ||
                                     state.cetificateImageTwo == null) {
                                   buildShowSnacbar(
@@ -228,9 +229,9 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                                       "experience": state.expDropDown,
                                       "officerName": officerController.text,
                                       "signatureImage": state.signatureImage!,
-                                      "certificateOne":
+                                      "certificatesOne":
                                           state.cetificateImageOne,
-                                      "certificateTwo":
+                                      "certificatesTwo":
                                           state.cetificateImageTwo,
                                     };
 

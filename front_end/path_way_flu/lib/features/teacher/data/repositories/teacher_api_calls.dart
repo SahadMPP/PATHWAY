@@ -1,4 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
+import 'dart:convert';
+
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/core/constants/snacbar.dart';
@@ -11,7 +13,7 @@ class TeacherApi {
     final url = Uri.parse("${baseUrl}update_teacher/$id");
 
     try {
-      final res = await http.put(url, body: data);
+      final res = await http.put(url, body: jsonEncode(data),headers: {'Content-Type': 'application/json'});
 
       if (res.statusCode == 200) {
         // var data = jsonDecode(res.body);

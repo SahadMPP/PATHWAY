@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/constants.dart';
+import 'package:path_way_flu/features/admin/data/repositories/admin_api.dart';
 import 'package:path_way_flu/features/admin/presentation/bloc/admin_bloc.dart';
+import 'package:path_way_flu/features/admin/presentation/widgets/admin_bottom_navi.dart';
 import 'package:path_way_flu/features/teacher/data/models/teacher_model.dart';
 
 class TutorsApplicationDetile extends StatelessWidget {
@@ -35,7 +37,7 @@ class TutorsApplicationDetile extends StatelessWidget {
             ),
             child: IconButton(
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=> const AdminBotmNavi()));
                 },
                 icon: const Icon(
                   Icons.arrow_back,
@@ -66,7 +68,7 @@ class TutorsApplicationDetile extends StatelessWidget {
                   BuildTutorApplicationCard(
                       content: teacher.mobNumber!, title: "Mobile Number"),
                   BuildTutorApplicationCard(
-                      content: teacher.appliedSubject!, title: "Subject"),
+                      content: teacher.appledSubject!, title: "Subject"),
                   BuildTutorApplicationCard(
                       content: teacher.experience!, title: "Experience"),
                   BuildTutorApplicationCard(
@@ -91,7 +93,7 @@ class TutorsApplicationDetile extends StatelessWidget {
                         height: 110,
                         width: 130,
                         color: Colors.grey,
-                        child: teacher.certificates == null
+                        child: teacher.certificatesOne == null
                             ? const Image(
                                 image:
                                     AssetImage("asset/images(adding icon).png"),
@@ -100,14 +102,14 @@ class TutorsApplicationDetile extends StatelessWidget {
                             : Image(
                                 fit: BoxFit.cover,
                                 image:
-                                    FileImage(File(teacher.certificates as String))),
+                                    FileImage(File(teacher.certificatesOne as String))),
                       ),
                       const SizedBox(width: 30),
                       Container(
                         height: 110,
                         width: 130,
                         color: Colors.grey,
-                        child: teacher.certificates == null
+                        child: teacher.certificatesTwo == null
                             ? const Image(
                                 image:
                                     AssetImage("asset/images(adding icon).png"),
@@ -116,7 +118,7 @@ class TutorsApplicationDetile extends StatelessWidget {
                             : Image(
                                 fit: BoxFit.cover,
                                 image:
-                                    FileImage(File(teacher.certificates as String))),
+                                    FileImage(File(teacher.certificatesTwo as String))),
                       ),
                     ],
                   ),
@@ -161,9 +163,12 @@ class TutorsApplicationDetile extends StatelessWidget {
                 children: [
                   BuildSmallButtonAdmin(
                       function: () {
+                        String subject = teacher.appledSubject!;
+                       
                         var data = {
-                          "appledSubject": "",
-                          "appledStatus": false.toString(),
+                          "appledSubject": " ",
+                          "appledStatus": " ",
+                          "subjects": subject
                         };
                         context.read<AdminBloc>().add(
                             AdminEvent.tutorApplicationSubmition(
@@ -174,11 +179,9 @@ class TutorsApplicationDetile extends StatelessWidget {
                   BuildSmallButtonAdmin(
                       function: () {
                         var data = {
-                          "appledStatus": false.toString(),
+                          "appledStatus": "false",
                         };
-                        context.read<AdminBloc>().add(
-                            AdminEvent.tutorApplicationSubmition(
-                                id: teacher.id, context: context, data: data));
+                        AdminApi.subjectApprovingCanselling(teacher.id, data, context);
                       },
                       color: Colors.red[500]!,
                       text: "Reject"),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/core/constants/subject_list.dart';
+import 'package:path_way_flu/features/student/presentation/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/features/student/presentation/pages/subcription%20model/ui/subcription_detailepage.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/main.dart';
@@ -38,7 +40,7 @@ class SubcriptionScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "\$146",
+                      "₹699",
                       style: GoogleFonts.aBeeZee(
                         fontSize: 80,
                         fontWeight: FontWeight.w400,
@@ -79,15 +81,15 @@ class SubcriptionScreen extends StatelessWidget {
               const SizedBox(height: 10),
               const BuildMainCardSubcirption(
                   image: "asset/subjucts_icon/mahts.png",
-                  subjuct: "Mathmatics",
+                  subjuct: "Arithmetic",
                   date: "Nov 24,2023",
-                  rate: "\$11.50"),
+                  rate: "₹159"),
               const SizedBox(height: 7),
               const BuildMainCardSubcirption(
                   image: "asset/subjucts_icon/history.jpg",
-                  subjuct: "History",
+                  subjuct: "Civics",
                   date: "Nov 24,2023",
-                  rate: "\$11.50"),
+                  rate: "₹159"),
               const SizedBox(height: 30),
                BuildSubcriptionSubhead(text: "${AppLocalizations.of(context)!.subscriptions}(${subjectList.length})"),
               const SizedBox(height: 10),
@@ -124,38 +126,41 @@ class BuildSubcriptionListViewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 15, right: 20, left: 20),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CircleAvatar(
-            radius: 25,
-            backgroundImage: AssetImage(subjectList[index]['image']!),
-          ),
-          const SizedBox(width: 15),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                subjectList[index]['name']!,
-                style: GoogleFonts.quicksand(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const Text("Nov 24,2023"),
-            ],
-          ),
-          const Spacer(),
-          Text(
-            subjectList[index]['amount']!,
-            style: GoogleFonts.aBeeZee(
-              fontSize: 30,
+    return GestureDetector(
+      onTap: () => context.read<SubcriptionBloc>().add(SubcriptionEvent.naviagatedToDeatilePage(subject: subjectList[index]['name']!, id: userId!, context: context)),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 15, right: 20, left: 20),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CircleAvatar(
+              radius: 25,
+              backgroundImage: AssetImage(subjectList[index]['image']!),
             ),
-          )
-        ],
+            const SizedBox(width: 15),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  subjectList[index]['name']!,
+                  style: GoogleFonts.quicksand(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Text("Nov 24,2023"),
+              ],
+            ),
+            const Spacer(),
+            Text(
+              subjectList[index]['amount']!,
+              style: GoogleFonts.aBeeZee(
+                fontSize: 30,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/features/admin/data/repositories/admin_api.dart';
@@ -29,7 +27,6 @@ class TeacherRequestList extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               } else {
                 List<Teacher> teacher = snapshot.data;
-
                 if (teacher.isEmpty) {
                   return Center(
                     child: Container(
@@ -50,37 +47,33 @@ class TeacherRequestList extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () =>
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (ctx) => TutorsApplicationDetile(
-                                          teacher: teacher[index],
-                                        ))),
+                                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=> TutorsApplicationDetile(teacher:teacher[index] ))),
                             child: Padding(
                               padding: const EdgeInsets.only(
                                   left: 10, right: 10, top: 20),
                               child: Row(
                                 children: [
-                                  teacher[index].profileImage == null
-                                      ? ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(40),
-                                          child: const CircleAvatar(
-                                            radius: 30,
-                                            child: Image(
-                                              image: AssetImage(
-                                                  "asset/profiles/emptyProfile.jpg"),
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        )
-                                      : CircleAvatar(
-                                          radius: 30,
-                                          child: Image(
-                                              image: FileImage(File(
-                                                  teacher[index]
-                                                      .profileImage!)),
-                                              filterQuality: FilterQuality.high,
-                                              fit: BoxFit.cover),
-                                        ),
+                                  // teacher[index].profileImage == null
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(40),
+                                    child: const CircleAvatar(
+                                      radius: 30,
+                                      child: Image(
+                                        image: AssetImage(
+                                            "asset/profiles/chat111.png"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  // : CircleAvatar(
+                                  //     radius: 30,
+                                  //     child: Image(
+                                  //         image: FileImage(File(
+                                  //             teacher[index]
+                                  //                 .profileImage!)),
+                                  //         filterQuality: FilterQuality.high,
+                                  //         fit: BoxFit.cover),
+                                  //   ),
                                   const SizedBox(width: 10),
                                   Column(
                                     crossAxisAlignment:

@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:path_way_flu/core/constants/snacbar.dart';
 import 'package:path_way_flu/features/admin/data/models/complaint_model.dart';
 import 'package:path_way_flu/features/admin/data/models/tutoral_model.dart';
+import 'package:path_way_flu/features/admin/presentation/widgets/admin_bottom_navi.dart';
 import 'package:path_way_flu/features/auth/data/repositories/api.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_way_flu/features/student/data/models/student.dart';
@@ -182,7 +183,7 @@ class AdminApi {
         var data = jsonDecode(res.body);
 
         for (var value in data) {
-          if (value['appledStatus'] == true) {
+          if (value['appledStatus'] == "true") {
             teacher.add(Teacher.fromJson(value));
           }
         }
@@ -203,11 +204,40 @@ class AdminApi {
 
       if (res.statusCode == 200) {
         debugPrint("Approved as a teacher");
-        buildShowSnacbar(
+       
+        Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>const AdminBotmNavi()));
+         buildShowSnacbar(
             context: context,
             content: "Approved as a teacher",
             title: 'Hi There!',
             contentType: ContentType.help);
+      } else {
+        debugPrint("Faield to get response");
+
+        buildShowSnacbar(
+            context: context,
+            content: "Oop's something went wrong",
+            title: 'Oh Hey!',
+            contentType: ContentType.failure);
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  static subjectApprovingCanselling(id, Map data, BuildContext context) async {
+    final url = Uri.parse("${baseUrl}update_teacher/$id");
+
+    try {
+      final res = await http.put(url, body: data);
+
+      if (res.statusCode == 200) {
+        debugPrint("Approved as a teacher");
+        buildShowSnacbar(
+            context: context,
+            content: "Rejeced teacher application",
+            title: 'Oh bro!',
+            contentType: ContentType.warning);
         Navigator.of(context).pop();
       } else {
         debugPrint("Faield to get response");
@@ -256,8 +286,6 @@ class AdminApi {
       final res = await http.get(url);
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
-        debugPrint('heloo');
-
         for (var value in data) {
           teacher.add(Teacher.fromJson(value));
         }

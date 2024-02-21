@@ -38,7 +38,7 @@ class TeachHome extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 30),
-                     Text("Hey $SAVE_KEY_NAME,", style: kHeadingextStyle),
+                     Text("Hey $userName,", style: kHeadingextStyle),
                     const Text("Find a course you want to learn",
                         style: kSubheadingextStyle),
                     Container(

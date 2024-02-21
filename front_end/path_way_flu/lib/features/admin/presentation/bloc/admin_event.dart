@@ -56,4 +56,8 @@ class AdminEvent with _$AdminEvent {
     required BuildContext context,
     required Map data,
   }) = _tutorApplicationSubmition;
+
+  
+  
+
 }

@@ -19,7 +19,7 @@ class TeacherPrograssScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 30),
-                 Text("Hey $SAVE_KEY_NAME,", style: kHeadingextStyle),
+                 Text("Hey $userName,", style: kHeadingextStyle),
                 const Text("Here is your status.", style: kSubheadingextStyle),
                 const SizedBox(height: 30),
                 Column(
