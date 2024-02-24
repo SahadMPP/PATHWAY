@@ -75,7 +75,7 @@
   "@socialStudies": {
     "description": "The study of human societies and their interactions"
   },
-   "hey": "Hey",
+  "hey": "Hey",
   "@hey": {
     "description": "Informal greeting or getting someone's attention"
   },
@@ -194,5 +194,33 @@
   "logout": "Log Out",
   "@logout": {
     "description": "Action to end a session or sign out"
+  },
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Greeting to newcomers or users entering a platform"
+  },
+  "suggestedCourses": "Suggested for You",
+  "@suggestedCourses": {
+    "description": "Courses recommended based on user preferences or history"
+  },
+  "topics": "Topics",
+  "@topics": {
+    "description": "Subjects or themes of discussion or study"
+  },
+  "lesson": "Lesson",
+  "@lesson": {
+    "description": "A unit of teaching or learning"
+  },
+  "min": "Minute(s)",
+  "@min": {
+    "description": "Unit of time equal to sixty seconds"
+  },
+  "featuredCourse": "Featured Course",
+  "@featuredCourse": {
+    "description": "Prominent or highlighted course"
+  },
+  "enrollNow": "Enroll Now",
+  "@enrollNow": {
+    "description": "Action to register or sign up for a course"
   }
 }

@@ -46,5 +46,12 @@
   "darkMode": "الوضع الداكن",
   "aboutUs": "عنا",
   "privacyConcern": "مخاوف الخصوصية",
-  "logout": "تسجيل الخروج"
+  "logout": "تسجيل الخروج",
+  "welcome": "مرحبا",
+  "suggested you": "المقترحة لك",
+  "Topics": "المواضيع",
+  "lession": "درس",
+  "min": "دقيقة",
+  "feature course": "دورة مميزة",
+  "entroll Now": "سجل الآن"
 }
