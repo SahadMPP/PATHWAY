@@ -5,6 +5,7 @@ import 'package:path_way_flu/app/data/middleware/admin.dart';
 import 'package:path_way_flu/app/pages/chat/presentation/pages/chat_messaging.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/app/data/model/teacher.dart';
+import 'package:path_way_flu/app/pages/student/pages/videocall/video_call.dart';
 
 class ChatScreenStudent extends StatelessWidget {
   const ChatScreenStudent({super.key});
@@ -86,16 +87,25 @@ class ChatScreenStudent extends StatelessWidget {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            CircleAvatar(
-                                              radius: 35,
-                                              backgroundImage: AssetImage(
-                                                  profileImage[index]["image"]
-                                                      .toString()),
+                                            InkWell(
+                                              onTap: () => Navigator.of(context)
+                                                  .push(MaterialPageRoute(
+                                                      builder: (ctx) =>
+                                                          CallPage(
+                                                            callID:
+                                                                teacher[index]
+                                                                    .active
+                                                                    .toString(),
+                                                          ))),
+                                              child: CircleAvatar(
+                                                radius: 35,
+                                                backgroundImage: AssetImage(
+                                                    profileImage[index]["image"]
+                                                        .toString()),
+                                              ),
                                             ),
                                             const SizedBox(height: 5),
-                                            Text(
-                                                teacher[index].name
-                                                    .toString(),
+                                            Text(teacher[index].name.toString(),
                                                 style: GoogleFonts.roboto(
                                                   fontSize: 20,
                                                   letterSpacing: 1,
@@ -149,7 +159,7 @@ class ChatScreenStudent extends StatelessWidget {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (ctx) =>
-                                                   const MassagingScreen()));
+                                                  const MassagingScreen()));
                                     },
                                     child: Padding(
                                       padding: const EdgeInsets.only(
