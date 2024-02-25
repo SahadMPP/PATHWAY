@@ -79,7 +79,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home: const ChatScreenStudent() ,
+        home: const StuHome() ,
       ),
     );
   }

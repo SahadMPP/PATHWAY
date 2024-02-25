@@ -40,7 +40,7 @@ class _StuHomeState extends State<StuHome> {
                     color: const Color.fromARGB(255, 90, 90, 90),
                   ),
                 ),
-                 Text(
+                Text(
                   userName ?? "null",
                   style: const TextStyle(
                     fontSize: 22,
@@ -63,14 +63,16 @@ class _StuHomeState extends State<StuHome> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-               Text(AppLocalizations.of(context)!.suggestedCourses, style: kTitleTextStyle),
+              Text(AppLocalizations.of(context)!.suggestedCourses,
+                  style: kTitleTextStyle),
               const SizedBox(height: 15),
               const BuildHomeBoxTop(),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   Text(AppLocalizations.of(context)!.topics, style: kTitleTextStyle),
+                  Text(AppLocalizations.of(context)!.topics,
+                      style: kTitleTextStyle),
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -157,7 +159,8 @@ class _StuHomeState extends State<StuHome> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   Text(AppLocalizations.of(context)!.featuredCourse, style: kTitleTextStyle),
+                  Text(AppLocalizations.of(context)!.featuredCourse,
+                      style: kTitleTextStyle),
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -221,7 +224,7 @@ class BuildHomeBoxTop extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 5),
-                   Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Row(
@@ -292,7 +295,7 @@ class BuildHomeBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
+      height: 250,
       child: FutureBuilder(
           future:
               StudentApi.getTotorialStudent(subjectList[isSelected]['name']!),
@@ -315,39 +318,68 @@ class BuildHomeBox extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.only(left: 15),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: SizedBox(
-                            height: 200,
+                          borderRadius: BorderRadius.circular(12),
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            color: Theme.of(context).colorScheme.secondary,
+                            width: MediaQuery.of(context).size.width * .6,
                             child: Column(
                               children: [
                                 SizedBox(
-                                    height: 100,
-                                    width:
-                                        MediaQuery.of(context).size.width * .8,
-                                    child: Image.file(
-                                      File(tutoral[index].tumbnailImage),
-                                      fit: BoxFit.cover,
+                                    height: 110,
+                                    width: double.infinity,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: Image.file(
+                                        File(tutoral[index].tumbnailImage),
+                                        fit: BoxFit.cover,
+                                      ),
                                     )),
                                 Container(
                                   padding: const EdgeInsets.all(10),
-                                  height: 100,
-                                  width: MediaQuery.of(context).size.width * .8,
-                                  color:
-                                      Theme.of(context).colorScheme.secondary,
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      ConstrainedBox(
-                                        constraints:
-                                            const BoxConstraints(maxWidth: 200),
-                                        child: Text(
-                                          tutoral[index].title,
-                                          style: GoogleFonts.aBeeZee(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 17,
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          ConstrainedBox(
+                                            constraints: const BoxConstraints(
+                                                maxWidth: 150),
+                                            child: Text(
+                                              tutoral[index].title,
+                                              style: GoogleFonts.aBeeZee(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 17,
+                                              ),
+                                            ),
                                           ),
-                                        ),
+                                          const Image(
+                                            image: AssetImage(
+                                                "asset/icons/icons8-best-seller-94.png"),
+                                            height: 30,
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(height: 5),
+                                      Row(
+                                        children: [
+                                          const CircleAvatar(
+                                            radius: 15,
+                                            backgroundImage: AssetImage(
+                                                "asset/profiles/chat555.png"),
+                                          ),
+                                          const SizedBox(width: 5),
+                                          Text(
+                                            "Jhon Smith",
+                                            style: GoogleFonts.quicksand(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                       const SizedBox(height: 10),
                                       Row(
@@ -355,7 +387,7 @@ class BuildHomeBox extends StatelessWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            "1500",
+                                            "1.55 hours",
                                             style: GoogleFonts.aBeeZee(
                                                 fontWeight: FontWeight.bold,
                                                 wordSpacing: 3),
@@ -364,12 +396,12 @@ class BuildHomeBox extends StatelessWidget {
                                             children: [
                                               const Icon(
                                                 Icons.circle,
-                                                color: Colors.yellow,
+                                                color: Colors.grey,
                                                 size: 10,
                                               ),
                                               const SizedBox(width: 5),
                                               Text(
-                                                "4.7(1500)",
+                                                "12 ${AppLocalizations.of(context)!.lesson}",
                                                 style: GoogleFonts.aBeeZee(
                                                     color: Colors.grey,
                                                     fontWeight: FontWeight.bold,
