@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:path_way_flu/app/core/constants/subject_list.dart';
 import 'package:path_way_flu/app/core/theme/dark_theme.dart';
 import 'package:path_way_flu/app/core/theme/light_theme.dart';
 import 'package:path_way_flu/app/pages/admin/bloc/admin_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
-import 'package:path_way_flu/app/pages/student/pages/chat_ui_student.dart';
-import 'package:path_way_flu/app/pages/student/pages/student_home_ui.dart';
+import 'package:path_way_flu/app/pages/student/pages/deatiles_page_with_outpay.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -79,7 +79,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home: const StuHome() ,
+        home:  StudentDeatileWithoutPay(subject: subjectList[0]['name']!) ,
       ),
     );
   }

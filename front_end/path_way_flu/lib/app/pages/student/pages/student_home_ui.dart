@@ -56,7 +56,7 @@ class _StuHomeState extends State<StuHome> {
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Padding(
-        padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
+        padding: const EdgeInsets.only(left: 20, top: 20, right: 10),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(

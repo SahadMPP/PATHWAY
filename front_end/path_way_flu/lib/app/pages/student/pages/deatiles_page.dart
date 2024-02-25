@@ -5,6 +5,7 @@ import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
 import 'package:path_way_flu/app/data/middleware/student.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class StudentvideoPlay extends StatefulWidget {
   final String subject;
@@ -18,6 +19,8 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
   late CachedVideoPlayerController videoPlayerController;
   late CustomVideoPlayerController _customVideoPlayerController;
 
+  bool isLoading = false;
+
   String videoUrlDefult =
       "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
@@ -29,7 +32,7 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
 
   @override
   Widget build(BuildContext context) {
-    // 
+    //
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Container(
@@ -50,13 +53,16 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey, width: .5)),
-                    child: CustomVideoPlayer(
-                        customVideoPlayerController:
-                            _customVideoPlayerController),
-                  ),
+                  isLoading
+                      ? Container(
+                          decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: Colors.grey, width: .5)),
+                          child: CustomVideoPlayer(
+                              customVideoPlayerController:
+                                  _customVideoPlayerController),
+                        )
+                      : const Center(child: CircularProgressIndicator()),
                   const SizedBox(height: 15),
                   Text("How to do multipucation",
                       style: kSubtitleTextSyule.copyWith(
@@ -90,7 +96,40 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                 ],
               ),
             ),
-            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(25),
+              height: 100,
+              width: double.infinity,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Great Work',
+                          style: GoogleFonts.roboto(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'You compleated lession',
+                          style: GoogleFonts.quicksand(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: Theme.of(context).colorScheme.onSecondary),
+                        ),
+                      ],
+                    ),
+                    CircularPercentIndicator(
+                      radius: 25,
+                      center: const Text("25%"),
+                      percent: 25 / 100,
+                      progressColor: const Color.fromARGB(255, 0, 255, 8),
+                      backgroundWidth: 5,
+                    ),
+                  ]),
+            ),
             Expanded(
                 child: Container(
               width: double.infinity,
@@ -156,14 +195,22 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
     );
   }
 
-  void initilizeVideoPlayer(videoUrl) {
+  void initilizeVideoPlayer(videoUrl)async {
+    setState(() {
+      isLoading = false;
+    });
+   await Future.delayed(const Duration(seconds: 1));
     CachedVideoPlayerController videoPlayerController;
     videoPlayerController = CachedVideoPlayerController.network(videoUrl)
       ..initialize().then((value) => setState(() {}));
+    // ignore: use_build_context_synchronously
     _customVideoPlayerController = CustomVideoPlayerController(
       context: context,
       videoPlayerController: videoPlayerController,
     );
+    setState(() {
+      isLoading = true;
+    });
   }
 }
 

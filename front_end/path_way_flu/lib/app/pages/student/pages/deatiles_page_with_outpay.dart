@@ -124,7 +124,7 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                                     itemCount: tutoral.length,
                                     itemBuilder: (context, index) =>
                                         CourseContent(
-                                            number: index,
+                                            number: index+1,
                                             title: tutoral[index].title,
                                             creator: tutoral[index].creator),
                                   ),

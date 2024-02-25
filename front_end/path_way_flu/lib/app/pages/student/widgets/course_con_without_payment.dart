@@ -17,7 +17,7 @@ class CourseContent extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            number.toString(),
+            '0${number.toString()}',
             style: kHeadingextStyle.copyWith(
               color: kTextColor.withOpacity(.15),
               fontSize: 32,
