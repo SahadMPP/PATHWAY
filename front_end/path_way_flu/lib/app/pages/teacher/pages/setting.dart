@@ -5,8 +5,8 @@ import 'package:path_way_flu/app/pages/auth/domain/usecases/define_fun.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/application_form.dart';
 import 'package:path_way_flu/main.dart';
 
-class TeacherProfileScreen extends StatelessWidget {
-  const TeacherProfileScreen({super.key});
+class TeacherSettings extends StatelessWidget {
+  const TeacherSettings({super.key});
 
   @override
   Widget build(BuildContext context) {

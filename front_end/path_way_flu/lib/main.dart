@@ -16,6 +16,7 @@ import 'package:path_way_flu/app/pages/student/pages/see_all_category.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/profile.dart';
 import 'package:path_way_flu/firebase_options.dart';
 import 'package:path_way_flu/app/core/l10n/l10n.dart';
 
@@ -79,7 +80,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home:  const StudentPrograss() ,
+        home:  const TeacherProfile() ,
       ),
     );
   }

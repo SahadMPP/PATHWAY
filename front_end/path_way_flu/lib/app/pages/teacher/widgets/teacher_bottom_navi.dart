@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/chat_screen.dart';
-import 'package:path_way_flu/app/pages/teacher/pages/profile_teacher.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/setting.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacher_home.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacher_staus_scree.dart';
 
@@ -17,7 +17,7 @@ class _TeacherBotmNaviState extends State<TeacherBotmNavi> {
     const TeachHome(),
     const ChatScreenTeacher(),
     const TeacherPrograssScreen(),
-    const TeacherProfileScreen(),
+    const TeacherSettings(),
   ];
   @override
   Widget build(BuildContext context) {
