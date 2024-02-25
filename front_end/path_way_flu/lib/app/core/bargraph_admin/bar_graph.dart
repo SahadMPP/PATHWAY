@@ -37,7 +37,10 @@ class MyBarGraph extends StatelessWidget {
           bottomTitles: AxisTitles(
               sideTitles: SideTitles(
                   showTitles: true, getTitlesWidget: getBottomTitle))),
-      gridData: const FlGridData(horizontalInterval: 15),
+      gridData: const FlGridData(
+        horizontalInterval: 60,
+        show: true,
+      ),
       barGroups: myBarData.bardata
           .asMap()
           .entries
@@ -48,8 +51,10 @@ class MyBarGraph extends StatelessWidget {
                 BarChartRodData(
                   toY: entry.value.y,
                   color: colors[entry.key % colors.length],
-                  width: 15,
-                  borderRadius: BorderRadius.zero,
+                  width: 12,
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8)),
                 ),
               ],
             ),
@@ -69,13 +74,13 @@ Widget getBottomTitle(double value, TitleMeta meta) {
   Widget text;
   switch (value.toInt()) {
     case 0:
-      text = const Text('Mal', style: style);
+      text = const Text('Sce', style: style);
       break;
     case 1:
-      text = const Text('Eng', style: style);
+      text = const Text('Com', style: style);
       break;
     case 2:
-      text = const Text('Hin', style: style);
+      text = const Text('Mth', style: style);
       break;
     case 3:
       text = const Text('Che', style: style);
@@ -87,7 +92,7 @@ Widget getBottomTitle(double value, TitleMeta meta) {
       text = const Text('Phy', style: style);
       break;
     case 6:
-      text = const Text('S', style: style);
+      text = const Text('Sci', style: style);
       break;
     default:
       text = const Text('', style: style);

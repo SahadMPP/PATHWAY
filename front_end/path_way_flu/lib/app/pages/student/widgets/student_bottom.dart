@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/app/pages/student/pages/chat.dart';
-import 'package:path_way_flu/app/pages/student/pages/development_screent.dart';
+import 'package:path_way_flu/app/pages/student/pages/prograss.dart';
 import 'package:path_way_flu/app/pages/student/pages/profile_stu.dart';
 import 'package:path_way_flu/app/pages/student/pages/student_home_ui.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/ui/subcription_models.dart';
@@ -19,7 +19,7 @@ class _StudentBotmNaviState extends State<StudentBotmNavi> {
     const StuHome(),
     const SubcriptionScreen(),
     const StudentChat(),
-    const StudentStatus(),
+    const StudentPrograss(),
     const StudentProfileScreen(),
   ];
   @override

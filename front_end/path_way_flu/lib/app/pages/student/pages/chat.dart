@@ -75,7 +75,7 @@ class _StudentChatState extends State<StudentChat> {
               ),
             ),
             const SizedBox(height: 10),
-            const Text("Teacher's online", style: kTitleTextStyle),
+            const Text("Teacher's", style: kTitleTextStyle),
             const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
