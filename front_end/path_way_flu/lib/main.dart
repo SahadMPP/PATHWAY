@@ -11,13 +11,11 @@ import 'package:path_way_flu/app/pages/admin/bloc/admin_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
-import 'package:path_way_flu/app/pages/student/pages/prograss.dart';
-import 'package:path_way_flu/app/pages/student/pages/see_all_category.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/splash_screen_ui.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:path_way_flu/app/pages/teacher/pages/edit_profile.dart';
-import 'package:path_way_flu/app/pages/teacher/pages/profile.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/collecting_subject.dart';
 import 'package:path_way_flu/firebase_options.dart';
 import 'package:path_way_flu/app/core/l10n/l10n.dart';
 
@@ -81,7 +79,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home:  const EditProfile() ,
+        home:  const ShowWaring() ,
       ),
     );
   }
