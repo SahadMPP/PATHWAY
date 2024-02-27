@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/appbar_save_cancel.dart';
 
 class EditProfile extends StatelessWidget {
   const EditProfile({super.key});
@@ -7,26 +8,7 @@ class EditProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text('Cancel', style: GoogleFonts.roboto(color: Colors.red[400],fontSize: 16,fontWeight: FontWeight.bold)),
-            Text(
-              'Edit Profile',
-              style: GoogleFonts.roboto(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              'Done',
-              style: GoogleFonts.roboto(color: Colors.green,fontSize: 16,fontWeight: FontWeight.bold),
-            )
-          ],
-        ),
-      ),
+      appBar:buildAppBar(title: "Edit Profile", save: (){}, cancel: (){}),
       body: Padding(
         padding: const EdgeInsets.only(left: 20, right: 10),
         child: Column(
