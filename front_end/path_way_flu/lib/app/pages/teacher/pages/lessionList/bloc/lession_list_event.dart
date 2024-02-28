@@ -6,7 +6,10 @@ class LessionListEvent with _$LessionListEvent {
     required BuildContext context,
     required Lession lesson,
   }) = _updateLession;
-  const factory LessionListEvent.deleteLession() = _deleteLession;
+  const factory LessionListEvent.deleteLession({
+    required BuildContext context,
+    required String id,
+  }) = _deleteLession;
   const factory LessionListEvent.navigatingLessionFrom({
     required BuildContext context,
   }) = _navigatingLessionFrom;

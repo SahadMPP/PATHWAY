@@ -106,6 +106,32 @@ class TeacherApi {
       debugPrint(e.toString());
     }
   }
+
+  static deleteLesson(id,BuildContext context)async{
+     var url = Uri.parse("${baseUrl}delete_lession/$id");
+
+    try {
+      final res = await http.delete(url);
+
+      if (res.statusCode == 200) {
+        debugPrint("Lesson is deleted");
+        buildShowSnacbar(
+            context: context,
+            content: "Lesson is deleted",
+            title: 'Hi There!',
+            contentType: ContentType.warning);
+      } else {
+        debugPrint("Oops,something went wrong");
+        buildShowSnacbar(
+            context: context,
+            content: "Oops,something went wrong",
+            title: 'Oh Hey!!',
+            contentType: ContentType.failure);
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
 // Tutorial list
  static addTotorial(data, BuildContext context) async {
     final url = Uri.parse("${baseUrl}add_tutorial");

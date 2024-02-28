@@ -9,7 +9,6 @@ import 'package:path_way_flu/app/pages/teacher/pages/lessionList/bloc/lession_li
 
 class ListOfLession extends StatelessWidget {
   const ListOfLession({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,67 +49,93 @@ class ListOfLession extends StatelessWidget {
                 return ListView.builder(
                     itemCount: lesson.length,
                     itemBuilder: (context, index) {
-                      return Container(
-                        padding: const EdgeInsets.all(15),
-                        height: 150,
-                        width: double.infinity,
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              height: 110,
-                              width: 110,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(18),
-                                child: Image.file(
-                                  File(lesson[index].coverImage),
-                                  fit: BoxFit.cover,
+                      GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+                      return Dismissible(
+                        key: formKey,
+                        direction: DismissDirection.endToStart,
+                        onDismissed: (direction) {
+                          context.read<LessionListBloc>().add(
+                              LessionListEvent.deleteLession(
+                                  context: context, id: lesson[index].id));
+                        },
+                        background: Container(
+                          color: Colors.red[100],
+                          child: const Padding(
+                            padding: EdgeInsets.only(right: 30),
+                            child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Icon(
+                                  Icons.delete,
+                                  color: Colors.white,
+                                )),
+                          ),
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(15),
+                          height: 150,
+                          width: double.infinity,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                height: 110,
+                                width: 110,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(18),
+                                  child: Image.file(
+                                    File(lesson[index].coverImage),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    lesson[index].title,
-                                    style: GoogleFonts.quicksand(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 22,
-                                      height: 2,
+                              Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      lesson[index].title,
+                                      style: GoogleFonts.quicksand(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22,
+                                        height: 2,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    "Lession ${lesson[index].countOfLesson}",
-                                    style: GoogleFonts.quicksand(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onSecondary,
+                                    Text(
+                                      "Lession ${lesson[index].countOfLesson}",
+                                      style: GoogleFonts.quicksand(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSecondary,
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  SizedBox(
-                                      height: 30,
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          context.read<LessionListBloc>().add(LessionListEvent.updateLession(context: context, lesson: lesson[index]));
-                                        },
-                                        style: ButtonStyle(
-                                            backgroundColor:
-                                                MaterialStatePropertyAll(
-                                                    Theme.of(context)
-                                                        .colorScheme
-                                                        .onSurface)),
-                                        child: const Text('Keep Processing'),
-                                      ))
-                                ],
-                              ),
-                            )
-                          ],
+                                    const SizedBox(height: 5),
+                                    SizedBox(
+                                        height: 30,
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            context.read<LessionListBloc>().add(
+                                                LessionListEvent.updateLession(
+                                                    context: context,
+                                                    lesson: lesson[index]));
+                                          },
+                                          style: ButtonStyle(
+                                              backgroundColor:
+                                                  MaterialStatePropertyAll(
+                                                      Theme.of(context)
+                                                          .colorScheme
+                                                          .onSurface)),
+                                          child: const Text('Keep Processing'),
+                                        ))
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       );
                     });
