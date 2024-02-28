@@ -71,5 +71,13 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
         builder: (context) => const AddTotorialForm(),
       ));
     });
+  
+    on<_deleteTutorial>((event, emit) {
+   TeacherApi.deleteTotorial(event.id,event.context);
+  });
+    
+    on<_updateTotorial>((event, emit) {
+      TeacherApi.updateTotorial(event.id,event.data,event.context);
+    });
   }
 }

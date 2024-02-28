@@ -25,6 +25,10 @@ mixin _$LessonFormEvent {
     required TResult Function(BuildContext context, String subject,
             String title, String coverImage)
         addingLession,
+    required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)
+        updateTotorial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +40,10 @@ mixin _$LessonFormEvent {
     TResult? Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +55,10 @@ mixin _$LessonFormEvent {
     TResult Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +70,8 @@ mixin _$LessonFormEvent {
     required TResult Function(_imagePiking value) imagePiking,
     required TResult Function(_dropDownpiker value) dropDownpiker,
     required TResult Function(_addingLession value) addingLession,
+    required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_updateTotorial value) updateTotorial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,6 +81,8 @@ mixin _$LessonFormEvent {
     TResult? Function(_imagePiking value)? imagePiking,
     TResult? Function(_dropDownpiker value)? dropDownpiker,
     TResult? Function(_addingLession value)? addingLession,
+    TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_updateTotorial value)? updateTotorial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +92,8 @@ mixin _$LessonFormEvent {
     TResult Function(_imagePiking value)? imagePiking,
     TResult Function(_dropDownpiker value)? dropDownpiker,
     TResult Function(_addingLession value)? addingLession,
+    TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_updateTotorial value)? updateTotorial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -172,6 +190,10 @@ class _$navicatingTutoralFormImpl implements _navicatingTutoralForm {
     required TResult Function(BuildContext context, String subject,
             String title, String coverImage)
         addingLession,
+    required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)
+        updateTotorial,
   }) {
     return navicatingTutoralForm(context);
   }
@@ -186,6 +208,10 @@ class _$navicatingTutoralFormImpl implements _navicatingTutoralForm {
     TResult? Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
   }) {
     return navicatingTutoralForm?.call(context);
   }
@@ -200,6 +226,10 @@ class _$navicatingTutoralFormImpl implements _navicatingTutoralForm {
     TResult Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
     required TResult orElse(),
   }) {
     if (navicatingTutoralForm != null) {
@@ -217,6 +247,8 @@ class _$navicatingTutoralFormImpl implements _navicatingTutoralForm {
     required TResult Function(_imagePiking value) imagePiking,
     required TResult Function(_dropDownpiker value) dropDownpiker,
     required TResult Function(_addingLession value) addingLession,
+    required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_updateTotorial value) updateTotorial,
   }) {
     return navicatingTutoralForm(this);
   }
@@ -229,6 +261,8 @@ class _$navicatingTutoralFormImpl implements _navicatingTutoralForm {
     TResult? Function(_imagePiking value)? imagePiking,
     TResult? Function(_dropDownpiker value)? dropDownpiker,
     TResult? Function(_addingLession value)? addingLession,
+    TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_updateTotorial value)? updateTotorial,
   }) {
     return navicatingTutoralForm?.call(this);
   }
@@ -241,6 +275,8 @@ class _$navicatingTutoralFormImpl implements _navicatingTutoralForm {
     TResult Function(_imagePiking value)? imagePiking,
     TResult Function(_dropDownpiker value)? dropDownpiker,
     TResult Function(_addingLession value)? addingLession,
+    TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_updateTotorial value)? updateTotorial,
     required TResult orElse(),
   }) {
     if (navicatingTutoralForm != null) {
@@ -332,6 +368,10 @@ class _$cancelButtonClickImpl implements _cancelButtonClick {
     required TResult Function(BuildContext context, String subject,
             String title, String coverImage)
         addingLession,
+    required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)
+        updateTotorial,
   }) {
     return cancelButtonClick(context);
   }
@@ -346,6 +386,10 @@ class _$cancelButtonClickImpl implements _cancelButtonClick {
     TResult? Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
   }) {
     return cancelButtonClick?.call(context);
   }
@@ -360,6 +404,10 @@ class _$cancelButtonClickImpl implements _cancelButtonClick {
     TResult Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
     required TResult orElse(),
   }) {
     if (cancelButtonClick != null) {
@@ -377,6 +425,8 @@ class _$cancelButtonClickImpl implements _cancelButtonClick {
     required TResult Function(_imagePiking value) imagePiking,
     required TResult Function(_dropDownpiker value) dropDownpiker,
     required TResult Function(_addingLession value) addingLession,
+    required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_updateTotorial value) updateTotorial,
   }) {
     return cancelButtonClick(this);
   }
@@ -389,6 +439,8 @@ class _$cancelButtonClickImpl implements _cancelButtonClick {
     TResult? Function(_imagePiking value)? imagePiking,
     TResult? Function(_dropDownpiker value)? dropDownpiker,
     TResult? Function(_addingLession value)? addingLession,
+    TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_updateTotorial value)? updateTotorial,
   }) {
     return cancelButtonClick?.call(this);
   }
@@ -401,6 +453,8 @@ class _$cancelButtonClickImpl implements _cancelButtonClick {
     TResult Function(_imagePiking value)? imagePiking,
     TResult Function(_dropDownpiker value)? dropDownpiker,
     TResult Function(_addingLession value)? addingLession,
+    TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_updateTotorial value)? updateTotorial,
     required TResult orElse(),
   }) {
     if (cancelButtonClick != null) {
@@ -465,6 +519,10 @@ class _$imagePikingImpl implements _imagePiking {
     required TResult Function(BuildContext context, String subject,
             String title, String coverImage)
         addingLession,
+    required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)
+        updateTotorial,
   }) {
     return imagePiking();
   }
@@ -479,6 +537,10 @@ class _$imagePikingImpl implements _imagePiking {
     TResult? Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
   }) {
     return imagePiking?.call();
   }
@@ -493,6 +555,10 @@ class _$imagePikingImpl implements _imagePiking {
     TResult Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
     required TResult orElse(),
   }) {
     if (imagePiking != null) {
@@ -510,6 +576,8 @@ class _$imagePikingImpl implements _imagePiking {
     required TResult Function(_imagePiking value) imagePiking,
     required TResult Function(_dropDownpiker value) dropDownpiker,
     required TResult Function(_addingLession value) addingLession,
+    required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_updateTotorial value) updateTotorial,
   }) {
     return imagePiking(this);
   }
@@ -522,6 +590,8 @@ class _$imagePikingImpl implements _imagePiking {
     TResult? Function(_imagePiking value)? imagePiking,
     TResult? Function(_dropDownpiker value)? dropDownpiker,
     TResult? Function(_addingLession value)? addingLession,
+    TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_updateTotorial value)? updateTotorial,
   }) {
     return imagePiking?.call(this);
   }
@@ -534,6 +604,8 @@ class _$imagePikingImpl implements _imagePiking {
     TResult Function(_imagePiking value)? imagePiking,
     TResult Function(_dropDownpiker value)? dropDownpiker,
     TResult Function(_addingLession value)? addingLession,
+    TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_updateTotorial value)? updateTotorial,
     required TResult orElse(),
   }) {
     if (imagePiking != null) {
@@ -618,6 +690,10 @@ class _$dropDownpikerImpl implements _dropDownpiker {
     required TResult Function(BuildContext context, String subject,
             String title, String coverImage)
         addingLession,
+    required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)
+        updateTotorial,
   }) {
     return dropDownpiker(subject);
   }
@@ -632,6 +708,10 @@ class _$dropDownpikerImpl implements _dropDownpiker {
     TResult? Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
   }) {
     return dropDownpiker?.call(subject);
   }
@@ -646,6 +726,10 @@ class _$dropDownpikerImpl implements _dropDownpiker {
     TResult Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
     required TResult orElse(),
   }) {
     if (dropDownpiker != null) {
@@ -663,6 +747,8 @@ class _$dropDownpikerImpl implements _dropDownpiker {
     required TResult Function(_imagePiking value) imagePiking,
     required TResult Function(_dropDownpiker value) dropDownpiker,
     required TResult Function(_addingLession value) addingLession,
+    required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_updateTotorial value) updateTotorial,
   }) {
     return dropDownpiker(this);
   }
@@ -675,6 +761,8 @@ class _$dropDownpikerImpl implements _dropDownpiker {
     TResult? Function(_imagePiking value)? imagePiking,
     TResult? Function(_dropDownpiker value)? dropDownpiker,
     TResult? Function(_addingLession value)? addingLession,
+    TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_updateTotorial value)? updateTotorial,
   }) {
     return dropDownpiker?.call(this);
   }
@@ -687,6 +775,8 @@ class _$dropDownpikerImpl implements _dropDownpiker {
     TResult Function(_imagePiking value)? imagePiking,
     TResult Function(_dropDownpiker value)? dropDownpiker,
     TResult Function(_addingLession value)? addingLession,
+    TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_updateTotorial value)? updateTotorial,
     required TResult orElse(),
   }) {
     if (dropDownpiker != null) {
@@ -808,6 +898,10 @@ class _$addingLessionImpl implements _addingLession {
     required TResult Function(BuildContext context, String subject,
             String title, String coverImage)
         addingLession,
+    required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)
+        updateTotorial,
   }) {
     return addingLession(context, subject, title, coverImage);
   }
@@ -822,6 +916,10 @@ class _$addingLessionImpl implements _addingLession {
     TResult? Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
   }) {
     return addingLession?.call(context, subject, title, coverImage);
   }
@@ -836,6 +934,10 @@ class _$addingLessionImpl implements _addingLession {
     TResult Function(BuildContext context, String subject, String title,
             String coverImage)?
         addingLession,
+    TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
     required TResult orElse(),
   }) {
     if (addingLession != null) {
@@ -853,6 +955,8 @@ class _$addingLessionImpl implements _addingLession {
     required TResult Function(_imagePiking value) imagePiking,
     required TResult Function(_dropDownpiker value) dropDownpiker,
     required TResult Function(_addingLession value) addingLession,
+    required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_updateTotorial value) updateTotorial,
   }) {
     return addingLession(this);
   }
@@ -865,6 +969,8 @@ class _$addingLessionImpl implements _addingLession {
     TResult? Function(_imagePiking value)? imagePiking,
     TResult? Function(_dropDownpiker value)? dropDownpiker,
     TResult? Function(_addingLession value)? addingLession,
+    TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_updateTotorial value)? updateTotorial,
   }) {
     return addingLession?.call(this);
   }
@@ -877,6 +983,8 @@ class _$addingLessionImpl implements _addingLession {
     TResult Function(_imagePiking value)? imagePiking,
     TResult Function(_dropDownpiker value)? dropDownpiker,
     TResult Function(_addingLession value)? addingLession,
+    TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_updateTotorial value)? updateTotorial,
     required TResult orElse(),
   }) {
     if (addingLession != null) {
@@ -899,6 +1007,403 @@ abstract class _addingLession implements LessonFormEvent {
   String get coverImage;
   @JsonKey(ignore: true)
   _$$addingLessionImplCopyWith<_$addingLessionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$deleteTutorialImplCopyWith<$Res> {
+  factory _$$deleteTutorialImplCopyWith(_$deleteTutorialImpl value,
+          $Res Function(_$deleteTutorialImpl) then) =
+      __$$deleteTutorialImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id, BuildContext context});
+}
+
+/// @nodoc
+class __$$deleteTutorialImplCopyWithImpl<$Res>
+    extends _$LessonFormEventCopyWithImpl<$Res, _$deleteTutorialImpl>
+    implements _$$deleteTutorialImplCopyWith<$Res> {
+  __$$deleteTutorialImplCopyWithImpl(
+      _$deleteTutorialImpl _value, $Res Function(_$deleteTutorialImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? context = null,
+  }) {
+    return _then(_$deleteTutorialImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$deleteTutorialImpl implements _deleteTutorial {
+  const _$deleteTutorialImpl({required this.id, required this.context});
+
+  @override
+  final String id;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'LessonFormEvent.deleteTutorial(id: $id, context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$deleteTutorialImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$deleteTutorialImplCopyWith<_$deleteTutorialImpl> get copyWith =>
+      __$$deleteTutorialImplCopyWithImpl<_$deleteTutorialImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) navicatingTutoralForm,
+    required TResult Function(BuildContext context) cancelButtonClick,
+    required TResult Function() imagePiking,
+    required TResult Function(String subject) dropDownpiker,
+    required TResult Function(BuildContext context, String subject,
+            String title, String coverImage)
+        addingLession,
+    required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)
+        updateTotorial,
+  }) {
+    return deleteTutorial(id, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? navicatingTutoralForm,
+    TResult? Function(BuildContext context)? cancelButtonClick,
+    TResult? Function()? imagePiking,
+    TResult? Function(String subject)? dropDownpiker,
+    TResult? Function(BuildContext context, String subject, String title,
+            String coverImage)?
+        addingLession,
+    TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
+  }) {
+    return deleteTutorial?.call(id, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? navicatingTutoralForm,
+    TResult Function(BuildContext context)? cancelButtonClick,
+    TResult Function()? imagePiking,
+    TResult Function(String subject)? dropDownpiker,
+    TResult Function(BuildContext context, String subject, String title,
+            String coverImage)?
+        addingLession,
+    TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
+    required TResult orElse(),
+  }) {
+    if (deleteTutorial != null) {
+      return deleteTutorial(id, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_navicatingTutoralForm value)
+        navicatingTutoralForm,
+    required TResult Function(_cancelButtonClick value) cancelButtonClick,
+    required TResult Function(_imagePiking value) imagePiking,
+    required TResult Function(_dropDownpiker value) dropDownpiker,
+    required TResult Function(_addingLession value) addingLession,
+    required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_updateTotorial value) updateTotorial,
+  }) {
+    return deleteTutorial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_navicatingTutoralForm value)? navicatingTutoralForm,
+    TResult? Function(_cancelButtonClick value)? cancelButtonClick,
+    TResult? Function(_imagePiking value)? imagePiking,
+    TResult? Function(_dropDownpiker value)? dropDownpiker,
+    TResult? Function(_addingLession value)? addingLession,
+    TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_updateTotorial value)? updateTotorial,
+  }) {
+    return deleteTutorial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_navicatingTutoralForm value)? navicatingTutoralForm,
+    TResult Function(_cancelButtonClick value)? cancelButtonClick,
+    TResult Function(_imagePiking value)? imagePiking,
+    TResult Function(_dropDownpiker value)? dropDownpiker,
+    TResult Function(_addingLession value)? addingLession,
+    TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_updateTotorial value)? updateTotorial,
+    required TResult orElse(),
+  }) {
+    if (deleteTutorial != null) {
+      return deleteTutorial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _deleteTutorial implements LessonFormEvent {
+  const factory _deleteTutorial(
+      {required final String id,
+      required final BuildContext context}) = _$deleteTutorialImpl;
+
+  String get id;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$deleteTutorialImplCopyWith<_$deleteTutorialImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$updateTotorialImplCopyWith<$Res> {
+  factory _$$updateTotorialImplCopyWith(_$updateTotorialImpl value,
+          $Res Function(_$updateTotorialImpl) then) =
+      __$$updateTotorialImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<dynamic, dynamic> data, String id, BuildContext context});
+}
+
+/// @nodoc
+class __$$updateTotorialImplCopyWithImpl<$Res>
+    extends _$LessonFormEventCopyWithImpl<$Res, _$updateTotorialImpl>
+    implements _$$updateTotorialImplCopyWith<$Res> {
+  __$$updateTotorialImplCopyWithImpl(
+      _$updateTotorialImpl _value, $Res Function(_$updateTotorialImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? id = null,
+    Object? context = null,
+  }) {
+    return _then(_$updateTotorialImpl(
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<dynamic, dynamic>,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$updateTotorialImpl implements _updateTotorial {
+  const _$updateTotorialImpl(
+      {required final Map<dynamic, dynamic> data,
+      required this.id,
+      required this.context})
+      : _data = data;
+
+  final Map<dynamic, dynamic> _data;
+  @override
+  Map<dynamic, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  final String id;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'LessonFormEvent.updateTotorial(data: $data, id: $id, context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$updateTotorialImpl &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_data), id, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$updateTotorialImplCopyWith<_$updateTotorialImpl> get copyWith =>
+      __$$updateTotorialImplCopyWithImpl<_$updateTotorialImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) navicatingTutoralForm,
+    required TResult Function(BuildContext context) cancelButtonClick,
+    required TResult Function() imagePiking,
+    required TResult Function(String subject) dropDownpiker,
+    required TResult Function(BuildContext context, String subject,
+            String title, String coverImage)
+        addingLession,
+    required TResult Function(String id, BuildContext context) deleteTutorial,
+    required TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)
+        updateTotorial,
+  }) {
+    return updateTotorial(data, id, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? navicatingTutoralForm,
+    TResult? Function(BuildContext context)? cancelButtonClick,
+    TResult? Function()? imagePiking,
+    TResult? Function(String subject)? dropDownpiker,
+    TResult? Function(BuildContext context, String subject, String title,
+            String coverImage)?
+        addingLession,
+    TResult? Function(String id, BuildContext context)? deleteTutorial,
+    TResult? Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
+  }) {
+    return updateTotorial?.call(data, id, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? navicatingTutoralForm,
+    TResult Function(BuildContext context)? cancelButtonClick,
+    TResult Function()? imagePiking,
+    TResult Function(String subject)? dropDownpiker,
+    TResult Function(BuildContext context, String subject, String title,
+            String coverImage)?
+        addingLession,
+    TResult Function(String id, BuildContext context)? deleteTutorial,
+    TResult Function(
+            Map<dynamic, dynamic> data, String id, BuildContext context)?
+        updateTotorial,
+    required TResult orElse(),
+  }) {
+    if (updateTotorial != null) {
+      return updateTotorial(data, id, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_navicatingTutoralForm value)
+        navicatingTutoralForm,
+    required TResult Function(_cancelButtonClick value) cancelButtonClick,
+    required TResult Function(_imagePiking value) imagePiking,
+    required TResult Function(_dropDownpiker value) dropDownpiker,
+    required TResult Function(_addingLession value) addingLession,
+    required TResult Function(_deleteTutorial value) deleteTutorial,
+    required TResult Function(_updateTotorial value) updateTotorial,
+  }) {
+    return updateTotorial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_navicatingTutoralForm value)? navicatingTutoralForm,
+    TResult? Function(_cancelButtonClick value)? cancelButtonClick,
+    TResult? Function(_imagePiking value)? imagePiking,
+    TResult? Function(_dropDownpiker value)? dropDownpiker,
+    TResult? Function(_addingLession value)? addingLession,
+    TResult? Function(_deleteTutorial value)? deleteTutorial,
+    TResult? Function(_updateTotorial value)? updateTotorial,
+  }) {
+    return updateTotorial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_navicatingTutoralForm value)? navicatingTutoralForm,
+    TResult Function(_cancelButtonClick value)? cancelButtonClick,
+    TResult Function(_imagePiking value)? imagePiking,
+    TResult Function(_dropDownpiker value)? dropDownpiker,
+    TResult Function(_addingLession value)? addingLession,
+    TResult Function(_deleteTutorial value)? deleteTutorial,
+    TResult Function(_updateTotorial value)? updateTotorial,
+    required TResult orElse(),
+  }) {
+    if (updateTotorial != null) {
+      return updateTotorial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _updateTotorial implements LessonFormEvent {
+  const factory _updateTotorial(
+      {required final Map<dynamic, dynamic> data,
+      required final String id,
+      required final BuildContext context}) = _$updateTotorialImpl;
+
+  Map<dynamic, dynamic> get data;
+  String get id;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$updateTotorialImplCopyWith<_$updateTotorialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

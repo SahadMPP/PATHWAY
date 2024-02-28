@@ -40,6 +40,7 @@ class TeacherApi {
       debugPrint(e.toString());
     }
   }
+
 // Lesson List
   static void addingLession(
       {required Map data, required BuildContext context}) async {
@@ -50,7 +51,9 @@ class TeacherApi {
 
       if (res.statusCode == 200) {
         debugPrint("add lession is success full");
-        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>const TeacherBotmNavi(),));
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const TeacherBotmNavi(),
+        ));
         buildShowSnacbar(
             context: context,
             content: "Adding lession in successfull ",
@@ -66,8 +69,8 @@ class TeacherApi {
 
   static getAllLession() async {
     List<Lession> listLesson = [];
-     final url = Uri.parse('${baseUrl}get_lession');
- 
+    final url = Uri.parse('${baseUrl}get_lession');
+
     try {
       final res = await http.get(url);
       if (res.statusCode == 200) {
@@ -84,8 +87,9 @@ class TeacherApi {
     }
   }
 
-  static updateLesson({required BuildContext context,required Map data,required id})async{
-      var url = Uri.parse("${baseUrl}update_lession/$id");
+  static updateLesson(
+      {required BuildContext context, required Map data, required id}) async {
+    var url = Uri.parse("${baseUrl}update_lession/$id");
 
     try {
       final res = await http.put(url, body: data);
@@ -93,7 +97,9 @@ class TeacherApi {
       if (res.statusCode == 200) {
         debugPrint(res.body);
         debugPrint("lesson is updated");
-        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) => const TeacherBotmNavi() ,));
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (ctx) => const TeacherBotmNavi(),
+        ));
         buildShowSnacbar(
             context: context,
             content: "Lesson is updated",
@@ -107,8 +113,8 @@ class TeacherApi {
     }
   }
 
-  static deleteLesson(id,BuildContext context)async{
-     var url = Uri.parse("${baseUrl}delete_lession/$id");
+  static deleteLesson(id, BuildContext context) async {
+    var url = Uri.parse("${baseUrl}delete_lession/$id");
 
     try {
       final res = await http.delete(url);
@@ -132,17 +138,20 @@ class TeacherApi {
       debugPrint(e.toString());
     }
   }
+
 // Tutorial list
- static addTotorial(data, BuildContext context) async {
+  static addTotorial(data, BuildContext context) async {
     final url = Uri.parse("${baseUrl}add_tutorial");
     try {
       final res = await http.post(url, body: data);
 
       if (res.statusCode == 200) {
         debugPrint("Add tutorial is done");
-        
-        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const TeacherBotmNavi(),));
-          buildShowSnacbar(
+
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const TeacherBotmNavi(),
+        ));
+        buildShowSnacbar(
             context: context,
             content: "Adding tutorial is done",
             title: 'Hi There!',
@@ -167,14 +176,11 @@ class TeacherApi {
 
         for (var value in data) {
           debugPrint(value["category"]);
-          
+
           if (value["category"] == catogory) {
             String? id = value["_id"] as String?;
             if (id != null) {
-
               tutorial.add(Tutorial.fromJson(value));
-
-
             } else {
               debugPrint("id is null or not present");
             }
@@ -190,7 +196,7 @@ class TeacherApi {
     }
   }
 
-  static updateTotorial(id, Map data, context, String category) async {
+  static updateTotorial(id, Map data, context) async {
     var url = Uri.parse("${baseUrl}update_tutorial/$id");
 
     try {
@@ -199,13 +205,14 @@ class TeacherApi {
       if (res.statusCode == 200) {
         debugPrint(res.body);
         debugPrint("tutorial is updated");
-
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const TeacherBotmNavi(),
+        ));
         buildShowSnacbar(
             context: context,
             content: "tutorial is updated",
             title: 'Hi There!',
             contentType: ContentType.success);
-        Navigator.of(context).pop();
       } else {
         debugPrint("Failed to update data");
       }
@@ -239,6 +246,4 @@ class TeacherApi {
       debugPrint(e.toString());
     }
   }
-
-
 }

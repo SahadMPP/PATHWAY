@@ -22,4 +22,16 @@ class LessonFormEvent with _$LessonFormEvent {
     required String title,
     required String coverImage,
   }) = _addingLession;
+
+  const factory LessonFormEvent.deleteTutorial({
+    required String id,
+    required BuildContext context,
+  }) = _deleteTutorial;
+  
+  const factory LessonFormEvent.updateTotorial({
+    required Map data,
+    required String id,
+    required BuildContext context,
+  }) = _updateTotorial;
+  
 }

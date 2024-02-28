@@ -50,7 +50,6 @@ class ListOfLession extends StatelessWidget {
                     itemCount: lesson.length,
                     itemBuilder: (context, index) {
                       GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
                       return Dismissible(
                         key: formKey,
                         direction: DismissDirection.endToStart,

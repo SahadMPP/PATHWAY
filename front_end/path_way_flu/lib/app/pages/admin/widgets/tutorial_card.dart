@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
 import 'package:path_way_flu/app/pages/admin/bloc/admin_bloc.dart';
-import 'package:path_way_flu/app/pages/admin/pages/updating_tutorial.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/tutorialUpdateForm/ui/updating_tutorial.dart';
 
 
 class TutoralCard extends StatefulWidget {

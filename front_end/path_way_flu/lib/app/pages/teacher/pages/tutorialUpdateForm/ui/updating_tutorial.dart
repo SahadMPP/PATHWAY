@@ -1,14 +1,12 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
-import 'package:path_way_flu/app/pages/admin/bloc/admin_bloc.dart';
 import 'package:path_way_flu/app/pages/admin/widgets/drop_down_update.dart';
 import 'package:path_way_flu/app/pages/admin/widgets/textfield.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/app/pages/student/widgets/hedline_back.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/tutorialUpdateForm/bloc/tutorial_update_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/teacher_bottom_navi.dart';
 
 class UpdatingTutorial extends StatelessWidget {
   final Tutorial tutoral;
@@ -17,16 +15,17 @@ class UpdatingTutorial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController titleController = TextEditingController();
-    TextEditingController creatorController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
     TextEditingController durationController = TextEditingController();
     TextEditingController videoUrlController = TextEditingController();
     titleController.text = tutoral.title;
-    // creatorController.text = tutoral.creator;
     descriptionController.text = tutoral.discription;
     durationController.text = tutoral.duration.toString();
     videoUrlController.text = tutoral.videoUrl;
     GlobalKey<FormState> formKey = GlobalKey();
+    context
+        .read<TutorialUpdateBloc>()
+        .add(TutorialUpdateEvent.givingInitialValue(value: tutoral.level));
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -40,7 +39,9 @@ class UpdatingTutorial extends StatelessWidget {
                   const SizedBox(height: 10),
                   BuildHeadlinewithBack(
                       fun: () {
-                        Navigator.of(context).pop();
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const TeacherBotmNavi(),
+                        ));
                       },
                       icon: Icons.arrow_back,
                       headline: 'Update tutorial'),
@@ -51,15 +52,7 @@ class UpdatingTutorial extends StatelessWidget {
                       title: "Title",
                       hintText: "Enter full title"),
                   const SizedBox(height: 20),
-                  BuildAddTutorFormText(
-                      validateText: "Creator name",
-                      controllre: creatorController,
-                      title: "Creator name",
-                      hintText: "Enter creator name"),
-                  const SizedBox(height: 20),
                   const BuildUpdateDropLeve(),
-                  const SizedBox(height: 20),
-                  const BuildUpdateDropSubject(),
                   const SizedBox(height: 20),
                   BuildAddTutorFormText(
                       validateText: "Description",
@@ -75,48 +68,6 @@ class UpdatingTutorial extends StatelessWidget {
                       title: "Duration",
                       hintText: "Duraton(min)"),
                   const SizedBox(height: 20),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Thumbnail",
-                        style: GoogleFonts.roboto(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      BlocBuilder<AdminBloc, AdminState>(
-                        builder: (context, state) {
-                          return GestureDetector(
-                            onTap: () {
-                              context
-                                  .read<AdminBloc>()
-                                  .add(const AdminEvent.imagePiker());
-                            },
-                            child: Container(
-                              height: 190,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                  color:
-                                      const Color.fromARGB(255, 222, 222, 222),
-                                  borderRadius: BorderRadius.circular(8)),
-                              child: state.selectedImage == null
-                                  ? Image.asset(
-                                      "asset/images(adding icon).png",
-                                      fit: BoxFit.cover,
-                                    )
-                                  : Image.file(
-                                      File(state.selectedImage!),
-                                      fit: BoxFit.cover,
-                                    ),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
                   BuildAddTutorFormText(
                       validateText: "url",
                       controllre: videoUrlController,
@@ -125,24 +76,24 @@ class UpdatingTutorial extends StatelessWidget {
                   const SizedBox(height: 20),
                   SizedBox(
                       width: 400,
-                      child: BlocBuilder<AdminBloc, AdminState>(
+                      child:
+                          BlocBuilder<TutorialUpdateBloc, TutorialUpdateState>(
                         builder: (context, state) {
                           return BuildButton(
                               fun: () {
                                 if (formKey.currentState!.validate()) {
-                                  context.read<AdminBloc>().add(
-                                      AdminEvent.updateTutoral(
-                                          titleCon: titleController.text,
-                                          creatorCon: creatorController.text,
-                                          levelCon: state.levelDropDown,
-                                          categoryCon: state.subjectDropDown,
-                                          thumnilCon: state.selectedImage!,
-                                          videoUrlCon: videoUrlController.text,
-                                          durationCon: durationController.text,
-                                          discriptionCon:
-                                              descriptionController.text,
-                                          id: tutoral.id!,
-                                          context: context));
+                                  var data = {
+                                    "title": titleController.text,
+                                    "level": state.dropDownLevel,
+                                    "videoUrl": videoUrlController.text,
+                                    "duration": durationController.text,
+                                    "discription": descriptionController.text,
+                                  };
+                                  context.read<TutorialUpdateBloc>().add(
+                                      TutorialUpdateEvent.updateTutoral(
+                                          context: context,
+                                          data: data,
+                                          id: tutoral.id!));
                                 }
                               },
                               text: "Update");
