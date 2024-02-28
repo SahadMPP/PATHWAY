@@ -11,11 +11,14 @@ import 'package:path_way_flu/app/pages/admin/bloc/admin_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/splash_screen_ui.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:path_way_flu/app/pages/teacher/pages/lessionList/ui/list_of_lession.dart';
-import 'package:path_way_flu/app/pages/teacher/pages/lesson%20Form/ui/lession_form.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/lessionList/bloc/lession_list_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/lesson%20Form/bloc/lesson_form_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/lessonUpdateForm/bloc/lesson_form_update_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/tutorial%20form/bloc/tutorial_adding_form_bloc.dart';
 import 'package:path_way_flu/firebase_options.dart';
 import 'package:path_way_flu/app/core/l10n/l10n.dart';
 
@@ -26,6 +29,8 @@ const SAVE_KEY_NAME = "username";
 
 String? userName;
 String? userId;
+bool isTeacherVerified = true;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -66,6 +71,10 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         BlocProvider(create: (context) => AdminBloc()),
         BlocProvider(create: (context) => TeacherBloc()),
         BlocProvider(create: (context) => SubcriptionBloc()),
+        BlocProvider(create: (context) => LessonFormBloc()),
+        BlocProvider(create: (context) => LessionListBloc(),),
+        BlocProvider(create: (context) => TutorialAddingFormBloc(),),
+        BlocProvider(create: (context) => LessonFormUpdateBloc(),)
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -79,7 +88,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home:  const LessionForm() ,
+        home:  const SpleshScreen() ,
       ),
     );
   }

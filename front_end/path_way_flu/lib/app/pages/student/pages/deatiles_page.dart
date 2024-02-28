@@ -178,7 +178,7 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                                             number: index,
                                             title: tutoral[index].title,
                                             creatorName:
-                                                tutoral[index].creator);
+                                               "tutoral[index].creator");
                                       }),
                                 );
                               }

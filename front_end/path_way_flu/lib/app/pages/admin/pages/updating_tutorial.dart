@@ -22,7 +22,7 @@ class UpdatingTutorial extends StatelessWidget {
     TextEditingController durationController = TextEditingController();
     TextEditingController videoUrlController = TextEditingController();
     titleController.text = tutoral.title;
-    creatorController.text = tutoral.creator;
+    // creatorController.text = tutoral.creator;
     descriptionController.text = tutoral.discription;
     durationController.text = tutoral.duration.toString();
     videoUrlController.text = tutoral.videoUrl;

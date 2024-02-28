@@ -12,38 +12,31 @@ part 'admin_bloc.freezed.dart';
 
 class AdminBloc extends Bloc<AdminEvent, AdminState> {
   AdminBloc() : super(AdminState.initial()) {
-    on<_addTutorial>((event, emit) {
-      var data = {
-        "title": event.titleCon,
-        "creator": event.creatorCon,
-        "level": event.levelCon,
-        "category": event.categoryCon,
-        "tumbnailImage": event.thumnilCon,
-        "videoUrl": event.videoUrlCon,
-        "duration": event.durationCon,
-        "discription": event.discriptionCon,
-      };
-      AdminApi.addTotorial(data, event.context);
-      emit(state.copyWith(selectedImage: null));
-    });
-    on<_updateTutoral>((event, emit) {
-      var data = {
-        "title": event.titleCon,
-        "creator": event.creatorCon,
-        "level": event.levelCon,
-        "category": event.categoryCon,
-        "tumbnailImage": event.thumnilCon,
-        "videoUrl": event.videoUrlCon,
-        "duration": event.durationCon,
-        "discription": event.discriptionCon,
-      };
-      AdminApi.updateTotorial(event.id, data, event.context, event.categoryCon);
+    // on<_addTutorial>((event, emit) {
+  
+    //   AdminApi.addTotorial(data, event.context);
+    //   emit(state.copyWith(selectedImage: null));
+    // });
 
-      emit(state.copyWith(selectedImage: null));
-    });
-    on<_deleteTutorial>((event, emit) {
-      AdminApi.deleteTotorial(event.id, event.context);
-    });
+    
+    // on<_updateTutoral>((event, emit) {
+    //   var data = {
+    //     "title": event.titleCon,
+    //     "creator": event.creatorCon,
+    //     "level": event.levelCon,
+    //     "category": event.categoryCon,
+    //     "tumbnailImage": event.thumnilCon,
+    //     "videoUrl": event.videoUrlCon,
+    //     "duration": event.durationCon,
+    //     "discription": event.discriptionCon,
+    //   };
+    //   AdminApi.updateTotorial(event.id, data, event.context, event.categoryCon);
+
+    //   emit(state.copyWith(selectedImage: null));
+    // });
+    // on<_deleteTutorial>((event, emit) {
+    //   AdminApi.deleteTotorial(event.id, event.context);
+    // });
 
     on<_imagePiker>((event, emit) async {
       final ImagePicker picker = ImagePicker();
@@ -57,9 +50,7 @@ class AdminBloc extends Bloc<AdminEvent, AdminState> {
 
     on<_updateTutoralButtonClick>((event, emit) {
       emit(AdminState(
-        subjectDropDown: event.tutorial.category,
-        levelDropDown: event.tutorial.level,
-        selectedImage: event.tutorial.tumbnailImage,
+        levelDropDown: event.tutorial.level, subjectDropDown: '',
       ));
     });
 

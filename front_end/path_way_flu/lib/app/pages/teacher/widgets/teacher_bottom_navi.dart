@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/chat_screen.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/lessionList/ui/list_of_lession.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/setting.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/show_warnnig.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacher_home.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacher_staus_scree.dart';
+import 'package:path_way_flu/main.dart';
 
 class TeacherBotmNavi extends StatefulWidget {
   const TeacherBotmNavi({super.key});
@@ -13,10 +16,12 @@ class TeacherBotmNavi extends StatefulWidget {
 
 class _TeacherBotmNaviState extends State<TeacherBotmNavi> {
   int currentIndex = 0;
+
   List<Widget> body = [
     const TeachHome(),
     const ChatScreenTeacher(),
     const TeacherPrograssScreen(),
+    const AddTutorial(),
     const TeacherSettings(),
   ];
   @override
@@ -61,6 +66,11 @@ class _TeacherBotmNaviState extends State<TeacherBotmNavi> {
                     Icons.stacked_line_chart_rounded,
                   )),
               BottomNavigationBarItem(
+                  label: "AddTutorials",
+                  icon: Icon(
+                    Icons.add,
+                  )),
+              BottomNavigationBarItem(
                   label: "Profile",
                   icon: Icon(
                     Icons.settings_rounded,
@@ -70,5 +80,18 @@ class _TeacherBotmNaviState extends State<TeacherBotmNavi> {
         ),
       ),
     );
+  }
+}
+
+class AddTutorial extends StatelessWidget {
+  const AddTutorial({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    if (isTeacherVerified) {
+      return const ListOfLession();
+    } else {
+      return const ShowWaring();
+    }
   }
 }

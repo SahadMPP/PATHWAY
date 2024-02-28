@@ -5,19 +5,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/snacbar.dart';
 import 'package:path_way_flu/app/data/middleware/teacher.dart';
+import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/lessonUpdateForm/bloc/lesson_form_update_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorial%20form/ui/adding_tutorial_form.dart';
 import 'package:path_way_flu/app/pages/admin/widgets/textfield.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lesson%20Form/bloc/lesson_form_bloc.dart';
-import 'package:path_way_flu/app/pages/teacher/widgets/sub_lesson_dropdown%20copy.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/sub_lesson_dropdown_update.dart';
 
-class LessionForm extends StatelessWidget {
-  const LessionForm({super.key});
+class LessonFormUpdate extends StatelessWidget {
+  final Lession lesson;
+  const LessonFormUpdate({super.key, required this.lesson});
 
   @override
   Widget build(BuildContext context) {
     GlobalKey<FormState> formKey = GlobalKey();
     TextEditingController titleController = TextEditingController();
+    titleController.text = lesson.title;
+    context.read<LessonFormUpdateBloc>().add(
+        LessonFormUpdateEvent.givingInitialDropDownValue(
+            value: lesson.subject, pikedImage: lesson.coverImage));
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -42,18 +49,18 @@ class LessionForm extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            BlocBuilder<LessonFormBloc, LessonFormState>(
+            BlocBuilder<LessonFormUpdateBloc, LessonFormUpdateState>(
               builder: (context, state) {
                 return TextButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       if (state.pikedImage != null) {
-                        context.read<LessonFormBloc>().add(
-                            LessonFormEvent.addingLession(
-                                context: context,
-                                subject: state.dropDownpiker!,
-                                title: titleController.text,
-                                coverImage: state.pikedImage!));
+                        var data = {
+                          "subject": state.dropdownPiker.toString(),
+                          "title": titleController.text.toString(),
+                          "coverImage": state.pikedImage.toString(),
+                        };
+                        context.read<LessonFormUpdateBloc>().add(LessonFormUpdateEvent.updatelesson(context: context, id: lesson.id, data: data));
                       } else {
                         buildShowSnacbar(
                             context: context,
@@ -63,7 +70,7 @@ class LessionForm extends StatelessWidget {
                       }
                     }
                   },
-                  child: Text('Save',
+                  child: Text('update',
                       style: GoogleFonts.roboto(
                           color: Colors.green[400],
                           fontSize: 16,
@@ -98,7 +105,7 @@ class LessionForm extends StatelessWidget {
               ),
             ),
             // need set bloc
-            const BuildSubDropDownLession(),
+            const BuildSubDropDownLessionUpdate(),
             const SizedBox(height: 10),
             Text(
               "Cover Image",
@@ -110,13 +117,13 @@ class LessionForm extends StatelessWidget {
             ),
             // change bloc
             const SizedBox(height: 10),
-            BlocBuilder<LessonFormBloc, LessonFormState>(
+            BlocBuilder<LessonFormUpdateBloc, LessonFormUpdateState>(
               builder: (context, state) {
                 return GestureDetector(
                   onTap: () {
                     context
-                        .read<LessonFormBloc>()
-                        .add(const LessonFormEvent.imagePiking());
+                        .read<LessonFormUpdateBloc>()
+                        .add(const LessonFormUpdateEvent.imagePiking());
                   },
                   child: Container(
                       height: 150,
@@ -179,7 +186,7 @@ class LessionForm extends StatelessWidget {
                             return const Center(child: Text("List is empty"));
                           } else {
                             return ListView.builder(
-                              itemCount:tutoral.length,
+                              itemCount: tutoral.length,
                               itemBuilder: (context, index) => Container(
                                 padding: const EdgeInsets.all(12),
                                 height: 80,

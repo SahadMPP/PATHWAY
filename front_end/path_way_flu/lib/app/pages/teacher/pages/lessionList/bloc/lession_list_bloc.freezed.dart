@@ -18,20 +18,24 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LessionListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() updateLession,
+    required TResult Function(BuildContext context, Lession lesson)
+        updateLession,
     required TResult Function() deleteLession,
+    required TResult Function(BuildContext context) navigatingLessionFrom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? updateLession,
+    TResult? Function(BuildContext context, Lession lesson)? updateLession,
     TResult? Function()? deleteLession,
+    TResult? Function(BuildContext context)? navigatingLessionFrom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? updateLession,
+    TResult Function(BuildContext context, Lession lesson)? updateLession,
     TResult Function()? deleteLession,
+    TResult Function(BuildContext context)? navigatingLessionFrom,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +43,22 @@ mixin _$LessionListEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_updateLession value) updateLession,
     required TResult Function(_deleteLession value) deleteLession,
+    required TResult Function(_navigatingLessionFrom value)
+        navigatingLessionFrom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_updateLession value)? updateLession,
     TResult? Function(_deleteLession value)? deleteLession,
+    TResult? Function(_navigatingLessionFrom value)? navigatingLessionFrom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_updateLession value)? updateLession,
     TResult Function(_deleteLession value)? deleteLession,
+    TResult Function(_navigatingLessionFrom value)? navigatingLessionFrom,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -79,6 +87,8 @@ abstract class _$$updateLessionImplCopyWith<$Res> {
   factory _$$updateLessionImplCopyWith(
           _$updateLessionImpl value, $Res Function(_$updateLessionImpl) then) =
       __$$updateLessionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context, Lession lesson});
 }
 
 /// @nodoc
@@ -88,54 +98,90 @@ class __$$updateLessionImplCopyWithImpl<$Res>
   __$$updateLessionImplCopyWithImpl(
       _$updateLessionImpl _value, $Res Function(_$updateLessionImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? lesson = null,
+  }) {
+    return _then(_$updateLessionImpl(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      lesson: null == lesson
+          ? _value.lesson
+          : lesson // ignore: cast_nullable_to_non_nullable
+              as Lession,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$updateLessionImpl implements _updateLession {
-  const _$updateLessionImpl();
+  const _$updateLessionImpl({required this.context, required this.lesson});
+
+  @override
+  final BuildContext context;
+  @override
+  final Lession lesson;
 
   @override
   String toString() {
-    return 'LessionListEvent.updateLession()';
+    return 'LessionListEvent.updateLession(context: $context, lesson: $lesson)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$updateLessionImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$updateLessionImpl &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.lesson, lesson) || other.lesson == lesson));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, context, lesson);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$updateLessionImplCopyWith<_$updateLessionImpl> get copyWith =>
+      __$$updateLessionImplCopyWithImpl<_$updateLessionImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() updateLession,
+    required TResult Function(BuildContext context, Lession lesson)
+        updateLession,
     required TResult Function() deleteLession,
+    required TResult Function(BuildContext context) navigatingLessionFrom,
   }) {
-    return updateLession();
+    return updateLession(context, lesson);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? updateLession,
+    TResult? Function(BuildContext context, Lession lesson)? updateLession,
     TResult? Function()? deleteLession,
+    TResult? Function(BuildContext context)? navigatingLessionFrom,
   }) {
-    return updateLession?.call();
+    return updateLession?.call(context, lesson);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? updateLession,
+    TResult Function(BuildContext context, Lession lesson)? updateLession,
     TResult Function()? deleteLession,
+    TResult Function(BuildContext context)? navigatingLessionFrom,
     required TResult orElse(),
   }) {
     if (updateLession != null) {
-      return updateLession();
+      return updateLession(context, lesson);
     }
     return orElse();
   }
@@ -145,6 +191,8 @@ class _$updateLessionImpl implements _updateLession {
   TResult map<TResult extends Object?>({
     required TResult Function(_updateLession value) updateLession,
     required TResult Function(_deleteLession value) deleteLession,
+    required TResult Function(_navigatingLessionFrom value)
+        navigatingLessionFrom,
   }) {
     return updateLession(this);
   }
@@ -154,6 +202,7 @@ class _$updateLessionImpl implements _updateLession {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_updateLession value)? updateLession,
     TResult? Function(_deleteLession value)? deleteLession,
+    TResult? Function(_navigatingLessionFrom value)? navigatingLessionFrom,
   }) {
     return updateLession?.call(this);
   }
@@ -163,6 +212,7 @@ class _$updateLessionImpl implements _updateLession {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_updateLession value)? updateLession,
     TResult Function(_deleteLession value)? deleteLession,
+    TResult Function(_navigatingLessionFrom value)? navigatingLessionFrom,
     required TResult orElse(),
   }) {
     if (updateLession != null) {
@@ -173,7 +223,15 @@ class _$updateLessionImpl implements _updateLession {
 }
 
 abstract class _updateLession implements LessionListEvent {
-  const factory _updateLession() = _$updateLessionImpl;
+  const factory _updateLession(
+      {required final BuildContext context,
+      required final Lession lesson}) = _$updateLessionImpl;
+
+  BuildContext get context;
+  Lession get lesson;
+  @JsonKey(ignore: true)
+  _$$updateLessionImplCopyWith<_$updateLessionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -214,8 +272,10 @@ class _$deleteLessionImpl implements _deleteLession {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() updateLession,
+    required TResult Function(BuildContext context, Lession lesson)
+        updateLession,
     required TResult Function() deleteLession,
+    required TResult Function(BuildContext context) navigatingLessionFrom,
   }) {
     return deleteLession();
   }
@@ -223,8 +283,9 @@ class _$deleteLessionImpl implements _deleteLession {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? updateLession,
+    TResult? Function(BuildContext context, Lession lesson)? updateLession,
     TResult? Function()? deleteLession,
+    TResult? Function(BuildContext context)? navigatingLessionFrom,
   }) {
     return deleteLession?.call();
   }
@@ -232,8 +293,9 @@ class _$deleteLessionImpl implements _deleteLession {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? updateLession,
+    TResult Function(BuildContext context, Lession lesson)? updateLession,
     TResult Function()? deleteLession,
+    TResult Function(BuildContext context)? navigatingLessionFrom,
     required TResult orElse(),
   }) {
     if (deleteLession != null) {
@@ -247,6 +309,8 @@ class _$deleteLessionImpl implements _deleteLession {
   TResult map<TResult extends Object?>({
     required TResult Function(_updateLession value) updateLession,
     required TResult Function(_deleteLession value) deleteLession,
+    required TResult Function(_navigatingLessionFrom value)
+        navigatingLessionFrom,
   }) {
     return deleteLession(this);
   }
@@ -256,6 +320,7 @@ class _$deleteLessionImpl implements _deleteLession {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_updateLession value)? updateLession,
     TResult? Function(_deleteLession value)? deleteLession,
+    TResult? Function(_navigatingLessionFrom value)? navigatingLessionFrom,
   }) {
     return deleteLession?.call(this);
   }
@@ -265,6 +330,7 @@ class _$deleteLessionImpl implements _deleteLession {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_updateLession value)? updateLession,
     TResult Function(_deleteLession value)? deleteLession,
+    TResult Function(_navigatingLessionFrom value)? navigatingLessionFrom,
     required TResult orElse(),
   }) {
     if (deleteLession != null) {
@@ -276,6 +342,150 @@ class _$deleteLessionImpl implements _deleteLession {
 
 abstract class _deleteLession implements LessionListEvent {
   const factory _deleteLession() = _$deleteLessionImpl;
+}
+
+/// @nodoc
+abstract class _$$navigatingLessionFromImplCopyWith<$Res> {
+  factory _$$navigatingLessionFromImplCopyWith(
+          _$navigatingLessionFromImpl value,
+          $Res Function(_$navigatingLessionFromImpl) then) =
+      __$$navigatingLessionFromImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
+}
+
+/// @nodoc
+class __$$navigatingLessionFromImplCopyWithImpl<$Res>
+    extends _$LessionListEventCopyWithImpl<$Res, _$navigatingLessionFromImpl>
+    implements _$$navigatingLessionFromImplCopyWith<$Res> {
+  __$$navigatingLessionFromImplCopyWithImpl(_$navigatingLessionFromImpl _value,
+      $Res Function(_$navigatingLessionFromImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$navigatingLessionFromImpl(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$navigatingLessionFromImpl implements _navigatingLessionFrom {
+  const _$navigatingLessionFromImpl({required this.context});
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'LessionListEvent.navigatingLessionFrom(context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$navigatingLessionFromImpl &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$navigatingLessionFromImplCopyWith<_$navigatingLessionFromImpl>
+      get copyWith => __$$navigatingLessionFromImplCopyWithImpl<
+          _$navigatingLessionFromImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context, Lession lesson)
+        updateLession,
+    required TResult Function() deleteLession,
+    required TResult Function(BuildContext context) navigatingLessionFrom,
+  }) {
+    return navigatingLessionFrom(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context, Lession lesson)? updateLession,
+    TResult? Function()? deleteLession,
+    TResult? Function(BuildContext context)? navigatingLessionFrom,
+  }) {
+    return navigatingLessionFrom?.call(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context, Lession lesson)? updateLession,
+    TResult Function()? deleteLession,
+    TResult Function(BuildContext context)? navigatingLessionFrom,
+    required TResult orElse(),
+  }) {
+    if (navigatingLessionFrom != null) {
+      return navigatingLessionFrom(context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_updateLession value) updateLession,
+    required TResult Function(_deleteLession value) deleteLession,
+    required TResult Function(_navigatingLessionFrom value)
+        navigatingLessionFrom,
+  }) {
+    return navigatingLessionFrom(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_updateLession value)? updateLession,
+    TResult? Function(_deleteLession value)? deleteLession,
+    TResult? Function(_navigatingLessionFrom value)? navigatingLessionFrom,
+  }) {
+    return navigatingLessionFrom?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_updateLession value)? updateLession,
+    TResult Function(_deleteLession value)? deleteLession,
+    TResult Function(_navigatingLessionFrom value)? navigatingLessionFrom,
+    required TResult orElse(),
+  }) {
+    if (navigatingLessionFrom != null) {
+      return navigatingLessionFrom(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _navigatingLessionFrom implements LessionListEvent {
+  const factory _navigatingLessionFrom({required final BuildContext context}) =
+      _$navigatingLessionFromImpl;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$navigatingLessionFromImplCopyWith<_$navigatingLessionFromImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

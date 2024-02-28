@@ -94,7 +94,7 @@ class _TutoralCardState extends State<TutoralCard> {
                           width: double.infinity,
                           decoration: const BoxDecoration(),
                           child: Image.file(
-                            File(widget.tutorial[index].tumbnailImage),
+                            File("widget.tutorial[index].tumbnailImage"),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -137,7 +137,7 @@ class _TutoralCardState extends State<TutoralCard> {
                                               color: Colors.black,
                                               fontWeight: FontWeight.w700)),
                                       Text(
-                                        widget.tutorial[index].creator,
+                                        "widget.tutorial[index].creator",
                                         style: GoogleFonts.quicksand(
                                             fontSize: 15,
                                             fontWeight: FontWeight.w400,

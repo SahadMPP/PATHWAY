@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
-import 'package:path_way_flu/app/pages/admin/pages/list_of_tutorial.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ListOfSubjects extends StatelessWidget {
@@ -55,10 +54,10 @@ class ListOfSubjects extends StatelessWidget {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (ctx) => ListOfTutorial(
-                            category: subjectList[index]["name"]!,
-                          )));
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //     builder: (ctx) => ListOfTutorial(
+                  //           category: subjectList[index]["name"]!,
+                  //         )));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 10),

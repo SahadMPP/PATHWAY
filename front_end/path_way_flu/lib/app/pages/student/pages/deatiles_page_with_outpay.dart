@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
+import 'package:path_way_flu/app/data/middleware/teacher.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
-import 'package:path_way_flu/app/data/middleware/admin.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/app/pages/student/widgets/course_con_without_payment.dart';
 import 'package:path_way_flu/main.dart';
@@ -105,7 +105,7 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       FutureBuilder(
-                          future: AdminApi.getTotorial(subject),
+                          future: TeacherApi.getTotorial(subject),
                           builder: (context, AsyncSnapshot snapshot) {
                             if (!snapshot.hasData) {
                               return Center(
@@ -126,7 +126,7 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                                         CourseContent(
                                             number: index+1,
                                             title: tutoral[index].title,
-                                            creator: tutoral[index].creator),
+                                            creator: "tutoral[index].creator"),
                                   ),
                                 );
                               }

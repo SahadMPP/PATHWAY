@@ -331,7 +331,7 @@ class BuildHomeBox extends StatelessWidget {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(15),
                                       child: Image.file(
-                                        File(tutoral[index].tumbnailImage),
+                                        File("tutoral[index].tumbnailImage"),
                                         fit: BoxFit.cover,
                                       ),
                                     )),
