@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/app/pages/admin/bloc/admin_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/tutorial%20form/bloc/tutorial_adding_form_bloc.dart';
 
 class BuildLevelDropDown extends StatelessWidget {
   const BuildLevelDropDown({
@@ -23,7 +23,7 @@ class BuildLevelDropDown extends StatelessWidget {
             ),
           ),
         ),
-        BlocBuilder<AdminBloc, AdminState>(
+        BlocBuilder<TutorialAddingFormBloc, TutorialAddingFormState>(
           builder: (context, state) {
             return Container(
               padding: const EdgeInsets.all(8),
@@ -64,9 +64,7 @@ class BuildLevelDropDown extends StatelessWidget {
                         )),
                   ],
                   onChanged: (newValue) {
-                    context.read<AdminBloc>().add(
-                        AdminEvent.levelclickEventInAddiTutorial(
-                            level: newValue!));
+               context.read<TutorialAddingFormBloc>().add(TutorialAddingFormEvent.dropDownLevelPiker(level: newValue!));
                   }),
             );
           },

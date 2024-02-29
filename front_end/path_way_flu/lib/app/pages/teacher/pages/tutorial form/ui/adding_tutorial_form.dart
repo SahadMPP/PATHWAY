@@ -1,5 +1,7 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path_way_flu/app/core/constants/snacbar.dart';
 import 'package:path_way_flu/app/pages/admin/widgets/level_dropdown_addingtutorial.dart';
 import 'package:path_way_flu/app/pages/admin/widgets/textfield.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/widgets/button_buil.dart';
@@ -8,7 +10,8 @@ import 'package:path_way_flu/app/pages/teacher/pages/tutorial%20form/bloc/tutori
 import 'package:path_way_flu/app/pages/teacher/widgets/teacher_bottom_navi.dart';
 
 class AddTotorialForm extends StatelessWidget {
-  const AddTotorialForm({super.key});
+  final String? id;
+  const AddTotorialForm({super.key, this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +20,7 @@ class AddTotorialForm extends StatelessWidget {
     TextEditingController durationController = TextEditingController();
     TextEditingController videoUrlController = TextEditingController();
     GlobalKey<FormState> formKey = GlobalKey();
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
@@ -31,7 +35,10 @@ class AddTotorialForm extends StatelessWidget {
                     const SizedBox(height: 10),
                     BuildHeadlinewithBack(
                         fun: () {
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const TeacherBotmNavi(),));
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
+                            builder: (context) => const TeacherBotmNavi(),
+                          ));
                         },
                         icon: Icons.arrow_back,
                         headline: 'Add tutorial'),
@@ -66,20 +73,36 @@ class AddTotorialForm extends StatelessWidget {
                     const SizedBox(height: 20),
                     SizedBox(
                         width: 400,
-                        child: BlocBuilder<TutorialAddingFormBloc, TutorialAddingFormState>(
+                        child: BlocBuilder<TutorialAddingFormBloc,
+                            TutorialAddingFormState>(
                           builder: (context, state) {
                             return BuildButton(
                                 fun: () {
                                   if (formKey.currentState!.validate()) {
-                                      var data = {
-                                        "title": titleController.text,
-                                        "level": state.levelDropDown,
-                                        "videoUrl": videoUrlController.text,
-                                        "duration": durationController.text,
-                                        "discription": discriptionController.text,
-                                      };
-                                      context.read<TutorialAddingFormBloc>().add(TutorialAddingFormEvent.addingTutorial(context: context, data: data));
+                                    var data = {
+                                      "title": titleController.text,
+                                      "level": state.levelDropDown,
+                                      "videoUrl": videoUrlController.text,
+                                      "duration": durationController.text,
+                                      "discription": discriptionController.text,
+                                    };
+                                    if (id == null) {
+                                      buildShowSnacbar(
+                                          context: context,
+                                          content:
+                                              "Make sure you save the lession before adding the tutorial",
+                                          title: 'Oh!!',
+                                          contentType: ContentType.warning);
+                                    } else {
+                                      context
+                                          .read<TutorialAddingFormBloc>()
+                                          .add(TutorialAddingFormEvent
+                                              .addingTutorial(
+                                                  context: context,
+                                                  data: data,
+                                                  lessonId: id ?? "null"));
                                     }
+                                  }
                                 },
                                 text: "Add");
                           },

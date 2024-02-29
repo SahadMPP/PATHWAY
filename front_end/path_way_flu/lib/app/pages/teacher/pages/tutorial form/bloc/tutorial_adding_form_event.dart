@@ -9,5 +9,6 @@ class TutorialAddingFormEvent with _$TutorialAddingFormEvent {
   const factory TutorialAddingFormEvent.addingTutorial({
     required BuildContext context,
     required Map data,
+    required String lessonId,
   }) = _addingTutorial;
 }

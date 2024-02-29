@@ -87,12 +87,30 @@ class TeacherApi {
     }
   }
 
+  static getOnelession(id) async {
+    final url = Uri.parse('${baseUrl}get_lessionById/$id');
+
+    try {
+      final res = await http.get(url);
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
+        List list = data['lessonId'];
+      } else {
+        debugPrint('faild to get current lession');
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
   static updateLesson(
       {required BuildContext context, required Map data, required id}) async {
     var url = Uri.parse("${baseUrl}update_lession/$id");
 
     try {
-      final res = await http.put(url, body: data);
+      final res = await http.put(url,
+          body: jsonEncode(data),
+          headers: {'Content-Type': 'application/json'});
 
       if (res.statusCode == 200) {
         debugPrint(res.body);
@@ -140,13 +158,39 @@ class TeacherApi {
   }
 
 // Tutorial list
-  static addTotorial(data, BuildContext context) async {
+  static addTotorial(
+    Map data,
+    BuildContext context,
+    String lessionId,
+  ) async {
+    List<dynamic> oldIdList = [];
     final url = Uri.parse("${baseUrl}add_tutorial");
     try {
       final res = await http.post(url, body: data);
 
       if (res.statusCode == 200) {
         debugPrint("Add tutorial is done");
+        // getting previous list of id
+        final url = Uri.parse('${baseUrl}get_lessionById/$lessionId');
+
+        try {
+          final res = await http.get(url);
+          if (res.statusCode == 200) {
+            var data = jsonDecode(res.body);
+            oldIdList = data['lessonId'];
+          } else {
+            debugPrint('faild to get current lession');
+          }
+        } catch (e) {
+          debugPrint(e.toString());
+        }
+
+        //adding id to lession
+        var data = jsonDecode(res.body);
+        oldIdList.add(data['_id']);
+        var updateLessonData = {"lessonId": oldIdList};
+
+        updateLesson(context: context, data: updateLessonData, id: lessionId);
 
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const TeacherBotmNavi(),
@@ -164,8 +208,9 @@ class TeacherApi {
     }
   }
 
-  static getTotorial(String catogory) async {
+  static getTotorial(id) async {
     List<Tutorial> tutorial = [];
+    List list = [];
     var url = Uri.parse("${baseUrl}get_tutorial");
 
     try {
@@ -174,10 +219,24 @@ class TeacherApi {
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
 
-        for (var value in data) {
-          debugPrint(value["category"]);
+        // getting One lesson
 
-          if (value["category"] == catogory) {
+        final url = Uri.parse('${baseUrl}get_lessionById/$id');
+
+        try {
+          final res = await http.get(url);
+          if (res.statusCode == 200) {
+            var lessonData = jsonDecode(res.body);
+            list = lessonData['lessonId'];
+          } else {
+            debugPrint('faild to get current lession');
+          }
+        } catch (e) {
+          debugPrint(e.toString());
+        }
+//--------------------------
+        for (var value in data) {
+          if (list.contains(value['_id'])) {
             String? id = value["_id"] as String?;
             if (id != null) {
               tutorial.add(Tutorial.fromJson(value));

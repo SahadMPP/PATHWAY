@@ -105,7 +105,7 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       FutureBuilder(
-                          future: TeacherApi.getTotorial(subject),
+                          future: TeacherApi.getTotorial(""),
                           builder: (context, AsyncSnapshot snapshot) {
                             if (!snapshot.hasData) {
                               return Center(

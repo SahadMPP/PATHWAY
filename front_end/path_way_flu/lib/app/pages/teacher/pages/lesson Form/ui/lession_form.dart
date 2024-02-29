@@ -150,7 +150,9 @@ class LessionForm extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (ctx) => const AddTotorialForm()));
+                        builder: (ctx) => const AddTotorialForm(
+                          
+                        )));
                   },
                   child: Text(
                     "Add",
@@ -169,7 +171,7 @@ class LessionForm extends StatelessWidget {
               child: BlocBuilder<LessonFormBloc, LessonFormState>(
                 builder: (context, state) {
                   return FutureBuilder(
-                      future: TeacherApi.getTotorial(state.dropDownpiker!),
+                      future: TeacherApi.getTotorial(""),
                       builder: (context, AsyncSnapshot snapshot) {
                         if (!snapshot.hasData) {
                           return const Center(
@@ -183,7 +185,6 @@ class LessionForm extends StatelessWidget {
                                 itemCount: tutoral.length,
                                 itemBuilder: (context, index) {
                                   GlobalKey<FormState> formkey = GlobalKey();
-
                                   return Dismissible(
                                     direction: DismissDirection.endToStart,
                                     onDismissed: (direction) {

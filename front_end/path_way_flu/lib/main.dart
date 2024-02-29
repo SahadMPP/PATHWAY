@@ -17,8 +17,8 @@ import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lessionList/bloc/lession_list_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lesson%20Form/bloc/lesson_form_bloc.dart';
-import 'package:path_way_flu/app/pages/teacher/pages/lesson%20Form/ui/lession_form.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lessonUpdateForm/bloc/lesson_form_update_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/teacherChat/bloc/teacher_chat_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorial%20form/bloc/tutorial_adding_form_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorialUpdateForm/bloc/tutorial_update_bloc.dart';
 import 'package:path_way_flu/firebase_options.dart';
@@ -77,7 +77,8 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         BlocProvider(create: (context) => LessionListBloc(),),
         BlocProvider(create: (context) => TutorialAddingFormBloc(),),
         BlocProvider(create: (context) => LessonFormUpdateBloc(),),
-        BlocProvider(create: (context) => TutorialUpdateBloc(),)
+        BlocProvider(create: (context) => TutorialUpdateBloc(),),
+        BlocProvider(create: (context) => TeacherChatBloc(),)
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -91,7 +92,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home:  const LessionForm() ,
+        home:  const SpleshScreen() ,
       ),
     );
   }

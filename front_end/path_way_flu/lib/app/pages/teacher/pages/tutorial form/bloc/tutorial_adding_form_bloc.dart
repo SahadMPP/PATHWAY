@@ -11,7 +11,7 @@ class TutorialAddingFormBloc
     extends Bloc<TutorialAddingFormEvent, TutorialAddingFormState> {
   TutorialAddingFormBloc() : super(TutorialAddingFormState.initial()) {
     on<_addingTutorial>((event, emit) {
-      TeacherApi.addTotorial(event.data,event.context);
+      TeacherApi.addTotorial(event.data,event.context,event.lessonId);
     });
 
     on<_backButtonClick>((event, emit) {});
