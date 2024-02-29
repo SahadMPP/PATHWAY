@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
+import 'package:path_way_flu/app/data/model/language.dart';
 import 'package:path_way_flu/app/pages/auth/domain/usecases/define_fun.dart';
 import 'package:path_way_flu/app/pages/student/widgets/complaint_alertbox.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -12,13 +13,44 @@ class StudentProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:  AppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: DropdownButton<Language>(
+              items: Language.languageList()
+                  .map((e) => DropdownMenuItem<Language>(
+                        value: e,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(e.flag),
+                            Text(e.name),
+                          ],
+                        ),
+                      ))
+                  .toList(),
+              onChanged: (Language? language) {
+                //----------
+                MyApp.setLocal(context, Locale(language!.languageCode,''));
+              },
+              underline: const SizedBox(),
+              icon: const Icon(
+                Icons.language,
+                size: 30,
+                color: Colors.white,
+              ),
+            ),
+          )
+        ],
+      ),
       backgroundColor: Theme.of(context).colorScheme.onBackground,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20, top: 40),
+                padding: const EdgeInsets.only(left: 20, top: 10),
                 child: Row(
                   children: [
                     Icon(
@@ -82,7 +114,7 @@ class StudentProfileScreen extends StatelessWidget {
                         SizedBox(
                           width: 100,
                           child: Text(
-                            AppLocalizations.of(context)!.accountSettings,
+                            AppLocalizations.of(context)!.accountsettings,
                             style: kTitleTextStyle.copyWith(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w400),
@@ -90,20 +122,20 @@ class StudentProfileScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.editProfile,
+                            text: AppLocalizations.of(context)!.editprofile,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.changePassword,
+                            text: AppLocalizations.of(context)!.changepassword,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.addLocation,
+                            text: AppLocalizations.of(context)!.addlocation,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileWithToggle(
                             text:
-                                AppLocalizations.of(context)!.pushNotification,
+                                AppLocalizations.of(context)!.pushnotification,
                             fun: () {}),
                         BuildProfileWithToggle(text: "Dark mode", fun: () {}),
                         const Divider(
@@ -116,7 +148,7 @@ class StudentProfileScreen extends StatelessWidget {
                               color: Colors.grey, fontWeight: FontWeight.w400),
                         ),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.aboutUs,
+                            text: AppLocalizations.of(context)!.aboutus,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
@@ -139,7 +171,7 @@ class StudentProfileScreen extends StatelessWidget {
                             },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.privacyConcern,
+                            text: AppLocalizations.of(context)!.privacyconcern,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(

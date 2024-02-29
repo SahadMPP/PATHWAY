@@ -135,7 +135,6 @@ class _MassagingScreenState extends State<MassagingScreen> {
                          sendMessege(msgInputController.text);
                         msgInputController.text = '';
                       }
-                        
                       },
                       icon: const Icon(Icons.send),
                       color: Theme.of(context).iconTheme.color,

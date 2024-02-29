@@ -56,7 +56,7 @@ class AdminDashbord extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(AppLocalizations.of(context)!.primaryText,
+                      Text(AppLocalizations.of(context)!.primarytext,
                           style: kTitleTextStyle.copyWith(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
@@ -66,7 +66,7 @@ class AdminDashbord extends StatelessWidget {
                               fontSize: 34,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 1.0)),
-                      Text(AppLocalizations.of(context)!.secondaryText,
+                      Text(AppLocalizations.of(context)!.secondarytext,
                           style: kSubheadingextStyle.copyWith(
                             fontSize: 17,
                             fontWeight: FontWeight.w500,
@@ -91,8 +91,8 @@ class AdminDashbord extends StatelessWidget {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (ctx) => const ListOfTeacher()));
                   },
-                  title: AppLocalizations.of(context)!.tutorProgress,
-                  persenteg: AppLocalizations.of(context)!.toComplete,
+                  title: AppLocalizations.of(context)!.tutorprogress,
+                  persenteg: AppLocalizations.of(context)!.tocomplete,
                   value: 0.7),
               const SizedBox(height: 20),
               BuildPrograssIndicator(
@@ -100,8 +100,8 @@ class AdminDashbord extends StatelessWidget {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (ctx) => const ListOfStudent()));
                   },
-                  title: AppLocalizations.of(context)!.studentProgress,
-                  persenteg: AppLocalizations.of(context)!.toComplete,
+                  title: AppLocalizations.of(context)!.studentprogress,
+                  persenteg: AppLocalizations.of(context)!.tocomplete,
                   value: 0.5),
               const SizedBox(height: 50),
             ],

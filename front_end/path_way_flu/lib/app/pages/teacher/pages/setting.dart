@@ -1,23 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
+import 'package:path_way_flu/app/data/model/language.dart';
 import 'package:path_way_flu/app/pages/auth/domain/usecases/define_fun.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/application_form.dart';
 import 'package:path_way_flu/main.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class TeacherSettings extends StatelessWidget {
+class TeacherSettings extends StatefulWidget {
   const TeacherSettings({super.key});
 
   @override
+  State<TeacherSettings> createState() => _TeacherSettingsState();
+}
+
+class _TeacherSettingsState extends State<TeacherSettings> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: DropdownButton<Language>(
+              items: Language.languageList()
+                  .map((e) => DropdownMenuItem<Language>(
+                        value: e,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(e.flag),
+                            Text(e.name),
+                          ],
+                        ),
+                      ))
+                  .toList(),
+              onChanged: (Language? language) {
+                //----------
+                MyApp.setLocal(context, Locale(language!.languageCode,''));
+              },
+              underline: const SizedBox(),
+              icon: const Icon(
+                Icons.language,
+                size: 30,
+                color: Colors.white,
+              ),
+            ),
+          )
+        ],
+      ),
       backgroundColor: Theme.of(context).colorScheme.onBackground,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20, top: 40),
+                padding: const EdgeInsets.only(left: 20, top: 10),
                 child: Row(
                   children: [
                     Icon(
@@ -26,7 +64,7 @@ class TeacherSettings extends StatelessWidget {
                       size: 50,
                     ),
                     const SizedBox(width: 15),
-                    Text("Settings",
+                    Text(AppLocalizations.of(context)!.settings,
                         style: kHeadingextStyle.copyWith(
                           color: Colors.white,
                           fontSize: 35,
@@ -66,7 +104,7 @@ class TeacherSettings extends StatelessWidget {
                                 maxWidth: 100,
                               ),
                               child: Text(
-                                userName!,
+                                userName ?? '',
                                 style: kTitleTextStyle.copyWith(
                                     color: Theme.of(context).iconTheme.color),
                               ),
@@ -81,7 +119,7 @@ class TeacherSettings extends StatelessWidget {
                         SizedBox(
                           width: 100,
                           child: Text(
-                            'Account Settings',
+                            AppLocalizations.of(context)!.accountsettings,
                             style: kTitleTextStyle.copyWith(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w400),
@@ -89,11 +127,11 @@ class TeacherSettings extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         BuildProfileCard(
-                            text: "Edit profile",
+                            text: AppLocalizations.of(context)!.editprofile,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: "Apply as teacher",
+                            text: AppLocalizations.of(context)!.applyasateacher,
                             fun: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (ctx) =>
@@ -101,33 +139,37 @@ class TeacherSettings extends StatelessWidget {
                             },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: "Change password",
+                            text: AppLocalizations.of(context)!.changepassword,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: "Add location",
+                            text: AppLocalizations.of(context)!.addlocation,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileWithToggle(
-                            text: "Push Notification", fun: () {}),
-                        BuildProfileWithToggle(text: "Dark mode", fun: () {}),
+                            text:
+                                AppLocalizations.of(context)!.pushnotification,
+                            fun: () {}),
+                        BuildProfileWithToggle(
+                            text: AppLocalizations.of(context)!.darkmode,
+                            fun: () {}),
                         const Divider(),
                         const SizedBox(height: 10),
                         Text(
-                          'More',
+                          AppLocalizations.of(context)!.more,
                           style: kTitleTextStyle.copyWith(
                               color: Colors.grey, fontWeight: FontWeight.w400),
                         ),
                         BuildProfileCard(
-                            text: "About As",
+                            text: AppLocalizations.of(context)!.aboutus,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: "Privacy Consern",
+                            text: AppLocalizations.of(context)!.privacyconcern,
                             fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: "LogOut",
+                            text: AppLocalizations.of(context)!.logout,
                             fun: () {
                               PanaraInfoDialog.show(
                                 context,

@@ -3,6 +3,8 @@ import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TeacherPrograssScreen extends StatelessWidget {
   const TeacherPrograssScreen({super.key});
@@ -19,8 +21,8 @@ class TeacherPrograssScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 30),
-                 Text("Hey $userName,", style: kHeadingextStyle),
-                const Text("Here is your status.", style: kSubheadingextStyle),
+                 Text("${AppLocalizations.of(context)!.hey} $userName,", style: kHeadingextStyle),
+                 Text(AppLocalizations.of(context)!.hereisyourstatus, style: kSubheadingextStyle),
                 const SizedBox(height: 30),
                 Column(
                   children: [
@@ -28,7 +30,7 @@ class TeacherPrograssScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Statistics",
+                          AppLocalizations.of(context)!.statistics,
                           style: kSubheadingextStyle.copyWith(fontSize: 15),
                         ),
                         const Text(
@@ -41,7 +43,7 @@ class TeacherPrograssScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Real-time progress",
+                          AppLocalizations.of(context)!.realtimeprogress,
                           style: kTitleTextStyle.copyWith(fontSize: 15),
                         ),
                         Text(
@@ -96,7 +98,7 @@ class TeacherPrograssScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Status",
+                                  AppLocalizations.of(context)!.status,
                                   style: kSubheadingextStyle.copyWith(
                                       fontSize: 10, height: 1.2),
                                 ),

@@ -58,7 +58,7 @@ class SubcriptionDeatilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              AppLocalizations.of(context)!.paymentDate,
+                              AppLocalizations.of(context)!.paymentdate,
                               style: kSubtitleTextSyule.copyWith(
                                   color: Colors.grey[400]),
                             ),

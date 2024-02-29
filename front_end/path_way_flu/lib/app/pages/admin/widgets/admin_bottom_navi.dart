@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/app/pages/admin/pages/admin_dashbord.dart';
 import 'package:path_way_flu/app/pages/admin/pages/complant_list.dart';
-import 'package:path_way_flu/app/pages/admin/pages/list_of_sub.dart';
 import 'package:path_way_flu/app/pages/admin/pages/tutors_request_list.dart';
 
 
@@ -18,7 +17,6 @@ class _AdminBotmNaviState extends State<AdminBotmNavi> {
     const AdminDashbord(),
     const TeacherRequestList(),
     const ComplantList(),
-    const ListOfSubjects(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -61,11 +59,7 @@ class _AdminBotmNaviState extends State<AdminBotmNavi> {
                   icon: Icon(
                     Icons.list_alt_rounded,
                   )),
-              BottomNavigationBarItem(
-                  label: "Add tutorial",
-                  icon: Icon(
-                    Icons.add_box_outlined,
-                  )),
+             
             ],
           ),
         ),

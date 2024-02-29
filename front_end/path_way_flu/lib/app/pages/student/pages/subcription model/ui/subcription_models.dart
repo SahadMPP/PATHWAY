@@ -49,7 +49,7 @@ class SubcriptionScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      AppLocalizations.of(context)!.forTotalCourse,
+                      AppLocalizations.of(context)!.fortotalcourse,
                       style: GoogleFonts.aBeeZee(
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0,
@@ -64,20 +64,20 @@ class SubcriptionScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SubcriptionMiniCard(
-                      text: AppLocalizations.of(context)!.moreSubs,
+                      text: AppLocalizations.of(context)!.moresubs,
                       icon: Icons.settings,
                       bgcolor: Colors.transparent,
                       borderColor: Colors.grey[800]),
                   const Spacer(),
                   SubcriptionMiniCard(
-                      text: AppLocalizations.of(context)!.addNewSub,
+                      text: AppLocalizations.of(context)!.addnewsub,
                       icon: Icons.add,
                       bgcolor: Theme.of(context).colorScheme.primary,
                       borderColor: Theme.of(context).colorScheme.secondary),
                 ],
               ),
               const SizedBox(height: 40),
-               BuildSubcriptionSubhead(text: AppLocalizations.of(context)!.upcomingSubjectPayment),
+               BuildSubcriptionSubhead(text: AppLocalizations.of(context)!.upcomingsubjectpayment),
               const SizedBox(height: 10),
               const BuildMainCardSubcirption(
                   image: "asset/subjucts_icon/mahts.png",

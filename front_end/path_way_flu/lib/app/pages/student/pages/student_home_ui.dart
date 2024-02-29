@@ -63,7 +63,7 @@ class _StuHomeState extends State<StuHome> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              Text(AppLocalizations.of(context)!.suggestedCourses,
+              Text(AppLocalizations.of(context)!.suggestedyou,
                   style: kTitleTextStyle),
               const SizedBox(height: 15),
               const BuildHomeBoxTop(),
@@ -78,7 +78,7 @@ class _StuHomeState extends State<StuHome> {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (ctx) => const SeeAllCategory()));
                     },
-                    child: Text(AppLocalizations.of(context)!.seeAll,
+                    child: Text(AppLocalizations.of(context)!.seeall,
                         style: kSubtitleTextSyule.copyWith(color: kBlueColor)),
                   ),
                 ],
@@ -159,14 +159,14 @@ class _StuHomeState extends State<StuHome> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(AppLocalizations.of(context)!.featuredCourse,
+                  Text(AppLocalizations.of(context)!.featurecourse,
                       style: kTitleTextStyle),
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (ctx) => const SeeAllCategory()));
                     },
-                    child: Text(AppLocalizations.of(context)!.seeAll,
+                    child: Text(AppLocalizations.of(context)!.seeall,
                         style: kSubtitleTextSyule.copyWith(color: kBlueColor)),
                   ),
                 ],
@@ -266,7 +266,7 @@ class BuildHomeBoxTop extends StatelessWidget {
                                 side: const MaterialStatePropertyAll(
                                     BorderSide(width: 1, color: Colors.green))),
                             child: Text(
-                              AppLocalizations.of(context)!.enrollNow,
+                              AppLocalizations.of(context)!.entrollnow,
                               style: GoogleFonts.quicksand(
                                 color: Colors.green,
                                 fontWeight: FontWeight.bold,

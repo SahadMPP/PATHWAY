@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/pages/chat/pages/chat_messaging.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacherChat/bloc/teacher_chat_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TeacherChat extends StatefulWidget {
   const TeacherChat({super.key});
@@ -39,7 +40,7 @@ class _TeacherChatState extends State<TeacherChat> {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const SizedBox(height: 40),
             Text(
-              'Chats',
+              AppLocalizations.of(context)!.chat,
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -66,8 +67,8 @@ class _TeacherChatState extends State<TeacherChat> {
                           context.read<TeacherChatBloc>().add(
                               TeacherChatEvent.runFilterdValue(value: value));
                         },
-                        decoration: const InputDecoration(
-                            hintText: "Search", border: InputBorder.none),
+                        decoration:  InputDecoration(
+                            hintText: AppLocalizations.of(context)!.search, border: InputBorder.none),
                       ),
                     ),
                   ),
@@ -75,7 +76,7 @@ class _TeacherChatState extends State<TeacherChat> {
               ),
             ),
             const SizedBox(height: 10),
-            const Text("Student's", style: kTitleTextStyle),
+             Text(AppLocalizations.of(context)!.students, style: kTitleTextStyle),
             const SizedBox(height: 10),
             Expanded(child: BlocBuilder<TeacherChatBloc, TeacherChatState>(
               builder: (context, state) {
@@ -132,7 +133,7 @@ class _TeacherChatState extends State<TeacherChat> {
                                           const MassagingScreen()));
                                 },
                                 child: Text(
-                                  "Chat",
+                                  AppLocalizations.of(context)!.chat,
                                   style: GoogleFonts.aBeeZee(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),

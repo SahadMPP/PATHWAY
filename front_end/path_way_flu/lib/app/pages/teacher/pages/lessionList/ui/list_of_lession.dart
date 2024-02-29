@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/data/middleware/teacher.dart';
 import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lessionList/bloc/lession_list_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class ListOfLession extends StatelessWidget {
   const ListOfLession({super.key});
@@ -26,7 +28,7 @@ class ListOfLession extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Lessions",
+          AppLocalizations.of(context)!.lession,
           style: GoogleFonts.roboto(
             fontWeight: FontWeight.bold,
             fontSize: 22,
@@ -72,7 +74,7 @@ class ListOfLession extends StatelessWidget {
                         ),
                         child: Container(
                           padding: const EdgeInsets.all(15),
-                          height: 150,
+                          height: 160,
                           width: double.infinity,
                           child: Row(
                             children: [
@@ -103,7 +105,7 @@ class ListOfLession extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      "Lession ${lesson[index].countOfLesson}",
+                                      "${AppLocalizations.of(context)!.lession} ${lesson[index].countOfLesson}",
                                       style: GoogleFonts.quicksand(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -128,7 +130,7 @@ class ListOfLession extends StatelessWidget {
                                                       Theme.of(context)
                                                           .colorScheme
                                                           .onSurface)),
-                                          child: const Text('Keep Processing'),
+                                          child:  Text(AppLocalizations.of(context)!.keepprocessing),
                                         ))
                                   ],
                                 ),

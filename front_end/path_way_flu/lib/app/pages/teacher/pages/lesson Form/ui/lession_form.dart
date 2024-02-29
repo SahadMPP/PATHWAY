@@ -11,6 +11,7 @@ import 'package:path_way_flu/app/pages/admin/widgets/textfield.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lesson%20Form/bloc/lesson_form_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorialUpdateForm/ui/updating_tutorial.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/sub_lesson_dropdown%20copy.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LessionForm extends StatelessWidget {
   const LessionForm({super.key});
@@ -30,14 +31,14 @@ class LessionForm extends StatelessWidget {
                     .read<LessonFormBloc>()
                     .add(LessonFormEvent.cancelButtonClick(context: context));
               },
-              child: Text('Cancel',
+              child: Text(AppLocalizations.of(context)!.cancel,
                   style: GoogleFonts.roboto(
                       color: Colors.red[400],
                       fontSize: 16,
                       fontWeight: FontWeight.bold)),
             ),
             Text(
-              "Add Lession",
+              AppLocalizations.of(context)!.addlesson,
               style: GoogleFonts.roboto(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -64,7 +65,7 @@ class LessionForm extends StatelessWidget {
                       }
                     }
                   },
-                  child: Text('Save',
+                  child: Text(AppLocalizations.of(context)!.save,
                       style: GoogleFonts.roboto(
                           color: Colors.green[400],
                           fontSize: 16,
@@ -83,7 +84,7 @@ class LessionForm extends StatelessWidget {
             Form(
               key: formKey,
               child: BuildAddTutorFormText(
-                title: "Title",
+                title: AppLocalizations.of(context)!.title,
                 hintText: "title",
                 controllre: titleController,
                 validateText: "Title",
@@ -102,7 +103,7 @@ class LessionForm extends StatelessWidget {
             const BuildSubDropDownLession(),
             const SizedBox(height: 10),
             Text(
-              "Cover Image",
+              AppLocalizations.of(context)!.coverimage,
               style: GoogleFonts.roboto(
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
@@ -140,7 +141,7 @@ class LessionForm extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Cover Image",
+                  AppLocalizations.of(context)!.lession,
                   style: GoogleFonts.roboto(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
@@ -155,7 +156,7 @@ class LessionForm extends StatelessWidget {
                         )));
                   },
                   child: Text(
-                    "Add",
+                    AppLocalizations.of(context)!.add,
                     style: GoogleFonts.roboto(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,
