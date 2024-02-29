@@ -12,6 +12,7 @@ import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/di
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/splash_screen_ui.dart';
+import 'package:path_way_flu/app/pages/chat/pages/chat_messaging.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -92,7 +93,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home:  const SpleshScreen() ,
+        home:  const MassagingScreen() ,
       ),
     );
   }

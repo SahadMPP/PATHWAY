@@ -87,21 +87,21 @@ class TeacherApi {
     }
   }
 
-  static getOnelession(id) async {
-    final url = Uri.parse('${baseUrl}get_lessionById/$id');
+  // static getOnelession(id) async {
+  //   final url = Uri.parse('${baseUrl}get_lessionById/$id');
 
-    try {
-      final res = await http.get(url);
-      if (res.statusCode == 200) {
-        var data = jsonDecode(res.body);
-        List list = data['lessonId'];
-      } else {
-        debugPrint('faild to get current lession');
-      }
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
+  //   try {
+  //     final res = await http.get(url);
+  //     if (res.statusCode == 200) {
+  //       var data = jsonDecode(res.body);
+  //       List list = data['lessonId'];
+  //     } else {
+  //       debugPrint('faild to get current lession');
+  //     }
+  //   } catch (e) {
+  //     debugPrint(e.toString());
+  //   }
+  // }
 
   static updateLesson(
       {required BuildContext context, required Map data, required id}) async {

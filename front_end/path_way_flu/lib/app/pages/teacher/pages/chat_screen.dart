@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/data/middleware/admin.dart';
-import 'package:path_way_flu/app/pages/chat/presentation/pages/chat_messaging.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/app/data/model/student.dart';
+import 'package:path_way_flu/app/pages/chat/pages/chat_messaging.dart';
 
 class ChatScreenTeacher extends StatelessWidget {
   const ChatScreenTeacher({super.key});

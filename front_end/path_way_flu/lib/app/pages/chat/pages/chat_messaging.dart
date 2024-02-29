@@ -86,6 +86,7 @@ class _MassagingScreenState extends State<MassagingScreen> {
                     return MessengerItem(
                       message: currentChat.message,
                       sentByme: currentChat.sentByMe == socket.id,
+                      datetime: currentChat.dateTime,
                     );
                   },
                   itemCount: chatController.chatMessages.length,
@@ -130,8 +131,11 @@ class _MassagingScreenState extends State<MassagingScreen> {
                     const Spacer(),
                     IconButton(
                       onPressed: () {
-                        sendMessege(msgInputController.text);
+                      if (msgInputController.text != '') {
+                         sendMessege(msgInputController.text);
                         msgInputController.text = '';
+                      }
+                        
                       },
                       icon: const Icon(Icons.send),
                       color: Theme.of(context).iconTheme.color,
@@ -157,9 +161,11 @@ class _MassagingScreenState extends State<MassagingScreen> {
   }
 
   void sendMessege(String text) async {
+    DateTime dateTime = DateTime.now();
     var messegeJson = {
       "message": text,
       "sentByMe": socket.id,
+      "dateTime": "${dateTime.hour}:${dateTime.minute}",
     };
     socket.emit('message', messegeJson);
     chatController.chatMessages.add(Message.fromJson(messegeJson));
@@ -179,8 +185,9 @@ class _MassagingScreenState extends State<MassagingScreen> {
 class MessengerItem extends StatelessWidget {
   final String message;
   final bool sentByme;
+  final String datetime;
   const MessengerItem(
-      {super.key, required this.sentByme, required this.message});
+      {super.key, required this.sentByme, required this.message, required this.datetime});
 
   @override
   Widget build(BuildContext context) {
@@ -211,9 +218,9 @@ class MessengerItem extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 5),
-                const Text(
-                  '01:23 AM',
-                  style: TextStyle(
+                 Text(
+                  datetime,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 10,
                   ),
