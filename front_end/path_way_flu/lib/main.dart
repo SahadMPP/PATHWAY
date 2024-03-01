@@ -11,6 +11,7 @@ import 'package:path_way_flu/app/pages/admin/bloc/admin_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/splash_screen_ui.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,10 +21,8 @@ import 'package:path_way_flu/app/pages/teacher/pages/lessonUpdateForm/bloc/lesso
 import 'package:path_way_flu/app/pages/teacher/pages/teacherChat/bloc/teacher_chat_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorial%20form/bloc/tutorial_adding_form_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorialUpdateForm/bloc/tutorial_update_bloc.dart';
-import 'package:path_way_flu/app/pages/teacher/widgets/teacher_bottom_navi.dart';
 import 'package:path_way_flu/firebase_options.dart';
 import 'package:path_way_flu/app/core/l10n/l10n.dart';
-
 
 const SAVE_KEY_LOGGIN = "userLogined";
 const SAVE_KEY_ID = "userId";
@@ -35,9 +34,7 @@ bool isTeacherVerified = true;
 String language = 'en';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MyApp());
 }
@@ -48,36 +45,30 @@ class MyApp extends StatefulWidget {
   @override
   State<MyApp> createState() => _MyAppState();
 
-  static void setLocal(BuildContext context,Locale newLocale){
+  static void setLocal(BuildContext context, Locale newLocale) {
     _MyAppState? state = context.findRootAncestorStateOfType<_MyAppState>();
     state?.setLocal(newLocale);
   }
 }
 
 class _MyAppState extends State<MyApp> {
-
   Locale? _locale;
 
-  setLocal(Locale locale){
+  setLocal(Locale locale) {
     setState(() {
       _locale = locale;
     });
   }
-   
-   @override
+
+  @override
   void initState() {
     super.initState();
     OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
-OneSignal.initialize('8647bcee-a02d-4f36-b16c-8d6595529384');
-OneSignal.Notifications.requestPermission(true).then((value) {
+    OneSignal.initialize('8647bcee-a02d-4f36-b16c-8d6595529384');
+    OneSignal.Notifications.requestPermission(true).then((value) {
       debugPrint('signal value: $value');
-    }
- ); 
+    });
   }
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -90,16 +81,26 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         BlocProvider(create: (context) => TeacherBloc()),
         BlocProvider(create: (context) => SubcriptionBloc()),
         BlocProvider(create: (context) => LessonFormBloc()),
-        BlocProvider(create: (context) => LessionListBloc(),),
-        BlocProvider(create: (context) => TutorialAddingFormBloc(),),
-        BlocProvider(create: (context) => LessonFormUpdateBloc(),),
-        BlocProvider(create: (context) => TutorialUpdateBloc(),),
-        BlocProvider(create: (context) => TeacherChatBloc(),)
+        BlocProvider(
+          create: (context) => LessionListBloc(),
+        ),
+        BlocProvider(
+          create: (context) => TutorialAddingFormBloc(),
+        ),
+        BlocProvider(
+          create: (context) => LessonFormUpdateBloc(),
+        ),
+        BlocProvider(
+          create: (context) => TutorialUpdateBloc(),
+        ),
+        BlocProvider(
+          create: (context) => TeacherChatBloc(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        supportedLocales: L10n.all, 
-        locale:  _locale,
+        supportedLocales: L10n.all,
+        locale: _locale,
         localizationsDelegates: const [
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
@@ -108,7 +109,7 @@ OneSignal.Notifications.requestPermission(true).then((value) {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home:  const TeacherBotmNavi() ,
+        home: const SpleshScreen(),
       ),
     );
   }

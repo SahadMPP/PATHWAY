@@ -41,7 +41,7 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
          "creatorName":data['name'].toString(),
       };
        // ignore: use_build_context_synchronously
-      TeacherApi.addingLession(context: event.context,data:dataNew);
+      TeacherApi.addingLession(context: event.context,data:dataNew,filepath: event.coverImage);
       } else {
         debugPrint('faield to get data');
       }

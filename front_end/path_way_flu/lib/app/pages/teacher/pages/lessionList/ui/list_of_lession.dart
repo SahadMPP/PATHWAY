@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -83,10 +82,11 @@ class ListOfLession extends StatelessWidget {
                                 width: 110,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(18),
-                                  child: Image.file(
-                                    File(lesson[index].coverImage),
-                                    fit: BoxFit.cover,
-                                  ),
+                                  // child: Image.file(
+                                  //   File(lesson[index].coverImage),
+                                  //   fit: BoxFit.cover,
+                                  // ),
+                                  child: Image.network("http://learnpro.today:5000/${lesson[index].coverImage}",fit: BoxFit.cover,),
                                 ),
                               ),
                               Padding(

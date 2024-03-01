@@ -43,15 +43,22 @@ class TeacherApi {
 
 // Lesson List
   static void addingLession(
-      {required Map data, required BuildContext context}) async {
+      {required Map data, required BuildContext context,required String filepath}) async {
+
     final url = Uri.parse('${baseUrl}add_lession');
 
     try {
       final res = await http.post(url, body: data);
 
       if (res.statusCode == 200) {
-        debugPrint("add lession is success full");
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
+        debugPrint("add lession is successfull");
+    
+        var data = jsonDecode(res.body);
+       var image_response = await patchImage(data["_id"], filepath);
+  print(image_response);
+          
+        if (image_response.statusCode == 200) {
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const TeacherBotmNavi(),
         ));
         buildShowSnacbar(
@@ -59,6 +66,14 @@ class TeacherApi {
             content: "Adding lession in successfull ",
             title: "Done!",
             contentType: ContentType.success);
+        } else {
+          buildShowSnacbar(
+            context: context,
+            content: "You fasing some network error",
+            title: "Oop's!",
+            contentType: ContentType.failure);
+        }
+        
       } else {
         debugPrint("Field to add lession");
       }
@@ -304,5 +319,17 @@ class TeacherApi {
     } catch (e) {
       debugPrint(e.toString());
     }
+  }
+
+  static Future<http.StreamedResponse> patchImage(String id,String filepath)async{
+   var request = http.MultipartRequest('PATCH',Uri.parse("${baseUrl}add/image/$id"));
+  request.files.add(await http.MultipartFile.fromPath("coverImage", filepath));
+  request.headers.addAll({
+   "Content-Type": "multipart/form-data",
+  });
+
+  var response = request.send();
+  
+  return response;
   }
 }
