@@ -1,13 +1,11 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/core/constants/subject_list.dart';
 import 'package:path_way_flu/app/data/middleware/student.dart';
-import 'package:path_way_flu/app/data/model/tutoral.dart';
-import 'package:path_way_flu/app/pages/student/pages/see_all_category.dart';
+import 'package:path_way_flu/app/data/model/lession.dart';
+import 'package:path_way_flu/app/pages/student/pages/See%20All/ui/see_all_category.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/main.dart';
 
@@ -20,7 +18,7 @@ class StuHome extends StatefulWidget {
 
 class _StuHomeState extends State<StuHome> {
   int isSelectedTopic = 0;
-
+  String cuttentSub = subjectList[0]['name']!;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,6 +106,7 @@ class _StuHomeState extends State<StuHome> {
                             onPressed: () {
                               setState(() {
                                 isSelectedTopic = index;
+                                cuttentSub = subjectList[isSelectedTopic]['name']!;
                               });
                             },
                             child: Text(
@@ -140,6 +139,7 @@ class _StuHomeState extends State<StuHome> {
                             onPressed: () {
                               setState(() {
                                 isSelectedTopic = index + 4;
+                                cuttentSub = subjectList[isSelectedTopic]['name']!;
                               });
                             },
                             child: Text(
@@ -150,9 +150,10 @@ class _StuHomeState extends State<StuHome> {
                 ),
               ),
               const SizedBox(height: 10),
-              const Text("Art", style: kTitleTextStyle),
+               Text(cuttentSub, style: kTitleTextStyle),
               const SizedBox(height: 15),
               BuildHomeBox(
+                currentsub: cuttentSub,
                 isSelected: isSelectedTopic,
               ),
               const SizedBox(height: 15),
@@ -173,6 +174,7 @@ class _StuHomeState extends State<StuHome> {
               ),
               const SizedBox(height: 15),
               BuildHomeBox(
+                currentsub: cuttentSub,
                 isSelected: isSelectedTopic,
               )
             ],
@@ -287,9 +289,10 @@ class BuildHomeBoxTop extends StatelessWidget {
 
 class BuildHomeBox extends StatelessWidget {
   final int isSelected;
+  final String currentsub;
   const BuildHomeBox({
     super.key,
-    required this.isSelected,
+    required this.isSelected, required this.currentsub,
   });
 
   @override
@@ -298,29 +301,29 @@ class BuildHomeBox extends StatelessWidget {
       height: 250,
       child: FutureBuilder(
           future:
-              StudentApi.getTotorialStudent(subjectList[isSelected]['name']!),
+              StudentApi.getAllLession(currentsub),
           builder: (context, AsyncSnapshot snapshot) {
             if (!snapshot.hasData) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
             } else {
-              List<Tutorial> tutoral = snapshot.data;
-              if (tutoral.isEmpty) {
+              List<Lession> lession = snapshot.data;
+              if (lession.isEmpty) {
                 return const Center(
                   child: Text("Oop's list is empty"),
                 );
               } else {
                 return ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: tutoral.length,
+                    itemCount: lession.length,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.only(left: 15),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(25),
                           child: Container(
-                            padding: const EdgeInsets.all(8),
+                            padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
                             color: Theme.of(context).colorScheme.secondary,
                             width: MediaQuery.of(context).size.width * .6,
                             child: Column(
@@ -329,11 +332,8 @@ class BuildHomeBox extends StatelessWidget {
                                     height: 110,
                                     width: double.infinity,
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(15),
-                                      child: Image.file(
-                                        File("tutoral[index].tumbnailImage"),
-                                        fit: BoxFit.cover,
-                                      ),
+                                      borderRadius: BorderRadius.circular(25),
+                                      child: Image.network(lession[index].coverImage,fit: BoxFit.cover,)
                                     )),
                                 Container(
                                   padding: const EdgeInsets.all(10),
@@ -349,7 +349,7 @@ class BuildHomeBox extends StatelessWidget {
                                             constraints: const BoxConstraints(
                                                 maxWidth: 150),
                                             child: Text(
-                                              tutoral[index].title,
+                                              lession[index].title,
                                               style: GoogleFonts.aBeeZee(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 17,
@@ -373,7 +373,7 @@ class BuildHomeBox extends StatelessWidget {
                                           ),
                                           const SizedBox(width: 5),
                                           Text(
-                                            "Jhon Smith",
+                                            lession[index].creatorName,
                                             style: GoogleFonts.quicksand(
                                               fontSize: 16,
                                               fontWeight: FontWeight.w500,
@@ -387,7 +387,7 @@ class BuildHomeBox extends StatelessWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            "1.55 hours",
+                                            "${lession[index].watchTime} min",
                                             style: GoogleFonts.aBeeZee(
                                                 fontWeight: FontWeight.bold,
                                                 wordSpacing: 3),
@@ -401,7 +401,7 @@ class BuildHomeBox extends StatelessWidget {
                                               ),
                                               const SizedBox(width: 5),
                                               Text(
-                                                "12 ${AppLocalizations.of(context)!.lesson}",
+                                                "${lession[index].countOfLesson} ${AppLocalizations.of(context)!.lesson}",
                                                 style: GoogleFonts.aBeeZee(
                                                     color: Colors.grey,
                                                     fontWeight: FontWeight.bold,

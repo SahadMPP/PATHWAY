@@ -12,6 +12,7 @@ import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/di
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/splash_screen_ui.dart';
+import 'package:path_way_flu/app/pages/student/pages/See%20All/bloc/see_all_bloc.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -81,21 +82,12 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => TeacherBloc()),
         BlocProvider(create: (context) => SubcriptionBloc()),
         BlocProvider(create: (context) => LessonFormBloc()),
-        BlocProvider(
-          create: (context) => LessionListBloc(),
-        ),
-        BlocProvider(
-          create: (context) => TutorialAddingFormBloc(),
-        ),
-        BlocProvider(
-          create: (context) => LessonFormUpdateBloc(),
-        ),
-        BlocProvider(
-          create: (context) => TutorialUpdateBloc(),
-        ),
-        BlocProvider(
-          create: (context) => TeacherChatBloc(),
-        )
+        BlocProvider(create: (context) => LessionListBloc()),
+        BlocProvider(create: (context) => TutorialAddingFormBloc()),
+        BlocProvider(create: (context) => LessonFormUpdateBloc()),
+        BlocProvider(create: (context) => TutorialUpdateBloc()),
+        BlocProvider(create: (context) => TeacherChatBloc()),
+        BlocProvider(create: (context) => SeeAllBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

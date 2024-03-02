@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "path_way_flu",
+            "name": "PATHWAY",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "path_way_flu (profile mode)",
+            "name": "PATHWAY (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "path_way_flu (release mode)",
+            "name": "PATHWAY (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

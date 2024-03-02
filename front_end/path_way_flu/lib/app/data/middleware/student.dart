@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/app/core/constants/snacbar.dart';
+import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
 import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:http/http.dart' as http;
@@ -94,4 +95,27 @@ class StudentApi {
         
       }
   }
+
+static getAllLession(String subject) async {
+    List<Lession> listLesson = [];
+    final url = Uri.parse('${baseUrl}get_lession');
+
+    try {
+      final res = await http.get(url);
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
+        for (var value in data) {
+          if (value['subject'] == subject) {
+          listLesson.add(Lession.fromJson(value));
+          }
+        }
+        return listLesson;
+      } else {
+        return listLesson;
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
 }

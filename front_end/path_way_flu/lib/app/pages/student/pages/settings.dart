@@ -99,7 +99,7 @@ class StudentProfileScreen extends StatelessWidget {
                                 maxWidth: 100,
                               ),
                               child: Text(
-                                SAVE_KEY_NAME,
+                                userName!,
                                 style: kTitleTextStyle.copyWith(
                                     color: Theme.of(context).iconTheme.color),
                               ),

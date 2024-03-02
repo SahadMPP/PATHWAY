@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/core/constants/subject_list.dart';
 import 'package:path_way_flu/app/pages/student/pages/deatiles_page.dart';
-import 'package:path_way_flu/app/pages/student/pages/see_all_category.dart';
+import 'package:path_way_flu/app/pages/student/pages/See%20All/ui/see_all_category.dart';
 import 'package:path_way_flu/app/pages/student/widgets/build_see_all_subject.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
