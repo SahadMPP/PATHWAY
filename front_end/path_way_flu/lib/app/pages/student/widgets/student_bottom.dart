@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:path_way_flu/app/pages/student/pages/chat.dart';
+import 'package:path_way_flu/app/pages/student/pages/chat/ui/chat.dart';
 import 'package:path_way_flu/app/pages/student/pages/prograss.dart';
 import 'package:path_way_flu/app/pages/student/pages/settings.dart';
 import 'package:path_way_flu/app/pages/student/pages/student_home_ui.dart';

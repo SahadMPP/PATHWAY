@@ -14,6 +14,8 @@ class StudentProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:  AppBar(
+      backgroundColor: Theme.of(context).colorScheme.onBackground,
+
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -73,11 +75,12 @@ class StudentProfileScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Container(
+
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   height: 700,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                          color: Theme.of(context).colorScheme.secondary,
                       borderRadius: BorderRadius.circular(20)),
                   child: SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
@@ -100,8 +103,7 @@ class StudentProfileScreen extends StatelessWidget {
                               ),
                               child: Text(
                                 userName!,
-                                style: kTitleTextStyle.copyWith(
-                                    color: Theme.of(context).iconTheme.color),
+                                style: kTitleTextStyle,
                               ),
                             )
                           ],
@@ -227,7 +229,7 @@ class BuildProfileCard extends StatelessWidget {
             child: Text(
               text,
               style:
-                  kTitleTextStyle.copyWith(fontSize: 20, color: Colors.black),
+                  kTitleTextStyle.copyWith(fontSize: 20),
             ),
           ),
           IconButton(
@@ -271,7 +273,7 @@ class _BuildProfileWithToggleState extends State<BuildProfileWithToggle> {
             child: Text(
               widget.text,
               style:
-                  kTitleTextStyle.copyWith(fontSize: 20, color: Colors.black),
+                  kTitleTextStyle.copyWith(fontSize: 20),
             ),
           ),
           SizedBox(

@@ -13,9 +13,9 @@ class TeacherChatBloc extends Bloc<TeacherChatEvent, TeacherChatState> {
       emit(state.copyWith(list: await AdminApi.getStudents()));
     });
 
-    on<_runFilterdValue>((event, emit) {
+    on<_runFilterdValue>((event, emit)async {
+      emit(state.copyWith(list: await AdminApi.getStudents()));
       List<Student> result = [];
-
       if (event.value.isEmpty) {
         result = state.list;
       } else {

@@ -13,7 +13,9 @@ class SeeAllBloc extends Bloc<SeeAllEvent, SeeAllState> {
     emit(state.copyWith(list: await TeacherApi.getAllLession()));
    });
 
-   on<_fulturedValue>((event, emit) {
+   on<_fulturedValue>((event, emit)async {
+    emit(state.copyWith(list: await TeacherApi.getAllLession()));
+
           List<Lession> result = [];
 
       if (event.typeText.isEmpty) {
