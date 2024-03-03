@@ -1,0 +1,51 @@
+// ignore_for_file: use_build_context_synchronously, depend_on_referenced_packages
+
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_way_flu/app/core/constants/snacbar.dart';
+import 'package:path_way_flu/app/data/middleware/student.dart';
+import 'package:path_way_flu/app/pages/student/widgets/student_bottom.dart';
+
+part 'student_init_deatiles_event.dart';
+part 'student_init_deatiles_state.dart';
+part 'student_init_deatiles_bloc.freezed.dart';
+
+class StudentInitDeatilesBloc
+    extends Bloc<StudentInitDeatilesEvent, StudentInitDeatilesState> {
+  StudentInitDeatilesBloc() : super(StudentInitDeatilesState.initial()) {
+    on<_updateingImage>((event, emit) async {
+      if (state.selectedImage == null) {
+        buildShowSnacbar(
+            context: event.context,
+            content: "Faield to add image",
+            title: "Oop's",
+            contentType: ContentType.warning);
+      } else {
+        final res =
+            await StudentApi.patchProfileImage(event.id, state.selectedImage!);
+        if (res.statusCode == 200) {
+          Navigator.of(event.context).pushReplacement(MaterialPageRoute(builder: (ctx) => const StudentBotmNavi(),));
+        } else {
+              buildShowSnacbar(
+            context: event.context,
+            content: "Something went wrong ,Check you connection",
+            title: "Oop's",
+            contentType: ContentType.warning);
+        }
+      }
+    });
+
+    on<_pikingImge>((event, emit) async {
+      final ImagePicker picker = ImagePicker();
+      XFile? image = await picker.pickImage(source: ImageSource.gallery);
+      if (image != null) {
+        emit(state.copyWith(selectedImage: image.path));
+      } else {
+        return;
+      }
+    });
+  }
+}

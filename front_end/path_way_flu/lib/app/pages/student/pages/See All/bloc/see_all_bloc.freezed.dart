@@ -313,7 +313,7 @@ abstract class _fulturedValue implements SeeAllEvent {
 
 /// @nodoc
 mixin _$SeeAllState {
-  List<Lession> get list => throw _privateConstructorUsedError;
+  List<Lesson> get list => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SeeAllStateCopyWith<SeeAllState> get copyWith =>
@@ -326,7 +326,7 @@ abstract class $SeeAllStateCopyWith<$Res> {
           SeeAllState value, $Res Function(SeeAllState) then) =
       _$SeeAllStateCopyWithImpl<$Res, SeeAllState>;
   @useResult
-  $Res call({List<Lession> list});
+  $Res call({List<Lesson> list});
 }
 
 /// @nodoc
@@ -348,7 +348,7 @@ class _$SeeAllStateCopyWithImpl<$Res, $Val extends SeeAllState>
       list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
-              as List<Lession>,
+              as List<Lesson>,
     ) as $Val);
   }
 }
@@ -361,7 +361,7 @@ abstract class _$$SeeAllStateImplCopyWith<$Res>
       __$$SeeAllStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Lession> list});
+  $Res call({List<Lesson> list});
 }
 
 /// @nodoc
@@ -381,7 +381,7 @@ class __$$SeeAllStateImplCopyWithImpl<$Res>
       list: null == list
           ? _value._list
           : list // ignore: cast_nullable_to_non_nullable
-              as List<Lession>,
+              as List<Lesson>,
     ));
   }
 }
@@ -389,11 +389,11 @@ class __$$SeeAllStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SeeAllStateImpl implements _SeeAllState {
-  const _$SeeAllStateImpl({required final List<Lession> list}) : _list = list;
+  const _$SeeAllStateImpl({required final List<Lesson> list}) : _list = list;
 
-  final List<Lession> _list;
+  final List<Lesson> _list;
   @override
-  List<Lession> get list {
+  List<Lesson> get list {
     if (_list is EqualUnmodifiableListView) return _list;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_list);
@@ -424,11 +424,11 @@ class _$SeeAllStateImpl implements _SeeAllState {
 }
 
 abstract class _SeeAllState implements SeeAllState {
-  const factory _SeeAllState({required final List<Lession> list}) =
+  const factory _SeeAllState({required final List<Lesson> list}) =
       _$SeeAllStateImpl;
 
   @override
-  List<Lession> get list;
+  List<Lesson> get list;
   @override
   @JsonKey(ignore: true)
   _$$SeeAllStateImplCopyWith<_$SeeAllStateImpl> get copyWith =>

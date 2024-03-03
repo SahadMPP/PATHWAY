@@ -55,7 +55,6 @@ class TeacherApi {
     
         var data = jsonDecode(res.body);
        var image_response = await patchImage(data["_id"], filepath);
-  print(image_response);
           
         if (image_response.statusCode == 200) {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -83,7 +82,7 @@ class TeacherApi {
   }
 
   static getAllLession() async {
-    List<Lession> listLesson = [];
+    List<Lesson> listLesson = [];
     final url = Uri.parse('${baseUrl}get_lession');
 
     try {
@@ -91,7 +90,7 @@ class TeacherApi {
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
         for (var value in data) {
-          listLesson.add(Lession.fromJson(value));
+          listLesson.add(Lesson.fromJson(value));
         }
         return listLesson;
       } else {

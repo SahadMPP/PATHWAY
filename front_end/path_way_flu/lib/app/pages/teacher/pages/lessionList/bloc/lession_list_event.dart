@@ -4,7 +4,7 @@ part of 'lession_list_bloc.dart';
 class LessionListEvent with _$LessionListEvent {
   const factory LessionListEvent.updateLession({
     required BuildContext context,
-    required Lession lesson,
+    required Lesson lesson,
   }) = _updateLession;
   const factory LessionListEvent.deleteLession({
     required BuildContext context,

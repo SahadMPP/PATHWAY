@@ -14,6 +14,8 @@ import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign
 import 'package:path_way_flu/app/pages/auth/presentation/pages/splash_screen_ui.dart';
 import 'package:path_way_flu/app/pages/student/pages/See%20All/bloc/see_all_bloc.dart';
 import 'package:path_way_flu/app/pages/student/pages/chat/bloc/student_chat_bloc.dart';
+import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/bloc/student_init_deatiles_bloc.dart';
+import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/ui/collecting_profile.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -90,6 +92,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => TeacherChatBloc()),
         BlocProvider(create: (context) => SeeAllBloc()),
         BlocProvider(create: (context) => StudentChatBloc()),
+        BlocProvider(create: (context) => StudentInitDeatilesBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -103,7 +106,7 @@ class _MyAppState extends State<MyApp> {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home: const SpleshScreen(),
+        home: const StudentProflImageCollect(),
       ),
     );
   }

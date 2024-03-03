@@ -41,7 +41,7 @@ class ListOfLession extends StatelessWidget {
             if (!snapshot.hasData) {
               return const Center(child: CircularProgressIndicator());
             } else {
-              List<Lession> lesson = snapshot.data;
+              List<Lesson> lesson = snapshot.data;
               if (lesson.isEmpty) {
                 return const Center(
                   child: Text("List is empty"),

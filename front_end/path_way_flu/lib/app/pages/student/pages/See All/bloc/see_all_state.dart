@@ -3,7 +3,7 @@ part of 'see_all_bloc.dart';
 @freezed
 class SeeAllState with _$SeeAllState {
     const factory SeeAllState({
-    required List<Lession> list,
+    required List<Lesson> list,
   }) = _SeeAllState;
 
   factory SeeAllState.initial(){

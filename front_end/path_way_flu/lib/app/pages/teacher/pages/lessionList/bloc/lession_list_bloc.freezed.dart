@@ -19,7 +19,7 @@ mixin _$LessionListEvent {
   BuildContext get context => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context, Lession lesson)
+    required TResult Function(BuildContext context, Lesson lesson)
         updateLession,
     required TResult Function(BuildContext context, String id) deleteLession,
     required TResult Function(BuildContext context) navigatingLessionFrom,
@@ -27,14 +27,14 @@ mixin _$LessionListEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context, Lession lesson)? updateLession,
+    TResult? Function(BuildContext context, Lesson lesson)? updateLession,
     TResult? Function(BuildContext context, String id)? deleteLession,
     TResult? Function(BuildContext context)? navigatingLessionFrom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context, Lession lesson)? updateLession,
+    TResult Function(BuildContext context, Lesson lesson)? updateLession,
     TResult Function(BuildContext context, String id)? deleteLession,
     TResult Function(BuildContext context)? navigatingLessionFrom,
     required TResult orElse(),
@@ -110,7 +110,7 @@ abstract class _$$updateLessionImplCopyWith<$Res>
       __$$updateLessionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BuildContext context, Lession lesson});
+  $Res call({BuildContext context, Lesson lesson});
 }
 
 /// @nodoc
@@ -135,7 +135,7 @@ class __$$updateLessionImplCopyWithImpl<$Res>
       lesson: null == lesson
           ? _value.lesson
           : lesson // ignore: cast_nullable_to_non_nullable
-              as Lession,
+              as Lesson,
     ));
   }
 }
@@ -148,7 +148,7 @@ class _$updateLessionImpl implements _updateLession {
   @override
   final BuildContext context;
   @override
-  final Lession lesson;
+  final Lesson lesson;
 
   @override
   String toString() {
@@ -176,7 +176,7 @@ class _$updateLessionImpl implements _updateLession {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context, Lession lesson)
+    required TResult Function(BuildContext context, Lesson lesson)
         updateLession,
     required TResult Function(BuildContext context, String id) deleteLession,
     required TResult Function(BuildContext context) navigatingLessionFrom,
@@ -187,7 +187,7 @@ class _$updateLessionImpl implements _updateLession {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context, Lession lesson)? updateLession,
+    TResult? Function(BuildContext context, Lesson lesson)? updateLession,
     TResult? Function(BuildContext context, String id)? deleteLession,
     TResult? Function(BuildContext context)? navigatingLessionFrom,
   }) {
@@ -197,7 +197,7 @@ class _$updateLessionImpl implements _updateLession {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context, Lession lesson)? updateLession,
+    TResult Function(BuildContext context, Lesson lesson)? updateLession,
     TResult Function(BuildContext context, String id)? deleteLession,
     TResult Function(BuildContext context)? navigatingLessionFrom,
     required TResult orElse(),
@@ -247,11 +247,11 @@ class _$updateLessionImpl implements _updateLession {
 abstract class _updateLession implements LessionListEvent {
   const factory _updateLession(
       {required final BuildContext context,
-      required final Lession lesson}) = _$updateLessionImpl;
+      required final Lesson lesson}) = _$updateLessionImpl;
 
   @override
   BuildContext get context;
-  Lession get lesson;
+  Lesson get lesson;
   @override
   @JsonKey(ignore: true)
   _$$updateLessionImplCopyWith<_$updateLessionImpl> get copyWith =>
@@ -332,7 +332,7 @@ class _$deleteLessionImpl implements _deleteLession {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context, Lession lesson)
+    required TResult Function(BuildContext context, Lesson lesson)
         updateLession,
     required TResult Function(BuildContext context, String id) deleteLession,
     required TResult Function(BuildContext context) navigatingLessionFrom,
@@ -343,7 +343,7 @@ class _$deleteLessionImpl implements _deleteLession {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context, Lession lesson)? updateLession,
+    TResult? Function(BuildContext context, Lesson lesson)? updateLession,
     TResult? Function(BuildContext context, String id)? deleteLession,
     TResult? Function(BuildContext context)? navigatingLessionFrom,
   }) {
@@ -353,7 +353,7 @@ class _$deleteLessionImpl implements _deleteLession {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context, Lession lesson)? updateLession,
+    TResult Function(BuildContext context, Lesson lesson)? updateLession,
     TResult Function(BuildContext context, String id)? deleteLession,
     TResult Function(BuildContext context)? navigatingLessionFrom,
     required TResult orElse(),
@@ -482,7 +482,7 @@ class _$navigatingLessionFromImpl implements _navigatingLessionFrom {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context, Lession lesson)
+    required TResult Function(BuildContext context, Lesson lesson)
         updateLession,
     required TResult Function(BuildContext context, String id) deleteLession,
     required TResult Function(BuildContext context) navigatingLessionFrom,
@@ -493,7 +493,7 @@ class _$navigatingLessionFromImpl implements _navigatingLessionFrom {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context, Lession lesson)? updateLession,
+    TResult? Function(BuildContext context, Lesson lesson)? updateLession,
     TResult? Function(BuildContext context, String id)? deleteLession,
     TResult? Function(BuildContext context)? navigatingLessionFrom,
   }) {
@@ -503,7 +503,7 @@ class _$navigatingLessionFromImpl implements _navigatingLessionFrom {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context, Lession lesson)? updateLession,
+    TResult Function(BuildContext context, Lesson lesson)? updateLession,
     TResult Function(BuildContext context, String id)? deleteLession,
     TResult Function(BuildContext context)? navigatingLessionFrom,
     required TResult orElse(),

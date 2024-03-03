@@ -15,7 +15,7 @@ import 'package:path_way_flu/app/pages/teacher/pages/tutorialUpdateForm/ui/updat
 import 'package:path_way_flu/app/pages/teacher/widgets/sub_lesson_dropdown_update.dart';
 
 class LessonFormUpdate extends StatelessWidget {
-  final Lession lesson;
+  final Lesson lesson;
   const LessonFormUpdate({super.key, required this.lesson});
 
   @override

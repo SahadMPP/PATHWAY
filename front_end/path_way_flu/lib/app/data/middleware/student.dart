@@ -96,8 +96,8 @@ class StudentApi {
       }
   }
 
-static getAllLession(String subject) async {
-    List<Lession> listLesson = [];
+  static getAllLession(String subject) async {
+    List<Lesson> listLesson = [];
     final url = Uri.parse('${baseUrl}get_lession');
 
     try {
@@ -106,7 +106,7 @@ static getAllLession(String subject) async {
         var data = jsonDecode(res.body);
         for (var value in data) {
           if (value['subject'] == subject) {
-          listLesson.add(Lession.fromJson(value));
+          listLesson.add(Lesson.fromJson(value));
           }
         }
         return listLesson;
@@ -118,4 +118,16 @@ static getAllLession(String subject) async {
     }
   }
 
+
+  static Future<http.StreamedResponse> patchProfileImage(String id,String filepath)async{
+   var request = http.MultipartRequest('PATCH',Uri.parse("${baseUrl}add/student_image/$id"));
+  request.files.add(await http.MultipartFile.fromPath("profileImage", filepath));
+  request.headers.addAll({
+   "Content-Type": "multipart/form-data",
+  });
+
+  var response = request.send();
+  
+  return response;
+  }
 }

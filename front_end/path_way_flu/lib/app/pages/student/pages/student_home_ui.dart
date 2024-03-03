@@ -308,7 +308,7 @@ class BuildHomeBox extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else {
-              List<Lession> lession = snapshot.data;
+              List<Lesson> lession = snapshot.data;
               if (lession.isEmpty) {
                 return const Center(
                   child: Text("Oop's list is empty"),
