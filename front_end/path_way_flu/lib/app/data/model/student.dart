@@ -6,7 +6,7 @@ class Student {
   final String email;
   final String password;
   final String? mobNumber;
-  final List<String>? subjects;
+  final List<String>? lessonId;
   final bool active;
   final String level;
   final String? profileImage;
@@ -18,7 +18,7 @@ class Student {
     required this.email,
     required this.password,
     this.mobNumber,
-    this.subjects,
+    this.lessonId,
     required this.active,
     required this.level,
     this.profileImage,
@@ -32,8 +32,8 @@ class Student {
       email: json['email'] ?? '',
       password: json['password'] ?? '',
       mobNumber: json['mobNumber'],
-      subjects: json['subjects'] != null
-          ? List<String>.from(json['subjects'])
+      lessonId: json['lessonId'] != null
+          ? List<String>.from(json['lessonId'])
           : null,
       active: json['active'] ?? false,
       level: json['level'] ?? '',

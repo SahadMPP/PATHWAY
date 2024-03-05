@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/app/core/bargraph_admin/bar_graph.dart';
+import 'package:path_way_flu/app/data/middleware/student.dart';
+import 'package:path_way_flu/app/data/model/progress.dart';
+import 'package:path_way_flu/main.dart';
 
 class StudentPrograss extends StatelessWidget {
   const StudentPrograss({super.key});
 
   @override
   Widget build(BuildContext context) {
-     List<double> weeklySummary = [
+    List<double> weeklySummary = [
       20.40,
       30.40,
       40.40,
@@ -35,15 +38,27 @@ class StudentPrograss extends StatelessWidget {
             SizedBox(
               height: 200,
               width: double.infinity,
-              
               child: MyBarGraph(weeklySummary: weeklySummary),
             ),
             const SizedBox(height: 20),
             Expanded(
-              child: ListView.builder(
-                  itemCount: 4,
-                  itemBuilder: (context, index) {
-                    return const BuildStatusBox();
+              child: FutureBuilder(
+                  future: StudentApi.getAllProgerss(userId!),
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (!snapshot.hasData) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else {
+                      List<Progress> progress = snapshot.data;
+                      if (progress.isEmpty) {
+                        return const Center(child: Text('List is empty'));
+                      } else {
+                        return ListView.builder(
+                            itemCount: progress.length,
+                            itemBuilder: (context, index) {
+                              return  BuildStatusBox(progress: progress[index],);
+                            });
+                      }
+                    }
                   }),
             ),
           ],
@@ -54,8 +69,9 @@ class StudentPrograss extends StatelessWidget {
 }
 
 class BuildStatusBox extends StatelessWidget {
+  final Progress progress;
   const BuildStatusBox({
-    super.key,
+    super.key, required this.progress,
   });
 
   @override
@@ -72,11 +88,17 @@ class BuildStatusBox extends StatelessWidget {
           child: Row(
             children: [
               ConstrainedBox(
-                constraints: const BoxConstraints(maxHeight: 120, maxWidth: 150),
+                constraints:
+                    const BoxConstraints(maxHeight: 120, maxWidth: 150),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
-                  child: const Image(
-                    image: AssetImage("asset/images/math image.jpg"),
+                  child:   SizedBox(
+                    height: 130,
+                    width: 130,
+                    child: Image(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(progress.coverImage),
+                    ),
                   ),
                 ),
               ),
@@ -90,7 +112,7 @@ class BuildStatusBox extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Global business Trends and markets",
+                      progress.title,
                       style: GoogleFonts.aBeeZee(
                         fontWeight: FontWeight.bold,
                         fontSize: 17,
@@ -98,7 +120,7 @@ class BuildStatusBox extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      "CreatorName",
+                      progress.creatorName,
                       style: GoogleFonts.quicksand(
                         color: Colors.grey,
                         fontWeight: FontWeight.w500,
@@ -112,13 +134,13 @@ class BuildStatusBox extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              '14/20',
+                              '${progress.countOfLessonWatched}/${progress.totelCountOfLesson}',
                               style: GoogleFonts.quicksand(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              '27%',
+                              '${(progress.countOfLessonWatched/ progress.totelCountOfLesson)*100}%',
                               style: GoogleFonts.quicksand(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w500),
@@ -126,12 +148,12 @@ class BuildStatusBox extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 5),
-                        const LinearProgressIndicator(
-                          value: .3,
+                         LinearProgressIndicator(
+                          value: progress.countOfLessonWatched >0 ? progress.countOfLessonWatched/progress.totelCountOfLesson :0.1,
                           backgroundColor: Colors.white,
                           minHeight: 6,
-                          valueColor: AlwaysStoppedAnimation(Colors.blue),
-                          borderRadius: BorderRadius.all(Radius.circular(8)),
+                          valueColor: const AlwaysStoppedAnimation(Colors.blue),
+                          borderRadius: const BorderRadius.all(Radius.circular(8)),
                         ),
                       ],
                     ),

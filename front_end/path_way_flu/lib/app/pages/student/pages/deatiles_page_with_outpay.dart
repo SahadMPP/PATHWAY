@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/data/middleware/teacher.dart';
+import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:path_way_flu/app/pages/student/widgets/course_con_without_payment.dart';
@@ -10,9 +11,9 @@ import 'package:path_way_flu/main.dart';
 
 
 class StudentDeatileWithoutPay extends StatelessWidget {
-  final String subject;
+  final Lesson lesson;
 
-  const StudentDeatileWithoutPay({super.key, required this.subject});
+  const StudentDeatileWithoutPay({super.key, required this.lesson});
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +106,7 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       FutureBuilder(
-                          future: TeacherApi.getTotorial(""),
+                          future: TeacherApi.getTotorial(lesson.id),
                           builder: (context, AsyncSnapshot snapshot) {
                             if (!snapshot.hasData) {
                               return Center(
@@ -147,9 +148,9 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                     ),
                     child: GestureDetector(
                       onTap: ()async {  
-                        context.read<SubcriptionBloc>().add(SubcriptionEvent.makingsubcription(amount:99*100 , mob: '9876543211', subject:subject, email: 'sahad@gmail.com'));
+                        context.read<SubcriptionBloc>().add(SubcriptionEvent.makingsubcription(amount:99*100 , mob: '9876543211', subject:lesson.subject, email: 'sahad@gmail.com'));
                         Future.delayed(const Duration(seconds: 5));
-                        context.read<SubcriptionBloc>().add(SubcriptionEvent.updataStudentdata(subject: subject.toLowerCase(), id: userId!, context: context));
+                        context.read<SubcriptionBloc>().add(SubcriptionEvent.updataStudentdata(subject: lesson.id, id: userId!, context: context,lesson: lesson));
                       },
                       child: Container(
                         padding: const EdgeInsets.all(14),

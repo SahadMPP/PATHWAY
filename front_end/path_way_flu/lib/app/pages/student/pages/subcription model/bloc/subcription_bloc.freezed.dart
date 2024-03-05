@@ -22,7 +22,8 @@ mixin _$SubcriptionEvent {
             int amount, String mob, String subject, String email)
         makingsubcription,
     required TResult Function() makeinginstence,
-    required TResult Function(String subject, String id, BuildContext context)
+    required TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)
         updataStudentdata,
     required TResult Function(String subject, String id, BuildContext context)
         naviagatedToDeatilePage,
@@ -33,7 +34,8 @@ mixin _$SubcriptionEvent {
     TResult? Function(int amount, String mob, String subject, String email)?
         makingsubcription,
     TResult? Function()? makeinginstence,
-    TResult? Function(String subject, String id, BuildContext context)?
+    TResult? Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
         updataStudentdata,
     TResult? Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
@@ -44,7 +46,8 @@ mixin _$SubcriptionEvent {
     TResult Function(int amount, String mob, String subject, String email)?
         makingsubcription,
     TResult Function()? makeinginstence,
-    TResult Function(String subject, String id, BuildContext context)?
+    TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
         updataStudentdata,
     TResult Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
@@ -194,7 +197,8 @@ class _$makingsubcriptionImpl implements _makingsubcription {
             int amount, String mob, String subject, String email)
         makingsubcription,
     required TResult Function() makeinginstence,
-    required TResult Function(String subject, String id, BuildContext context)
+    required TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)
         updataStudentdata,
     required TResult Function(String subject, String id, BuildContext context)
         naviagatedToDeatilePage,
@@ -208,7 +212,8 @@ class _$makingsubcriptionImpl implements _makingsubcription {
     TResult? Function(int amount, String mob, String subject, String email)?
         makingsubcription,
     TResult? Function()? makeinginstence,
-    TResult? Function(String subject, String id, BuildContext context)?
+    TResult? Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
         updataStudentdata,
     TResult? Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
@@ -222,7 +227,8 @@ class _$makingsubcriptionImpl implements _makingsubcription {
     TResult Function(int amount, String mob, String subject, String email)?
         makingsubcription,
     TResult Function()? makeinginstence,
-    TResult Function(String subject, String id, BuildContext context)?
+    TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
         updataStudentdata,
     TResult Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
@@ -331,7 +337,8 @@ class _$makeinginstenceImpl implements _makeinginstence {
             int amount, String mob, String subject, String email)
         makingsubcription,
     required TResult Function() makeinginstence,
-    required TResult Function(String subject, String id, BuildContext context)
+    required TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)
         updataStudentdata,
     required TResult Function(String subject, String id, BuildContext context)
         naviagatedToDeatilePage,
@@ -345,7 +352,8 @@ class _$makeinginstenceImpl implements _makeinginstence {
     TResult? Function(int amount, String mob, String subject, String email)?
         makingsubcription,
     TResult? Function()? makeinginstence,
-    TResult? Function(String subject, String id, BuildContext context)?
+    TResult? Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
         updataStudentdata,
     TResult? Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
@@ -359,7 +367,8 @@ class _$makeinginstenceImpl implements _makeinginstence {
     TResult Function(int amount, String mob, String subject, String email)?
         makingsubcription,
     TResult Function()? makeinginstence,
-    TResult Function(String subject, String id, BuildContext context)?
+    TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
         updataStudentdata,
     TResult Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
@@ -420,7 +429,7 @@ abstract class _$$updataStudentdataImplCopyWith<$Res> {
           $Res Function(_$updataStudentdataImpl) then) =
       __$$updataStudentdataImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String subject, String id, BuildContext context});
+  $Res call({String subject, String id, BuildContext context, Lesson lesson});
 }
 
 /// @nodoc
@@ -437,6 +446,7 @@ class __$$updataStudentdataImplCopyWithImpl<$Res>
     Object? subject = null,
     Object? id = null,
     Object? context = null,
+    Object? lesson = null,
   }) {
     return _then(_$updataStudentdataImpl(
       subject: null == subject
@@ -451,6 +461,10 @@ class __$$updataStudentdataImplCopyWithImpl<$Res>
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
               as BuildContext,
+      lesson: null == lesson
+          ? _value.lesson
+          : lesson // ignore: cast_nullable_to_non_nullable
+              as Lesson,
     ));
   }
 }
@@ -459,7 +473,10 @@ class __$$updataStudentdataImplCopyWithImpl<$Res>
 
 class _$updataStudentdataImpl implements _updataStudentdata {
   const _$updataStudentdataImpl(
-      {required this.subject, required this.id, required this.context});
+      {required this.subject,
+      required this.id,
+      required this.context,
+      required this.lesson});
 
   @override
   final String subject;
@@ -467,10 +484,12 @@ class _$updataStudentdataImpl implements _updataStudentdata {
   final String id;
   @override
   final BuildContext context;
+  @override
+  final Lesson lesson;
 
   @override
   String toString() {
-    return 'SubcriptionEvent.updataStudentdata(subject: $subject, id: $id, context: $context)';
+    return 'SubcriptionEvent.updataStudentdata(subject: $subject, id: $id, context: $context, lesson: $lesson)';
   }
 
   @override
@@ -480,11 +499,12 @@ class _$updataStudentdataImpl implements _updataStudentdata {
             other is _$updataStudentdataImpl &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.context, context) || other.context == context));
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.lesson, lesson) || other.lesson == lesson));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, subject, id, context);
+  int get hashCode => Object.hash(runtimeType, subject, id, context, lesson);
 
   @JsonKey(ignore: true)
   @override
@@ -500,12 +520,13 @@ class _$updataStudentdataImpl implements _updataStudentdata {
             int amount, String mob, String subject, String email)
         makingsubcription,
     required TResult Function() makeinginstence,
-    required TResult Function(String subject, String id, BuildContext context)
+    required TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)
         updataStudentdata,
     required TResult Function(String subject, String id, BuildContext context)
         naviagatedToDeatilePage,
   }) {
-    return updataStudentdata(subject, id, context);
+    return updataStudentdata(subject, id, context, lesson);
   }
 
   @override
@@ -514,12 +535,13 @@ class _$updataStudentdataImpl implements _updataStudentdata {
     TResult? Function(int amount, String mob, String subject, String email)?
         makingsubcription,
     TResult? Function()? makeinginstence,
-    TResult? Function(String subject, String id, BuildContext context)?
+    TResult? Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
         updataStudentdata,
     TResult? Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
   }) {
-    return updataStudentdata?.call(subject, id, context);
+    return updataStudentdata?.call(subject, id, context, lesson);
   }
 
   @override
@@ -528,14 +550,15 @@ class _$updataStudentdataImpl implements _updataStudentdata {
     TResult Function(int amount, String mob, String subject, String email)?
         makingsubcription,
     TResult Function()? makeinginstence,
-    TResult Function(String subject, String id, BuildContext context)?
+    TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
         updataStudentdata,
     TResult Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
     required TResult orElse(),
   }) {
     if (updataStudentdata != null) {
-      return updataStudentdata(subject, id, context);
+      return updataStudentdata(subject, id, context, lesson);
     }
     return orElse();
   }
@@ -583,11 +606,13 @@ abstract class _updataStudentdata implements SubcriptionEvent {
   const factory _updataStudentdata(
       {required final String subject,
       required final String id,
-      required final BuildContext context}) = _$updataStudentdataImpl;
+      required final BuildContext context,
+      required final Lesson lesson}) = _$updataStudentdataImpl;
 
   String get subject;
   String get id;
   BuildContext get context;
+  Lesson get lesson;
   @JsonKey(ignore: true)
   _$$updataStudentdataImplCopyWith<_$updataStudentdataImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -681,7 +706,8 @@ class _$naviagatedToDeatilePageImpl implements _naviagatedToDeatilePage {
             int amount, String mob, String subject, String email)
         makingsubcription,
     required TResult Function() makeinginstence,
-    required TResult Function(String subject, String id, BuildContext context)
+    required TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)
         updataStudentdata,
     required TResult Function(String subject, String id, BuildContext context)
         naviagatedToDeatilePage,
@@ -695,7 +721,8 @@ class _$naviagatedToDeatilePageImpl implements _naviagatedToDeatilePage {
     TResult? Function(int amount, String mob, String subject, String email)?
         makingsubcription,
     TResult? Function()? makeinginstence,
-    TResult? Function(String subject, String id, BuildContext context)?
+    TResult? Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
         updataStudentdata,
     TResult? Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
@@ -709,7 +736,8 @@ class _$naviagatedToDeatilePageImpl implements _naviagatedToDeatilePage {
     TResult Function(int amount, String mob, String subject, String email)?
         makingsubcription,
     TResult Function()? makeinginstence,
-    TResult Function(String subject, String id, BuildContext context)?
+    TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
         updataStudentdata,
     TResult Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,

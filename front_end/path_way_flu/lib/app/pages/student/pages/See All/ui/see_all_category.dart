@@ -72,97 +72,103 @@ class SeeAllCategory extends StatelessWidget {
                           itemBuilder: (context, index) {
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(10),
-                              child: Container(
-                                padding: const EdgeInsets.all(10),
-                                color: Theme.of(context).colorScheme.secondary,
-                                child: Column(
-                                  children: [
-                                    SizedBox(
-                                        height: 90,
-                                        width: double.infinity,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                          child: Image.network(
-                                            state.list[index].coverImage,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        )),
-                                    const SizedBox(height: 5),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        ConstrainedBox(
-                                          constraints: const BoxConstraints(
-                                              maxWidth: 120, maxHeight: 35),
-                                          child: Text(
-                                            state.list[index].title,
-                                            style: GoogleFonts.aBeeZee(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
+                              child: GestureDetector(
+                                onTap: () {
+                                  
+                                  context.read<SeeAllBloc>().add(SeeAllEvent.navigatingMaker(lesson:state.list[index] , context: context));
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
+                                  color: Theme.of(context).colorScheme.secondary,
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                          height: 90,
+                                          width: double.infinity,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            child: Image.network(
+                                              state.list[index].coverImage,
+                                              fit: BoxFit.cover,
                                             ),
-                                          ),
-                                        ),
-                                        const Spacer(),
-                                        const Image(
-                                          image: AssetImage(
-                                              "asset/icons/icons8-best-seller-94.png"),
-                                          height: 25,
-                                        )
-                                      ],
-                                    ),
-                                    const SizedBox(height: 5),
-                                    Row(
-                                      children: [
-                                        const CircleAvatar(
-                                          radius: 10,
-                                          backgroundImage: AssetImage(
-                                              "asset/profiles/chat555.png"),
-                                        ),
-                                        const SizedBox(width: 5),
-                                        Text(
-                                          state.list[index].creatorName,
-                                          style: GoogleFonts.quicksand(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    const Spacer(),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "${state.list[index].watchTime} min",
-                                          style: GoogleFonts.aBeeZee(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 12,
-                                              wordSpacing: 3),
-                                        ),
-                                        Row(
-                                          children: [
-                                            const Icon(
-                                              Icons.circle,
-                                              color: Colors.grey,
-                                              size: 10,
-                                            ),
-                                            const SizedBox(width: 5),
-                                            Text(
-                                              "${state.list[index].countOfLesson} ${AppLocalizations.of(context)!.lesson}",
+                                          )),
+                                      const SizedBox(height: 5),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          ConstrainedBox(
+                                            constraints: const BoxConstraints(
+                                                maxWidth: 120, maxHeight: 35),
+                                            child: Text(
+                                              state.list[index].title,
                                               style: GoogleFonts.aBeeZee(
-                                                  color: Colors.grey,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 12,
-                                                  wordSpacing: 3),
-                                            )
-                                          ],
-                                        ),
-                                      ],
-                                    )
-                                  ],
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          const Image(
+                                            image: AssetImage(
+                                                "asset/icons/icons8-best-seller-94.png"),
+                                            height: 25,
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(height: 5),
+                                      Row(
+                                        children: [
+                                          const CircleAvatar(
+                                            radius: 10,
+                                            backgroundImage: AssetImage(
+                                                "asset/profiles/chat555.png"),
+                                          ),
+                                          const SizedBox(width: 5),
+                                          Text(
+                                            state.list[index].creatorName,
+                                            style: GoogleFonts.quicksand(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const Spacer(),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "${state.list[index].watchTime} min",
+                                            style: GoogleFonts.aBeeZee(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12,
+                                                wordSpacing: 3),
+                                          ),
+                                          Row(
+                                            children: [
+                                              const Icon(
+                                                Icons.circle,
+                                                color: Colors.grey,
+                                                size: 10,
+                                              ),
+                                              const SizedBox(width: 5),
+                                              Text(
+                                                "${state.list[index].countOfLesson} ${AppLocalizations.of(context)!.lesson}",
+                                                style: GoogleFonts.aBeeZee(
+                                                    color: Colors.grey,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 12,
+                                                    wordSpacing: 3),
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             );

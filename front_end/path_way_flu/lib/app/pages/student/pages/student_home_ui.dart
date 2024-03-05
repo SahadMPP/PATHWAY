@@ -48,7 +48,9 @@ class _StuHomeState extends State<StuHome> {
               ],
             ),
             const Spacer(),
-            SvgPicture.asset("asset/icons/search.svg"),
+            GestureDetector(onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SeeAllCategory(),));
+            },child: SvgPicture.asset("asset/icons/search.svg")),
           ],
         ),
       ),
@@ -318,103 +320,108 @@ class BuildHomeBox extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: lession.length,
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(25),
-                          child: Container(
-                            padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
-                            color: Theme.of(context).colorScheme.secondary,
-                            width: MediaQuery.of(context).size.width * .6,
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                    height: 110,
-                                    width: double.infinity,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(25),
-                                      child: Image.network(lession[index].coverImage,fit: BoxFit.cover,)
-                                    )),
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          ConstrainedBox(
-                                            constraints: const BoxConstraints(
-                                                maxWidth: 150),
-                                            child: Text(
-                                              lession[index].title,
-                                              style: GoogleFonts.aBeeZee(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 17,
-                                              ),
-                                            ),
-                                          ),
-                                          const Image(
-                                            image: AssetImage(
-                                                "asset/icons/icons8-best-seller-94.png"),
-                                            height: 30,
-                                          )
-                                        ],
-                                      ),
-                                      const SizedBox(height: 5),
-                                      Row(
-                                        children: [
-                                          const CircleAvatar(
-                                            radius: 15,
-                                            backgroundImage: AssetImage(
-                                                "asset/profiles/chat555.png"),
-                                          ),
-                                          const SizedBox(width: 5),
-                                          Text(
-                                            lession[index].creatorName,
-                                            style: GoogleFonts.quicksand(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 10),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            "${lession[index].watchTime} min",
-                                            style: GoogleFonts.aBeeZee(
-                                                fontWeight: FontWeight.bold,
-                                                wordSpacing: 3),
-                                          ),
-                                          Row(
-                                            children: [
-                                              const Icon(
-                                                Icons.circle,
-                                                color: Colors.grey,
-                                                size: 10,
-                                              ),
-                                              const SizedBox(width: 5),
-                                              Text(
-                                                "${lession[index].countOfLesson} ${AppLocalizations.of(context)!.lesson}",
+                      return GestureDetector(
+                        onTap: () {
+                          // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ,));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(25),
+                            child: Container(
+                              padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
+                              color: Theme.of(context).colorScheme.secondary,
+                              width: MediaQuery.of(context).size.width * .6,
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                      height: 110,
+                                      width: double.infinity,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(25),
+                                        child: Image.network(lession[index].coverImage,fit: BoxFit.cover,)
+                                      )),
+                                  Container(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            ConstrainedBox(
+                                              constraints: const BoxConstraints(
+                                                  maxWidth: 150),
+                                              child: Text(
+                                                lession[index].title,
                                                 style: GoogleFonts.aBeeZee(
-                                                    color: Colors.grey,
-                                                    fontWeight: FontWeight.bold,
-                                                    wordSpacing: 3),
-                                              )
-                                            ],
-                                          ),
-                                        ],
-                                      )
-                                    ],
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 17,
+                                                ),
+                                              ),
+                                            ),
+                                            const Image(
+                                              image: AssetImage(
+                                                  "asset/icons/icons8-best-seller-94.png"),
+                                              height: 30,
+                                            )
+                                          ],
+                                        ),
+                                        const SizedBox(height: 5),
+                                        Row(
+                                          children: [
+                                            const CircleAvatar(
+                                              radius: 15,
+                                              backgroundImage: AssetImage(
+                                                  "asset/profiles/chat555.png"),
+                                            ),
+                                            const SizedBox(width: 5),
+                                            Text(
+                                              lession[index].creatorName,
+                                              style: GoogleFonts.quicksand(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(height: 10),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "${lession[index].watchTime} min",
+                                              style: GoogleFonts.aBeeZee(
+                                                  fontWeight: FontWeight.bold,
+                                                  wordSpacing: 3),
+                                            ),
+                                            Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.circle,
+                                                  color: Colors.grey,
+                                                  size: 10,
+                                                ),
+                                                const SizedBox(width: 5),
+                                                Text(
+                                                  "${lession[index].countOfLesson} ${AppLocalizations.of(context)!.lesson}",
+                                                  style: GoogleFonts.aBeeZee(
+                                                      color: Colors.grey,
+                                                      fontWeight: FontWeight.bold,
+                                                      wordSpacing: 3),
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),

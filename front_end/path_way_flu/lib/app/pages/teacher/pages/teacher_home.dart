@@ -133,9 +133,10 @@ class TeachHome extends StatelessWidget {
                     return BuildSeeAllSub(
                     subjectList: subjectList,
                     index: index,
-                    function: () =>
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) =>  StudentvideoPlay(subject: subjectList[index]["name"]!,))),
+                    function: (){},
+                    // function: () =>
+                    //     Navigator.of(context).push(MaterialPageRoute(
+                    //         builder: (ctx) =>  StudentvideoPlay(subject: subjectList[index]["name"]!,))),
                   );
                   },
                 ),

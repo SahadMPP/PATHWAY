@@ -6,5 +6,9 @@ class SeeAllEvent with _$SeeAllEvent {
   const factory SeeAllEvent.fulturedValue({
     required String typeText,
   }) = _fulturedValue;
-  
+
+  const factory SeeAllEvent.navigatingMaker({
+    required Lesson lesson,
+    required BuildContext context,
+  }) = _navigatingMaker;
 }

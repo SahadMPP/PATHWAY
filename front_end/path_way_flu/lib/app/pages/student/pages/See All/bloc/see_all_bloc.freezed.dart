@@ -20,18 +20,22 @@ mixin _$SeeAllEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() givingInitialValue,
     required TResult Function(String typeText) fulturedValue,
+    required TResult Function(Lesson lesson, BuildContext context)
+        navigatingMaker,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? givingInitialValue,
     TResult? Function(String typeText)? fulturedValue,
+    TResult? Function(Lesson lesson, BuildContext context)? navigatingMaker,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? givingInitialValue,
     TResult Function(String typeText)? fulturedValue,
+    TResult Function(Lesson lesson, BuildContext context)? navigatingMaker,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +43,21 @@ mixin _$SeeAllEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_givingInitialValue value) givingInitialValue,
     required TResult Function(_fulturedValue value) fulturedValue,
+    required TResult Function(_navigatingMaker value) navigatingMaker,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_givingInitialValue value)? givingInitialValue,
     TResult? Function(_fulturedValue value)? fulturedValue,
+    TResult? Function(_navigatingMaker value)? navigatingMaker,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_givingInitialValue value)? givingInitialValue,
     TResult Function(_fulturedValue value)? fulturedValue,
+    TResult Function(_navigatingMaker value)? navigatingMaker,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +121,8 @@ class _$givingInitialValueImpl implements _givingInitialValue {
   TResult when<TResult extends Object?>({
     required TResult Function() givingInitialValue,
     required TResult Function(String typeText) fulturedValue,
+    required TResult Function(Lesson lesson, BuildContext context)
+        navigatingMaker,
   }) {
     return givingInitialValue();
   }
@@ -123,6 +132,7 @@ class _$givingInitialValueImpl implements _givingInitialValue {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? givingInitialValue,
     TResult? Function(String typeText)? fulturedValue,
+    TResult? Function(Lesson lesson, BuildContext context)? navigatingMaker,
   }) {
     return givingInitialValue?.call();
   }
@@ -132,6 +142,7 @@ class _$givingInitialValueImpl implements _givingInitialValue {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? givingInitialValue,
     TResult Function(String typeText)? fulturedValue,
+    TResult Function(Lesson lesson, BuildContext context)? navigatingMaker,
     required TResult orElse(),
   }) {
     if (givingInitialValue != null) {
@@ -145,6 +156,7 @@ class _$givingInitialValueImpl implements _givingInitialValue {
   TResult map<TResult extends Object?>({
     required TResult Function(_givingInitialValue value) givingInitialValue,
     required TResult Function(_fulturedValue value) fulturedValue,
+    required TResult Function(_navigatingMaker value) navigatingMaker,
   }) {
     return givingInitialValue(this);
   }
@@ -154,6 +166,7 @@ class _$givingInitialValueImpl implements _givingInitialValue {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_givingInitialValue value)? givingInitialValue,
     TResult? Function(_fulturedValue value)? fulturedValue,
+    TResult? Function(_navigatingMaker value)? navigatingMaker,
   }) {
     return givingInitialValue?.call(this);
   }
@@ -163,6 +176,7 @@ class _$givingInitialValueImpl implements _givingInitialValue {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_givingInitialValue value)? givingInitialValue,
     TResult Function(_fulturedValue value)? fulturedValue,
+    TResult Function(_navigatingMaker value)? navigatingMaker,
     required TResult orElse(),
   }) {
     if (givingInitialValue != null) {
@@ -243,6 +257,8 @@ class _$fulturedValueImpl implements _fulturedValue {
   TResult when<TResult extends Object?>({
     required TResult Function() givingInitialValue,
     required TResult Function(String typeText) fulturedValue,
+    required TResult Function(Lesson lesson, BuildContext context)
+        navigatingMaker,
   }) {
     return fulturedValue(typeText);
   }
@@ -252,6 +268,7 @@ class _$fulturedValueImpl implements _fulturedValue {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? givingInitialValue,
     TResult? Function(String typeText)? fulturedValue,
+    TResult? Function(Lesson lesson, BuildContext context)? navigatingMaker,
   }) {
     return fulturedValue?.call(typeText);
   }
@@ -261,6 +278,7 @@ class _$fulturedValueImpl implements _fulturedValue {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? givingInitialValue,
     TResult Function(String typeText)? fulturedValue,
+    TResult Function(Lesson lesson, BuildContext context)? navigatingMaker,
     required TResult orElse(),
   }) {
     if (fulturedValue != null) {
@@ -274,6 +292,7 @@ class _$fulturedValueImpl implements _fulturedValue {
   TResult map<TResult extends Object?>({
     required TResult Function(_givingInitialValue value) givingInitialValue,
     required TResult Function(_fulturedValue value) fulturedValue,
+    required TResult Function(_navigatingMaker value) navigatingMaker,
   }) {
     return fulturedValue(this);
   }
@@ -283,6 +302,7 @@ class _$fulturedValueImpl implements _fulturedValue {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_givingInitialValue value)? givingInitialValue,
     TResult? Function(_fulturedValue value)? fulturedValue,
+    TResult? Function(_navigatingMaker value)? navigatingMaker,
   }) {
     return fulturedValue?.call(this);
   }
@@ -292,6 +312,7 @@ class _$fulturedValueImpl implements _fulturedValue {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_givingInitialValue value)? givingInitialValue,
     TResult Function(_fulturedValue value)? fulturedValue,
+    TResult Function(_navigatingMaker value)? navigatingMaker,
     required TResult orElse(),
   }) {
     if (fulturedValue != null) {
@@ -308,6 +329,158 @@ abstract class _fulturedValue implements SeeAllEvent {
   String get typeText;
   @JsonKey(ignore: true)
   _$$fulturedValueImplCopyWith<_$fulturedValueImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$navigatingMakerImplCopyWith<$Res> {
+  factory _$$navigatingMakerImplCopyWith(_$navigatingMakerImpl value,
+          $Res Function(_$navigatingMakerImpl) then) =
+      __$$navigatingMakerImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Lesson lesson, BuildContext context});
+}
+
+/// @nodoc
+class __$$navigatingMakerImplCopyWithImpl<$Res>
+    extends _$SeeAllEventCopyWithImpl<$Res, _$navigatingMakerImpl>
+    implements _$$navigatingMakerImplCopyWith<$Res> {
+  __$$navigatingMakerImplCopyWithImpl(
+      _$navigatingMakerImpl _value, $Res Function(_$navigatingMakerImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? lesson = null,
+    Object? context = null,
+  }) {
+    return _then(_$navigatingMakerImpl(
+      lesson: null == lesson
+          ? _value.lesson
+          : lesson // ignore: cast_nullable_to_non_nullable
+              as Lesson,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$navigatingMakerImpl implements _navigatingMaker {
+  const _$navigatingMakerImpl({required this.lesson, required this.context});
+
+  @override
+  final Lesson lesson;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'SeeAllEvent.navigatingMaker(lesson: $lesson, context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$navigatingMakerImpl &&
+            (identical(other.lesson, lesson) || other.lesson == lesson) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, lesson, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$navigatingMakerImplCopyWith<_$navigatingMakerImpl> get copyWith =>
+      __$$navigatingMakerImplCopyWithImpl<_$navigatingMakerImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() givingInitialValue,
+    required TResult Function(String typeText) fulturedValue,
+    required TResult Function(Lesson lesson, BuildContext context)
+        navigatingMaker,
+  }) {
+    return navigatingMaker(lesson, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? givingInitialValue,
+    TResult? Function(String typeText)? fulturedValue,
+    TResult? Function(Lesson lesson, BuildContext context)? navigatingMaker,
+  }) {
+    return navigatingMaker?.call(lesson, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? givingInitialValue,
+    TResult Function(String typeText)? fulturedValue,
+    TResult Function(Lesson lesson, BuildContext context)? navigatingMaker,
+    required TResult orElse(),
+  }) {
+    if (navigatingMaker != null) {
+      return navigatingMaker(lesson, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_givingInitialValue value) givingInitialValue,
+    required TResult Function(_fulturedValue value) fulturedValue,
+    required TResult Function(_navigatingMaker value) navigatingMaker,
+  }) {
+    return navigatingMaker(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_givingInitialValue value)? givingInitialValue,
+    TResult? Function(_fulturedValue value)? fulturedValue,
+    TResult? Function(_navigatingMaker value)? navigatingMaker,
+  }) {
+    return navigatingMaker?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_givingInitialValue value)? givingInitialValue,
+    TResult Function(_fulturedValue value)? fulturedValue,
+    TResult Function(_navigatingMaker value)? navigatingMaker,
+    required TResult orElse(),
+  }) {
+    if (navigatingMaker != null) {
+      return navigatingMaker(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _navigatingMaker implements SeeAllEvent {
+  const factory _navigatingMaker(
+      {required final Lesson lesson,
+      required final BuildContext context}) = _$navigatingMakerImpl;
+
+  Lesson get lesson;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$navigatingMakerImplCopyWith<_$navigatingMakerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

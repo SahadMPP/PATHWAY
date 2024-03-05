@@ -11,8 +11,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:path_way_flu/app/core/constants/snacbar.dart';
 import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/data/middleware/student.dart';
-import 'package:path_way_flu/app/pages/student/pages/deatiles_page.dart';
-import 'package:path_way_flu/app/pages/student/pages/deatiles_page_with_outpay.dart';
+import 'package:path_way_flu/app/data/model/lession.dart';
+import 'package:path_way_flu/main.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:http/http.dart' as http;
 
@@ -21,7 +21,7 @@ part 'subcription_state.dart';
 part 'subcription_bloc.freezed.dart';
 
 class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
-  SubcriptionBloc() : super(SubcriptionState.Initial()) {
+  SubcriptionBloc() : super(SubcriptionState.initial()) {
     on<_makingsubcription>((event, emit) {
       var options = {
         'key': 'rzp_test_ZKvZdREQ8HDWXq',
@@ -69,10 +69,10 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
 
         if (res.statusCode == 200) {
           var data = jsonDecode(res.body);
-          List<String> subjectsList = List<String>.from(data['subjects']);
-          emit(state.copyWith(subject: subjectsList));
+          List<String> lessonIdList = List<String>.from(data['lessonId']);
+          emit(state.copyWith(subject: lessonIdList));
         } else {
-          debugPrint('field to get response');
+          debugPrint('feild to get response');
         }
       } catch (e) {
         debugPrint(e.toString());
@@ -88,7 +88,7 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
         c = 1;
         list.add(event.subject);
       }
-      var data = {"subjects": list};
+      var data = {"lessonId": list};
 
       if (c == 0) {
         buildShowSnacbar(
@@ -97,15 +97,24 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
             title: "Hi There!",
             contentType: ContentType.help);
       } else {
-        StudentApi.studentSubcriptionAdding(event.id, data, event.context);
+        var progressData = {
+          "creatorName": event.lesson.creatorName,
+          "subject": event.lesson.subject,
+          "coverImage": event.lesson.coverImage,
+          "countOfLessonWatched": 0.toString(),
+          "totelCountOfLesson": event.lesson.countOfLesson,
+          "title": event.lesson.title,
+          "studentId": userId
+        };
+        StudentApi.studentSubcriptionAdding(
+            event.id, data, event.context, progressData);
       }
 
       emit(state.copyWith(subject: []));
     });
 
     on<_naviagatedToDeatilePage>((event, emit) async {
-
-      List<String> subjectsList =[];
+      List<String> subjectsList = [];
       final url = Uri.parse("${AuthApi.baseUrl}get_studentById/${event.id}");
 
       try {
@@ -113,7 +122,7 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
 
         if (res.statusCode == 200) {
           var data = jsonDecode(res.body);
-         subjectsList = List<String>.from(data['subjects']);
+          subjectsList = List<String>.from(data['subjects']);
           emit(state.copyWith(subject: subjectsList));
         } else {
           debugPrint('field to get response');
@@ -125,20 +134,18 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
 
       bool madePayment = false;
 
-       
-      
       if (subjectsList.contains(event.subject.toLowerCase())) {
         madePayment = true;
       }
-        debugPrint(madePayment.toString());
-     
+      debugPrint(madePayment.toString());
+
       if (madePayment) {
-        Navigator.of(event.context).push(MaterialPageRoute(
-            builder: (ctx) => StudentvideoPlay(subject: event.subject)));
+        // Navigator.of(event.context).push(MaterialPageRoute(
+        //     builder: (ctx) => StudentvideoPlay(subject: event.subject)));
       } else {
-        Navigator.of(event.context).push(MaterialPageRoute(
-            builder: (ctx) =>
-                StudentDeatileWithoutPay(subject: event.subject)));
+        // Navigator.of(event.context).push(MaterialPageRoute(
+        //     builder: (ctx) =>
+        //         StudentDeatileWithoutPay(subject: event.subject)));
       }
       emit(state.copyWith(subject: []));
     });

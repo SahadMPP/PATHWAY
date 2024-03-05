@@ -7,7 +7,7 @@ class SubcriptionState with _$SubcriptionState {
    required List<String> subject,
   }) = _SubcriptionState;
 
-  factory SubcriptionState.Initial(){
+  factory SubcriptionState.initial(){
 
     return SubcriptionState(razorpay: Razorpay(),subject: []);
   }

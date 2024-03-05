@@ -3,13 +3,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:appinio_video_player/appinio_video_player.dart';
-import 'package:path_way_flu/app/data/model/tutoral.dart';
 import 'package:path_way_flu/app/data/middleware/student.dart';
+import 'package:path_way_flu/app/data/middleware/teacher.dart';
+import 'package:path_way_flu/app/data/model/lession.dart';
+import 'package:path_way_flu/app/data/model/tutoral.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class StudentvideoPlay extends StatefulWidget {
-  final String subject;
-  const StudentvideoPlay({super.key, required this.subject});
+  final Lesson lesson;
+  const StudentvideoPlay({super.key, required this.lesson});
 
   @override
   State<StudentvideoPlay> createState() => _StudentvideoPlayState();
@@ -121,12 +123,22 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                         ),
                       ],
                     ),
-                    CircularPercentIndicator(
-                      radius: 25,
-                      center: const Text("25%"),
-                      percent: 25 / 100,
-                      progressColor: const Color.fromARGB(255, 0, 255, 8),
-                      backgroundWidth: 5,
+                    FutureBuilder(
+                      future:    StudentApi.getOneprogress(StudentApi()),
+                      builder: (context,AsyncSnapshot snapshot) {
+                        if (!snapshot.hasData) {
+                          return const Center(child: CircularProgressIndicator());
+                        } else {
+                            return CircularPercentIndicator(
+                          radius: 25,
+                          center: const Text("25%"),
+                          percent: 25 / 100,
+                          progressColor: const Color.fromARGB(255, 0, 255, 8),
+                          backgroundWidth: 5,
+                        );
+                        }
+                      
+                      }
                     ),
                   ]),
             ),
@@ -149,7 +161,7 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                       ),
                       const SizedBox(height: 30),
                       FutureBuilder(
-                          future: StudentApi.getTotorialStudent(widget.subject),
+                          future: TeacherApi.getTotorial(widget.lesson.id),
                           builder: (context, AsyncSnapshot snapshot) {
                             if (!snapshot.hasData) {
                               return const Center(

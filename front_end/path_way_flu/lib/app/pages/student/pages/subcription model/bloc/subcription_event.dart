@@ -14,6 +14,7 @@ class SubcriptionEvent with _$SubcriptionEvent {
     required String subject,
     required String id,
     required BuildContext context,
+    required Lesson lesson,
   }) = _updataStudentdata;
 
   const factory SubcriptionEvent.naviagatedToDeatilePage({
