@@ -2,6 +2,7 @@ class Progress {
   String creatorName;
   String subject;
   String coverImage;
+  String lessonId;
   int countOfLessonWatched;
   int totelCountOfLesson;
   String title;
@@ -10,6 +11,7 @@ class Progress {
   Progress({
     required this.creatorName,
     required this.subject,
+    required this.lessonId,
     this.coverImage = "",
     this.countOfLessonWatched = 0,
     this.totelCountOfLesson = 0,
@@ -24,6 +26,7 @@ class Progress {
         countOfLessonWatched: json['countOfLessonWatched'] ?? 0,
         totelCountOfLesson: json['totelCountOfLesson'] ?? 0,
         title: json['title'],
+        lessonId: json['lessonId'],
         studentId: json['studentId'],
       );
 }

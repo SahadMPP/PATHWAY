@@ -3,12 +3,10 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/core/constants/subject_list.dart';
-import 'package:path_way_flu/app/pages/student/pages/deatiles_page.dart';
 import 'package:path_way_flu/app/pages/student/pages/See%20All/ui/see_all_category.dart';
 import 'package:path_way_flu/app/pages/student/widgets/build_see_all_subject.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 
 class TeachHome extends StatelessWidget {
   const TeachHome({super.key});
@@ -40,8 +38,9 @@ class TeachHome extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 30),
-                     Text("${AppLocalizations.of(context)!.hey} $userName,", style: kHeadingextStyle),
-                     Text(AppLocalizations.of(context)!.findcourse,
+                    Text("${AppLocalizations.of(context)!.hey} $userName,",
+                        style: kHeadingextStyle),
+                    Text(AppLocalizations.of(context)!.findcourse,
                         style: kSubheadingextStyle),
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 30),
@@ -56,7 +55,7 @@ class TeachHome extends StatelessWidget {
                         children: [
                           SvgPicture.asset("asset/icons/search.svg"),
                           const SizedBox(width: 18),
-                           Text(
+                          Text(
                             AppLocalizations.of(context)!.search,
                             style: const TextStyle(
                                 fontSize: 18, color: Color(0xFFA0A5BD)),
@@ -95,7 +94,8 @@ class TeachHome extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                         Text(AppLocalizations.of(context)!.category, style: kTitleTextStyle),
+                        Text(AppLocalizations.of(context)!.category,
+                            style: kTitleTextStyle),
                         GestureDetector(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
@@ -128,16 +128,16 @@ class TeachHome extends StatelessWidget {
                     crossAxisCount: 2,
                     mainAxisSpacing: 8,
                     crossAxisSpacing: 8,
-                  ), 
+                  ),
                   itemBuilder: (context, index) {
                     return BuildSeeAllSub(
-                    subjectList: subjectList,
-                    index: index,
-                    function: (){},
-                    // function: () =>
-                    //     Navigator.of(context).push(MaterialPageRoute(
-                    //         builder: (ctx) =>  StudentvideoPlay(subject: subjectList[index]["name"]!,))),
-                  );
+                      subjectList: subjectList,
+                      index: index,
+                      function: () {},
+                      // function: () =>
+                      //     Navigator.of(context).push(MaterialPageRoute(
+                      //         builder: (ctx) =>  StudentvideoPlay(subject: subjectList[index]["name"]!,))),
+                    );
                   },
                 ),
               ),

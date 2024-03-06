@@ -5,7 +5,7 @@ class Lesson {
   String profileImage;
   String coverImage;
   int countOfLesson;
-  int price;
+  num price;
   String creatorId; // Changed to String
   int watchTime;
   String title;

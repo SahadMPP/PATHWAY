@@ -35,12 +35,15 @@ class CourseContent extends StatelessWidget {
                        height: 1,
                      )),
                      const SizedBox(height: 10),
-                      Text(
-                 title,
-                 style: kSubtitleTextSyule.copyWith(
-                   fontWeight: FontWeight.w600,
-                   height: .1,
-                 )),
+                      ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 230),
+                        child: Text(
+                                         title,
+                                         style: kSubtitleTextSyule.copyWith(
+                                           fontWeight: FontWeight.w600,
+                                           height: .1,
+                                         )),
+                      ),
             ],
           ),
           const Spacer(),

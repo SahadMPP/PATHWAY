@@ -102,8 +102,9 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
           "subject": event.lesson.subject,
           "coverImage": event.lesson.coverImage,
           "countOfLessonWatched": 0.toString(),
-          "totelCountOfLesson": event.lesson.countOfLesson,
+          "totelCountOfLesson": event.lesson.lessonId.length.toString(),
           "title": event.lesson.title,
+          "lessonId": event.lesson.id,
           "studentId": userId
         };
         StudentApi.studentSubcriptionAdding(

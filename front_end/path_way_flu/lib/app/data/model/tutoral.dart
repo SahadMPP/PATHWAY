@@ -18,11 +18,11 @@ class Tutorial {
 
   factory Tutorial.fromJson(Map<String, dynamic> json) {
     return Tutorial(
-        id: json["_id"],
-        title: json["title"],
-        level: json["level"],
-        videoUrl: json["videoUrl"],
-        duration: json["duration"],
-        discription: json["discription"]);
+        id: json["_id"] ?? '',
+        title: json["title"] ?? '' ,
+        level: json["level"] ?? '',
+        videoUrl: json["videoUrl"] ?? '',
+        duration: json["duration"] ?? '',
+        discription: json["discription"] ?? '');
   }
 }

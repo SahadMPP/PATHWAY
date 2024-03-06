@@ -7,7 +7,7 @@ import 'package:path_way_flu/app/data/middleware/student.dart';
 import 'package:path_way_flu/app/data/middleware/teacher.dart';
 import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
-import 'package:percent_indicator/percent_indicator.dart';
+import 'package:path_way_flu/main.dart';
 
 class StudentvideoPlay extends StatefulWidget {
   final Lesson lesson;
@@ -123,23 +123,23 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                         ),
                       ],
                     ),
-                    FutureBuilder(
-                      future:    StudentApi.getOneprogress(StudentApi()),
-                      builder: (context,AsyncSnapshot snapshot) {
-                        if (!snapshot.hasData) {
-                          return const Center(child: CircularProgressIndicator());
-                        } else {
-                            return CircularPercentIndicator(
-                          radius: 25,
-                          center: const Text("25%"),
-                          percent: 25 / 100,
-                          progressColor: const Color.fromARGB(255, 0, 255, 8),
-                          backgroundWidth: 5,
-                        );
-                        }
-                      
-                      }
-                    ),
+                    // FutureBuilder(
+                    //   future:    StudentApi.getOneprogress(StudentApi()),
+                    //   builder: (context,AsyncSnapshot snapshot) {
+                    //     if (!snapshot.hasData) {
+                    //       return const Center(child: CircularProgressIndicator());
+                    //     } else {
+                    //         return CircularPercentIndicator(
+                    //       radius: 25,
+                    //       center: const Text("25%"),
+                    //       percent: 25 / 100,
+                    //       progressColor: const Color.fromARGB(255, 0, 255, 8),
+                    //       backgroundWidth: 5,
+                    //     );
+                    //     }
+
+                    //   }
+                    // ),
                   ]),
             ),
             Expanded(
@@ -180,6 +180,15 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                                       itemBuilder: (context, index) {
                                         return CourseContent(
                                             functionn: () {
+                                              int count = index + 1;
+
+                                              StudentApi
+                                                  .getOneProgerssForUpdate(
+                                                      context: context,
+                                                      studentId: userId!,
+                                                      lessonId:
+                                                          widget.lesson.id,
+                                                      count: count);
                                               _customVideoPlayerController
                                                   .dispose();
                                               setState(() {
@@ -190,7 +199,7 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                                             number: index,
                                             title: tutoral[index].title,
                                             creatorName:
-                                               "tutoral[index].creator");
+                                                "tutoral[index].creator");
                                       }),
                                 );
                               }
@@ -207,11 +216,11 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
     );
   }
 
-  void initilizeVideoPlayer(videoUrl)async {
+  void initilizeVideoPlayer(videoUrl) async {
     setState(() {
       isLoading = false;
     });
-   await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     CachedVideoPlayerController videoPlayerController;
     videoPlayerController = CachedVideoPlayerController.network(videoUrl)
       ..initialize().then((value) => setState(() {}));
@@ -277,7 +286,6 @@ class CourseContent extends StatelessWidget {
               height: 40,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                // color: kGreenColor.withOpacity(isDone ? 1:.5),
                 color: kGreenColor,
               ),
               child: const Icon(
