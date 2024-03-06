@@ -339,7 +339,7 @@ class BuildHomeBox extends StatelessWidget {
                                       width: double.infinity,
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(25),
-                                        child: Image.network(lession[index].coverImage,fit: BoxFit.cover,)
+                                        child: Image.network("http://learnpro.today:5000/${lession[index].coverImage}",fit: BoxFit.cover,)
                                       )),
                                   Container(
                                     padding: const EdgeInsets.all(10),

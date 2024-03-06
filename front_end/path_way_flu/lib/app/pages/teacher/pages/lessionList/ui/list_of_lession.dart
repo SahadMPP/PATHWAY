@@ -6,6 +6,7 @@ import 'package:path_way_flu/app/data/middleware/teacher.dart';
 import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lessionList/bloc/lession_list_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:path_way_flu/main.dart';
 
 
 class ListOfLession extends StatelessWidget {
@@ -36,7 +37,7 @@ class ListOfLession extends StatelessWidget {
         ),
       ),
       body: FutureBuilder(
-          future: TeacherApi.getAllLession(),
+          future: TeacherApi.getByTeacherLession(teacherId: userId!),
           builder: (context, AsyncSnapshot snapshot) {
             if (!snapshot.hasData) {
               return const Center(child: CircularProgressIndicator());
@@ -82,11 +83,7 @@ class ListOfLession extends StatelessWidget {
                                 width: 110,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(18),
-                                  // child: Image.file(
-                                  //   File(lesson[index].coverImage),
-                                  //   fit: BoxFit.cover,
-                                  // ),
-                                  child: Image.network("http://learnpro.today:5000/${lesson[index].coverImage}",fit: BoxFit.cover,),
+                                  child: Image.network("http://learnpro.today:5000/${lesson[index].coverImage}",fit: BoxFit.cover),
                                 ),
                               ),
                               Padding(
@@ -100,7 +97,7 @@ class ListOfLession extends StatelessWidget {
                                       lesson[index].title,
                                       style: GoogleFonts.quicksand(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 22,
+                                        fontSize: 18,
                                         height: 2,
                                       ),
                                     ),

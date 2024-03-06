@@ -20,6 +20,7 @@ class LessionForm extends StatelessWidget {
   Widget build(BuildContext context) {
     GlobalKey<FormState> formKey = GlobalKey();
     TextEditingController titleController = TextEditingController();
+    TextEditingController priceController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -53,6 +54,7 @@ class LessionForm extends StatelessWidget {
                         
                         context.read<LessonFormBloc>().add(
                             LessonFormEvent.addingLession(
+                                price:priceController.text,
                                 context: context,
                                 subject: state.dropDownpiker!,
                                 title: titleController.text,
@@ -79,16 +81,27 @@ class LessionForm extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Form(
               key: formKey,
-              child: BuildAddTutorFormText(
-                title: AppLocalizations.of(context)!.title,
-                hintText: "title",
-                controllre: titleController,
-                validateText: "Title",
+              child: Column(
+                children: [
+                  BuildAddTutorFormText(
+                    title: AppLocalizations.of(context)!.title,
+                    hintText: "title",
+                    controllre: titleController,
+                    validateText: "Title",
+                  ),
+                   BuildAddTutorFormText(
+                    title: "Price",
+                    hintText: "Price",
+                    controllre: priceController,
+                    validateText: "price",
+                    textInputType: TextInputType.number,
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 10),

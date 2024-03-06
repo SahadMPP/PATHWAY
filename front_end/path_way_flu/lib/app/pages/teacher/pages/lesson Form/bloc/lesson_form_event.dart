@@ -21,6 +21,7 @@ class LessonFormEvent with _$LessonFormEvent {
     required String subject,
     required String title,
     required String coverImage,
+    required String price,
   }) = _addingLession;
 
   const factory LessonFormEvent.deleteTutorial({

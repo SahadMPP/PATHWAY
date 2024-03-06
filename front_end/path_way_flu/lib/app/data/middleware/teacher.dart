@@ -43,8 +43,10 @@ class TeacherApi {
 
 // Lesson List
   static void addingLession(
-      {required Map data, required BuildContext context,required String filepath}) async {
-
+      {required Map data,
+      required BuildContext context,
+      required String filepath,
+      required String subject}) async {
     final url = Uri.parse('${baseUrl}add_lession');
 
     try {
@@ -52,27 +54,67 @@ class TeacherApi {
 
       if (res.statusCode == 200) {
         debugPrint("add lession is successfull");
-    
+
         var data = jsonDecode(res.body);
-       var image_response = await patchImage(data["_id"], filepath);
-          
+        // ignore: non_constant_identifier_names
+        var image_response = await patchImage(data["_id"], filepath);
+
         if (image_response.statusCode == 200) {
+          //-------------------updating subject model--------------------------
+
+          try {
+            final url = Uri.parse("${baseUrl}get_subjectById/$subject");
+
+            final res = await http.get(url);
+
+            if (res.statusCode == 200) {
+              var data = jsonDecode(res.body);
+              var id = data['_id'];
+              var techerC = data['countOfTeacher'];
+              var lessonC = data['lessonCount'];
+              //-------------------
+              var subjectData = {
+                "countOfTeacher": techerC + 1,
+                "lessonCount": lessonC + 1
+              };
+              try {
+                final url = Uri.parse("${baseUrl}update_subject/$id");
+                final res = await http.put(url,
+                    body: jsonEncode(subjectData),
+                    headers: {'Content-Type': 'application/json'});
+
+                if (res.statusCode == 200) {
+                  debugPrint("subject model updated");
+                } else {
+                  debugPrint("failed to update in subject model");
+                }
+              } catch (e) {
+                debugPrint(e.toString());
+              }
+            } else {
+              debugPrint(
+                  "debugPrint(we are fasing some error to getting lesson model");
+            }
+          } catch (e) {
+            debugPrint(e.toString());
+          }
+
+          //-----------------------------------------------
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => const TeacherBotmNavi(),
-        ));
-        buildShowSnacbar(
-            context: context,
-            content: "Adding lession in successfull ",
-            title: "Done!",
-            contentType: ContentType.success);
+            builder: (context) => const TeacherBotmNavi(),
+          ));
+          buildShowSnacbar(
+              context: context,
+              content: "Adding lession in successfull ",
+              title: "Done!",
+              contentType: ContentType.success);
         } else {
           buildShowSnacbar(
-            context: context,
-            content: "You fasing some network error",
-            title: "Oop's!",
-            contentType: ContentType.failure);
+              context: context,
+              content: "You fasing some network error",
+              title: "Oop's!",
+              contentType: ContentType.failure);
         }
-        
       } else {
         debugPrint("Field to add lession");
       }
@@ -91,6 +133,27 @@ class TeacherApi {
         var data = jsonDecode(res.body);
         for (var value in data) {
           listLesson.add(Lesson.fromJson(value));
+        }
+        return listLesson;
+      } else {
+        return listLesson;
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  static getByTeacherLession({required String teacherId}) async {
+    List<Lesson> listLesson = [];
+    final url = Uri.parse('${baseUrl}get_lession');
+    try {
+      final res = await http.get(url);
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
+        for (var value in data) {
+          if (value["creatorId"] == teacherId) {
+            listLesson.add(Lesson.fromJson(value));
+          }
         }
         return listLesson;
       } else {
@@ -320,15 +383,18 @@ class TeacherApi {
     }
   }
 
-  static Future<http.StreamedResponse> patchImage(String id,String filepath)async{
-   var request = http.MultipartRequest('PATCH',Uri.parse("${baseUrl}add/image/$id"));
-  request.files.add(await http.MultipartFile.fromPath("coverImage", filepath));
-  request.headers.addAll({
-   "Content-Type": "multipart/form-data",
-  });
+  static Future<http.StreamedResponse> patchImage(
+      String id, String filepath) async {
+    var request =
+        http.MultipartRequest('PATCH', Uri.parse("${baseUrl}add/image/$id"));
+    request.files
+        .add(await http.MultipartFile.fromPath("coverImage", filepath));
+    request.headers.addAll({
+      "Content-Type": "multipart/form-data",
+    });
 
-  var response = request.send();
-  
-  return response;
+    var response = request.send();
+
+    return response;
   }
 }

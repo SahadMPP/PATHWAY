@@ -74,25 +74,27 @@ class SeeAllCategory extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10),
                               child: GestureDetector(
                                 onTap: () {
-                                  
-                                  context.read<SeeAllBloc>().add(SeeAllEvent.navigatingMaker(lesson:state.list[index] , context: context));
+                                  context.read<SeeAllBloc>().add(
+                                      SeeAllEvent.navigatingMaker(
+                                          lesson: state.list[index],
+                                          context: context));
                                 },
                                 child: Container(
                                   padding: const EdgeInsets.all(10),
-                                  color: Theme.of(context).colorScheme.secondary,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                   child: Column(
                                     children: [
                                       SizedBox(
                                           height: 90,
                                           width: double.infinity,
                                           child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(15),
-                                            child: Image.network(
-                                              state.list[index].coverImage,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          )),
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                              child: Image.network(
+                                                "http://learnpro.today:5000/${state.list[index].coverImage}",
+                                                fit: BoxFit.cover,
+                                              ))),
                                       const SizedBox(height: 5),
                                       Row(
                                         mainAxisAlignment:

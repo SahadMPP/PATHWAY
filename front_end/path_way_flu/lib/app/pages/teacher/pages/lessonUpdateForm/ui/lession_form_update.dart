@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -137,11 +136,8 @@ class LessonFormUpdate extends StatelessWidget {
                               fit: BoxFit.cover,
                               image:
                                   AssetImage("asset/images(adding icon).png"))
-                          : Image.file(
-                              File(state.pikedImage!),
-                              fit: BoxFit.cover,
-                            )),
-                );
+                          : Image.network("http://learnpro.today:5000/${lesson.coverImage}",fit: BoxFit.cover,),
+                ));
               },
             ),
             const SizedBox(height: 10),

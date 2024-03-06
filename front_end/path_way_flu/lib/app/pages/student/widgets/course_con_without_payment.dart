@@ -7,7 +7,9 @@ class CourseContent extends StatelessWidget {
   final String creator;
   const CourseContent({
     super.key,
-    required this.number, required this.title, required this.creator,
+    required this.number,
+    required this.title,
+    required this.creator,
   });
 
   @override
@@ -27,23 +29,21 @@ class CourseContent extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                   creator,
-                     style: TextStyle(
-                       color: kTextColor.withOpacity(.5),
-                       fontSize: 18,
-                       height: 1,
-                     )),
-                     const SizedBox(height: 10),
-                      ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 230),
-                        child: Text(
-                                         title,
-                                         style: kSubtitleTextSyule.copyWith(
-                                           fontWeight: FontWeight.w600,
-                                           height: .1,
-                                         )),
-                      ),
+              Text(creator,
+                  style: TextStyle(
+                    color: kTextColor.withOpacity(.5),
+                    fontSize: 18,
+                    height: 1,
+                  )),
+              const SizedBox(height: 10),
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 230),
+                child: Text(title,
+                    style: kSubtitleTextSyule.copyWith(
+                      fontWeight: FontWeight.w600,
+                      height: .1,
+                    )),
+              ),
             ],
           ),
           const Spacer(),

@@ -23,7 +23,7 @@ mixin _$LessonFormEvent {
     required TResult Function() imagePiking,
     required TResult Function(String subject) dropDownpiker,
     required TResult Function(BuildContext context, String subject,
-            String title, String coverImage)
+            String title, String coverImage, String price)
         addingLession,
     required TResult Function(String id, BuildContext context) deleteTutorial,
     required TResult Function(
@@ -38,7 +38,7 @@ mixin _$LessonFormEvent {
     TResult? Function()? imagePiking,
     TResult? Function(String subject)? dropDownpiker,
     TResult? Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
     TResult? Function(
@@ -53,7 +53,7 @@ mixin _$LessonFormEvent {
     TResult Function()? imagePiking,
     TResult Function(String subject)? dropDownpiker,
     TResult Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult Function(String id, BuildContext context)? deleteTutorial,
     TResult Function(
@@ -188,7 +188,7 @@ class _$navicatingTutoralFormImpl implements _navicatingTutoralForm {
     required TResult Function() imagePiking,
     required TResult Function(String subject) dropDownpiker,
     required TResult Function(BuildContext context, String subject,
-            String title, String coverImage)
+            String title, String coverImage, String price)
         addingLession,
     required TResult Function(String id, BuildContext context) deleteTutorial,
     required TResult Function(
@@ -206,7 +206,7 @@ class _$navicatingTutoralFormImpl implements _navicatingTutoralForm {
     TResult? Function()? imagePiking,
     TResult? Function(String subject)? dropDownpiker,
     TResult? Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
     TResult? Function(
@@ -224,7 +224,7 @@ class _$navicatingTutoralFormImpl implements _navicatingTutoralForm {
     TResult Function()? imagePiking,
     TResult Function(String subject)? dropDownpiker,
     TResult Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult Function(String id, BuildContext context)? deleteTutorial,
     TResult Function(
@@ -366,7 +366,7 @@ class _$cancelButtonClickImpl implements _cancelButtonClick {
     required TResult Function() imagePiking,
     required TResult Function(String subject) dropDownpiker,
     required TResult Function(BuildContext context, String subject,
-            String title, String coverImage)
+            String title, String coverImage, String price)
         addingLession,
     required TResult Function(String id, BuildContext context) deleteTutorial,
     required TResult Function(
@@ -384,7 +384,7 @@ class _$cancelButtonClickImpl implements _cancelButtonClick {
     TResult? Function()? imagePiking,
     TResult? Function(String subject)? dropDownpiker,
     TResult? Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
     TResult? Function(
@@ -402,7 +402,7 @@ class _$cancelButtonClickImpl implements _cancelButtonClick {
     TResult Function()? imagePiking,
     TResult Function(String subject)? dropDownpiker,
     TResult Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult Function(String id, BuildContext context)? deleteTutorial,
     TResult Function(
@@ -517,7 +517,7 @@ class _$imagePikingImpl implements _imagePiking {
     required TResult Function() imagePiking,
     required TResult Function(String subject) dropDownpiker,
     required TResult Function(BuildContext context, String subject,
-            String title, String coverImage)
+            String title, String coverImage, String price)
         addingLession,
     required TResult Function(String id, BuildContext context) deleteTutorial,
     required TResult Function(
@@ -535,7 +535,7 @@ class _$imagePikingImpl implements _imagePiking {
     TResult? Function()? imagePiking,
     TResult? Function(String subject)? dropDownpiker,
     TResult? Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
     TResult? Function(
@@ -553,7 +553,7 @@ class _$imagePikingImpl implements _imagePiking {
     TResult Function()? imagePiking,
     TResult Function(String subject)? dropDownpiker,
     TResult Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult Function(String id, BuildContext context)? deleteTutorial,
     TResult Function(
@@ -688,7 +688,7 @@ class _$dropDownpikerImpl implements _dropDownpiker {
     required TResult Function() imagePiking,
     required TResult Function(String subject) dropDownpiker,
     required TResult Function(BuildContext context, String subject,
-            String title, String coverImage)
+            String title, String coverImage, String price)
         addingLession,
     required TResult Function(String id, BuildContext context) deleteTutorial,
     required TResult Function(
@@ -706,7 +706,7 @@ class _$dropDownpikerImpl implements _dropDownpiker {
     TResult? Function()? imagePiking,
     TResult? Function(String subject)? dropDownpiker,
     TResult? Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
     TResult? Function(
@@ -724,7 +724,7 @@ class _$dropDownpikerImpl implements _dropDownpiker {
     TResult Function()? imagePiking,
     TResult Function(String subject)? dropDownpiker,
     TResult Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult Function(String id, BuildContext context)? deleteTutorial,
     TResult Function(
@@ -803,7 +803,11 @@ abstract class _$$addingLessionImplCopyWith<$Res> {
       __$$addingLessionImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {BuildContext context, String subject, String title, String coverImage});
+      {BuildContext context,
+      String subject,
+      String title,
+      String coverImage,
+      String price});
 }
 
 /// @nodoc
@@ -821,6 +825,7 @@ class __$$addingLessionImplCopyWithImpl<$Res>
     Object? subject = null,
     Object? title = null,
     Object? coverImage = null,
+    Object? price = null,
   }) {
     return _then(_$addingLessionImpl(
       context: null == context
@@ -839,6 +844,10 @@ class __$$addingLessionImplCopyWithImpl<$Res>
           ? _value.coverImage
           : coverImage // ignore: cast_nullable_to_non_nullable
               as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -850,7 +859,8 @@ class _$addingLessionImpl implements _addingLession {
       {required this.context,
       required this.subject,
       required this.title,
-      required this.coverImage});
+      required this.coverImage,
+      required this.price});
 
   @override
   final BuildContext context;
@@ -860,10 +870,12 @@ class _$addingLessionImpl implements _addingLession {
   final String title;
   @override
   final String coverImage;
+  @override
+  final String price;
 
   @override
   String toString() {
-    return 'LessonFormEvent.addingLession(context: $context, subject: $subject, title: $title, coverImage: $coverImage)';
+    return 'LessonFormEvent.addingLession(context: $context, subject: $subject, title: $title, coverImage: $coverImage, price: $price)';
   }
 
   @override
@@ -875,12 +887,13 @@ class _$addingLessionImpl implements _addingLession {
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.coverImage, coverImage) ||
-                other.coverImage == coverImage));
+                other.coverImage == coverImage) &&
+            (identical(other.price, price) || other.price == price));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, context, subject, title, coverImage);
+      Object.hash(runtimeType, context, subject, title, coverImage, price);
 
   @JsonKey(ignore: true)
   @override
@@ -896,14 +909,14 @@ class _$addingLessionImpl implements _addingLession {
     required TResult Function() imagePiking,
     required TResult Function(String subject) dropDownpiker,
     required TResult Function(BuildContext context, String subject,
-            String title, String coverImage)
+            String title, String coverImage, String price)
         addingLession,
     required TResult Function(String id, BuildContext context) deleteTutorial,
     required TResult Function(
             Map<dynamic, dynamic> data, String id, BuildContext context)
         updateTotorial,
   }) {
-    return addingLession(context, subject, title, coverImage);
+    return addingLession(context, subject, title, coverImage, price);
   }
 
   @override
@@ -914,14 +927,14 @@ class _$addingLessionImpl implements _addingLession {
     TResult? Function()? imagePiking,
     TResult? Function(String subject)? dropDownpiker,
     TResult? Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
     TResult? Function(
             Map<dynamic, dynamic> data, String id, BuildContext context)?
         updateTotorial,
   }) {
-    return addingLession?.call(context, subject, title, coverImage);
+    return addingLession?.call(context, subject, title, coverImage, price);
   }
 
   @override
@@ -932,7 +945,7 @@ class _$addingLessionImpl implements _addingLession {
     TResult Function()? imagePiking,
     TResult Function(String subject)? dropDownpiker,
     TResult Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult Function(String id, BuildContext context)? deleteTutorial,
     TResult Function(
@@ -941,7 +954,7 @@ class _$addingLessionImpl implements _addingLession {
     required TResult orElse(),
   }) {
     if (addingLession != null) {
-      return addingLession(context, subject, title, coverImage);
+      return addingLession(context, subject, title, coverImage, price);
     }
     return orElse();
   }
@@ -999,12 +1012,14 @@ abstract class _addingLession implements LessonFormEvent {
       {required final BuildContext context,
       required final String subject,
       required final String title,
-      required final String coverImage}) = _$addingLessionImpl;
+      required final String coverImage,
+      required final String price}) = _$addingLessionImpl;
 
   BuildContext get context;
   String get subject;
   String get title;
   String get coverImage;
+  String get price;
   @JsonKey(ignore: true)
   _$$addingLessionImplCopyWith<_$addingLessionImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1088,7 +1103,7 @@ class _$deleteTutorialImpl implements _deleteTutorial {
     required TResult Function() imagePiking,
     required TResult Function(String subject) dropDownpiker,
     required TResult Function(BuildContext context, String subject,
-            String title, String coverImage)
+            String title, String coverImage, String price)
         addingLession,
     required TResult Function(String id, BuildContext context) deleteTutorial,
     required TResult Function(
@@ -1106,7 +1121,7 @@ class _$deleteTutorialImpl implements _deleteTutorial {
     TResult? Function()? imagePiking,
     TResult? Function(String subject)? dropDownpiker,
     TResult? Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
     TResult? Function(
@@ -1124,7 +1139,7 @@ class _$deleteTutorialImpl implements _deleteTutorial {
     TResult Function()? imagePiking,
     TResult Function(String subject)? dropDownpiker,
     TResult Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult Function(String id, BuildContext context)? deleteTutorial,
     TResult Function(
@@ -1295,7 +1310,7 @@ class _$updateTotorialImpl implements _updateTotorial {
     required TResult Function() imagePiking,
     required TResult Function(String subject) dropDownpiker,
     required TResult Function(BuildContext context, String subject,
-            String title, String coverImage)
+            String title, String coverImage, String price)
         addingLession,
     required TResult Function(String id, BuildContext context) deleteTutorial,
     required TResult Function(
@@ -1313,7 +1328,7 @@ class _$updateTotorialImpl implements _updateTotorial {
     TResult? Function()? imagePiking,
     TResult? Function(String subject)? dropDownpiker,
     TResult? Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult? Function(String id, BuildContext context)? deleteTutorial,
     TResult? Function(
@@ -1331,7 +1346,7 @@ class _$updateTotorialImpl implements _updateTotorial {
     TResult Function()? imagePiking,
     TResult Function(String subject)? dropDownpiker,
     TResult Function(BuildContext context, String subject, String title,
-            String coverImage)?
+            String coverImage, String price)?
         addingLession,
     TResult Function(String id, BuildContext context)? deleteTutorial,
     TResult Function(
