@@ -121,20 +121,34 @@ class SeeAllCategory extends StatelessWidget {
                                       ),
                                       const SizedBox(height: 5),
                                       Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                          const CircleAvatar(
-                                            radius: 10,
-                                            backgroundImage: AssetImage(
-                                                "asset/profiles/chat555.png"),
+                                          Row(
+
+                                            children: [
+                                              const CircleAvatar(
+                                                radius: 10,
+                                                backgroundImage: AssetImage(
+                                                    "asset/profiles/chat555.png"),
+                                              ),
+                                              const SizedBox(width: 5),
+                                              Text(
+                                                state.list[index].creatorName,
+                                                style: GoogleFonts.quicksand(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          const SizedBox(width: 5),
                                           Text(
-                                            state.list[index].creatorName,
-                                            style: GoogleFonts.quicksand(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500,
+                                              '\u{20B9}${state.list[index].price}',
+                                              style: GoogleFonts.aBeeZee(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15,
+                                                color: Colors.red
+                                              ),
                                             ),
-                                          ),
                                         ],
                                       ),
                                       const Spacer(),

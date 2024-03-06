@@ -57,7 +57,7 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text("Design Thinking", style: kHeadingextStyle),
+                   Text(lesson.title, style: kHeadingextStyle),
                   const SizedBox(height: 16),
                   Row(
                     children: [
@@ -73,10 +73,10 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                   const SizedBox(height: 20),
                   Row(
                     children: [
-                      Text("\$50",
+                      Text("\u{20B9}${lesson.price}",
                           style: kHeadingextStyle.copyWith(fontSize: 32)),
                       const SizedBox(width: 5),
-                      Text("\$70",
+                      Text("\u{20B9}70",
                           style: TextStyle(
                             color: kTextColor.withOpacity(.5),
                             decoration: TextDecoration.lineThrough,

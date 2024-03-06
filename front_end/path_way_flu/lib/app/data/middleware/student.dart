@@ -89,7 +89,7 @@ class StudentApi {
   }
 
   static studentSubcriptionAdding(
-      id, Map data, BuildContext context, Map progressData) async {
+      {required id,required Map data,required BuildContext context,required Map progressData,required String subject,required num lessonPrice}) async {
     final url = Uri.parse("${baseUrl}update_student/$id");
 
     try {
@@ -99,6 +99,46 @@ class StudentApi {
 
       if (res.statusCode == 200) {
         debugPrint("subject purcher successfull");
+        //-----------update subject model-------------
+      try {
+            final url = Uri.parse("${baseUrl}get_subjectById/$subject");
+
+            final res = await http.get(url);
+
+            if (res.statusCode == 200) {
+              var data = jsonDecode(res.body);
+              var id = data['_id'];
+              var studentC = data['countOfStudent'];
+              var orderValue = data['orderValue'];
+              
+              //-------------------
+              var subjectData = {
+                "countOfStudent": studentC + 1,
+                "orderValue": orderValue + lessonPrice
+              };
+              try {
+                final url = Uri.parse("${baseUrl}update_subject/$id");
+                final res = await http.put(url,
+                    body: jsonEncode(subjectData),
+                    headers: {'Content-Type': 'application/json'});
+
+                if (res.statusCode == 200) {
+                  debugPrint("subject model updated");
+                } else {
+                  debugPrint("failed to update in subject model");
+                }
+              } catch (e) {
+                debugPrint(e.toString());
+              }
+            } else {
+              debugPrint(
+                  "debugPrint(we are fasing some error to getting lesson model");
+            }
+          } catch (e) {
+            debugPrint(e.toString());
+          }
+
+        //--------------------------------------------
         buildShowSnacbar(
             context: context,
             content: "successfully purchesed",

@@ -107,8 +107,7 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
           "lessonId": event.lesson.id,
           "studentId": userId
         };
-        StudentApi.studentSubcriptionAdding(
-            event.id, data, event.context, progressData);
+        StudentApi.studentSubcriptionAdding(id: event.id, data: data, context: event.context, progressData: progressData, subject: event.lesson.subject, lessonPrice: event.lesson.price);
       }
 
       emit(state.copyWith(subject: []));
