@@ -296,7 +296,26 @@ class StudentApi {
     }
   }
 
-  static getOneStudent({studentId, lessionId, lesson, context}) async {
+  static getOneStudent(studentId)async{
+     Student? student;
+    final url = Uri.parse('${baseUrl}get_studentById/$studentId');
+
+    try {
+      final res = await http.get(url);
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
+        student = Student.fromJson(data);
+         return student;
+      } else {
+        debugPrint('faild to get student lession');
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    } 
+  }
+
+
+  static getOneStudentForDeatilePage({studentId, lessionId, lesson, context}) async {
     Student? student;
     final url = Uri.parse('${baseUrl}get_studentById/$studentId');
 
@@ -361,6 +380,25 @@ class StudentApi {
         debugPrint("progress is updated");
       } else {
         debugPrint("Failed to update progress data");
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  static updateStudent(id, Map data, context) async {
+    var url = Uri.parse("${baseUrl}update_student/$id");
+
+    try {
+      final res = await http.put(url, body: jsonEncode(data),headers:{'Content-Type': 'application/json'} );
+
+      if (res.statusCode == 200) { 
+        // debugPrint(res.body);
+        debugPrint("student is updated");
+        Navigator.of(context).pop();
+        buildShowSnacbar(context: context, content: "you profile is edited", title: "Ok!", contentType: ContentType.success);
+      } else {
+        debugPrint("Failed to update student data");
       }
     } catch (e) {
       debugPrint(e.toString());

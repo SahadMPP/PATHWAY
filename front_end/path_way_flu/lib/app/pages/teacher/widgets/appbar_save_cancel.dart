@@ -7,7 +7,9 @@ AppBar buildAppBar({
   required VoidCallback cancel,
 }){
     return  AppBar(
-        title: Row(
+      centerTitle: true,
+        automaticallyImplyLeading: false,
+        title: Row(     
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             TextButton(

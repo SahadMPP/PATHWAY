@@ -19,9 +19,9 @@ class _StudentChatState extends State<StudentChat> {
       {"name": "Barry", "image": "asset/profiles/chat111.png"},
       {"name": "Mohan", "image": "asset/profiles/chat222.png"},
       {"name": "Vimal", "image": "asset/profiles/chat555.png"},
-      {"name": "Jhon", "image": "asset/profiles/chat666.png"},
-      {"name": "Marco", "image": "asset/profiles/chat777.png"},
-      {"name": "Andru", "image": "asset/profiles/chat888.png"},
+      {"name": "Mohan", "image": "asset/profiles/chat222.png"},
+      {"name": "Kumar", "image": "asset/profiles/chat111.png"},
+      {"name": "Kumar", "image": "asset/profiles/chat111.png"},
       {"name": "Arun", "image": "asset/profiles/image22.png"},
       {"name": "Kumar", "image": "asset/profiles/chat111.png"},
     ];
@@ -59,7 +59,9 @@ class _StudentChatState extends State<StudentChat> {
                       padding: const EdgeInsets.only(top: 10),
                       child: TextFormField(
                         onChanged: (value) {
-                          context.read<StudentChatBloc>().add(StudentChatEvent.filteringForSearch(textValue: value));
+                          context.read<StudentChatBloc>().add(
+                              StudentChatEvent.filteringForSearch(
+                                  textValue: value));
                         },
                         decoration: const InputDecoration(
                             hintText: "Search", border: InputBorder.none),

@@ -3,7 +3,12 @@ import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/data/model/language.dart';
 import 'package:path_way_flu/app/pages/auth/domain/usecases/define_fun.dart';
+import 'package:path_way_flu/app/pages/commen%20pages/about/ui/about.dart';
+import 'package:path_way_flu/app/pages/commen%20pages/privecy%20text/ui/privecy.dart';
+import 'package:path_way_flu/app/pages/student/widgets/profile_card.dart';
+import 'package:path_way_flu/app/pages/student/widgets/setting_cardwith_toggle.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/application_form.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/profile%20edit/ui/teacher_profile_edit.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -37,7 +42,7 @@ class _TeacherSettingsState extends State<TeacherSettings> {
                   .toList(),
               onChanged: (Language? language) {
                 //----------
-                MyApp.setLocal(context, Locale(language!.languageCode,''));
+                MyApp.setLocal(context, Locale(language!.languageCode, ''));
               },
               underline: const SizedBox(),
               icon: const Icon(
@@ -128,7 +133,11 @@ class _TeacherSettingsState extends State<TeacherSettings> {
                         const SizedBox(height: 10),
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.editprofile,
-                            fun: () {},
+                            fun: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const TeacherEditProfile(),
+                              ));
+                            },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.applyasateacher,
@@ -137,10 +146,6 @@ class _TeacherSettingsState extends State<TeacherSettings> {
                                   builder: (ctx) =>
                                       const TeacherApplicationFormSc()));
                             },
-                            icon: Icons.navigate_next),
-                        BuildProfileCard(
-                            text: AppLocalizations.of(context)!.changepassword,
-                            fun: () {},
                             icon: Icons.navigate_next),
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.addlocation,
@@ -162,11 +167,19 @@ class _TeacherSettingsState extends State<TeacherSettings> {
                         ),
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.aboutus,
-                            fun: () {},
+                            fun: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const About(),
+                              ));
+                            },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.privacyconcern,
-                            fun: () {},
+                            fun: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const Privecy(),
+                              ));
+                            },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.logout,
@@ -198,91 +211,91 @@ class _TeacherSettingsState extends State<TeacherSettings> {
   }
 }
 
-class BuildProfileCard extends StatelessWidget {
-  final String text;
-  final VoidCallback fun;
-  final IconData icon;
-  const BuildProfileCard({
-    super.key,
-    required this.text,
-    required this.fun,
-    required this.icon,
-  });
+// class BuildProfileCard extends StatelessWidget {
+//   final String text;
+//   final VoidCallback fun;
+//   final IconData icon;
+//   const BuildProfileCard({
+//     super.key,
+//     required this.text,
+//     required this.fun,
+//     required this.icon,
+//   });
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SizedBox(
-            width: 100,
-            child: Text(
-              text,
-              style:
-                  kTitleTextStyle.copyWith(fontSize: 20, color: Colors.black),
-            ),
-          ),
-          IconButton(
-              onPressed: fun,
-              icon: Icon(
-                icon,
-                size: 30,
-              ))
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.only(bottom: 10),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           SizedBox(
+//             width: 100,
+//             child: Text(
+//               text,
+//               style:
+//                   kTitleTextStyle.copyWith(fontSize: 20, color: Colors.black),
+//             ),
+//           ),
+//           IconButton(
+//               onPressed: fun,
+//               icon: Icon(
+//                 icon,
+//                 size: 30,
+//               ))
+//         ],
+//       ),
+//     );
+//   }
+// }
 
-class BuildProfileWithToggle extends StatefulWidget {
-  final String text;
-  final VoidCallback fun;
+// class BuildProfileWithToggle extends StatefulWidget {
+//   final String text;
+//   final VoidCallback fun;
 
-  const BuildProfileWithToggle({
-    super.key,
-    required this.text,
-    required this.fun,
-  });
+//   const BuildProfileWithToggle({
+//     super.key,
+//     required this.text,
+//     required this.fun,
+//   });
 
-  @override
-  State<BuildProfileWithToggle> createState() => _BuildProfileWithToggleState();
-}
+//   @override
+//   State<BuildProfileWithToggle> createState() => _BuildProfileWithToggleState();
+// }
 
-class _BuildProfileWithToggleState extends State<BuildProfileWithToggle> {
-  bool isSwitched = false;
+// class _BuildProfileWithToggleState extends State<BuildProfileWithToggle> {
+//   bool isSwitched = false;
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SizedBox(
-            width: 120,
-            child: Text(
-              widget.text,
-              style:
-                  kTitleTextStyle.copyWith(fontSize: 20, color: Colors.black),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-            width: 70,
-            child: Switch(
-                thumbColor: MaterialStatePropertyAll(
-                    Theme.of(context).colorScheme.onSecondary),
-                value: isSwitched,
-                onChanged: (value) {
-                  setState(() {
-                    isSwitched = value;
-                  });
-                }),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.only(bottom: 10),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           SizedBox(
+//             width: 120,
+//             child: Text(
+//               widget.text,
+//               style:
+//                   kTitleTextStyle.copyWith(fontSize: 20, color: Colors.black),
+//             ),
+//           ),
+//           SizedBox(
+//             height: 20,
+//             width: 70,
+//             child: Switch(
+//                 thumbColor: MaterialStatePropertyAll(
+//                     Theme.of(context).colorScheme.onSecondary),
+//                 value: isSwitched,
+//                 onChanged: (value) {
+//                   setState(() {
+//                     isSwitched = value;
+//                   });
+//                 }),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }

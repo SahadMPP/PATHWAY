@@ -35,7 +35,7 @@ class SeeAllBloc extends Bloc<SeeAllEvent, SeeAllState> {
 
    on<_navigatingMaker>((event, emit) {
     
-    StudentApi.getOneStudent(context:event.context,lessionId:event.lesson.id,lesson: event.lesson,studentId:userId );
+    StudentApi.getOneStudentForDeatilePage(context:event.context,lessionId:event.lesson.id,lesson: event.lesson,studentId:userId );
    });
   }
 }

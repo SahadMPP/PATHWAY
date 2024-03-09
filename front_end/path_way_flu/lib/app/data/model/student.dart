@@ -5,11 +5,13 @@ class Student {
   final String age;
   final String email;
   final String password;
-  final String? mobNumber;
+  final String mobNumber;
   final List<String>? lessonId;
   final bool active;
   final String level;
   final String? profileImage;
+  final String? gender;
+  
 
   Student({
     required this.id,
@@ -17,17 +19,19 @@ class Student {
     required this.age,
     required this.email,
     required this.password,
-    this.mobNumber,
+    required this.mobNumber,
     this.lessonId,
     required this.active,
     required this.level,
     this.profileImage,
+    this.gender,
   });
 
   factory Student.fromJson(Map<String, dynamic> json) {
     return Student(
       id: json['_id'] ?? '',
       name: json['name'] ?? '',
+      gender: json['gender'] ?? '',
       age: json['age'] ?? '',
       email: json['email'] ?? '',
       password: json['password'] ?? '',

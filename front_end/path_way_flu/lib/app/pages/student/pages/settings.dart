@@ -3,8 +3,13 @@ import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/data/model/language.dart';
 import 'package:path_way_flu/app/pages/auth/domain/usecases/define_fun.dart';
+import 'package:path_way_flu/app/pages/commen%20pages/about/ui/about.dart';
+import 'package:path_way_flu/app/pages/student/pages/edit%20profile/ui/edit_profile.dart';
+import 'package:path_way_flu/app/pages/commen%20pages/privecy%20text/ui/privecy.dart';
 import 'package:path_way_flu/app/pages/student/widgets/complaint_alertbox.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:path_way_flu/app/pages/student/widgets/profile_card.dart';
+import 'package:path_way_flu/app/pages/student/widgets/setting_cardwith_toggle.dart';
 import 'package:path_way_flu/main.dart';
 
 class StudentProfileScreen extends StatelessWidget {
@@ -102,7 +107,7 @@ class StudentProfileScreen extends StatelessWidget {
                                 maxWidth: 100,
                               ),
                               child: Text(
-                                userName!,
+                                userName ?? "",
                                 style: kTitleTextStyle,
                               ),
                             )
@@ -125,15 +130,9 @@ class StudentProfileScreen extends StatelessWidget {
                         const SizedBox(height: 10),
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.editprofile,
-                            fun: () {},
-                            icon: Icons.navigate_next),
-                        BuildProfileCard(
-                            text: AppLocalizations.of(context)!.changepassword,
-                            fun: () {},
-                            icon: Icons.navigate_next),
-                        BuildProfileCard(
-                            text: AppLocalizations.of(context)!.addlocation,
-                            fun: () {},
+                            fun: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const StudentfEditProfile(),));
+                            },
                             icon: Icons.navigate_next),
                         BuildProfileWithToggle(
                             text:
@@ -151,7 +150,9 @@ class StudentProfileScreen extends StatelessWidget {
                         ),
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.aboutus,
-                            fun: () {},
+                            fun: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const About(),));
+                            },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.complaint,
@@ -174,7 +175,10 @@ class StudentProfileScreen extends StatelessWidget {
                             icon: Icons.navigate_next),
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.privacyconcern,
-                            fun: () {},
+                            fun: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Privecy(),));
+
+                            },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.logout,
@@ -206,91 +210,4 @@ class StudentProfileScreen extends StatelessWidget {
   }
 }
 
-class BuildProfileCard extends StatelessWidget {
-  final String text;
-  final VoidCallback fun;
-  final IconData icon;
-  const BuildProfileCard({
-    super.key,
-    required this.text,
-    required this.fun,
-    required this.icon,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SizedBox(
-            width: 100,
-            child: Text(
-              text,
-              style:
-                  kTitleTextStyle.copyWith(fontSize: 20),
-            ),
-          ),
-          IconButton(
-              onPressed: fun,
-              icon: Icon(
-                icon,
-                size: 30,
-              ))
-        ],
-      ),
-    );
-  }
-}
-
-class BuildProfileWithToggle extends StatefulWidget {
-  final String text;
-  final VoidCallback fun;
-
-  const BuildProfileWithToggle({
-    super.key,
-    required this.text,
-    required this.fun,
-  });
-
-  @override
-  State<BuildProfileWithToggle> createState() => _BuildProfileWithToggleState();
-}
-
-class _BuildProfileWithToggleState extends State<BuildProfileWithToggle> {
-  bool isSwitched = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SizedBox(
-            width: 120,
-            child: Text(
-              widget.text,
-              style:
-                  kTitleTextStyle.copyWith(fontSize: 20),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-            width: 70,
-            child: Switch(
-                thumbColor: MaterialStatePropertyAll(
-                    Theme.of(context).colorScheme.onSecondary),
-                value: isSwitched,
-                onChanged: (value) {
-                  setState(() {
-                    isSwitched = value;
-                  });
-                }),
-          ),
-        ],
-      ),
-    );
-  }
-}

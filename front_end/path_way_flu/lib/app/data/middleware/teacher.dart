@@ -7,6 +7,7 @@ import 'package:path_way_flu/app/core/constants/snacbar.dart';
 import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_way_flu/app/data/model/lession.dart';
+import 'package:path_way_flu/app/data/model/teacher.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/teacher_bottom_navi.dart';
 
@@ -397,4 +398,41 @@ class TeacherApi {
 
     return response;
   }
+
+  static getOneTacher(teacherId)async{
+      Teacher? teacher;
+    final url = Uri.parse('${baseUrl}get_teacherById/$teacherId');
+
+    try {
+      final res = await http.get(url);
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
+        teacher = Teacher.fromJson(data);
+         return teacher;
+      } else {
+        debugPrint('faild to get student lession');
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    } 
+  }
+
+  static updateTeacher(id, Map data, context)async{
+        var url = Uri.parse("${baseUrl}update_teacher/$id");
+
+    try {
+      final res = await http.put(url, body: jsonEncode(data),headers:{'Content-Type': 'application/json'} );
+
+      if (res.statusCode == 200) { 
+        debugPrint("student is updated");
+        Navigator.of(context).pop();
+        buildShowSnacbar(context: context, content: "you profile is updated", title: "Ok!", contentType: ContentType.success);
+      } else {
+        debugPrint("Failed to update teacher data");
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
 }

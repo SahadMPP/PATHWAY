@@ -3,6 +3,8 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/data/model/message.dart';
 import 'package:path_way_flu/app/pages/chat/controller/chat_controller.dart';
+import 'package:path_way_flu/app/pages/student/pages/videocall/video_call.dart';
+import 'package:path_way_flu/main.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:socket_io_client/socket_io_client.dart';
 
@@ -66,10 +68,12 @@ class _MassagingScreenState extends State<MassagingScreen> {
               ],
             ),
             const Spacer(),
-            const SizedBox(
+             SizedBox(
                 height: 35,
                 width: 35,
-                child: Icon(Icons.videocam_outlined, size: 30))
+                child: IconButton(icon: const Icon(Icons.videocam_outlined, size: 30),onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => CallPage(callID: userId!),));
+                },))
           ],
         ),
       ),

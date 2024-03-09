@@ -97,7 +97,7 @@ class BuildStatusBox extends StatelessWidget {
                     width: 130,
                     child: Image(
                       fit: BoxFit.cover,
-                      image: NetworkImage(progress.coverImage),
+                      image: NetworkImage("http://learnpro.today:5000/${progress.coverImage}"),
                     ),
                   ),
                 ),
