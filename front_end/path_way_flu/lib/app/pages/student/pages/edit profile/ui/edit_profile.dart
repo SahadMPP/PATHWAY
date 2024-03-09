@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/widgets/button_buil.dart';
 import 'package:path_way_flu/app/pages/student/pages/edit%20profile/bloc/stu_edit_profile_bloc.dart';
+import 'package:path_way_flu/app/pages/student/widgets/edit_profile_card.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/appbar_save_cancel.dart';
 
 class StudentfEditProfile extends StatelessWidget {
@@ -116,44 +117,3 @@ class StudentfEditProfile extends StatelessWidget {
   }
 }
 
-class BuildEditTexfielCard extends StatelessWidget {
-  final TextEditingController? controller;
-  final String title;
-  final String hintText;
-  const BuildEditTexfielCard({
-    super.key,
-    required this.title,
-    required this.hintText,
-    this.controller,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 20,
-            ),
-          ),
-          const Spacer(),
-          SizedBox(
-            width: 250,
-            child: TextFormField(
-              controller: controller,
-              decoration: InputDecoration(
-                hintText: hintText,
-                // enabled: false,
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}

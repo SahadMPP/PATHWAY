@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/widgets/button_buil.dart';
-import 'package:path_way_flu/app/pages/student/pages/edit%20profile/ui/edit_profile.dart';
+import 'package:path_way_flu/app/pages/student/widgets/edit_profile_card.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/profile%20edit/bloc/tea_edit_profiel_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/appbar_save_cancel.dart';
 

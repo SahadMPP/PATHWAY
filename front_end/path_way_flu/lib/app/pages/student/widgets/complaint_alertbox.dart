@@ -155,9 +155,14 @@ class ComplantStudent extends StatelessWidget {
                           MaterialStatePropertyAll(Colors.blue.shade300)),
                   onPressed: () {
                     if (formkey.currentState!.validate()) {
+                      DateTime date = DateTime.now();
+                      int day = date.day;
+                      int month = date.month;
+                      int year = date.year;
                       var data = {
                         "title": titleEditControlle.text,
-                        "description": discriptionEditControlle.text
+                        "description": discriptionEditControlle.text,
+                        "dataTime": '$day/$month/$year',
                       };
                       StudentApi.addComplaint(data);
                     }
