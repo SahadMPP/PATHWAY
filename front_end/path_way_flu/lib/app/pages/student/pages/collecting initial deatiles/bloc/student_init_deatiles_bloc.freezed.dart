@@ -20,18 +20,24 @@ mixin _$StudentInitDeatilesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() pikingImge,
     required TResult Function(BuildContext context, String id) updateingImage,
+    required TResult Function(String level) pikingLevel,
+    required TResult Function(BuildContext context) updatingLevel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pikingImge,
     TResult? Function(BuildContext context, String id)? updateingImage,
+    TResult? Function(String level)? pikingLevel,
+    TResult? Function(BuildContext context)? updatingLevel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pikingImge,
     TResult Function(BuildContext context, String id)? updateingImage,
+    TResult Function(String level)? pikingLevel,
+    TResult Function(BuildContext context)? updatingLevel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$StudentInitDeatilesEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_pikingImge value) pikingImge,
     required TResult Function(_updateingImage value) updateingImage,
+    required TResult Function(_pikingLevel value) pikingLevel,
+    required TResult Function(_updatingLevel value) updatingLevel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_pikingImge value)? pikingImge,
     TResult? Function(_updateingImage value)? updateingImage,
+    TResult? Function(_pikingLevel value)? pikingLevel,
+    TResult? Function(_updatingLevel value)? updatingLevel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_pikingImge value)? pikingImge,
     TResult Function(_updateingImage value)? updateingImage,
+    TResult Function(_pikingLevel value)? pikingLevel,
+    TResult Function(_updatingLevel value)? updatingLevel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -115,6 +127,8 @@ class _$pikingImgeImpl implements _pikingImge {
   TResult when<TResult extends Object?>({
     required TResult Function() pikingImge,
     required TResult Function(BuildContext context, String id) updateingImage,
+    required TResult Function(String level) pikingLevel,
+    required TResult Function(BuildContext context) updatingLevel,
   }) {
     return pikingImge();
   }
@@ -124,6 +138,8 @@ class _$pikingImgeImpl implements _pikingImge {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pikingImge,
     TResult? Function(BuildContext context, String id)? updateingImage,
+    TResult? Function(String level)? pikingLevel,
+    TResult? Function(BuildContext context)? updatingLevel,
   }) {
     return pikingImge?.call();
   }
@@ -133,6 +149,8 @@ class _$pikingImgeImpl implements _pikingImge {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pikingImge,
     TResult Function(BuildContext context, String id)? updateingImage,
+    TResult Function(String level)? pikingLevel,
+    TResult Function(BuildContext context)? updatingLevel,
     required TResult orElse(),
   }) {
     if (pikingImge != null) {
@@ -146,6 +164,8 @@ class _$pikingImgeImpl implements _pikingImge {
   TResult map<TResult extends Object?>({
     required TResult Function(_pikingImge value) pikingImge,
     required TResult Function(_updateingImage value) updateingImage,
+    required TResult Function(_pikingLevel value) pikingLevel,
+    required TResult Function(_updatingLevel value) updatingLevel,
   }) {
     return pikingImge(this);
   }
@@ -155,6 +175,8 @@ class _$pikingImgeImpl implements _pikingImge {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_pikingImge value)? pikingImge,
     TResult? Function(_updateingImage value)? updateingImage,
+    TResult? Function(_pikingLevel value)? pikingLevel,
+    TResult? Function(_updatingLevel value)? updatingLevel,
   }) {
     return pikingImge?.call(this);
   }
@@ -164,6 +186,8 @@ class _$pikingImgeImpl implements _pikingImge {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_pikingImge value)? pikingImge,
     TResult Function(_updateingImage value)? updateingImage,
+    TResult Function(_pikingLevel value)? pikingLevel,
+    TResult Function(_updatingLevel value)? updatingLevel,
     required TResult orElse(),
   }) {
     if (pikingImge != null) {
@@ -252,6 +276,8 @@ class _$updateingImageImpl implements _updateingImage {
   TResult when<TResult extends Object?>({
     required TResult Function() pikingImge,
     required TResult Function(BuildContext context, String id) updateingImage,
+    required TResult Function(String level) pikingLevel,
+    required TResult Function(BuildContext context) updatingLevel,
   }) {
     return updateingImage(context, id);
   }
@@ -261,6 +287,8 @@ class _$updateingImageImpl implements _updateingImage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pikingImge,
     TResult? Function(BuildContext context, String id)? updateingImage,
+    TResult? Function(String level)? pikingLevel,
+    TResult? Function(BuildContext context)? updatingLevel,
   }) {
     return updateingImage?.call(context, id);
   }
@@ -270,6 +298,8 @@ class _$updateingImageImpl implements _updateingImage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pikingImge,
     TResult Function(BuildContext context, String id)? updateingImage,
+    TResult Function(String level)? pikingLevel,
+    TResult Function(BuildContext context)? updatingLevel,
     required TResult orElse(),
   }) {
     if (updateingImage != null) {
@@ -283,6 +313,8 @@ class _$updateingImageImpl implements _updateingImage {
   TResult map<TResult extends Object?>({
     required TResult Function(_pikingImge value) pikingImge,
     required TResult Function(_updateingImage value) updateingImage,
+    required TResult Function(_pikingLevel value) pikingLevel,
+    required TResult Function(_updatingLevel value) updatingLevel,
   }) {
     return updateingImage(this);
   }
@@ -292,6 +324,8 @@ class _$updateingImageImpl implements _updateingImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_pikingImge value)? pikingImge,
     TResult? Function(_updateingImage value)? updateingImage,
+    TResult? Function(_pikingLevel value)? pikingLevel,
+    TResult? Function(_updatingLevel value)? updatingLevel,
   }) {
     return updateingImage?.call(this);
   }
@@ -301,6 +335,8 @@ class _$updateingImageImpl implements _updateingImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_pikingImge value)? pikingImge,
     TResult Function(_updateingImage value)? updateingImage,
+    TResult Function(_pikingLevel value)? pikingLevel,
+    TResult Function(_updatingLevel value)? updatingLevel,
     required TResult orElse(),
   }) {
     if (updateingImage != null) {
@@ -323,8 +359,300 @@ abstract class _updateingImage implements StudentInitDeatilesEvent {
 }
 
 /// @nodoc
+abstract class _$$pikingLevelImplCopyWith<$Res> {
+  factory _$$pikingLevelImplCopyWith(
+          _$pikingLevelImpl value, $Res Function(_$pikingLevelImpl) then) =
+      __$$pikingLevelImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String level});
+}
+
+/// @nodoc
+class __$$pikingLevelImplCopyWithImpl<$Res>
+    extends _$StudentInitDeatilesEventCopyWithImpl<$Res, _$pikingLevelImpl>
+    implements _$$pikingLevelImplCopyWith<$Res> {
+  __$$pikingLevelImplCopyWithImpl(
+      _$pikingLevelImpl _value, $Res Function(_$pikingLevelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? level = null,
+  }) {
+    return _then(_$pikingLevelImpl(
+      level: null == level
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$pikingLevelImpl implements _pikingLevel {
+  const _$pikingLevelImpl({required this.level});
+
+  @override
+  final String level;
+
+  @override
+  String toString() {
+    return 'StudentInitDeatilesEvent.pikingLevel(level: $level)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$pikingLevelImpl &&
+            (identical(other.level, level) || other.level == level));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, level);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$pikingLevelImplCopyWith<_$pikingLevelImpl> get copyWith =>
+      __$$pikingLevelImplCopyWithImpl<_$pikingLevelImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pikingImge,
+    required TResult Function(BuildContext context, String id) updateingImage,
+    required TResult Function(String level) pikingLevel,
+    required TResult Function(BuildContext context) updatingLevel,
+  }) {
+    return pikingLevel(level);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pikingImge,
+    TResult? Function(BuildContext context, String id)? updateingImage,
+    TResult? Function(String level)? pikingLevel,
+    TResult? Function(BuildContext context)? updatingLevel,
+  }) {
+    return pikingLevel?.call(level);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pikingImge,
+    TResult Function(BuildContext context, String id)? updateingImage,
+    TResult Function(String level)? pikingLevel,
+    TResult Function(BuildContext context)? updatingLevel,
+    required TResult orElse(),
+  }) {
+    if (pikingLevel != null) {
+      return pikingLevel(level);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_pikingImge value) pikingImge,
+    required TResult Function(_updateingImage value) updateingImage,
+    required TResult Function(_pikingLevel value) pikingLevel,
+    required TResult Function(_updatingLevel value) updatingLevel,
+  }) {
+    return pikingLevel(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_pikingImge value)? pikingImge,
+    TResult? Function(_updateingImage value)? updateingImage,
+    TResult? Function(_pikingLevel value)? pikingLevel,
+    TResult? Function(_updatingLevel value)? updatingLevel,
+  }) {
+    return pikingLevel?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_pikingImge value)? pikingImge,
+    TResult Function(_updateingImage value)? updateingImage,
+    TResult Function(_pikingLevel value)? pikingLevel,
+    TResult Function(_updatingLevel value)? updatingLevel,
+    required TResult orElse(),
+  }) {
+    if (pikingLevel != null) {
+      return pikingLevel(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _pikingLevel implements StudentInitDeatilesEvent {
+  const factory _pikingLevel({required final String level}) = _$pikingLevelImpl;
+
+  String get level;
+  @JsonKey(ignore: true)
+  _$$pikingLevelImplCopyWith<_$pikingLevelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$updatingLevelImplCopyWith<$Res> {
+  factory _$$updatingLevelImplCopyWith(
+          _$updatingLevelImpl value, $Res Function(_$updatingLevelImpl) then) =
+      __$$updatingLevelImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
+}
+
+/// @nodoc
+class __$$updatingLevelImplCopyWithImpl<$Res>
+    extends _$StudentInitDeatilesEventCopyWithImpl<$Res, _$updatingLevelImpl>
+    implements _$$updatingLevelImplCopyWith<$Res> {
+  __$$updatingLevelImplCopyWithImpl(
+      _$updatingLevelImpl _value, $Res Function(_$updatingLevelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$updatingLevelImpl(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$updatingLevelImpl implements _updatingLevel {
+  const _$updatingLevelImpl({required this.context});
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'StudentInitDeatilesEvent.updatingLevel(context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$updatingLevelImpl &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$updatingLevelImplCopyWith<_$updatingLevelImpl> get copyWith =>
+      __$$updatingLevelImplCopyWithImpl<_$updatingLevelImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pikingImge,
+    required TResult Function(BuildContext context, String id) updateingImage,
+    required TResult Function(String level) pikingLevel,
+    required TResult Function(BuildContext context) updatingLevel,
+  }) {
+    return updatingLevel(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pikingImge,
+    TResult? Function(BuildContext context, String id)? updateingImage,
+    TResult? Function(String level)? pikingLevel,
+    TResult? Function(BuildContext context)? updatingLevel,
+  }) {
+    return updatingLevel?.call(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pikingImge,
+    TResult Function(BuildContext context, String id)? updateingImage,
+    TResult Function(String level)? pikingLevel,
+    TResult Function(BuildContext context)? updatingLevel,
+    required TResult orElse(),
+  }) {
+    if (updatingLevel != null) {
+      return updatingLevel(context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_pikingImge value) pikingImge,
+    required TResult Function(_updateingImage value) updateingImage,
+    required TResult Function(_pikingLevel value) pikingLevel,
+    required TResult Function(_updatingLevel value) updatingLevel,
+  }) {
+    return updatingLevel(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_pikingImge value)? pikingImge,
+    TResult? Function(_updateingImage value)? updateingImage,
+    TResult? Function(_pikingLevel value)? pikingLevel,
+    TResult? Function(_updatingLevel value)? updatingLevel,
+  }) {
+    return updatingLevel?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_pikingImge value)? pikingImge,
+    TResult Function(_updateingImage value)? updateingImage,
+    TResult Function(_pikingLevel value)? pikingLevel,
+    TResult Function(_updatingLevel value)? updatingLevel,
+    required TResult orElse(),
+  }) {
+    if (updatingLevel != null) {
+      return updatingLevel(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _updatingLevel implements StudentInitDeatilesEvent {
+  const factory _updatingLevel({required final BuildContext context}) =
+      _$updatingLevelImpl;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$updatingLevelImplCopyWith<_$updatingLevelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$StudentInitDeatilesState {
   String? get selectedImage => throw _privateConstructorUsedError;
+  String get selectedLevel => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $StudentInitDeatilesStateCopyWith<StudentInitDeatilesState> get copyWith =>
@@ -337,7 +665,7 @@ abstract class $StudentInitDeatilesStateCopyWith<$Res> {
           $Res Function(StudentInitDeatilesState) then) =
       _$StudentInitDeatilesStateCopyWithImpl<$Res, StudentInitDeatilesState>;
   @useResult
-  $Res call({String? selectedImage});
+  $Res call({String? selectedImage, String selectedLevel});
 }
 
 /// @nodoc
@@ -355,12 +683,17 @@ class _$StudentInitDeatilesStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? selectedImage = freezed,
+    Object? selectedLevel = null,
   }) {
     return _then(_value.copyWith(
       selectedImage: freezed == selectedImage
           ? _value.selectedImage
           : selectedImage // ignore: cast_nullable_to_non_nullable
               as String?,
+      selectedLevel: null == selectedLevel
+          ? _value.selectedLevel
+          : selectedLevel // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -374,7 +707,7 @@ abstract class _$$StudentInitDeatilesStateImplCopyWith<$Res>
       __$$StudentInitDeatilesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? selectedImage});
+  $Res call({String? selectedImage, String selectedLevel});
 }
 
 /// @nodoc
@@ -391,12 +724,17 @@ class __$$StudentInitDeatilesStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? selectedImage = freezed,
+    Object? selectedLevel = null,
   }) {
     return _then(_$StudentInitDeatilesStateImpl(
       selectedImage: freezed == selectedImage
           ? _value.selectedImage
           : selectedImage // ignore: cast_nullable_to_non_nullable
               as String?,
+      selectedLevel: null == selectedLevel
+          ? _value.selectedLevel
+          : selectedLevel // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -404,14 +742,17 @@ class __$$StudentInitDeatilesStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StudentInitDeatilesStateImpl implements _StudentInitDeatilesState {
-  const _$StudentInitDeatilesStateImpl({this.selectedImage});
+  const _$StudentInitDeatilesStateImpl(
+      {this.selectedImage, required this.selectedLevel});
 
   @override
   final String? selectedImage;
+  @override
+  final String selectedLevel;
 
   @override
   String toString() {
-    return 'StudentInitDeatilesState(selectedImage: $selectedImage)';
+    return 'StudentInitDeatilesState(selectedImage: $selectedImage, selectedLevel: $selectedLevel)';
   }
 
   @override
@@ -420,11 +761,13 @@ class _$StudentInitDeatilesStateImpl implements _StudentInitDeatilesState {
         (other.runtimeType == runtimeType &&
             other is _$StudentInitDeatilesStateImpl &&
             (identical(other.selectedImage, selectedImage) ||
-                other.selectedImage == selectedImage));
+                other.selectedImage == selectedImage) &&
+            (identical(other.selectedLevel, selectedLevel) ||
+                other.selectedLevel == selectedLevel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedImage);
+  int get hashCode => Object.hash(runtimeType, selectedImage, selectedLevel);
 
   @JsonKey(ignore: true)
   @override
@@ -435,11 +778,14 @@ class _$StudentInitDeatilesStateImpl implements _StudentInitDeatilesState {
 }
 
 abstract class _StudentInitDeatilesState implements StudentInitDeatilesState {
-  const factory _StudentInitDeatilesState({final String? selectedImage}) =
-      _$StudentInitDeatilesStateImpl;
+  const factory _StudentInitDeatilesState(
+      {final String? selectedImage,
+      required final String selectedLevel}) = _$StudentInitDeatilesStateImpl;
 
   @override
   String? get selectedImage;
+  @override
+  String get selectedLevel;
   @override
   @JsonKey(ignore: true)
   _$$StudentInitDeatilesStateImplCopyWith<_$StudentInitDeatilesStateImpl>

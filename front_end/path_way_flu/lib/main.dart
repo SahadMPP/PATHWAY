@@ -32,9 +32,11 @@ import 'package:path_way_flu/app/core/l10n/l10n.dart';
 const SAVE_KEY_LOGGIN = "userLogined";
 const SAVE_KEY_ID = "userId";
 const SAVE_KEY_NAME = "username";
+const SAVE_KEY_PROFILE = "userProfile";
 
 String? userName;
 String? userId;
+String? userProfile;
 bool isTeacherVerified = true;
 String language = 'en';
 void main() async {

@@ -11,6 +11,7 @@ import 'package:path_way_flu/app/data/model/student.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
 import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/ui/collecting_profile.dart';
 import 'package:path_way_flu/app/pages/student/pages/deatiles%20page/ui/deatiles_page.dart';
 import 'package:path_way_flu/app/pages/student/pages/deatiles_page_with_outpay.dart';
 
@@ -191,7 +192,7 @@ class StudentApi {
     request.headers.addAll({
       "Content-Type": "multipart/form-data",
     });
-
+     
     var response = request.send();
 
     return response;
@@ -341,7 +342,6 @@ class StudentApi {
 
   static getOneprogress(id, Map updateData) async {
     // Progress? progress;
-    print('wokingg on progress');
     final url = Uri.parse('${baseUrl}get_progressById/$id');
     try {
       final res = await http.get(url);
@@ -353,7 +353,6 @@ class StudentApi {
               headers: {'Content-Type': 'application/json'});
 
           if (res.statusCode == 200) {
-            debugPrint(res.body);
             debugPrint("progress is updated");
           } else {
             debugPrint("Failed to update progress data");
@@ -397,6 +396,23 @@ class StudentApi {
         debugPrint("student is updated");
         Navigator.of(context).pop();
         buildShowSnacbar(context: context, content: "you profile is edited", title: "Ok!", contentType: ContentType.success);
+      } else {
+        debugPrint("Failed to update student data");
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+   static updateStudentForlevel(id, Map data, context) async {
+    var url = Uri.parse("${baseUrl}update_student/$id");
+
+    try {
+      final res = await http.put(url, body: data);
+
+      if (res.statusCode == 200) { 
+        debugPrint("student is updated");
+     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const ProfleImageCollect() ,));
       } else {
         debugPrint("Failed to update student data");
       }

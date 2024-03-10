@@ -1,33 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/app/pages/student/widgets/student_bottom.dart';
 
 class BuildAgePiker extends StatelessWidget {
   final String text;
+  final bool isSelected;
+  final VoidCallback function;
   const BuildAgePiker({
     super.key,
     required this.text,
+    required this.isSelected,
+    required this.function,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>const StudentBotmNavi()));
-      },
+      onTap: function,
       child: Container(
-        height: 50,
-        width: MediaQuery.of(context).size.width * .6,
+        height: 60,
+        width: isSelected
+            ? MediaQuery.of(context).size.width * .5
+            : MediaQuery.of(context).size.width * .6,
         decoration: BoxDecoration(
-            border: Border.all(
-                color: Theme.of(context).colorScheme.onSurface, width: 2),
-            borderRadius: BorderRadius.circular(30)),
+            color: isSelected
+                ? const Color.fromARGB(255, 25, 111, 182)
+                : Colors.blue,
+            borderRadius: BorderRadius.circular(10)),
         child: Center(
             child: Text(
-          "$text  ",
+          text,
           style: GoogleFonts.aBeeZee(
-            color: Theme.of(context).colorScheme.onSurface,
-            fontSize: 15,
+            color: Theme.of(context).colorScheme.primary,
+            fontSize:isSelected? 16:18,
             fontWeight: FontWeight.bold,
           ),
         )),

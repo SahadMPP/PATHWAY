@@ -7,8 +7,8 @@ import 'package:path_way_flu/app/pages/auth/presentation/widgets/button_buil.dar
 import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/bloc/student_init_deatiles_bloc.dart';
 import 'package:path_way_flu/main.dart';
 
-class ProfleImageCollect extends StatelessWidget {
-  const ProfleImageCollect({super.key});
+class TeacherProfleImage extends StatelessWidget {
+  const TeacherProfleImage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -95,10 +95,9 @@ class StudentProfileScreen extends StatelessWidget {
                         const SizedBox(height: 40),
                         Row(
                           children: [
-                            const CircleAvatar(
+                             CircleAvatar(
                               radius: 30,
-                              backgroundImage:
-                                  AssetImage('asset/images/user.png'),
+                             child: ClipRRect(borderRadius: BorderRadius.circular(70),child: Image.network("http://learnpro.today:5000/$userProfile",fit: BoxFit.fill,width: double.infinity,)),
                             ),
                             const SizedBox(width: 12),
                             ConstrainedBox(

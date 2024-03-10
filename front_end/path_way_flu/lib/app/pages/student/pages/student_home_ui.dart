@@ -12,6 +12,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/main.dart';
 
 class StuHome extends StatefulWidget {
+  
   const StuHome({super.key});
 
   @override
@@ -23,11 +24,12 @@ class _StuHomeState extends State<StuHome> {
   String cuttentSub = subjectList[0]['name']!;
   @override
   Widget build(BuildContext context) {
+  print(userProfile);
     return Scaffold(
       appBar: AppBar(
         title: Row(
           children: [
-            Image.asset("asset/images/user.png"),
+            ClipRRect(borderRadius: BorderRadius.circular(70),child: CircleAvatar(child: Image.network("http://learnpro.today:5000/$userProfile",fit: BoxFit.fill,width: double.infinity,))),
             const SizedBox(width: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
