@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
-import 'package:path_way_flu/app/pages/student/pages/student_home_ui.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/home_top_card.dart';
 
 class TeacherProfile extends StatelessWidget {
   const TeacherProfile({super.key});

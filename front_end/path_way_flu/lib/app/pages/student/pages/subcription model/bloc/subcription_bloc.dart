@@ -117,7 +117,7 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
       List<String> subjectsList = [];
       final url = Uri.parse("${AuthApi.baseUrl}get_studentById/${event.id}");
 
-      try {
+      try { 
         final res = await http.get(url);
 
         if (res.statusCode == 200) {
