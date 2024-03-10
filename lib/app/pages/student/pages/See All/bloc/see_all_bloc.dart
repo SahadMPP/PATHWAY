@@ -12,14 +12,14 @@ part 'see_all_bloc.freezed.dart';
 
 class SeeAllBloc extends Bloc<SeeAllEvent, SeeAllState> {
   SeeAllBloc() : super(SeeAllState.initial()) {
-   on<_givingInitialValue>((event, emit) async{
-    emit(state.copyWith(list: await TeacherApi.getAllLession()));
-   });
+    on<_givingInitialValue>((event, emit) async {
+      emit(state.copyWith(list: await TeacherApi.getAllLession()));
+    });
 
-   on<_fulturedValue>((event, emit)async {
-    emit(state.copyWith(list: await TeacherApi.getAllLession()));
+    on<_fulturedValue>((event, emit) async {
+      emit(state.copyWith(list: await TeacherApi.getAllLession()));
 
-          List<Lesson> result = [];
+      List<Lesson> result = [];
 
       if (event.typeText.isEmpty) {
         result = state.list;
@@ -30,12 +30,16 @@ class SeeAllBloc extends Bloc<SeeAllEvent, SeeAllState> {
             .toList();
       }
       emit(state.copyWith(list: result));
+    });
 
-   });
+    on<_navigatingMaker>((event, emit) {
+      StudentApi.getOneStudentForDeatilePage(
+          context: event.context,
+          lessionId: event.lesson.id,
+          lesson: event.lesson,
+          studentId: userId);
+    });
 
-   on<_navigatingMaker>((event, emit) {
-    
-    StudentApi.getOneStudentForDeatilePage(context:event.context,lessionId:event.lesson.id,lesson: event.lesson,studentId:userId );
-   });
+   
   }
 }

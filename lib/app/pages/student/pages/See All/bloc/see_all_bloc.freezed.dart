@@ -487,6 +487,7 @@ abstract class _navigatingMaker implements SeeAllEvent {
 /// @nodoc
 mixin _$SeeAllState {
   List<Lesson> get list => throw _privateConstructorUsedError;
+  bool get commingSoon => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SeeAllStateCopyWith<SeeAllState> get copyWith =>
@@ -499,7 +500,7 @@ abstract class $SeeAllStateCopyWith<$Res> {
           SeeAllState value, $Res Function(SeeAllState) then) =
       _$SeeAllStateCopyWithImpl<$Res, SeeAllState>;
   @useResult
-  $Res call({List<Lesson> list});
+  $Res call({List<Lesson> list, bool commingSoon});
 }
 
 /// @nodoc
@@ -516,12 +517,17 @@ class _$SeeAllStateCopyWithImpl<$Res, $Val extends SeeAllState>
   @override
   $Res call({
     Object? list = null,
+    Object? commingSoon = null,
   }) {
     return _then(_value.copyWith(
       list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as List<Lesson>,
+      commingSoon: null == commingSoon
+          ? _value.commingSoon
+          : commingSoon // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -534,7 +540,7 @@ abstract class _$$SeeAllStateImplCopyWith<$Res>
       __$$SeeAllStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Lesson> list});
+  $Res call({List<Lesson> list, bool commingSoon});
 }
 
 /// @nodoc
@@ -549,12 +555,17 @@ class __$$SeeAllStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? list = null,
+    Object? commingSoon = null,
   }) {
     return _then(_$SeeAllStateImpl(
       list: null == list
           ? _value._list
           : list // ignore: cast_nullable_to_non_nullable
               as List<Lesson>,
+      commingSoon: null == commingSoon
+          ? _value.commingSoon
+          : commingSoon // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -562,7 +573,9 @@ class __$$SeeAllStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SeeAllStateImpl implements _SeeAllState {
-  const _$SeeAllStateImpl({required final List<Lesson> list}) : _list = list;
+  const _$SeeAllStateImpl(
+      {required final List<Lesson> list, required this.commingSoon})
+      : _list = list;
 
   final List<Lesson> _list;
   @override
@@ -573,8 +586,11 @@ class _$SeeAllStateImpl implements _SeeAllState {
   }
 
   @override
+  final bool commingSoon;
+
+  @override
   String toString() {
-    return 'SeeAllState(list: $list)';
+    return 'SeeAllState(list: $list, commingSoon: $commingSoon)';
   }
 
   @override
@@ -582,12 +598,14 @@ class _$SeeAllStateImpl implements _SeeAllState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SeeAllStateImpl &&
-            const DeepCollectionEquality().equals(other._list, _list));
+            const DeepCollectionEquality().equals(other._list, _list) &&
+            (identical(other.commingSoon, commingSoon) ||
+                other.commingSoon == commingSoon));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_list));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_list), commingSoon);
 
   @JsonKey(ignore: true)
   @override
@@ -597,11 +615,14 @@ class _$SeeAllStateImpl implements _SeeAllState {
 }
 
 abstract class _SeeAllState implements SeeAllState {
-  const factory _SeeAllState({required final List<Lesson> list}) =
-      _$SeeAllStateImpl;
+  const factory _SeeAllState(
+      {required final List<Lesson> list,
+      required final bool commingSoon}) = _$SeeAllStateImpl;
 
   @override
   List<Lesson> get list;
+  @override
+  bool get commingSoon;
   @override
   @JsonKey(ignore: true)
   _$$SeeAllStateImplCopyWith<_$SeeAllStateImpl> get copyWith =>

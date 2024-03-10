@@ -83,106 +83,129 @@ class SeeAllCategory extends StatelessWidget {
                                   padding: const EdgeInsets.all(10),
                                   color:
                                       Theme.of(context).colorScheme.secondary,
-                                  child: Column(
+                                  child: Stack(
                                     children: [
-                                      SizedBox(
-                                          height: 90,
-                                          width: double.infinity,
-                                          child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
-                                              child: Image.network(
-                                                "http://learnpro.today:5000/${state.list[index].coverImage}",
-                                                fit: BoxFit.cover,
-                                              ))),
-                                      const SizedBox(height: 5),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                      Column(
                                         children: [
-                                          ConstrainedBox(
-                                            constraints: const BoxConstraints(
-                                                maxWidth: 120, maxHeight: 35),
-                                            child: Text(
-                                              state.list[index].title,
-                                              style: GoogleFonts.aBeeZee(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                              ),
-                                            ),
-                                          ),
-                                          const Spacer(),
-                                          const Image(
-                                            image: AssetImage(
-                                                "asset/icons/icons8-best-seller-94.png"),
-                                            height: 25,
-                                          )
-                                        ],
-                                      ),
-                                      const SizedBox(height: 5),
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
+                                          SizedBox(
+                                              height: 100,
+                                              width: double.infinity,
+                                              child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                  child: Image.network(
+                                                    "http://learnpro.today:5000/${state.list[index].coverImage}",
+                                                    fit: BoxFit.cover,
+                                                  ))),
+                                          const SizedBox(height: 5),
                                           Row(
-
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
-                                              const CircleAvatar(
-                                                radius: 10,
-                                                backgroundImage: AssetImage(
-                                                    "asset/profiles/chat555.png"),
-                                              ),
-                                              const SizedBox(width: 5),
-                                              Text(
-                                                state.list[index].creatorName,
-                                                style: GoogleFonts.quicksand(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w500,
+                                              ConstrainedBox(
+                                                constraints:
+                                                    const BoxConstraints(
+                                                        maxWidth: 120,
+                                                        maxHeight: 35),
+                                                child: Text(
+                                                  state.list[index].title,
+                                                  style: GoogleFonts.aBeeZee(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 15,
+                                                  ),
                                                 ),
                                               ),
-                                            ],
-                                          ),
-                                          Text(
-                                              '\u{20B9}${state.list[index].price}',
-                                              style: GoogleFonts.aBeeZee(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.red
-                                              ),
-                                            ),
-                                        ],
-                                      ),
-                                      const Spacer(),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            "${state.list[index].watchTime} min",
-                                            style: GoogleFonts.aBeeZee(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 12,
-                                                wordSpacing: 3),
-                                          ),
-                                          Row(
-                                            children: [
-                                              const Icon(
-                                                Icons.circle,
-                                                color: Colors.grey,
-                                                size: 10,
-                                              ),
-                                              const SizedBox(width: 5),
-                                              Text(
-                                                "${state.list[index].lessonId.length} ${AppLocalizations.of(context)!.lesson}",
-                                                style: GoogleFonts.aBeeZee(
-                                                    color: Colors.grey,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 12,
-                                                    wordSpacing: 3),
+                                              const Spacer(),
+                                              const Image(
+                                                image: AssetImage(
+                                                    "asset/icons/icons8-best-seller-94.png"),
+                                                height: 25,
                                               )
                                             ],
                                           ),
+                                          const SizedBox(height: 5),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  const CircleAvatar(
+                                                    radius: 10,
+                                                    backgroundImage: AssetImage(
+                                                        "asset/profiles/chat555.png"),
+                                                  ),
+                                                  const SizedBox(width: 5),
+                                                  Text(
+                                                    state.list[index]
+                                                        .creatorName,
+                                                    style:
+                                                        GoogleFonts.quicksand(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Text(
+                                                '\u{20B9}${state.list[index].price}',
+                                                style: GoogleFonts.aBeeZee(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 15,
+                                                    color: Colors.red),
+                                              ),
+                                            ],
+                                          ),
+                                          const Spacer(),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                "${state.list[index].watchTime} min",
+                                                style: GoogleFonts.aBeeZee(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 12,
+                                                    wordSpacing: 3),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  const Icon(
+                                                    Icons.circle,
+                                                    color: Colors.grey,
+                                                    size: 10,
+                                                  ),
+                                                  const SizedBox(width: 5),
+                                                  Text(
+                                                    "${state.list[index].lessonId.length} ${AppLocalizations.of(context)!.lesson}",
+                                                    style: GoogleFonts.aBeeZee(
+                                                        color: Colors.grey,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 12,
+                                                        wordSpacing: 3),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          )
                                         ],
-                                      )
+                                      ),
+                                      Align(
+                                          alignment: Alignment.topRight,
+                                          child: BlocBuilder<SeeAllBloc,
+                                              SeeAllState>(
+                                            builder: (context, state) {
+                                              return Visibility(
+                                                  visible: state.list[index]
+                                                      .lessonId.isEmpty,
+                                                  child: Image.asset(
+                                                    "asset/icons/coming-soon.png",
+                                                    height: 45,
+                                                  ));
+                                            },
+                                          ))
                                     ],
                                   ),
                                 ),

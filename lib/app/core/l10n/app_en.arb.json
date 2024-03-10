@@ -163,7 +163,7 @@
   "@accountsettings": {
     "description": "customization options related to one's account"
   },
-  "editprofile": "edit profile",
+  "editprofile": "profile",
   "@editprofile": {
     "description": "action to modify or update personal information"
   },
@@ -175,7 +175,7 @@
   "@addlocation": {
     "description": "action to include or update a geographical position"
   },
-  "pushnotification": "push notification",
+  "pushnotification": "notification",
   "@pushnotification": {
     "description": "a message or alert delivered to a device or application"
   },
@@ -187,7 +187,7 @@
   "@aboutus": {
     "description": "information regarding the organization or individuals behind the product or service"
   },
-  "privacyconcern": "privacy concern",
+  "privacyconcern": "privacy",
   "@privacyconcern": {
     "description": "issues or worries regarding the protection of personal information"
   },
