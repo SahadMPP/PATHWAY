@@ -12,14 +12,6 @@ class StudentPrograss extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // List<double> weeklySummary = [
-    //   20.40,
-    //   30.40,
-    //   40.40,
-    //   80.40,
-    //   60.40,
-    //   30.40,
-    // ];
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -57,7 +49,9 @@ class StudentPrograss extends StatelessWidget {
                         return ListView.builder(
                             itemCount: progress.length,
                             itemBuilder: (context, index) {
-                              return  BuildStatusBox(progress: progress[index],);
+                              return BuildStatusBox(
+                                progress: progress[index],
+                              );
                             });
                       }
                     }
@@ -69,4 +63,3 @@ class StudentPrograss extends StatelessWidget {
     );
   }
 }
-
