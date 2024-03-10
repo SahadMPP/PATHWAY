@@ -3,7 +3,7 @@ import 'package:path_way_flu/app/pages/teacher/pages/lessionList/ui/list_of_less
 import 'package:path_way_flu/app/pages/teacher/pages/setting.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/show_warnnig.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacherChat/ui/chat.dart';
-import 'package:path_way_flu/app/pages/teacher/pages/teacher_home.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/teacher%20home/ui/teacher_home.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacher_staus_scree.dart';
 import 'package:path_way_flu/main.dart';
 

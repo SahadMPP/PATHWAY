@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/data/model/teacher.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
+
 import 'package:path_way_flu/app/pages/teacher/widgets/teacher_bottom_navi.dart';
 
 class TeacherApi {
@@ -434,5 +435,29 @@ class TeacherApi {
       debugPrint(e.toString());
     }
   }
+
+  // static getOneStudentForDeatilePage({studentId, lessionId, lesson, context}) async {
+  //   Teacher? teacher;
+  //   final url = Uri.parse('${baseUrl}get_studentById/$studentId');
+
+  //   try {
+  //     final res = await http.get(url);
+  //     if (res.statusCode == 200) {
+  //       var data = jsonDecode(res.body);
+  //       teacher = Teacher.fromJson(data);
+  //       if (teacher.lessonId!.contains(lessionId)) {
+  //         Navigator.of(context).push(MaterialPageRoute(
+  //             builder: (ctx) => StudentvideoPlay(lesson: lesson)));
+  //       } else {
+  //         Navigator.of(context).push(MaterialPageRoute(
+  //             builder: (ctx) => StudentDeatileWithoutPay(lesson: lesson)));
+  //       }
+  //     } else {
+  //       debugPrint('faild to get student lession');
+  //     }
+  //   } catch (e) {
+  //     debugPrint(e.toString());
+  //   }
+  // }
 
 }

@@ -11,7 +11,6 @@ import 'package:path_way_flu/app/pages/admin/bloc/admin_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/pages/splash_screen_ui.dart';
 import 'package:path_way_flu/app/pages/student/pages/See%20All/bloc/see_all_bloc.dart';
 import 'package:path_way_flu/app/pages/student/pages/chat/bloc/student_chat_bloc.dart';
 import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/bloc/student_init_deatiles_bloc.dart';
@@ -23,6 +22,8 @@ import 'package:path_way_flu/app/pages/teacher/pages/lessionList/bloc/lession_li
 import 'package:path_way_flu/app/pages/teacher/pages/lesson%20Form/bloc/lesson_form_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lessonUpdateForm/bloc/lesson_form_update_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/profile%20edit/bloc/tea_edit_profiel_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/teacher%20home/bloc/teacher_home_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/teacher%20home/ui/teacher_home.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacherChat/bloc/teacher_chat_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorial%20form/bloc/tutorial_adding_form_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorialUpdateForm/bloc/tutorial_update_bloc.dart';
@@ -98,6 +99,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => StudentInitDeatilesBloc()),
         BlocProvider(create: (context) => StuEditProfileBloc()),
         BlocProvider(create: (context) => TeaEditProfielBloc()),
+        BlocProvider(create: (context) => TeacherHomeBloc())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -111,7 +113,7 @@ class _MyAppState extends State<MyApp> {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home: const SpleshScreen(),
+        home: const TeachHome(),
       ),
     );
   }
