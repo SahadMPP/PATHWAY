@@ -7,7 +7,7 @@ import 'package:path_way_flu/app/pages/commen%20pages/about/ui/about.dart';
 import 'package:path_way_flu/app/pages/commen%20pages/privecy%20text/ui/privecy.dart';
 import 'package:path_way_flu/app/pages/student/widgets/profile_card.dart';
 import 'package:path_way_flu/app/pages/student/widgets/setting_cardwith_toggle.dart';
-import 'package:path_way_flu/app/pages/teacher/pages/application_form.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/application%20from/ui/application_form.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/profile%20edit/ui/teacher_profile_edit.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

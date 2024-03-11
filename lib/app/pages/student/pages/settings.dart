@@ -137,13 +137,13 @@ class StudentProfileScreen extends StatelessWidget {
                             text:
                                 AppLocalizations.of(context)!.pushnotification,
                             fun: () {}),
-                        BuildProfileWithToggle(text: "Dark mode", fun: () {}),
+                        BuildProfileWithToggle(text: AppLocalizations.of(context)!.darkmode, fun: () {}),
                         const Divider(
                             color: Color.fromARGB(255, 228, 228, 228),
                             thickness: 1),
                         const SizedBox(height: 10),
                         Text(
-                          'More',
+                          AppLocalizations.of(context)!.more,
                           style: kTitleTextStyle.copyWith(
                               color: Colors.grey, fontWeight: FontWeight.w400),
                         ),

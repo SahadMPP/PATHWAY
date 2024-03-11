@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/button_buil.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
 import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/bloc/student_init_deatiles_bloc.dart';
 import 'package:path_way_flu/main.dart';
 

@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:email_otp/email_otp.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/otp_screen.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/button_buil.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/text_field.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   final TextEditingController email;

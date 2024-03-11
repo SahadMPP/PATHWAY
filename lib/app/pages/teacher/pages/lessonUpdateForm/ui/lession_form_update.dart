@@ -8,7 +8,7 @@ import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lessonUpdateForm/bloc/lesson_form_update_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorial%20form/ui/adding_tutorial_form.dart';
-import 'package:path_way_flu/app/pages/admin/widgets/textfield.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/textfield.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lesson%20Form/bloc/lesson_form_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorialUpdateForm/ui/updating_tutorial.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/sub_lesson_dropdown_update.dart';

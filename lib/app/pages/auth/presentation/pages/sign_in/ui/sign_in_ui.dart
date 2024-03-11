@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/app/pages/admin/widgets/admin_bottom_navi.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/forgot_ui.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/ui/sign_up_ui.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/button_buil.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/text_field_email.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/text_field_password.dart';
-
+import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field_email.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field_password.dart';
 
 class SignInScreen extends StatelessWidget {
   final String directiontext;
@@ -63,7 +61,6 @@ class SignInScreen extends StatelessWidget {
                         },
                         prifixIcon: Icons.mail,
                         controller: emailController,
-                        
                       ),
                       const SizedBox(height: 20),
                       BuilderTextFieldPass(
@@ -106,20 +103,12 @@ class SignInScreen extends StatelessWidget {
                 BuildButton(
                   text: "SIGN IN",
                   fun: () {
-                    if (emailController.text == "admin@gmail.com" &&
-                        passwordController.text == "12345") {
-                      Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                              builder: (ctx) => const AdminBotmNavi()),
-                          (route) => false);
-                    } else {
-                      if (formkey.currentState!.validate()) {
-                        context.read<SignInBloc>().add(SignInEvent.userlogin(
-                            directionText: directiontext,
-                            emailController: emailController.text.trim(),
-                            passwordController: passwordController.text.trim(),
-                            context: context));
-                      }
+                    if (formkey.currentState!.validate()) {
+                      context.read<SignInBloc>().add(SignInEvent.userlogin(
+                          directionText: directiontext,
+                          emailController: emailController.text.trim(),
+                          passwordController: passwordController.text.trim(),
+                          context: context));
                     }
                   },
                 ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/app/pages/admin/bloc/admin_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/application%20from/bloc/teacher_application_bloc.dart';
 
 class BuildSubDropDown extends StatelessWidget {
   const BuildSubDropDown({
@@ -10,7 +10,7 @@ class BuildSubDropDown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminBloc, AdminState>(
+    return BlocBuilder<TeacherApplicationBloc, TeacherApplicationState>(
       builder: (context, state) {
         return ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 450),
@@ -94,9 +94,8 @@ class BuildSubDropDown extends StatelessWidget {
                       )),
                 ],
                 onChanged: (newValue) {
-                  context.read<AdminBloc>().add(
-                      AdminEvent.subjectClickEventInAddingTutoral(
-                          subject: newValue!));
+                  context.read<TeacherApplicationBloc>().add(TeacherApplicationEvent.subjectClickEventInAddingTutoral(subject: newValue!));
+                 
                 }),
           ),
         );

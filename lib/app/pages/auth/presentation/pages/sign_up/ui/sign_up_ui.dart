@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/button_buil.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/text_field.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/text_field_email.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/text_field_password.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field_email.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field_password.dart';
 
 
 class SignUpScreen extends StatelessWidget {

@@ -11,7 +11,6 @@ import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_way_flu/app/data/model/student.dart';
 import 'package:path_way_flu/app/data/model/teacher.dart';
-import 'package:path_way_flu/app/pages/admin/widgets/admin_bottom_navi.dart';
 
 class AdminApi {
   // api for tutorial
@@ -98,7 +97,6 @@ class AdminApi {
       if (res.statusCode == 200) {
         debugPrint("Approved as a teacher");
        
-        Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>const AdminBotmNavi()));
          buildShowSnacbar(
             context: context,
             content: "Approved as a teacher",

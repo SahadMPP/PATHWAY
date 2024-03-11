@@ -3,31 +3,31 @@
   "@language": {
     "description": "the current language"
   },
-  "helloworld": "hello world!",
+  "helloworld": "Hello world!",
   "@helloworld": {
     "description": "a programmer greeting"
   },
-  "multilanguage": "multi language",
+  "multilanguage": "Multi language",
   "@multilanguage": {
     "description": "app tile"
   },
-  "dashbord": "dashbord",
+  "dashbord": "Dashbord",
   "@dashbord": {
     "description": "admin home"
   },
-  "primarytext": "primary text",
+  "primarytext": "Primary text",
   "@primarytext": {
     "description": "text used as primary content"
   },
-  "secondarytext": "secondary text",
+  "secondarytext": "Secondary text",
   "@secondarytext": {
     "description": "text used as secondary content"
   },
-  "tutorprogress": "tutor progress",
+  "tutorprogress": "Tutor progress",
   "@tutorprogress": {
     "description": "progress of the tutor"
   },
-  "studentprogress": "student progress",
+  "studentprogress": "Student progress",
   "@studentprogress": {
     "description": "progress of the student"
   },
@@ -35,255 +35,255 @@
   "@tocomplete": {
     "description": "indicates something needs to be finished or accomplished"
   },
-  "request": "request",
+  "request": "Request",
   "@request": {
     "description": "indicates something needs to be finished or accomplished"
   },
-  "complaint": "complaint",
+  "complaint": "Complaint",
   "@complaint": {
     "description": "indicates something needs to be finished or accomplished"
   },
-  "subject": "subject",
+  "subject": "Subject",
   "@subject": {
     "description": "a particular branch of study, such as mathematics, art, science, etc."
   },
-  "mathematics": "mathematics",
+  "mathematics": "Mathematics",
   "@mathematics": {
     "description": "the study of numbers, quantities, shapes, and patterns"
   },
-  "art": "art",
+  "art": "Art",
   "@art": {
     "description": "creative expression through various mediums such as painting, sculpture, etc."
   },
-  "science": "science",
+  "science": "Science",
   "@science": {
     "description": "the systematic study of the structure and behavior of the physical and natural world"
   },
-  "geography": "geography",
+  "geography": "Geography",
   "@geography": {
     "description": "the study of the earth's landscapes, environments, and inhabitants"
   },
-  "history": "history",
+  "history": "History",
   "@history": {
     "description": "the study of past events, particularly in human affairs"
   },
-  "computer": "computer",
+  "computer": "Computer",
   "@computer": {
     "description": "a programmable electronic device that processes data and performs tasks according to instructions"
   },
-  "socialstudies": "social studies",
+  "socialstudies": "Social studies",
   "@socialstudies": {
     "description": "the study of human societies and their interactions"
   },
-  "hey": "hey",
+  "hey": "Hey",
   "@hey": {
     "description": "informal greeting or getting someone's attention"
   },
-  "findcourse": "find a course you want to learn",
+  "findcourse": "Find a course you want to learn",
   "@findcourse": {
     "description": "prompt to search for a desired course or subject to study"
   },
-  "search": "search for anything",
+  "search": "Search for anything",
   "@search": {
     "description": "action to find or look up something specific"
   },
-  "category": "category",
+  "category": "Category",
   "@category": {
     "description": "a grouping or classification of items based on shared characteristics"
   },
-  "seeall": "see all",
+  "seeall": "See all",
   "@seeall": {
     "description": "action to view all items or content within a category or list"
   },
-  "hi": "hi",
+  "hi": "Hi",
   "@hi": {
     "description": "informal greeting or getting someone's attention"
   },
-  "fortotalcourse": "for total course",
+  "fortotalcourse": "For total course",
   "@fortotalcourse": {
     "description": "indicates action related to the entire course or curriculum"
   },
-  "moresubs": "more subs",
+  "moresubs": "More subs",
   "@moresubs": {
     "description": "additional subscriptions or options available"
   },
-  "addnewsub": "add a new sub",
+  "addnewsub": "Add a new sub",
   "@addnewsub": {
     "description": "action to include a new subscription or subject"
   },
-  "upcomingsubjectpayment": "upcoming subject payment",
+  "upcomingsubjectpayment": "Upcoming subject payment",
   "@upcomingsubjectpayment": {
     "description": "notification or reminder about forthcoming payment for a subject"
   },
-  "subscriptions": "subscriptions",
+  "subscriptions": "Subscriptions",
   "@subscriptions": {
     "description": "services or subjects for which one has paid or agreed to pay regularly"
   },
-  "paymentdate": "payment date",
+  "paymentdate": "Payment date",
   "@paymentdate": {
     "description": "date for making a payment"
   },
-  "price": "price",
+  "price": "Price",
   "@price": {
     "description": "amount of money expected or required for payment"
   },
-  "cycle": "cycle",
+  "cycle": "Cycle",
   "@cycle": {
     "description": "repeating pattern or sequence"
   },
-  "month": "month",
+  "month": "Month",
   "@month": {
     "description": "a unit of time, approximately equal to the period of the moon's revolution around the earth"
   },
-  "individual": "individual",
+  "individual": "Individual",
   "@individual": {
     "description": "relating to one single person or thing"
   },
-  "type": "type",
+  "type": "Type",
   "@type": {
     "description": "category or classification"
   },
-  "cancelsubscription": "cancel subscription",
+  "cancelsubscription": "Cancel subscription",
   "@cancelsubscription": {
     "description": "action to terminate or end a subscription service"
   },
-  "messages": "messages",
+  "messages": "Messages",
   "@messages": {
     "description": "communication or correspondence between individuals or groups"
   },
-  "status": "status",
+  "status": "Status",
   "@status": {
     "description": "condition or state of affairs"
   },
-  "settings": "settings",
+  "settings": "Settings",
   "@settings": {
     "description": "options or configurations for customization"
   },
-  "accountsettings": "account settings",
+  "accountsettings": "Account settings",
   "@accountsettings": {
     "description": "customization options related to one's account"
   },
-  "editprofile": "profile",
+  "editprofile": "Profile",
   "@editprofile": {
     "description": "action to modify or update personal information"
   },
-  "changepassword": "change password",
+  "changepassword": "Change password",
   "@changepassword": {
     "description": "action to alter or set a new password"
   },
-  "addlocation": "add location",
+  "addlocation": "Add location",
   "@addlocation": {
     "description": "action to include or update a geographical position"
   },
-  "pushnotification": "notification",
+  "pushnotification": "Notification",
   "@pushnotification": {
     "description": "a message or alert delivered to a device or application"
   },
-  "darkmode": "dark mode",
+  "darkmode": "Dark mode",
   "@darkmode": {
     "description": "display setting that reduces light emission for use in low-light environments"
   },
-  "aboutus": "about us",
+  "aboutus": "About us",
   "@aboutus": {
     "description": "information regarding the organization or individuals behind the product or service"
   },
-  "privacyconcern": "privacy",
+  "privacyconcern": "Privacy",
   "@privacyconcern": {
     "description": "issues or worries regarding the protection of personal information"
   },
-  "logout": "log out",
+  "logout": "Log out",
   "@logout": {
     "description": "action to end a session or sign out"
   },
-  "welcome": "welcome",
+  "welcome": "Welcome",
   "@welcome": {
     "description": "greeting to newcomers or users entering a platform"
   },
-  "suggestedyou": "suggested for you",
+  "suggestedyou": "Suggested for you",
   "@suggestedyou": {
     "description": "courses recommended based on user preferences or history"
   },
-  "topics": "topics",
+  "topics": "Topics",
   "@topics": {
     "description": "subjects or themes of discussion or study"
   },
-  "lession": "lesson",
+  "lession": "Lesson",
   "@lession": {
     "description": "a unit of teaching or learning"
   },
-  "min": "minute(s)",
+  "min": "Minute(s)",
   "@min": {
     "description": "unit of time equal to sixty seconds"
   },
-  "featurecourse": "featured course",
+  "featurecourse": "Featured course",
   "@feature course": {
     "description": "prominent or highlighted course"
   },
-  "entrollnow": "enroll now",
+  "entrollnow": "Enroll now",
   "@entroll now": {
     "description": "action to register or sign up for a course"
   },
-  "chat": "chat",
+  "chat": "Chat",
   "@chat": {
     "description": "action to engage in real-time conversation with other users"
   },
-  "students": "students",
+  "students": "Students",
   "@students": {
     "description": "action to view or manage student profiles"
   },
-  "hereisyourstatus": "here is your status",
+  "hereisyourstatus": "Here is your status",
   "@here is your status": {
     "description": "action to view your current status or progress"
   },
-  "statistics": "statistics",
+  "statistics": "Statistics",
   "@statistics": {
     "description": "action to view statistical data or analysis"
   },
-  "realtimeprogress": "real-time-progress",
+  "realtimeprogress": "Real-time-progress",
   "@realtimeprogress": {
     "description": "action to view progress in real-time"
   },
-  "lesson": "lesson",
+  "lesson": "Lesson",
   "@lesson": {
     "description": "action to view or manage lesson content"
   },
-  "keepprocessing": "keep processing",
+  "keepprocessing": "Keep processing",
   "@keep processing": {
     "description": "action to continue processing or handling data or tasks"
   },
-  "addlesson": "add lesson",
+  "addlesson": "Add lesson",
   "@addlesson": {
     "description": "action to add a new lesson to a course or curriculum"
   },
-  "cancel": "cancel",
+  "cancel": "Cancel",
   "@cancel": {
     "description": "action to cancel or terminate an ongoing process"
   },
-  "update": "update",
+  "update": "Update",
   "@update": {
     "description": "action to modify or change existing data or information"
   },
-  "save": "save",
+  "save": "Save",
   "@save": {
     "description": "action to save changes or data"
   },
-  "title": "title",
+  "title": "Title",
   "@title": {
     "description": "action to set or modify the title of a document, course, or item"
   },
-  "coverimage": "cover image",
+  "coverimage": "Cover image",
   "@cover image": {
     "description": "action to set or modify the cover image of a document, course, or item"
   },
-  "add": "add",
+  "add": "Add",
   "@add": {
     "description": "action to add or include something"
   },
-  "applyasateacher": "apply as a teacher",
+  "applyasateacher": "Apply as a teacher",
   "@apply as a teacher": {
     "description": "action to submit an application to become a teacher or instructor"
   },
-  "more": "more",
+  "more": "More",
   "@more": {
     "description": "action to view additional options or information"
   }

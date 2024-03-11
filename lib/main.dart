@@ -7,7 +7,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:path_way_flu/app/core/theme/dark_theme.dart';
 import 'package:path_way_flu/app/core/theme/light_theme.dart';
-import 'package:path_way_flu/app/pages/admin/bloc/admin_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
@@ -86,7 +85,6 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => DirectionBloc()),
         BlocProvider(create: (context) => SignUpBloc()),
         BlocProvider(create: (context) => SignInBloc()),
-        BlocProvider(create: (context) => AdminBloc()),
         BlocProvider(create: (context) => TeacherBloc()),
         BlocProvider(create: (context) => SubcriptionBloc()),
         BlocProvider(create: (context) => LessonFormBloc()),

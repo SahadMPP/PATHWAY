@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
-import 'package:path_way_flu/app/pages/teacher/pages/application_form.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/application%20from/ui/application_form.dart';
 
 class ShowWaring extends StatelessWidget {
   const ShowWaring({super.key});

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
-import 'package:path_way_flu/app/pages/admin/widgets/drop_down_update.dart';
-import 'package:path_way_flu/app/pages/admin/widgets/textfield.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/button_buil.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/textfield.dart';
 import 'package:path_way_flu/app/pages/student/widgets/hedline_back.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorialUpdateForm/bloc/tutorial_update_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/teacher_bottom_navi.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/teacher_form_drop_down.dart';
 
 class UpdatingTutorial extends StatelessWidget {
   final Tutorial tutoral;

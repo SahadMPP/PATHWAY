@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/ui/sign_in_ui.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/widgets/button_buil.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
 
 
 class DirectionScreen extends StatelessWidget {
