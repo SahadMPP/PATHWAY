@@ -4,14 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/bloc/student_init_deatiles_bloc.dart';
 import 'package:path_way_flu/app/pages/student/widgets/age_piker.dart';
 
-class StudentAgePiking extends StatefulWidget {
+class StudentAgePiking extends StatelessWidget {
   const StudentAgePiking({super.key});
 
-  @override
-  State<StudentAgePiking> createState() => _StudentAgePikingState();
-}
-
-class _StudentAgePikingState extends State<StudentAgePiking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
+import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/pages/student/pages/chat/bloc/student_chat_bloc.dart';
 
 class StudentChat extends StatefulWidget {
@@ -15,16 +16,7 @@ class StudentChat extends StatefulWidget {
 class _StudentChatState extends State<StudentChat> {
   @override
   Widget build(BuildContext context) {
-    List<Map<String, String>> profileImage = [
-      {"name": "Barry", "image": "asset/profiles/chat111.png"},
-      {"name": "Mohan", "image": "asset/profiles/chat222.png"},
-      {"name": "Vimal", "image": "asset/profiles/chat555.png"},
-      {"name": "Mohan", "image": "asset/profiles/chat222.png"},
-      {"name": "Kumar", "image": "asset/profiles/chat111.png"},
-      {"name": "Kumar", "image": "asset/profiles/chat111.png"},
-      {"name": "Arun", "image": "asset/profiles/image22.png"},
-      {"name": "Kumar", "image": "asset/profiles/chat111.png"},
-    ];
+  
     context.read<StudentChatBloc>().add(const StudentChatEvent.givingValue());
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -88,11 +80,13 @@ class _StudentChatState extends State<StudentChat> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                CircleAvatar(
-                                  radius: 28,
-                                  backgroundImage:
-                                      AssetImage(profileImage[index]['image']!),
-                                ),
+                                ClipRRect(
+                            borderRadius: BorderRadius.circular(75),
+                            child: CircleAvatar(
+                              radius: 28,
+                              child: Image.network("${AuthApi.baseUrl}${state.list[index].profileImage!}",fit: BoxFit.fill),
+                            ),
+                          ),
                                 const SizedBox(width: 10),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,

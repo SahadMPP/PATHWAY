@@ -11,14 +11,9 @@ import 'package:path_way_flu/app/pages/teacher/widgets/home_card.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/home_top_card.dart';
 import 'package:path_way_flu/main.dart';
 
-class StuHome extends StatefulWidget {
+class StuHome extends StatelessWidget {
   const StuHome({super.key});
 
-  @override
-  State<StuHome> createState() => _StuHomeState();
-}
-
-class _StuHomeState extends State<StuHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

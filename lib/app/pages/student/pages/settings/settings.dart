@@ -80,7 +80,6 @@ class StudentProfileScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Container(
-
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   height: 700,
                   width: double.infinity,

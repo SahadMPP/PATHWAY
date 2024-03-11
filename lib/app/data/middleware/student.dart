@@ -13,7 +13,7 @@ import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/ui/collecting_profile.dart';
 import 'package:path_way_flu/app/pages/student/pages/deatiles%20page/ui/deatiles_page.dart';
-import 'package:path_way_flu/app/pages/student/pages/deatiles_page_with_outpay.dart';
+import 'package:path_way_flu/app/pages/student/pages/deatile%20page%20without%20pay/ui/deatiles_page_with_outpay.dart';
 
 class StudentApi {
   static const baseUrl = AuthApi.baseUrl;
