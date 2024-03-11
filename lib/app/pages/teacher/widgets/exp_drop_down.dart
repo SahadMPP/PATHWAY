@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/application%20from/bloc/teacher_application_bloc.dart';
+
 
 class BuildExpDropDown extends StatelessWidget {
-  const BuildExpDropDown({
+  const BuildExpDropDown({ 
     super.key,
   });
 
@@ -32,7 +33,7 @@ class BuildExpDropDown extends StatelessWidget {
                 border: Border.all(color: Colors.grey, width: 1)),
             width: double.infinity,
             height: 60,
-            child: BlocBuilder<TeacherBloc, TeacherState>(
+            child: BlocBuilder<TeacherApplicationBloc, TeacherApplicationState>(
               builder: (context, state) {
                 return DropdownButton<String>(
                     borderRadius: BorderRadius.circular(15),
@@ -75,8 +76,8 @@ class BuildExpDropDown extends StatelessWidget {
                           )),
                     ],
                     onChanged: (newValue) {
-                      context.read<TeacherBloc>().add(
-                          TeacherEvent.levelclickEventInAddiTutorial(
+                      context.read<TeacherApplicationBloc>().add(
+                          TeacherApplicationEvent.levelclickEventInAddiTutorial(
                               level: newValue!));
                     });
               },

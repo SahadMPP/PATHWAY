@@ -2,25 +2,26 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/application%20from/bloc/teacher_application_bloc.dart';
+
 
 class ImageCertificateCollector extends StatelessWidget {
   const ImageCertificateCollector({
-    super.key,
+    super.key, 
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: BlocBuilder<TeacherBloc, TeacherState>(
+      child: BlocBuilder<TeacherApplicationBloc, TeacherApplicationState>(
         builder: (context, state) {
           return Row(
             children: [
               GestureDetector(
                 onTap: () {
                   context
-                      .read<TeacherBloc>()
-                      .add(const TeacherEvent.certificatePikerOne());
+                      .read<TeacherApplicationBloc>()
+                      .add(const TeacherApplicationEvent.certificatePikerOne());
                 },
                 child: Container(
                     height: 110,
@@ -39,8 +40,8 @@ class ImageCertificateCollector extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   context
-                      .read<TeacherBloc>()
-                      .add(const TeacherEvent.certificatePikerTwo());
+                      .read<TeacherApplicationBloc>()
+                      .add(const TeacherApplicationEvent.certificatePikerTwo());
                 },
                 child: Container(
                     height: 110,

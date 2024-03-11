@@ -8,25 +8,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/snacbar.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/application%20from/bloc/teacher_application_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/applicationform_appbar.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/sub_drop_down_addtutorial.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/textfield.dart';
-import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/certificate_image_collector.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/exp_drop_down.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:signature/signature.dart';
 
-
-class TeacherApplicationFormSc extends StatefulWidget {
+class TeacherApplicationFormSc extends StatelessWidget {
   const TeacherApplicationFormSc({super.key});
 
-  @override
-  State<TeacherApplicationFormSc> createState() =>
-      _TeacherApplicationFormScState();
-}
-
-class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
   @override
   Widget build(BuildContext context) {
     TextEditingController nameController = TextEditingController();
@@ -36,42 +30,13 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
     TextEditingController stateController = TextEditingController();
     TextEditingController officerController = TextEditingController();
     final SignatureController signatureController = SignatureController(
-      penStrokeWidth: 2,
+      penStrokeWidth: 2, 
       penColor: Colors.black,
       exportBackgroundColor: const Color.fromARGB(255, 234, 234, 234),
     );
     GlobalKey<FormState> key = GlobalKey();
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Fill Up",
-          style: GoogleFonts.quicksand(
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        leading: Container(
-          alignment: Alignment.center,
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-            border: Border.all(
-                color: Theme.of(context).colorScheme.secondary, width: 3),
-            boxShadow: const [
-              BoxShadow(blurRadius: .5),
-            ],
-            color: Theme.of(context).colorScheme.background,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: IconButton(
-              onPressed: () => Navigator.of(context).pop(),
-              icon: const Icon(
-                Icons.arrow_back,
-                size: 20,
-              )),
-        ),
-      ),
+      appBar: appbarAppicationForm(context),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
@@ -180,12 +145,10 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                                 onPressed: () async {
                                   Uint8List? signatute =
                                       await signatureController.toPngBytes();
-
-                                  String signatureBase64 =
+                                 String signatureBase64 =
                                       base64Encode(signatute!);
-
-                                  context.read<TeacherBloc>().add(
-                                      TeacherEvent.colloctingSignatureImage(
+                                  context.read<TeacherApplicationBloc>().add(
+                                      TeacherApplicationEvent.colloctingSignatureImage(
                                           imageString: signatureBase64));
                                 },
                                 child: const Text("save")),
@@ -197,7 +160,7 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                   const SizedBox(height: 50),
                   Align(
                       alignment: Alignment.center,
-                      child: BlocBuilder<TeacherBloc, TeacherState>(
+                      child: BlocBuilder<TeacherApplicationBloc, TeacherApplicationState>(
                         builder: (context, state) {
                           return BuildButton(
                               text: "Apply",
@@ -236,8 +199,8 @@ class _TeacherApplicationFormScState extends State<TeacherApplicationFormSc> {
                                           state.cetificateImageTwo,
                                     };
 
-                                    context.read<TeacherBloc>().add(
-                                        TeacherEvent.updateData(
+                                    context.read<TeacherApplicationBloc>().add(
+                                        TeacherApplicationEvent.updateData(
                                             id: id,
                                             data: data,
                                             context: context));

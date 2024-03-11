@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
-import 'package:path_way_flu/app/data/model/language.dart';
 import 'package:path_way_flu/app/pages/auth/domain/usecases/define_fun.dart';
 import 'package:path_way_flu/app/pages/commen%20pages/about/ui/about.dart';
 import 'package:path_way_flu/app/pages/commen%20pages/privecy%20text/ui/privecy.dart';
@@ -9,51 +8,17 @@ import 'package:path_way_flu/app/pages/student/widgets/profile_card.dart';
 import 'package:path_way_flu/app/pages/student/widgets/setting_cardwith_toggle.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/application%20from/ui/application_form.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/profile%20edit/ui/teacher_profile_edit.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/setting_appbar.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class TeacherSettings extends StatefulWidget {
+class TeacherSettings extends StatelessWidget {
   const TeacherSettings({super.key});
 
   @override
-  State<TeacherSettings> createState() => _TeacherSettingsState();
-}
-
-class _TeacherSettingsState extends State<TeacherSettings> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: DropdownButton<Language>(
-              items: Language.languageList()
-                  .map((e) => DropdownMenuItem<Language>(
-                        value: e,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(e.flag),
-                            Text(e.name),
-                          ],
-                        ),
-                      ))
-                  .toList(),
-              onChanged: (Language? language) {
-                //----------
-                MyApp.setLocal(context, Locale(language!.languageCode, ''));
-              },
-              underline: const SizedBox(),
-              icon: const Icon(
-                Icons.language,
-                size: 30,
-                color: Colors.white,
-              ),
-            ),
-          )
-        ],
-      ),
+      appBar: appBarSetting(context),
       backgroundColor: Theme.of(context).colorScheme.onBackground,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -211,91 +176,3 @@ class _TeacherSettingsState extends State<TeacherSettings> {
   }
 }
 
-// class BuildProfileCard extends StatelessWidget {
-//   final String text;
-//   final VoidCallback fun;
-//   final IconData icon;
-//   const BuildProfileCard({
-//     super.key,
-//     required this.text,
-//     required this.fun,
-//     required this.icon,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.only(bottom: 10),
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//         children: [
-//           SizedBox(
-//             width: 100,
-//             child: Text(
-//               text,
-//               style:
-//                   kTitleTextStyle.copyWith(fontSize: 20, color: Colors.black),
-//             ),
-//           ),
-//           IconButton(
-//               onPressed: fun,
-//               icon: Icon(
-//                 icon,
-//                 size: 30,
-//               ))
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-// class BuildProfileWithToggle extends StatefulWidget {
-//   final String text;
-//   final VoidCallback fun;
-
-//   const BuildProfileWithToggle({
-//     super.key,
-//     required this.text,
-//     required this.fun,
-//   });
-
-//   @override
-//   State<BuildProfileWithToggle> createState() => _BuildProfileWithToggleState();
-// }
-
-// class _BuildProfileWithToggleState extends State<BuildProfileWithToggle> {
-//   bool isSwitched = false;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.only(bottom: 10),
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//         children: [
-//           SizedBox(
-//             width: 120,
-//             child: Text(
-//               widget.text,
-//               style:
-//                   kTitleTextStyle.copyWith(fontSize: 20, color: Colors.black),
-//             ),
-//           ),
-//           SizedBox(
-//             height: 20,
-//             width: 70,
-//             child: Switch(
-//                 thumbColor: MaterialStatePropertyAll(
-//                     Theme.of(context).colorScheme.onSecondary),
-//                 value: isSwitched,
-//                 onChanged: (value) {
-//                   setState(() {
-//                     isSwitched = value;
-//                   });
-//                 }),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

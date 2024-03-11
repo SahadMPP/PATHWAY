@@ -17,8 +17,8 @@ import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deat
 import 'package:path_way_flu/app/pages/student/pages/edit%20profile/bloc/stu_edit_profile_bloc.dart';
 import 'package:path_way_flu/app/pages/student/pages/student%20home/bloc/student_home_bloc.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
-import 'package:path_way_flu/app/pages/teacher/bloc/teacher_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/application%20from/bloc/teacher_application_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lessionList/bloc/lession_list_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lesson%20Form/bloc/lesson_form_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lessonUpdateForm/bloc/lesson_form_update_bloc.dart';
@@ -85,7 +85,6 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => DirectionBloc()),
         BlocProvider(create: (context) => SignUpBloc()),
         BlocProvider(create: (context) => SignInBloc()),
-        BlocProvider(create: (context) => TeacherBloc()),
         BlocProvider(create: (context) => SubcriptionBloc()),
         BlocProvider(create: (context) => LessonFormBloc()),
         BlocProvider(create: (context) => LessionListBloc()),
@@ -100,6 +99,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => TeaEditProfielBloc()),
         BlocProvider(create: (context) => TeacherHomeBloc()),
         BlocProvider(create: (context) => StudentHomeBloc()),
+        BlocProvider(create: (context) => TeacherApplicationBloc(),)
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
+import 'package:path_way_flu/app/core/constants/teacher_char_data.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-
 class TeacherPrograssScreen extends StatelessWidget {
   const TeacherPrograssScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+  
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -60,25 +60,7 @@ class TeacherPrograssScreen extends StatelessWidget {
                       height: 250,
                       width: double.infinity,
                       child: SfSparkLineChart(
-                        data: const <double>[
-                          1,
-                          5,
-                          -6,
-                          0,
-                          1,
-                          -2,
-                          7,
-                          -7,
-                          -4,
-                          -10,
-                          13,
-                          -6,
-                          7,
-                          5,
-                          11,
-                          5,
-                          3
-                        ],
+                        data: chartData,
                         marker: const SparkChartMarker(
                             displayMode: SparkChartMarkerDisplayMode.all),
                         labelDisplayMode: SparkChartLabelDisplayMode.all,
