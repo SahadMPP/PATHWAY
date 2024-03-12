@@ -67,7 +67,13 @@ class TeacherChat extends StatelessWidget {
               builder: (context, state) {
                 return ListView.builder(
                   itemCount: state.list.length,
-                  itemBuilder: (context, index) => Padding(
+                  itemBuilder: (context, index){
+                    if (state.list.isEmpty) {
+                      return  Center(child: Text('Student List is empty',style: GoogleFonts.roboto(
+                        color: Colors.black,
+                      ),),);
+                    } else {
+                      return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
                       height: 70,
@@ -116,7 +122,9 @@ class TeacherChat extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ),
+                  );
+                    }
+                  }
                 );
               },
             ))

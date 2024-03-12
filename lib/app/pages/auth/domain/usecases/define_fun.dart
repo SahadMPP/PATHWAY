@@ -15,7 +15,7 @@ import 'package:path_way_flu/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthFuntion {
-  studentLogin(
+ Future<void> studentLogin(
       {required BuildContext context,
       required String id,
       required String name}) async {
@@ -50,7 +50,7 @@ class AuthFuntion {
     }
   }
 
-  teacherLogin(
+ Future<void> teacherLogin(
       {required BuildContext context,
       required String id,
       required String name}) async {
@@ -62,7 +62,7 @@ class AuthFuntion {
     sharepre.setString(SAVE_KEY_NAME, name);
       final url = Uri.parse('${AuthApi.baseUrl}get_teacherById/$id');
     try {
-      final res = await http.get(url);
+      final res = await http.get(url); 
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
         if (data["profileImage"] == "") {
@@ -82,7 +82,7 @@ class AuthFuntion {
     }
   }
 
-  logOut(context) async {
+ Future<void> logOut(context) async {
     final sharepre = await SharedPreferences.getInstance();
     sharepre.clear();
 
@@ -98,7 +98,7 @@ class AuthFuntion {
         (route) => false);
   }
 
-  checklogin(BuildContext context) async {
+ Future<void> checklogin(BuildContext context) async {
     final sharedPreferences = await SharedPreferences.getInstance();
     final userLoggedIn = sharedPreferences.getString(SAVE_KEY_LOGGIN);
     final username = sharedPreferences.getString(SAVE_KEY_NAME);

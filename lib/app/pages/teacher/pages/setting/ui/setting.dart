@@ -62,11 +62,15 @@ class TeacherSettings extends StatelessWidget {
                         const SizedBox(height: 40),
                         Row(
                           children: [
-                            const CircleAvatar(
-                              radius: 30,
-                              backgroundImage:
-                                  AssetImage('asset/images/user.png'),
-                            ),
+                            ClipRRect(
+                                borderRadius: BorderRadius.circular(70),
+                                child: CircleAvatar(
+                                  radius: 30,
+                                    child: Image.network(
+                                  "http://learnpro.today:5000/$userProfile",
+                                  fit: BoxFit.fill,
+                                  width: double.infinity,
+                                ))),
                             const SizedBox(width: 12),
                             ConstrainedBox(
                               constraints: const BoxConstraints(
@@ -100,7 +104,8 @@ class TeacherSettings extends StatelessWidget {
                             text: AppLocalizations.of(context)!.editprofile,
                             fun: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const TeacherEditProfile(),
+                                builder: (context) =>
+                                    const TeacherEditProfile(),
                               ));
                             },
                             icon: Icons.navigate_next),
@@ -112,14 +117,12 @@ class TeacherSettings extends StatelessWidget {
                                       const TeacherApplicationFormSc()));
                             },
                             icon: Icons.navigate_next),
-                        BuildProfileCard(
-                            text: AppLocalizations.of(context)!.addlocation,
-                            fun: () {},
-                            icon: Icons.navigate_next),
                         BuildProfileWithToggle(
                             text:
                                 AppLocalizations.of(context)!.pushnotification,
                             fun: () {}),
+                        const SizedBox(height: 10),
+
                         BuildProfileWithToggle(
                             text: AppLocalizations.of(context)!.darkmode,
                             fun: () {}),
@@ -162,7 +165,7 @@ class TeacherSettings extends StatelessWidget {
                               );
                             },
                             icon: Icons.navigate_next),
-                        const SizedBox(height: 250),
+                        const SizedBox(height: 180),
                       ],
                     ),
                   ),
@@ -175,4 +178,3 @@ class TeacherSettings extends StatelessWidget {
     );
   }
 }
-

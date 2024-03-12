@@ -460,4 +460,20 @@ class TeacherApi {
   //   }
   // }
 
+
+
+  static Future<http.StreamedResponse> patchProfileImage(
+      String id, String filepath) async {
+    var request = http.MultipartRequest(
+        'PATCH', Uri.parse("${baseUrl}add/teacher_image/$id"));
+    request.files
+        .add(await http.MultipartFile.fromPath("profileImage", filepath));
+    request.headers.addAll({
+      "Content-Type": "multipart/form-data",
+    });
+     
+    var response = request.send();
+
+    return response;
+  }
 }

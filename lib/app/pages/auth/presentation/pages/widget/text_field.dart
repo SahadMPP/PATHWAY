@@ -55,7 +55,7 @@ class _BuilderTextFieldState extends State<BuilderTextField> {
           labelText: "Name",
           labelStyle: const TextStyle(
               color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w300),
-          prefixIcon: Icon(Icons.email_outlined,
+          prefixIcon: Icon(widget.prifixIcon,
               color: Theme.of(context).iconTheme.color),
           enabledBorder: OutlineInputBorder(
             borderSide:
