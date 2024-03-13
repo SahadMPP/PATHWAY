@@ -85,7 +85,7 @@ class TeacherChat extends StatelessWidget {
                             borderRadius: BorderRadius.circular(75),
                             child: CircleAvatar(
                               radius: 28,
-                              child: Image.network("${AuthApi.baseUrl}${state.list[index].profileImage!}",fit: BoxFit.fill),
+                              child: Image.network("${AuthApi.baseUrl}${state.list[index].profileImage}",fit: BoxFit.fill),
                             ),
                           ),
                           const SizedBox(width: 10),

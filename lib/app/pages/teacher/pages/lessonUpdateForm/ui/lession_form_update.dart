@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -125,17 +127,25 @@ class LessonFormUpdate extends StatelessWidget {
                         .read<LessonFormUpdateBloc>()
                         .add(const LessonFormUpdateEvent.imagePiking());
                   },
-                  child: Container(
-                      height: 150,
-                      width: MediaQuery.of(context).size.width * .5,
-                      color: Colors.grey,
-                      child: state.pikedImage == null
-                          ? const Image(
-                              fit: BoxFit.cover,
-                              image:
-                                  AssetImage("asset/images(adding icon).png"))
-                          : Image.network("http://learnpro.today:5000/${lesson.coverImage}",fit: BoxFit.cover,),
-                ));
+                  child:
+                      BlocBuilder<LessonFormUpdateBloc, LessonFormUpdateState>(
+                    builder: (context, state) {
+                      return Container(
+                          height: 150,
+                          width: MediaQuery.of(context).size.width * .5,
+                          color: Colors.grey,
+                          child: state.pikedImage == null
+                              ? Image.network(
+                                  "http://learnpro.today:5000/${lesson.coverImage}",
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.file(
+                                  File(state.pikedImage!),
+                                  fit: BoxFit.cover,
+                                ));
+                    },
+                  ),
+                );
               },
             ),
             const SizedBox(height: 10),
@@ -143,7 +153,7 @@ class LessonFormUpdate extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Cover Image",
+                  "Tutorial List",
                   style: GoogleFonts.roboto(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
@@ -175,4 +185,3 @@ class LessonFormUpdate extends StatelessWidget {
     );
   }
 }
-

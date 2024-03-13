@@ -68,7 +68,7 @@ class TeacherSettings extends StatelessWidget {
                                   radius: 30,
                                     child: Image.network(
                                   "http://learnpro.today:5000/$userProfile",
-                                  fit: BoxFit.fill,
+                                  fit: BoxFit.cover,
                                   width: double.infinity,
                                 ))),
                             const SizedBox(width: 12),

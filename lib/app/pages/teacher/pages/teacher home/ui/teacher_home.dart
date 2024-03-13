@@ -23,9 +23,9 @@ class TeachHome extends StatelessWidget {
             ClipRRect(
                 borderRadius: BorderRadius.circular(70),
                 child: CircleAvatar(
-                    child: Image.network(
+                  child: Image.network(
                   "http://learnpro.today:5000/$userProfile",
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                   width: double.infinity,
                 ))),
             const SizedBox(width: 10),

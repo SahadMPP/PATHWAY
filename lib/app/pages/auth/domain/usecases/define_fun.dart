@@ -15,20 +15,18 @@ import 'package:path_way_flu/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthFuntion {
- Future<void> studentLogin(
+  Future<void> studentLogin(
       {required BuildContext context,
       required String id,
       required String name}) async {
     userName = name;
     userId = id;
-    
     final sharepre = await SharedPreferences.getInstance();
     sharepre.setString(SAVE_KEY_LOGGIN, "studentLogined");
     sharepre.setString(SAVE_KEY_ID, id);
     sharepre.setString(SAVE_KEY_NAME, name);
     //--------------get Student instence------------
     final url = Uri.parse('${AuthApi.baseUrl}get_studentById/$id');
-
     try {
       final res = await http.get(url);
       if (res.statusCode == 200) {
@@ -50,7 +48,7 @@ class AuthFuntion {
     }
   }
 
- Future<void> teacherLogin(
+  Future<void> teacherLogin(
       {required BuildContext context,
       required String id,
       required String name}) async {
@@ -60,9 +58,9 @@ class AuthFuntion {
     sharepre.setString(SAVE_KEY_LOGGIN, "teacherLogined");
     sharepre.setString(SAVE_KEY_ID, id);
     sharepre.setString(SAVE_KEY_NAME, name);
-      final url = Uri.parse('${AuthApi.baseUrl}get_teacherById/$id');
+    final url = Uri.parse('${AuthApi.baseUrl}get_teacherById/$id');
     try {
-      final res = await http.get(url); 
+      final res = await http.get(url);
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
         if (data["profileImage"] == "") {
@@ -82,7 +80,7 @@ class AuthFuntion {
     }
   }
 
- Future<void> logOut(context) async {
+  Future<void> logOut(context) async {
     final sharepre = await SharedPreferences.getInstance();
     sharepre.clear();
 
@@ -96,24 +94,27 @@ class AuthFuntion {
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (cxt) => const OnBordingScreen()),
         (route) => false);
-  }
+  } 
 
- Future<void> checklogin(BuildContext context) async {
+  Future<void> checklogin(BuildContext context) async {
     final sharedPreferences = await SharedPreferences.getInstance();
     final userLoggedIn = sharedPreferences.getString(SAVE_KEY_LOGGIN);
     final username = sharedPreferences.getString(SAVE_KEY_NAME);
     final userid = sharedPreferences.getString(SAVE_KEY_ID);
+    final userprofile = sharedPreferences.getString(SAVE_KEY_PROFILE);
 
     if (userLoggedIn == null || userLoggedIn.isEmpty) {
       goToLogin(context);
     } else if (userLoggedIn == "teacherLogined") {
       userName = username;
       userId = userid;
+      userProfile = userprofile;
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (ctx) => const TeacherBotmNavi()));
     } else {
       userName = username;
       userId = userid;
+      userProfile = userprofile;
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (ctx) => const StudentBotmNavi()));
     }

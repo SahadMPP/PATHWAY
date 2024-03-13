@@ -42,7 +42,7 @@ class StudentInitDeatilesBloc
               userProfile = data['profileImage']; 
               final sharedPreferences = await SharedPreferences.getInstance();
               sharedPreferences.setString(
-                  SAVE_KEY_PROFILE, userProfile!);
+                  SAVE_KEY_PROFILE,userProfile!);
               Navigator.of(event.context).pushReplacement(MaterialPageRoute(
                 builder: (ctx) => const StudentBotmNavi(),
               ));

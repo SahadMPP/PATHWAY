@@ -50,7 +50,7 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SvgPicture.asset("asset/icons/arrow-left.svg"),
+                      GestureDetector(onTap: () => Navigator.of(context).pop(),child: SvgPicture.asset("asset/icons/arrow-left.svg")),
                       SvgPicture.asset("asset/icons/more-vertical.svg"),
                     ],
                   ),

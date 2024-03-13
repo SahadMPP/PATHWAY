@@ -26,6 +26,7 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
 
     on<_addingLession>((event, emit)async {
 
+     
       final url = Uri.parse('${AuthApi.baseUrl}get_teacherById/$userId');
 
     try {
@@ -33,7 +34,7 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
 
       if (res.statusCode == 200) {
        var data = json.decode(res.body);
-      //  var conuntlession = data['lessonId'];
+      
         var dataNew = {
          "subject":event.subject.toString(),
          "title":event.title.toString(),
@@ -52,6 +53,9 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
     } catch (e) {
       debugPrint(e.toString());
     }  
+
+     
+
     });
 
     on<_imagePiking>((event, emit) async {

@@ -316,16 +316,18 @@ class StudentApi {
   }
 
 
-  static getOneStudentForDeatilePage({studentId, lessionId, lesson, context}) async {
+  static getOneStudentForDeatilePage({required studentId,required lessionId,required lesson,required context}) async {
     Student? student;
     final url = Uri.parse('${baseUrl}get_studentById/$studentId');
 
     try {
       final res = await http.get(url);
+      
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
         student = Student.fromJson(data);
-        if (student.lessonId!.contains(lessionId)) {
+        
+        if (student.lessonId.contains(lessionId)) {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (ctx) => StudentvideoPlay(lesson: lesson)));
         } else {

@@ -30,7 +30,9 @@ class ProdectCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     child: GestureDetector(
                       onTap: () {
+                        
                         context.read<SeeAllBloc>().add(
+
                             SeeAllEvent.navigatingMaker(
                                 lesson: state.list[index],
                                 context: context));

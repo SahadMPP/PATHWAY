@@ -23,7 +23,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         };
         AuthApi.loginTeacher(data, event.context);
       } else {
-        debugPrint("directon is not found");
+        debugPrint("Directon is not found");
       }
     });
 

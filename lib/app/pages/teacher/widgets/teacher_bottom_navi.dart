@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lessionList/ui/list_of_lession.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/setting/ui/setting.dart';
-import 'package:path_way_flu/app/pages/teacher/pages/teacher_staus_scree.dart';
+import 'package:path_way_flu/app/pages/teacher/pages/teacher%20status/ui/teacher_staus_scree.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/warnning%20screen/ui/show_warnnig.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacherChat/ui/chat.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacher%20home/ui/teacher_home.dart';
