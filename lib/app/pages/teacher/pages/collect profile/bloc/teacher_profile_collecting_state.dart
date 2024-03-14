@@ -4,9 +4,10 @@ part of 'teacher_profile_collecting_bloc.dart';
 class TeacherProfileCollectingState with _$TeacherProfileCollectingState {
   const factory TeacherProfileCollectingState({
     String? selectedImage,
+    required bool isLoading,
   }) = _TeacherProfileCollectingState;
 
   factory TeacherProfileCollectingState.initial(){
-    return const TeacherProfileCollectingState();
+    return const TeacherProfileCollectingState(isLoading: false);
   }
 }

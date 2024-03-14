@@ -17,14 +17,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AuthFuntion {
   Future<void> studentLogin(
       {required BuildContext context,
+      required String profile,
       required String id,
       required String name}) async {
     userName = name;
     userId = id;
+    userProfile = profile;
     final sharepre = await SharedPreferences.getInstance();
     sharepre.setString(SAVE_KEY_LOGGIN, "studentLogined");
     sharepre.setString(SAVE_KEY_ID, id);
     sharepre.setString(SAVE_KEY_NAME, name);
+    sharepre.setString(SAVE_KEY_PROFILE, profile);
     //--------------get Student instence------------
     final url = Uri.parse('${AuthApi.baseUrl}get_studentById/$id');
     try {
@@ -50,14 +53,17 @@ class AuthFuntion {
 
   Future<void> teacherLogin(
       {required BuildContext context,
+      required String profile,
       required String id,
       required String name}) async {
     userName = name;
     userId = id;
+    userProfile = profile;
     final sharepre = await SharedPreferences.getInstance();
     sharepre.setString(SAVE_KEY_LOGGIN, "teacherLogined");
     sharepre.setString(SAVE_KEY_ID, id);
     sharepre.setString(SAVE_KEY_NAME, name);
+    sharepre.setString(SAVE_KEY_PROFILE, profile);
     final url = Uri.parse('${AuthApi.baseUrl}get_teacherById/$id');
     try {
       final res = await http.get(url);
@@ -94,7 +100,7 @@ class AuthFuntion {
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (cxt) => const OnBordingScreen()),
         (route) => false);
-  } 
+  }
 
   Future<void> checklogin(BuildContext context) async {
     final sharedPreferences = await SharedPreferences.getInstance();

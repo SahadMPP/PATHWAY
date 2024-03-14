@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
-import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
 import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/bloc/student_init_deatiles_bloc.dart';
+import 'package:path_way_flu/app/pages/student/widgets/isloading_button.dart';
 import 'package:path_way_flu/main.dart';
 
 class ProfleImageCollect extends StatelessWidget {
@@ -24,9 +24,9 @@ class ProfleImageCollect extends StatelessWidget {
                 'hey,$userName',
                 style: kHeadingextStyle.copyWith(letterSpacing: 0),
               ),
-               Text(
+              Text(
                 'Just conform your profile picture added',
-                style: GoogleFonts.roboto(fontSize: 22,height: 2),
+                style: GoogleFonts.roboto(fontSize: 22, height: 2),
               ),
               const SizedBox(height: 150),
               Align(
@@ -82,13 +82,20 @@ class ProfleImageCollect extends StatelessWidget {
               const SizedBox(height: 150),
               Align(
                   alignment: Alignment.center,
-                  child: BuildButton(
-                      text: "Add Image",
-                      fun: () {
-                        context.read<StudentInitDeatilesBloc>().add(
-                            StudentInitDeatilesEvent.updateingImage(
-                                context: context, id: userId!));
-                      })),
+                  child: BlocBuilder<StudentInitDeatilesBloc,
+                      StudentInitDeatilesState>(
+                    builder: (context, state) {
+                      return BuildLoaderButton(
+                        function: () {
+                          context.read<StudentInitDeatilesBloc>().add(
+                              StudentInitDeatilesEvent.updateingImage(
+                                  context: context, id: userId!));
+                        },
+                        defultText: "Add Image",
+                        isLoading: state.isLoading,
+                      );
+                    },
+                  )),
             ],
           ),
         ),
@@ -96,3 +103,4 @@ class ProfleImageCollect extends StatelessWidget {
     );
   }
 }
+

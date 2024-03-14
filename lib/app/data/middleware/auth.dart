@@ -10,6 +10,7 @@ import 'package:path_way_flu/app/pages/auth/domain/usecases/define_fun.dart';
 
 class AuthApi {
   static const baseUrl = "http://learnpro.today:5000/api/";
+  static const baseUrlImage = "http://learnpro.today:5000/";
 
   static addStudent(Map sdata, BuildContext context) async {
     final url = Uri.parse("${baseUrl}add_student");
@@ -92,7 +93,8 @@ class AuthApi {
         //---------
         String id = data['_id'];
         String name = data['name'];
-        AuthFuntion().studentLogin(context: context, id: id, name: name);
+        String profile = data['profileImage'];
+        AuthFuntion().studentLogin(context: context, id: id, name: name,profile:profile );
       } else if (res.statusCode == 404) {
         buildShowSnacbar(
             context: context,
@@ -134,7 +136,8 @@ class AuthApi {
         //---------
         String id = data['_id'];
         String name = data['name'];
-        AuthFuntion().teacherLogin(context: context, id: id, name: name);
+        String profile = data['profileImage'];
+        AuthFuntion().teacherLogin(context: context, id: id, name: name,profile:profile );
       } else if (res.statusCode == 404) {
         debugPrint("wrong password");
         //--------

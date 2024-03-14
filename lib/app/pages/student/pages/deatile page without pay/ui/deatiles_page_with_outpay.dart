@@ -127,7 +127,7 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                                         CourseContent(
                                             number: index+1,
                                             title: tutoral[index].title,
-                                            creator: "tutoral[index].creator"),
+                                            creator: tutoral[index].level),
                                   ),
                                 );
                               }
@@ -148,8 +148,8 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                     ),
                     child: GestureDetector(
                       onTap: ()async {  
-                        context.read<SubcriptionBloc>().add(SubcriptionEvent.makingsubcription(amount:99*100 , mob: '9876543211', subject:lesson.subject, email: 'sahad@gmail.com'));
-                        Future.delayed(const Duration(seconds: 5));
+                        // context.read<SubcriptionBloc>().add(SubcriptionEvent.makingsubcription(amount:99*100 , mob: '9876543211', subject:lesson.subject, email: 'sahad@gmail.com'));
+                        Future.delayed(const Duration(seconds: 2));
                         context.read<SubcriptionBloc>().add(SubcriptionEvent.updataStudentdata(subject: lesson.id, id: userId!, context: context,lesson: lesson));
                       },
                       child: Container(

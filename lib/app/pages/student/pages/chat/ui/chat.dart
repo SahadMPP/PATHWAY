@@ -80,13 +80,18 @@ class _StudentChatState extends State<StudentChat> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                ClipRRect(
-                            borderRadius: BorderRadius.circular(75),
-                            child: CircleAvatar(
-                              radius: 28,
-                              child: Image.network("${AuthApi.baseUrl}${state.list[index].profileImage!}",fit: BoxFit.fill),
+                          
+                          SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(70),
+                                  child: Image(
+                                    image: NetworkImage(
+                                        "${AuthApi.baseUrlImage}${state.list[index].profileImage!}"),
+                                    fit: BoxFit.cover,
+                                  )),
                             ),
-                          ),
                                 const SizedBox(width: 10),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,

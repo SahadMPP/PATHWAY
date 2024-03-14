@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
+import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/pages/auth/domain/usecases/define_fun.dart';
 import 'package:path_way_flu/app/pages/commen%20pages/about/ui/about.dart';
 import 'package:path_way_flu/app/pages/commen%20pages/privecy%20text/ui/privecy.dart';
@@ -62,15 +63,17 @@ class TeacherSettings extends StatelessWidget {
                         const SizedBox(height: 40),
                         Row(
                           children: [
-                            ClipRRect(
-                                borderRadius: BorderRadius.circular(70),
-                                child: CircleAvatar(
-                                  radius: 30,
-                                    child: Image.network(
-                                  "http://learnpro.today:5000/$userProfile",
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
-                                ))),
+                             SizedBox(
+                              height: 60,
+                              width: 60,
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(70),
+                                  child: Image(
+                                    image: NetworkImage(
+                                        "${AuthApi.baseUrlImage}${userProfile!}"),
+                                    fit: BoxFit.cover,
+                                  )),
+                            ),
                             const SizedBox(width: 12),
                             ConstrainedBox(
                               constraints: const BoxConstraints(

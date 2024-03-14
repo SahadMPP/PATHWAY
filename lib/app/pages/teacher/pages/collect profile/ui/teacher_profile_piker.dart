@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
+import 'package:path_way_flu/app/pages/student/widgets/isloading_button.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/collect%20profile/bloc/teacher_profile_collecting_bloc.dart';
-import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
 import 'package:path_way_flu/main.dart';
 
 class TeacherProfleImage extends StatelessWidget {
@@ -24,9 +24,9 @@ class TeacherProfleImage extends StatelessWidget {
                 'hey,$userName',
                 style: kHeadingextStyle.copyWith(letterSpacing: 0),
               ),
-               Text(
+              Text(
                 'Just conform your profile picture added',
-                style: GoogleFonts.roboto(fontSize: 22,height: 2),
+                style: GoogleFonts.roboto(fontSize: 22, height: 2),
               ),
               const SizedBox(height: 150),
               Align(
@@ -64,8 +64,9 @@ class TeacherProfleImage extends StatelessWidget {
                                 Theme.of(context).colorScheme.onSecondary,
                             child: IconButton(
                               onPressed: () {
-                                context.read<TeacherProfileCollectingBloc>().add(
-                                    const TeacherProfileCollectingEvent
+                                context
+                                    .read<TeacherProfileCollectingBloc>()
+                                    .add(const TeacherProfileCollectingEvent
                                         .pikingImge());
                               },
                               icon: Icon(Icons.edit,
@@ -82,13 +83,19 @@ class TeacherProfleImage extends StatelessWidget {
               const SizedBox(height: 150),
               Align(
                   alignment: Alignment.center,
-                  child: BuildButton(
-                      text: "Add Image",
-                      fun: () {
-                        context.read<TeacherProfileCollectingBloc>().add(
-                            TeacherProfileCollectingEvent.updateingImage(
-                                context: context, id: userId!));
-                      })),
+                  child: BlocBuilder<TeacherProfileCollectingBloc, TeacherProfileCollectingState>(
+                    builder: (context, state) {
+                      return BuildLoaderButton(
+                        function: () {
+                          context.read<TeacherProfileCollectingBloc>().add(
+                              TeacherProfileCollectingEvent.updateingImage(
+                                  context: context, id: userId!));
+                        },
+                        defultText: "Add Image",
+                        isLoading: state.isLoading,
+                      );
+                    },
+                  )),
             ],
           ),
         ),

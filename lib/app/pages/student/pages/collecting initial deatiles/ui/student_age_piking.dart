@@ -23,7 +23,7 @@ class StudentAgePiking extends StatelessWidget {
                     return Column(
                       children: [
                         Text(
-                          "Which age group are your in?",
+                          "Which age group are you in?",
                           textAlign: TextAlign.center,
                           style: GoogleFonts.robotoSlab(
                             fontSize: 30,

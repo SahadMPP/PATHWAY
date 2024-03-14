@@ -102,7 +102,7 @@ class ListOfLession extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      "${AppLocalizations.of(context)!.lession} ${lesson[index].countOfLesson}",
+                                      "${AppLocalizations.of(context)!.lession} ${lesson[index].lessonId.length}",
                                       style: GoogleFonts.quicksand(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,

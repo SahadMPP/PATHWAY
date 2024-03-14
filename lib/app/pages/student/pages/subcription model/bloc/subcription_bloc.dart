@@ -72,7 +72,7 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
           List<String> lessonIdList = List<String>.from(data['lessonId']);
           emit(state.copyWith(subject: lessonIdList));
         } else {
-          debugPrint('feild to get response');
+          debugPrint('failed to get response');
         }
       } catch (e) {
         debugPrint(e.toString());
@@ -93,7 +93,7 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
       if (c == 0) {
         buildShowSnacbar(
             context: event.context,
-            content: "this subject you alredy purchesed",
+            content: "this subject you already purchesed",
             title: "Hi There!",
             contentType: ContentType.help);
       } else {
@@ -101,8 +101,8 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
           "creatorName": event.lesson.creatorName,
           "subject": event.lesson.subject,
           "coverImage": event.lesson.coverImage,
-          "countOfLessonWatched": 0.toString(),
-          "totelCountOfLesson": event.lesson.lessonId.length.toString(),
+          "countOfLessonWatched": 0,
+          "totelCountOfLesson": event.lesson.lessonId.length,
           "title": event.lesson.title,
           "lessonId": event.lesson.id,
           "studentId": userId

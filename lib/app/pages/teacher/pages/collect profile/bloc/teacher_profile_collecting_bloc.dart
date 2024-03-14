@@ -22,6 +22,7 @@ class TeacherProfileCollectingBloc
   TeacherProfileCollectingBloc()
       : super(TeacherProfileCollectingState.initial()) {
     on<_updateingImage>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
       if (state.selectedImage == null) {
         buildShowSnacbar(
             context: event.context,
@@ -41,7 +42,8 @@ class TeacherProfileCollectingBloc
               var data = jsonDecode(res.body);
               userProfile = data['profileImage'];
               final sharedPreferences = await SharedPreferences.getInstance();
-              sharedPreferences.setString(SAVE_KEY_PROFILE,userProfile!);
+              sharedPreferences.setString(SAVE_KEY_PROFILE, userProfile!);
+              emit(state.copyWith(isLoading: false));
               // ignore: use_build_context_synchronously
               Navigator.of(event.context).pushReplacement(MaterialPageRoute(
                 builder: (ctx) => const TeacherBotmNavi(),

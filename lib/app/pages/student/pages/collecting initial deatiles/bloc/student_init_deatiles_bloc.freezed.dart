@@ -653,6 +653,7 @@ abstract class _updatingLevel implements StudentInitDeatilesEvent {
 mixin _$StudentInitDeatilesState {
   String? get selectedImage => throw _privateConstructorUsedError;
   String get selectedLevel => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $StudentInitDeatilesStateCopyWith<StudentInitDeatilesState> get copyWith =>
@@ -665,7 +666,7 @@ abstract class $StudentInitDeatilesStateCopyWith<$Res> {
           $Res Function(StudentInitDeatilesState) then) =
       _$StudentInitDeatilesStateCopyWithImpl<$Res, StudentInitDeatilesState>;
   @useResult
-  $Res call({String? selectedImage, String selectedLevel});
+  $Res call({String? selectedImage, String selectedLevel, bool isLoading});
 }
 
 /// @nodoc
@@ -684,6 +685,7 @@ class _$StudentInitDeatilesStateCopyWithImpl<$Res,
   $Res call({
     Object? selectedImage = freezed,
     Object? selectedLevel = null,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       selectedImage: freezed == selectedImage
@@ -694,6 +696,10 @@ class _$StudentInitDeatilesStateCopyWithImpl<$Res,
           ? _value.selectedLevel
           : selectedLevel // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -707,7 +713,7 @@ abstract class _$$StudentInitDeatilesStateImplCopyWith<$Res>
       __$$StudentInitDeatilesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? selectedImage, String selectedLevel});
+  $Res call({String? selectedImage, String selectedLevel, bool isLoading});
 }
 
 /// @nodoc
@@ -725,6 +731,7 @@ class __$$StudentInitDeatilesStateImplCopyWithImpl<$Res>
   $Res call({
     Object? selectedImage = freezed,
     Object? selectedLevel = null,
+    Object? isLoading = null,
   }) {
     return _then(_$StudentInitDeatilesStateImpl(
       selectedImage: freezed == selectedImage
@@ -735,6 +742,10 @@ class __$$StudentInitDeatilesStateImplCopyWithImpl<$Res>
           ? _value.selectedLevel
           : selectedLevel // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -743,16 +754,20 @@ class __$$StudentInitDeatilesStateImplCopyWithImpl<$Res>
 
 class _$StudentInitDeatilesStateImpl implements _StudentInitDeatilesState {
   const _$StudentInitDeatilesStateImpl(
-      {this.selectedImage, required this.selectedLevel});
+      {this.selectedImage,
+      required this.selectedLevel,
+      required this.isLoading});
 
   @override
   final String? selectedImage;
   @override
   final String selectedLevel;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'StudentInitDeatilesState(selectedImage: $selectedImage, selectedLevel: $selectedLevel)';
+    return 'StudentInitDeatilesState(selectedImage: $selectedImage, selectedLevel: $selectedLevel, isLoading: $isLoading)';
   }
 
   @override
@@ -763,11 +778,14 @@ class _$StudentInitDeatilesStateImpl implements _StudentInitDeatilesState {
             (identical(other.selectedImage, selectedImage) ||
                 other.selectedImage == selectedImage) &&
             (identical(other.selectedLevel, selectedLevel) ||
-                other.selectedLevel == selectedLevel));
+                other.selectedLevel == selectedLevel) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedImage, selectedLevel);
+  int get hashCode =>
+      Object.hash(runtimeType, selectedImage, selectedLevel, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -780,12 +798,15 @@ class _$StudentInitDeatilesStateImpl implements _StudentInitDeatilesState {
 abstract class _StudentInitDeatilesState implements StudentInitDeatilesState {
   const factory _StudentInitDeatilesState(
       {final String? selectedImage,
-      required final String selectedLevel}) = _$StudentInitDeatilesStateImpl;
+      required final String selectedLevel,
+      required final bool isLoading}) = _$StudentInitDeatilesStateImpl;
 
   @override
   String? get selectedImage;
   @override
   String get selectedLevel;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$StudentInitDeatilesStateImplCopyWith<_$StudentInitDeatilesStateImpl>

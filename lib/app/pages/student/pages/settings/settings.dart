@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
+import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/data/model/language.dart';
 import 'package:path_way_flu/app/pages/auth/domain/usecases/define_fun.dart';
 import 'package:path_way_flu/app/pages/commen%20pages/about/ui/about.dart';
@@ -18,9 +19,8 @@ class StudentProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBar(
-      backgroundColor: Theme.of(context).colorScheme.onBackground,
-
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.onBackground,
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -39,7 +39,7 @@ class StudentProfileScreen extends StatelessWidget {
                   .toList(),
               onChanged: (Language? language) {
                 //----------
-                MyApp.setLocal(context, Locale(language!.languageCode,''));
+                MyApp.setLocal(context, Locale(language!.languageCode, ''));
               },
               underline: const SizedBox(),
               icon: const Icon(
@@ -84,7 +84,7 @@ class StudentProfileScreen extends StatelessWidget {
                   height: 700,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.secondary,
+                      color: Theme.of(context).colorScheme.secondary,
                       borderRadius: BorderRadius.circular(20)),
                   child: SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
@@ -94,9 +94,16 @@ class StudentProfileScreen extends StatelessWidget {
                         const SizedBox(height: 40),
                         Row(
                           children: [
-                             CircleAvatar(
-                              radius: 30,
-                             child: ClipRRect(borderRadius: BorderRadius.circular(70),child: Image.network("http://learnpro.today:5000/$userProfile",fit: BoxFit.fill,width: double.infinity,)),
+                            SizedBox(
+                              height: 60,
+                              width: 60,
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(70),
+                                  child: Image(
+                                    image: NetworkImage(
+                                        "${AuthApi.baseUrlImage}$userProfile"),
+                                    fit: BoxFit.cover,
+                                  )),
                             ),
                             const SizedBox(width: 12),
                             ConstrainedBox(
@@ -129,14 +136,19 @@ class StudentProfileScreen extends StatelessWidget {
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.editprofile,
                             fun: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const StudentfEditProfile(),));
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    const StudentfEditProfile(),
+                              ));
                             },
                             icon: Icons.navigate_next),
                         BuildProfileWithToggle(
                             text:
                                 AppLocalizations.of(context)!.pushnotification,
                             fun: () {}),
-                        BuildProfileWithToggle(text: AppLocalizations.of(context)!.darkmode, fun: () {}),
+                        BuildProfileWithToggle(
+                            text: AppLocalizations.of(context)!.darkmode,
+                            fun: () {}),
                         const Divider(
                             color: Color.fromARGB(255, 228, 228, 228),
                             thickness: 1),
@@ -149,7 +161,9 @@ class StudentProfileScreen extends StatelessWidget {
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.aboutus,
                             fun: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const About(),));
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const About(),
+                              ));
                             },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
@@ -174,8 +188,9 @@ class StudentProfileScreen extends StatelessWidget {
                         BuildProfileCard(
                             text: AppLocalizations.of(context)!.privacyconcern,
                             fun: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Privecy(),));
-
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const Privecy(),
+                              ));
                             },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
@@ -207,5 +222,3 @@ class StudentProfileScreen extends StatelessWidget {
     );
   }
 }
-
-

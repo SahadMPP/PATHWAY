@@ -22,6 +22,7 @@ class StudentInitDeatilesBloc
     extends Bloc<StudentInitDeatilesEvent, StudentInitDeatilesState> {
   StudentInitDeatilesBloc() : super(StudentInitDeatilesState.initial()) {
     on<_updateingImage>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
       if (state.selectedImage == null) {
         buildShowSnacbar(
             context: event.context,
@@ -39,10 +40,10 @@ class StudentInitDeatilesBloc
             final res = await http.get(url);
             if (res.statusCode == 200) {
               var data = jsonDecode(res.body);
-              userProfile = data['profileImage']; 
+              userProfile = data['profileImage'];
               final sharedPreferences = await SharedPreferences.getInstance();
-              sharedPreferences.setString(
-                  SAVE_KEY_PROFILE,userProfile!);
+              sharedPreferences.setString(SAVE_KEY_PROFILE, userProfile!);
+              emit(state.copyWith(isLoading: false));
               Navigator.of(event.context).pushReplacement(MaterialPageRoute(
                 builder: (ctx) => const StudentBotmNavi(),
               ));

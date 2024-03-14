@@ -52,8 +52,9 @@ class TeacherChat extends StatelessWidget {
                           context.read<TeacherChatBloc>().add(
                               TeacherChatEvent.runFilterdValue(value: value));
                         },
-                        decoration:  InputDecoration(
-                            hintText: AppLocalizations.of(context)!.search, border: InputBorder.none),
+                        decoration: InputDecoration(
+                            hintText: AppLocalizations.of(context)!.search,
+                            border: InputBorder.none),
                       ),
                     ),
                   ),
@@ -61,71 +62,82 @@ class TeacherChat extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-             Text(AppLocalizations.of(context)!.students, style: kTitleTextStyle),
+            Text(AppLocalizations.of(context)!.students,
+                style: kTitleTextStyle),
             const SizedBox(height: 10),
             Expanded(child: BlocBuilder<TeacherChatBloc, TeacherChatState>(
               builder: (context, state) {
                 return ListView.builder(
-                  itemCount: state.list.length,
-                  itemBuilder: (context, index){
-                    if (state.list.isEmpty) {
-                      return  Center(child: Text('Student List is empty',style: GoogleFonts.roboto(
-                        color: Colors.black,
-                      ),),);
-                    } else {
-                      return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      height: 70,
-                      width: double.infinity,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(75),
-                            child: CircleAvatar(
-                              radius: 28,
-                              child: Image.network("${AuthApi.baseUrl}${state.list[index].profileImage}",fit: BoxFit.fill),
+                    itemCount: state.list.length,
+                    itemBuilder: (context, index) {
+                      if (state.list.isEmpty) {
+                        return Center(
+                          child: Text(
+                            'Student List is empty',
+                            style: GoogleFonts.roboto(
+                              color: Colors.black,
                             ),
                           ),
-                          const SizedBox(width: 10),
-                          Text(
-                            state.list[index].name,
-                            style: kTitleTextStyle,
+                        );
+                      } else {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            height: 70,
+                            width: double.infinity,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 50,
+                                  width: 50,
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(70),
+                                      child: Image(
+                                        image: NetworkImage(
+                                            "${AuthApi.baseUrlImage}${state.list[index].profileImage}"),
+                                        fit: BoxFit.cover,
+                                      )),
+                                ),
+                                const SizedBox(width: 10),
+                                Text(
+                                  state.list[index].name,
+                                  style: kTitleTextStyle,
+                                ),
+                                const Spacer(),
+                                SizedBox(
+                                  width: 85,
+                                  height: 40,
+                                  child: ElevatedButton(
+                                      style: ButtonStyle(
+                                          shape: MaterialStatePropertyAll(
+                                              ContinuousRectangleBorder(
+                                                  borderRadius: BorderRadius
+                                                      .circular(65))),
+                                          backgroundColor:
+                                              MaterialStatePropertyAll(
+                                                  Theme.of(context)
+                                                      .colorScheme
+                                                      .onBackground)),
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (ctx) =>
+                                                    const MassagingScreen()));
+                                      },
+                                      child: Text(
+                                        AppLocalizations.of(context)!.chat,
+                                        style: GoogleFonts.aBeeZee(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                ),
+                              ],
+                            ),
                           ),
-                          const Spacer(),
-                          SizedBox(
-                            width: 85,
-                            height: 40,
-                            child: ElevatedButton(
-                                style: ButtonStyle(
-                                    shape: MaterialStatePropertyAll(
-                                        ContinuousRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(65))),
-                                    backgroundColor: MaterialStatePropertyAll(
-                                        Theme.of(context)
-                                            .colorScheme
-                                            .onBackground)),
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (ctx) =>
-                                          const MassagingScreen()));
-                                },
-                                child: Text(
-                                  AppLocalizations.of(context)!.chat,
-                                  style: GoogleFonts.aBeeZee(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                )),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                    }
-                  }
-                );
+                        );
+                      }
+                    });
               },
             ))
           ]),

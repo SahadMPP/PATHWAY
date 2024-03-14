@@ -327,6 +327,7 @@ abstract class _updateingImage implements TeacherProfileCollectingEvent {
 /// @nodoc
 mixin _$TeacherProfileCollectingState {
   String? get selectedImage => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TeacherProfileCollectingStateCopyWith<TeacherProfileCollectingState>
@@ -341,7 +342,7 @@ abstract class $TeacherProfileCollectingStateCopyWith<$Res> {
       _$TeacherProfileCollectingStateCopyWithImpl<$Res,
           TeacherProfileCollectingState>;
   @useResult
-  $Res call({String? selectedImage});
+  $Res call({String? selectedImage, bool isLoading});
 }
 
 /// @nodoc
@@ -359,12 +360,17 @@ class _$TeacherProfileCollectingStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? selectedImage = freezed,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       selectedImage: freezed == selectedImage
           ? _value.selectedImage
           : selectedImage // ignore: cast_nullable_to_non_nullable
               as String?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -378,7 +384,7 @@ abstract class _$$TeacherProfileCollectingStateImplCopyWith<$Res>
       __$$TeacherProfileCollectingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? selectedImage});
+  $Res call({String? selectedImage, bool isLoading});
 }
 
 /// @nodoc
@@ -395,12 +401,17 @@ class __$$TeacherProfileCollectingStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? selectedImage = freezed,
+    Object? isLoading = null,
   }) {
     return _then(_$TeacherProfileCollectingStateImpl(
       selectedImage: freezed == selectedImage
           ? _value.selectedImage
           : selectedImage // ignore: cast_nullable_to_non_nullable
               as String?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -409,14 +420,17 @@ class __$$TeacherProfileCollectingStateImplCopyWithImpl<$Res>
 
 class _$TeacherProfileCollectingStateImpl
     implements _TeacherProfileCollectingState {
-  const _$TeacherProfileCollectingStateImpl({this.selectedImage});
+  const _$TeacherProfileCollectingStateImpl(
+      {this.selectedImage, required this.isLoading});
 
   @override
   final String? selectedImage;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'TeacherProfileCollectingState(selectedImage: $selectedImage)';
+    return 'TeacherProfileCollectingState(selectedImage: $selectedImage, isLoading: $isLoading)';
   }
 
   @override
@@ -425,11 +439,13 @@ class _$TeacherProfileCollectingStateImpl
         (other.runtimeType == runtimeType &&
             other is _$TeacherProfileCollectingStateImpl &&
             (identical(other.selectedImage, selectedImage) ||
-                other.selectedImage == selectedImage));
+                other.selectedImage == selectedImage) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedImage);
+  int get hashCode => Object.hash(runtimeType, selectedImage, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -442,11 +458,14 @@ class _$TeacherProfileCollectingStateImpl
 
 abstract class _TeacherProfileCollectingState
     implements TeacherProfileCollectingState {
-  const factory _TeacherProfileCollectingState({final String? selectedImage}) =
-      _$TeacherProfileCollectingStateImpl;
+  const factory _TeacherProfileCollectingState(
+      {final String? selectedImage,
+      required final bool isLoading}) = _$TeacherProfileCollectingStateImpl;
 
   @override
   String? get selectedImage;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$TeacherProfileCollectingStateImplCopyWith<

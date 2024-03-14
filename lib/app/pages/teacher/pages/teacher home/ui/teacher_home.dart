@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/core/constants/subject_list.dart';
+import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/pages/student/pages/See%20All/ui/see_all_category.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacher%20home/bloc/teacher_home_bloc.dart';
@@ -20,14 +21,17 @@ class TeachHome extends StatelessWidget {
       appBar: AppBar(
         title: Row(
           children: [
-            ClipRRect(
-                borderRadius: BorderRadius.circular(70),
-                child: CircleAvatar(
-                  child: Image.network(
-                  "http://learnpro.today:5000/$userProfile",
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                ))),
+            SizedBox(
+              height: 50,
+              width: 50,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(70),
+                  child: Image(
+                    image: NetworkImage(
+                        "${AuthApi.baseUrlImage}${userProfile!}"),
+                    fit: BoxFit.cover,
+                  )),
+            ),
             const SizedBox(width: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -94,10 +94,10 @@ class StudentApi {
     final url = Uri.parse("${baseUrl}update_student/$id");
 
     try {
-      final res = await http.patch(url,
+      final res = await http.put(url,
           body: jsonEncode(data),
           headers: {'Content-Type': 'application/json'});
-
+         
       if (res.statusCode == 200) {
         debugPrint("subject purcher successfull");
         //-----------update subject model-------------
@@ -133,7 +133,7 @@ class StudentApi {
               }
             } else {
               debugPrint(
-                  "debugPrint(we are fasing some error to getting lesson model");
+                  "we are fasing some error to getting lesson model");
             }
           } catch (e) {
             debugPrint(e.toString());
@@ -149,10 +149,9 @@ class StudentApi {
         Navigator.of(context).pop();
       } else {
         debugPrint("Faield to get response");
-
         buildShowSnacbar(
             context: context,
-            content: "Oop's something went wrong",
+            content: "Oop's something wrong",
             title: 'Oh Hey!',
             contentType: ContentType.failure);
       }
