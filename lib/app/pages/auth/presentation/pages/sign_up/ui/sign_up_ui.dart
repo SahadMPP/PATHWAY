@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/forgot_ui.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field.dart';
@@ -118,15 +119,16 @@ class SignUpScreen extends StatelessWidget {
                               passwordController: passwordController.text,
                               context: context,
                             ));
-                        // Navigator.of(context).pop();
+                        Navigator.of(context).pop();
 
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (ctx) => ForgetPasswordScreen(
-                        //           email: emailController,
-                        //           textToCheck: "varifymail",
-                        //           name: nameController,
-                        //           password: passwordController,
-                        //         )));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (ctx) => ForgetPasswordScreen(
+                                  directiontext: directionText,
+                                  email: emailController,
+                                  textToCheck: "varifymail",
+                                  name: nameController,
+                                  password: passwordController,
+                                )));
                       }
                     },
                   ),
