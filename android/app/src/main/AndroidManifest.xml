@@ -18,7 +18,7 @@
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <application
-        android:label="path_way_flu"
+        android:label="PATHWAY"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         android:usesCleartextTraffic = "true"
