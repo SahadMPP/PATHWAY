@@ -58,7 +58,7 @@ class SubcriptionDeatilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              AppLocalizations.of(context)!.paymentdate,
+                              AppLocalizations.of(context).paymentdate,
                               style: kSubtitleTextSyule.copyWith(
                                   color: Colors.grey[400]),
                             ),
@@ -73,7 +73,7 @@ class SubcriptionDeatilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                               AppLocalizations.of(context)!.price,
+                               AppLocalizations.of(context).price,
                               style: kSubtitleTextSyule.copyWith(
                                   color: Colors.grey[400]),
                             ),
@@ -94,7 +94,7 @@ class SubcriptionDeatilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                               AppLocalizations.of(context)!.cycle,
+                               AppLocalizations.of(context).cycle,
                               style: kSubtitleTextSyule.copyWith(
                                   color: Colors.grey[400]),
                             ),
@@ -109,12 +109,12 @@ class SubcriptionDeatilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                               AppLocalizations.of(context)!.type,
+                               AppLocalizations.of(context).type,
                               style: kSubtitleTextSyule.copyWith(
                                   color: Colors.grey[400]),
                             ),
                             Text(
-                               AppLocalizations.of(context)!.individual,
+                               AppLocalizations.of(context).individual,
                               style: kSubheadingextStyle.copyWith(
                                   height: 0, fontWeight: FontWeight.w400),
                             ),

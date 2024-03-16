@@ -99,7 +99,7 @@ class TeacherEditProfile extends StatelessWidget {
                         return BuildButton(
                             text: "update",
                             fun: () {
-                              var data = {
+                              Map<String,dynamic> data = {
                                 "name": state.nameController!.text.toString(),
                                 "email": state.emailController!.text.toString(),
                                 "password":

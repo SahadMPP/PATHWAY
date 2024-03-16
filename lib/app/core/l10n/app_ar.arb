@@ -1,10 +1,7 @@
 {
   "language": "اللغة العربية",
   "helloworld": "مرحبا بالعالم",
-  "multilanguage": "متعدد اللغات",
   "dashbord": "لوحة القيادة",
-  "primarytext": "النص الأساسي",
-  "secondarytext": "النص الثانوي",
   "tutorprogress": "تقدم المدرس",
   "studentprogress": "تقدم الطالب",
   "tocomplete": "لإكمال",

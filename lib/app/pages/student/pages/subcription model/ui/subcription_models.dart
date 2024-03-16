@@ -49,7 +49,7 @@ class SubcriptionScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      AppLocalizations.of(context)!.fortotalcourse,
+                      AppLocalizations.of(context).fortotalcourse,
                       style: GoogleFonts.aBeeZee(
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0,
@@ -64,20 +64,20 @@ class SubcriptionScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SubcriptionMiniCard(
-                      text: AppLocalizations.of(context)!.moresubs,
+                      text: AppLocalizations.of(context).moresubs,
                       icon: Icons.settings,
                       bgcolor: Colors.transparent,
                       borderColor: Colors.grey[800]),
                   const Spacer(),
                   SubcriptionMiniCard(
-                      text: AppLocalizations.of(context)!.addnewsub,
+                      text: AppLocalizations.of(context).addnewsub,
                       icon: Icons.add,
                       bgcolor: Theme.of(context).colorScheme.primary,
                       borderColor: Theme.of(context).colorScheme.secondary),
                 ],
               ),
               const SizedBox(height: 40),
-               BuildSubcriptionSubhead(text: AppLocalizations.of(context)!.upcomingsubjectpayment),
+               BuildSubcriptionSubhead(text: AppLocalizations.of(context).upcomingsubjectpayment),
               const SizedBox(height: 10),
               const BuildMainCardSubcirption(
                   image: "asset/subjucts_icon/mahts.png",
@@ -91,7 +91,7 @@ class SubcriptionScreen extends StatelessWidget {
                   date: "Nov 24,2023",
                   rate: "₹159"),
               const SizedBox(height: 30),
-               BuildSubcriptionSubhead(text: "${AppLocalizations.of(context)!.subscriptions}(${subjectList.length})"),
+               BuildSubcriptionSubhead(text: "${AppLocalizations.of(context).subscriptions}(${subjectList.length})"),
               const SizedBox(height: 10),
               Container(
                 width: MediaQuery.of(context).size.width,

@@ -82,7 +82,7 @@ class UpdatingTutorial extends StatelessWidget {
                           return BuildButton(
                               fun: () {
                                 if (formKey.currentState!.validate()) {
-                                  var data = {
+                                  Map<String,dynamic> data = {
                                     "title": titleController.text,
                                     "level": state.dropDownLevel,
                                     "videoUrl": videoUrlController.text,

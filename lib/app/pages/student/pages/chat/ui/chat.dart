@@ -31,7 +31,7 @@ class _StudentChatState extends State<StudentChat> {
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.onBackground),
+                  color: Theme.of(context).colorScheme.onPrimary),
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
@@ -55,7 +55,10 @@ class _StudentChatState extends State<StudentChat> {
                               StudentChatEvent.filteringForSearch(
                                   textValue: value));
                         },
-                        decoration: const InputDecoration(
+                        decoration:  InputDecoration(
+                          hintStyle: GoogleFonts.aBeeZee(
+                            color: Colors.grey,
+                          ),
                             hintText: "Search", border: InputBorder.none),
                       ),
                     ),
@@ -121,10 +124,8 @@ class _StudentChatState extends State<StudentChat> {
                                                   borderRadius: BorderRadius
                                                       .circular(65))),
                                           backgroundColor:
-                                              MaterialStatePropertyAll(
-                                                  Theme.of(context)
-                                                      .colorScheme
-                                                      .onBackground)),
+                                              const MaterialStatePropertyAll(
+                                                  Colors.blue)),
                                       onPressed: () {
                                         context.read<StudentChatBloc>().add(
                                             StudentChatEvent
@@ -135,6 +136,7 @@ class _StudentChatState extends State<StudentChat> {
                                         "Chat",
                                         style: GoogleFonts.aBeeZee(
                                             fontSize: 16,
+                                           color: Colors.white,
                                             fontWeight: FontWeight.bold),
                                       )),
                                 ),

@@ -8,6 +8,7 @@ import 'package:path_way_flu/app/data/middleware/teacher.dart';
 import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
 import 'package:path_way_flu/main.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class StudentvideoPlay extends StatefulWidget {
   final Lesson lesson;
@@ -123,23 +124,14 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                         ),
                       ],
                     ),
-                    // FutureBuilder(
-                    //   future:    StudentApi.getOneprogress(StudentApi()),
-                    //   builder: (context,AsyncSnapshot snapshot) {
-                    //     if (!snapshot.hasData) {
-                    //       return const Center(child: CircularProgressIndicator());
-                    //     } else {
-                    //         return CircularPercentIndicator(
-                    //       radius: 25,
-                    //       center: const Text("25%"),
-                    //       percent: 25 / 100,
-                    //       progressColor: const Color.fromARGB(255, 0, 255, 8),
-                    //       backgroundWidth: 5,
-                    //     );
-                    //     }
-
-                    //   }
-                    // ),
+                    CircularPercentIndicator(
+                          radius: 25,
+                          center: const Text("25%"),
+                          percent: 25 / 100,
+                          progressColor: const Color.fromARGB(255, 0, 255, 8),
+                          backgroundWidth: 5,
+                        ),
+                    
                   ]),
             ),
             Expanded(
@@ -155,9 +147,9 @@ class _StudentvideoPlayState extends State<StudentvideoPlay> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Course Content',
-                        style: kHeadingextStyle.copyWith(color: Colors.black),
+                        style: kHeadingextStyle,
                       ),
                       const SizedBox(height: 30),
                       FutureBuilder(
@@ -257,7 +249,6 @@ class CourseContent extends StatelessWidget {
           Text(
             "0${number + 1}".toString(),
             style: kHeadingextStyle.copyWith(
-              color: kTextColor.withOpacity(.15),
               fontSize: 32,
             ),
           ),
@@ -266,13 +257,11 @@ class CourseContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title,
-                  style: TextStyle(
-                    color: kTextColor.withOpacity(.5),
+                  style: const TextStyle(
                     fontSize: 18,
                   )),
               Text(creatorName,
-                  style: TextStyle(
-                    color: kTextColor.withOpacity(.5),
+                  style: const TextStyle(
                     fontSize: 18,
                   ))
             ],

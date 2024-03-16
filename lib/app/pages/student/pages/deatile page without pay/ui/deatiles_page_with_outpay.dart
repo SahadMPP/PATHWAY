@@ -148,7 +148,7 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                     ),
                     child: GestureDetector(
                       onTap: ()async {  
-                        // context.read<SubcriptionBloc>().add(SubcriptionEvent.makingsubcription(amount:99*100 , mob: '9876543211', subject:lesson.subject, email: 'sahad@gmail.com'));
+                        context.read<SubcriptionBloc>().add(SubcriptionEvent.makingsubcription(amount:99*100 , mob: '9876543211', subject:lesson.subject, email: 'sahad@gmail.com'));
                         Future.delayed(const Duration(seconds: 2));
                         context.read<SubcriptionBloc>().add(SubcriptionEvent.updataStudentdata(subject: lesson.id, id: userId!, context: context,lesson: lesson));
                       },
@@ -168,7 +168,7 @@ class StudentDeatileWithoutPay extends StatelessWidget {
                           child: Text(
                             "Buy Now",
                             style: kSubtitleTextSyule.copyWith(
-                              color: Theme.of(context).colorScheme.background,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

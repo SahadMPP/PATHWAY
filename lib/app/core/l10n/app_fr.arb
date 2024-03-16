@@ -69,5 +69,10 @@
   "cover image": "Image de couverture",
   "add": "Ajouter",
   "apply as a teacher": "Postuler comme enseignant",
-  "more": "Plus"
+  "more": "Plus",
+  "multilanguage": "Multilingue",
+  "primarytext": "Texte principal",
+  "secondarytext": "Texte secondaire",
+  "cancel": "Annuler",
+  "title": "Titre"
 }

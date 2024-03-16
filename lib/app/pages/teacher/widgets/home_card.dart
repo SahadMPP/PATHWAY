@@ -142,7 +142,7 @@ class BuildHomeBox extends StatelessWidget {
                                                         ),
                                                         const SizedBox(width: 5),
                                                         Text(
-                                                          "${lession[index].lessonId.length} ${AppLocalizations.of(context)!.lesson}",
+                                                          "${lession[index].lessonId.length} ${AppLocalizations.of(context).lesson}",
                                                           style:
                                                               GoogleFonts.aBeeZee(
                                                                   color:

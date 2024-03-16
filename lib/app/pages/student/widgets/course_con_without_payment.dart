@@ -21,7 +21,7 @@ class CourseContent extends StatelessWidget {
           Text(
             '0${number.toString()}',
             style: kHeadingextStyle.copyWith(
-              color: kTextColor.withOpacity(.15),
+              color: Colors.white,
               fontSize: 32,
             ),
           ),
@@ -30,8 +30,7 @@ class CourseContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(creator,
-                  style: TextStyle(
-                    color: kTextColor.withOpacity(.5),
+                  style: const TextStyle(
                     fontSize: 18,
                     height: 1,
                   )),

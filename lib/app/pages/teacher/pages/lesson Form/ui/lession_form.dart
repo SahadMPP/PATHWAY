@@ -8,7 +8,7 @@ import 'package:path_way_flu/app/pages/teacher/widgets/lesson_form_tutoral_list.
 import 'package:path_way_flu/app/pages/teacher/widgets/textfield.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorial%20form/ui/adding_tutorial_form.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lesson%20Form/bloc/lesson_form_bloc.dart';
-import 'package:path_way_flu/app/pages/teacher/widgets/sub_lesson_dropdown%20copy.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/sub_lesson_dropdown_copy.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LessionForm extends StatelessWidget {
@@ -30,14 +30,14 @@ class LessionForm extends StatelessWidget {
                     .read<LessonFormBloc>()
                     .add(LessonFormEvent.cancelButtonClick(context: context));
               },
-              child: Text(AppLocalizations.of(context)!.cancel,
+              child: Text(AppLocalizations.of(context).cancel,
                   style: GoogleFonts.roboto(
                       color: Colors.red[400],
                       fontSize: 16,
                       fontWeight: FontWeight.bold)),
             ),
             Text(
-              AppLocalizations.of(context)!.addlesson,
+              AppLocalizations.of(context).addlesson,
               style: GoogleFonts.roboto(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -66,7 +66,7 @@ class LessionForm extends StatelessWidget {
                       }
                     }
                   },
-                  child: Text(AppLocalizations.of(context)!.save,
+                  child: Text(AppLocalizations.of(context).save,
                       style: GoogleFonts.roboto(
                           color: Colors.green[400],
                           fontSize: 16,
@@ -87,7 +87,7 @@ class LessionForm extends StatelessWidget {
               child: Column(
                 children: [
                   BuildAddTutorFormText(
-                    title: AppLocalizations.of(context)!.title,
+                    title: AppLocalizations.of(context).title,
                     hintText: "title",
                     controllre: titleController,
                     validateText: "Title",
@@ -115,7 +115,7 @@ class LessionForm extends StatelessWidget {
             const BuildSubDropDownLession(),
             const SizedBox(height: 10),
             Text(
-              AppLocalizations.of(context)!.coverimage,
+              AppLocalizations.of(context).coverimage,
               style: GoogleFonts.roboto(
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
@@ -153,7 +153,7 @@ class LessionForm extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.lession,
+                  AppLocalizations.of(context).lession,
                   style: GoogleFonts.roboto(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
@@ -167,7 +167,7 @@ class LessionForm extends StatelessWidget {
                         )));
                   },
                   child: Text(
-                    AppLocalizations.of(context)!.add,
+                    AppLocalizations.of(context).add,
                     style: GoogleFonts.roboto(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,

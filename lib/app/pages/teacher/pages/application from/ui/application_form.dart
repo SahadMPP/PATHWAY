@@ -181,7 +181,7 @@ class TeacherApplicationFormSc extends StatelessWidget {
                                       contentType: ContentType.warning);
                                 } else {
                                   if (key.currentState!.validate()) {
-                                    var data = {
+                                    Map<String,dynamic> data = {
                                       "name": nameController.text,
                                       "mobNumber": numberController.text,
                                       "universityName":

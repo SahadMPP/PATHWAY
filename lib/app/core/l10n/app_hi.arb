@@ -1,10 +1,7 @@
 {
   "language": "भाषा",
   "helloworld": "नमस्ते दुनिया",
-  "multilanguage": "बहुभाषी",
   "dashbord": "डैशबोर्ड",
-  "primarytext": "मुख्य पाठ",
-  "secondarytext": "द्वितीय पाठ",
   "tutorprogress": "शिक्षक की प्रगति",
   "studentprogress": "छात्र की प्रगति",
   "tocomplete": "पूरा करने के लिए",

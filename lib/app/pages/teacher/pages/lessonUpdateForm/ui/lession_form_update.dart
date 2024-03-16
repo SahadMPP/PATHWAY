@@ -55,7 +55,7 @@ class LessonFormUpdate extends StatelessWidget {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       if (state.pikedImage != null) {
-                        var data = {
+                        Map<String,dynamic> data = {
                           "subject": state.dropdownPiker.toString(),
                           "title": titleController.text.toString(),
                           "coverImage": state.pikedImage.toString(),

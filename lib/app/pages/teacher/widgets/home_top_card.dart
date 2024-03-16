@@ -55,7 +55,7 @@ class BuildHomeBoxTop extends StatelessWidget {
                             size: 10,
                           ),
                           const SizedBox(width: 5),
-                          Text("20 ${AppLocalizations.of(context)!.lesson}")
+                          Text("20 ${AppLocalizations.of(context).lesson}")
                         ],
                       ),
                       Row(
@@ -66,7 +66,7 @@ class BuildHomeBoxTop extends StatelessWidget {
                             size: 10,
                           ),
                           const SizedBox(width: 5),
-                          Text("20${AppLocalizations.of(context)!.min}")
+                          Text("20${AppLocalizations.of(context).min}")
                         ],
                       ),
                     ],
@@ -86,7 +86,7 @@ class BuildHomeBoxTop extends StatelessWidget {
                                 side: const MaterialStatePropertyAll(
                                     BorderSide(width: 1, color: Colors.green))),
                             child: Text(
-                              AppLocalizations.of(context)!.entrollnow,
+                              AppLocalizations.of(context).entrollnow,
                               style: GoogleFonts.quicksand(
                                 color: Colors.green,
                                 fontWeight: FontWeight.bold,

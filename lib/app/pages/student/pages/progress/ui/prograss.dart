@@ -16,7 +16,7 @@ class StudentPrograss extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          AppLocalizations.of(context)!.status,
+          AppLocalizations.of(context).status,
           style: GoogleFonts.quicksand(
             fontSize: 28,
             fontWeight: FontWeight.bold,

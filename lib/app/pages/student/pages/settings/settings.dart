@@ -66,7 +66,7 @@ class StudentProfileScreen extends StatelessWidget {
                       size: 50,
                     ),
                     const SizedBox(width: 15),
-                    Text(AppLocalizations.of(context)!.settings,
+                    Text(AppLocalizations.of(context).settings,
                         style: kHeadingextStyle.copyWith(
                           color: Colors.white,
                           fontSize: 35,
@@ -126,7 +126,7 @@ class StudentProfileScreen extends StatelessWidget {
                         SizedBox(
                           width: 100,
                           child: Text(
-                            AppLocalizations.of(context)!.accountsettings,
+                            AppLocalizations.of(context).accountsettings,
                             style: kTitleTextStyle.copyWith(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w400),
@@ -134,7 +134,7 @@ class StudentProfileScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.editprofile,
+                            text: AppLocalizations.of(context).editprofile,
                             fun: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) =>
@@ -144,22 +144,22 @@ class StudentProfileScreen extends StatelessWidget {
                             icon: Icons.navigate_next),
                         BuildProfileWithToggle(
                             text:
-                                AppLocalizations.of(context)!.pushnotification,
+                                AppLocalizations.of(context).pushnotification,
                             fun: () {}),
                         BuildProfileWithToggle(
-                            text: AppLocalizations.of(context)!.darkmode,
+                            text: AppLocalizations.of(context).darkmode,
                             fun: () {}),
                         const Divider(
                             color: Color.fromARGB(255, 228, 228, 228),
                             thickness: 1),
                         const SizedBox(height: 10),
                         Text(
-                          AppLocalizations.of(context)!.more,
+                          AppLocalizations.of(context).more,
                           style: kTitleTextStyle.copyWith(
                               color: Colors.grey, fontWeight: FontWeight.w400),
                         ),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.aboutus,
+                            text: AppLocalizations.of(context).aboutus,
                             fun: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const About(),
@@ -167,7 +167,7 @@ class StudentProfileScreen extends StatelessWidget {
                             },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.complaint,
+                            text: AppLocalizations.of(context).complaint,
                             fun: () {
                               showDialog(
                                   context: context,
@@ -186,7 +186,7 @@ class StudentProfileScreen extends StatelessWidget {
                             },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.privacyconcern,
+                            text: AppLocalizations.of(context).privacyconcern,
                             fun: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const Privecy(),
@@ -194,7 +194,7 @@ class StudentProfileScreen extends StatelessWidget {
                             },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.logout,
+                            text: AppLocalizations.of(context).logout,
                             fun: () {
                               PanaraInfoDialog.show(
                                 context,

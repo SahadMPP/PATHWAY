@@ -47,7 +47,7 @@ class SeeAllCategory extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    AppLocalizations.of(context)!.lesson,
+                    AppLocalizations.of(context).lesson,
                     style: GoogleFonts.quicksand(
                       fontSize: 18,
                       color: Theme.of(context).colorScheme.onSecondary,

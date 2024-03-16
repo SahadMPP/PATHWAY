@@ -7,21 +7,9 @@
   "@helloworld": {
     "description": "a programmer greeting"
   },
-  "multilanguage": "Multi language",
-  "@multilanguage": {
-    "description": "app tile"
-  },
   "dashbord": "Dashbord",
   "@dashbord": {
     "description": "admin home"
-  },
-  "primarytext": "Primary text",
-  "@primarytext": {
-    "description": "text used as primary content"
-  },
-  "secondarytext": "Secondary text",
-  "@secondarytext": {
-    "description": "text used as secondary content"
   },
   "tutorprogress": "Tutor progress",
   "@tutorprogress": {

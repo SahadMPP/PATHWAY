@@ -28,7 +28,7 @@ class ListOfLession extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          AppLocalizations.of(context)!.lession,
+          AppLocalizations.of(context).lession,
           style: GoogleFonts.roboto(
             fontWeight: FontWeight.bold,
             fontSize: 22,
@@ -102,7 +102,7 @@ class ListOfLession extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      "${AppLocalizations.of(context)!.lession} ${lesson[index].lessonId.length}",
+                                      "${AppLocalizations.of(context).lession} ${lesson[index].lessonId.length}",
                                       style: GoogleFonts.quicksand(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -127,7 +127,7 @@ class ListOfLession extends StatelessWidget {
                                                       Theme.of(context)
                                                           .colorScheme
                                                           .onSurface)),
-                                          child:  Text(AppLocalizations.of(context)!.keepprocessing),
+                                          child:  Text(AppLocalizations.of(context).keepprocessing),
                                         ))
                                   ],
                                 ),

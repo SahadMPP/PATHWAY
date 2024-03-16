@@ -79,7 +79,7 @@ class StudentInitDeatilesBloc
     });
 
     on<_updatingLevel>((event, emit) {
-      var data = {'level': state.selectedLevel.toString()};
+      Map<String,dynamic> data = {'level': state.selectedLevel.toString()};
       StudentApi.updateStudentForlevel(userId, data, event.context);
     });
   }

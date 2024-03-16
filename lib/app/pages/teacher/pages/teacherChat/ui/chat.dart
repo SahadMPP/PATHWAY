@@ -25,7 +25,7 @@ class TeacherChat extends StatelessWidget {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const SizedBox(height: 40),
             Text(
-              AppLocalizations.of(context)!.chat,
+              AppLocalizations.of(context).chat,
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -53,7 +53,7 @@ class TeacherChat extends StatelessWidget {
                               TeacherChatEvent.runFilterdValue(value: value));
                         },
                         decoration: InputDecoration(
-                            hintText: AppLocalizations.of(context)!.search,
+                            hintText: AppLocalizations.of(context).search,
                             border: InputBorder.none),
                       ),
                     ),
@@ -62,7 +62,7 @@ class TeacherChat extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Text(AppLocalizations.of(context)!.students,
+            Text(AppLocalizations.of(context).students,
                 style: kTitleTextStyle),
             const SizedBox(height: 10),
             Expanded(child: BlocBuilder<TeacherChatBloc, TeacherChatState>(
@@ -126,7 +126,7 @@ class TeacherChat extends StatelessWidget {
                                                     const MassagingScreen()));
                                       },
                                       child: Text(
-                                        AppLocalizations.of(context)!.chat,
+                                        AppLocalizations.of(context).chat,
                                         style: GoogleFonts.aBeeZee(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold),

@@ -18,7 +18,9 @@ class StuHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.background,
         title: Row(
           children: [
             SizedBox(
@@ -26,14 +28,17 @@ class StuHome extends StatelessWidget {
               width: 45,
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(70),
-                  child:Image(image: NetworkImage("${AuthApi.baseUrlImage}$userProfile"),fit: BoxFit.cover,)),
+                  child: Image(
+                    image: NetworkImage("${AuthApi.baseUrlImage}$userProfile"),
+                    fit: BoxFit.cover,
+                  )),
             ),
             const SizedBox(width: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.welcome,
+                  AppLocalizations.of(context).welcome,
                   style: GoogleFonts.aBeeZee(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -60,7 +65,6 @@ class StuHome extends StatelessWidget {
           ],
         ),
       ),
-      backgroundColor: Theme.of(context).colorScheme.background,
       body: Padding(
         padding: const EdgeInsets.only(left: 20, top: 20, right: 10),
         child: SingleChildScrollView(
@@ -69,7 +73,7 @@ class StuHome extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              Text(AppLocalizations.of(context)!.suggestedyou,
+              Text(AppLocalizations.of(context).suggestedyou,
                   style: kTitleTextStyle),
               const SizedBox(height: 15),
               const BuildHomeBoxTop(),
@@ -77,14 +81,14 @@ class StuHome extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(AppLocalizations.of(context)!.topics,
+                  Text(AppLocalizations.of(context).topics,
                       style: kTitleTextStyle),
                   InkWell(
                     onTap: () {
                       context.read<StudentHomeBloc>().add(
                           StudentHomeEvent.navigatingSeeAll(context: context));
                     },
-                    child: Text(AppLocalizations.of(context)!.seeall,
+                    child: Text(AppLocalizations.of(context).seeall,
                         style: kSubtitleTextSyule.copyWith(color: kBlueColor)),
                   ),
                 ],
@@ -184,14 +188,14 @@ class StuHome extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(AppLocalizations.of(context)!.featurecourse,
+                  Text(AppLocalizations.of(context).featurecourse,
                       style: kTitleTextStyle),
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (ctx) => const SeeAllCategory()));
                     },
-                    child: Text(AppLocalizations.of(context)!.seeall,
+                    child: Text(AppLocalizations.of(context).seeall,
                         style: kSubtitleTextSyule.copyWith(color: kBlueColor)),
                   ),
                 ],

@@ -35,7 +35,7 @@ class TeacherSettings extends StatelessWidget {
                       size: 50,
                     ),
                     const SizedBox(width: 15),
-                    Text(AppLocalizations.of(context)!.settings,
+                    Text(AppLocalizations.of(context).settings,
                         style: kHeadingextStyle.copyWith(
                           color: Colors.white,
                           fontSize: 35,
@@ -96,7 +96,7 @@ class TeacherSettings extends StatelessWidget {
                         SizedBox(
                           width: 100,
                           child: Text(
-                            AppLocalizations.of(context)!.accountsettings,
+                            AppLocalizations.of(context).accountsettings,
                             style: kTitleTextStyle.copyWith(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w400),
@@ -104,7 +104,7 @@ class TeacherSettings extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.editprofile,
+                            text: AppLocalizations.of(context).editprofile,
                             fun: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) =>
@@ -113,7 +113,7 @@ class TeacherSettings extends StatelessWidget {
                             },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.applyasateacher,
+                            text: AppLocalizations.of(context).applyasateacher,
                             fun: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (ctx) =>
@@ -122,22 +122,22 @@ class TeacherSettings extends StatelessWidget {
                             icon: Icons.navigate_next),
                         BuildProfileWithToggle(
                             text:
-                                AppLocalizations.of(context)!.pushnotification,
+                                AppLocalizations.of(context).pushnotification,
                             fun: () {}),
                         const SizedBox(height: 10),
 
                         BuildProfileWithToggle(
-                            text: AppLocalizations.of(context)!.darkmode,
+                            text: AppLocalizations.of(context).darkmode,
                             fun: () {}),
                         const Divider(),
                         const SizedBox(height: 10),
                         Text(
-                          AppLocalizations.of(context)!.more,
+                          AppLocalizations.of(context).more,
                           style: kTitleTextStyle.copyWith(
                               color: Colors.grey, fontWeight: FontWeight.w400),
                         ),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.aboutus,
+                            text: AppLocalizations.of(context).aboutus,
                             fun: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const About(),
@@ -145,7 +145,7 @@ class TeacherSettings extends StatelessWidget {
                             },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.privacyconcern,
+                            text: AppLocalizations.of(context).privacyconcern,
                             fun: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const Privecy(),
@@ -153,7 +153,7 @@ class TeacherSettings extends StatelessWidget {
                             },
                             icon: Icons.navigate_next),
                         BuildProfileCard(
-                            text: AppLocalizations.of(context)!.logout,
+                            text: AppLocalizations.of(context).logout,
                             fun: () {
                               PanaraInfoDialog.show(
                                 context,

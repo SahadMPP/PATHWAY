@@ -18,7 +18,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Colors.white,
         body: Stack(
           children: [
             SizedBox(
@@ -45,7 +45,9 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                 children: [
                   GestureDetector(
                       onTap: () => controller.jumpToPage(2),
-                      child: const Text("skip")),
+                      child: const Text("skip",style: TextStyle(
+                        color: Colors.black,
+                      ),)),
                   SmoothPageIndicator(
                       controller: controller, // PageController
                       count: 3,
@@ -57,12 +59,12 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                               MaterialPageRoute(
                                   builder: (ctx) => const DirectionScreen()),
                               (route) => false),
-                          child: const Text("done"))
+                          child: const Text("done",style: TextStyle(color: Colors.black),))
                       : GestureDetector(
                           onTap: () => controller.nextPage(
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.easeIn),
-                          child: const Text("next"))
+                          child: const Text("next",style: TextStyle(color: Colors.black)))
                 ],
               ),
             )

@@ -1,0 +1,24 @@
+{
+  "ar": [
+    "hi"
+  ],
+
+  "fa": [
+    "hi",
+    "applyasateacher"
+  ],
+
+  "fr": [
+    "hi",
+    "featurecourse",
+    "entrollnow",
+    "coverimage",
+    "applyasateacher"
+  ],
+
+  "hi": [
+    "hi",
+    "featurecourse",
+    "entrollnow"
+  ]
+}

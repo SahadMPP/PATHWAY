@@ -21,8 +21,8 @@ class TeacherPrograssScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 30),
-                 Text("${AppLocalizations.of(context)!.hey} $userName,", style: kHeadingextStyle),
-                 Text(AppLocalizations.of(context)!.hereisyourstatus, style: kSubheadingextStyle),
+                 Text("${AppLocalizations.of(context).hey} $userName,", style: kHeadingextStyle),
+                 Text(AppLocalizations.of(context).hereisyourstatus, style: kSubheadingextStyle),
                 const SizedBox(height: 30),
                 Column(
                   children: [
@@ -30,7 +30,7 @@ class TeacherPrograssScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          AppLocalizations.of(context)!.statistics,
+                          AppLocalizations.of(context).statistics,
                           style: kSubheadingextStyle.copyWith(fontSize: 15),
                         ),
                         const Text(
@@ -43,7 +43,7 @@ class TeacherPrograssScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          AppLocalizations.of(context)!.realtimeprogress,
+                          AppLocalizations.of(context).realtimeprogress,
                           style: kTitleTextStyle.copyWith(fontSize: 15),
                         ),
                         Text(
@@ -80,7 +80,7 @@ class TeacherPrograssScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  AppLocalizations.of(context)!.status,
+                                  AppLocalizations.of(context).status,
                                   style: kSubheadingextStyle.copyWith(
                                       fontSize: 10, height: 1.2),
                                 ),

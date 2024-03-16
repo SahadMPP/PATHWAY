@@ -136,7 +136,7 @@ class ProdectCard extends StatelessWidget {
                                         ),
                                         const SizedBox(width: 5),
                                         Text(
-                                          "${state.list[index].lessonId.length} ${AppLocalizations.of(context)!.lesson}",
+                                          "${state.list[index].lessonId.length} ${AppLocalizations.of(context).lesson}",
                                           style: GoogleFonts.aBeeZee(
                                               color: Colors.grey,
                                               fontWeight:

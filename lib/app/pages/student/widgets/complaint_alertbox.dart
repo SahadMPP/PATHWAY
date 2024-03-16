@@ -159,7 +159,7 @@ class ComplantStudent extends StatelessWidget {
                       int day = date.day;
                       int month = date.month;
                       int year = date.year;
-                      var data = {
+                      Map<String,dynamic> data = {
                         "title": titleEditControlle.text,
                         "description": discriptionEditControlle.text,
                         "dataTime": '$day/$month/$year',

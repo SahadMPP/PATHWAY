@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -35,7 +36,7 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
       if (res.statusCode == 200) {
        var data = json.decode(res.body);
       
-        var dataNew = {
+        Map<String,dynamic> dataNew = {
          "subject":event.subject.toString(),
          "title":event.title.toString(),
          "coverImage":event.coverImage.toString(),

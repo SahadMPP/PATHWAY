@@ -88,7 +88,7 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
         c = 1;
         list.add(event.subject);
       }
-      var data = {"lessonId": list};
+      Map<String,dynamic> data = {"lessonId": list};
 
       if (c == 0) {
         buildShowSnacbar(

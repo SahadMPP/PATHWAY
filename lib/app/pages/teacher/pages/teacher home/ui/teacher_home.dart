@@ -37,7 +37,7 @@ class TeachHome extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.welcome,
+                  AppLocalizations.of(context).welcome,
                   style: GoogleFonts.aBeeZee(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -72,7 +72,7 @@ class TeachHome extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              Text(AppLocalizations.of(context)!.suggestedyou,
+              Text(AppLocalizations.of(context).suggestedyou,
                   style: kTitleTextStyle),
               const SizedBox(height: 15),
               const BuildHomeBoxTop(),
@@ -80,14 +80,14 @@ class TeachHome extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(AppLocalizations.of(context)!.topics,
+                  Text(AppLocalizations.of(context).topics,
                       style: kTitleTextStyle),
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (ctx) => const SeeAllCategory()));
                     },
-                    child: Text(AppLocalizations.of(context)!.seeall,
+                    child: Text(AppLocalizations.of(context).seeall,
                         style: kSubtitleTextSyule.copyWith(color: kBlueColor)),
                   ),
                 ],
@@ -186,14 +186,14 @@ class TeachHome extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(AppLocalizations.of(context)!.featurecourse,
+                  Text(AppLocalizations.of(context).featurecourse,
                       style: kTitleTextStyle),
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (ctx) => const SeeAllCategory()));
                     },
-                    child: Text(AppLocalizations.of(context)!.seeall,
+                    child: Text(AppLocalizations.of(context).seeall,
                         style: kSubtitleTextSyule.copyWith(color: kBlueColor)),
                   ),
                 ],

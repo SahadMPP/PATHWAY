@@ -5,6 +5,7 @@ import 'package:path_way_flu/app/data/model/message.dart';
 import 'package:path_way_flu/app/pages/chat/controller/chat_controller.dart';
 import 'package:path_way_flu/app/pages/student/pages/videocall/video_call.dart';
 import 'package:path_way_flu/main.dart';
+// ignore: library_prefixes
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:socket_io_client/socket_io_client.dart';
 
