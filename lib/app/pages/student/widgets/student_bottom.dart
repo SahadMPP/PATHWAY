@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:path_way_flu/app/pages/student/pages/chat/ui/chat.dart';
 import 'package:path_way_flu/app/pages/student/pages/progress/ui/prograss.dart';
 import 'package:path_way_flu/app/pages/student/pages/settings/settings.dart';
-import 'package:path_way_flu/app/pages/student/pages/student%20home/ui/student_home_ui.dart';
+import 'package:path_way_flu/app/pages/student/pages/student%20home/ui/student_home.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/ui/subcription_models.dart';
 
 
@@ -16,7 +16,7 @@ class StudentBotmNavi extends StatefulWidget {
 class _StudentBotmNaviState extends State<StudentBotmNavi> {
   int currentIndex = 0;
   List<Widget> body = [
-    const StuHome(),
+    const StudentHome(),
     const SubcriptionScreen(),
     const StudentChat(),
     const StudentPrograss(),
