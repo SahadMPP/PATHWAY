@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/ui/direction.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/pages/indroduction/intro_page_1.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/pages/indroduction/intro_page_2.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/pages/indroduction/intro_page_3.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/indroduction/intro%20page%20one/intropage_one.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/indroduction/intro%20page%20three/intropage_three.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/indroduction/intro%20page%20two/intropage_two.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBordingScreen extends StatefulWidget {
@@ -32,9 +32,9 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                   });
                 },
                 children: const [
-                  IntroPage1(),
-                  IntroPage2(),
-                  IntroPage3(),
+                  IntroOne(),
+                  IntroTwo(),
+                  IntroThree(),
                 ],
               ),
             ),

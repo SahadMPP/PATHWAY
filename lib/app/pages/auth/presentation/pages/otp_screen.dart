@@ -4,7 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/ui/sign_in_ui.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/ui/sign_in.dart';
+
 
 class OtpScreen extends StatelessWidget {
   final String emailtext;
@@ -248,7 +249,7 @@ class OtpScreen extends StatelessWidget {
                         // ignore: use_build_context_synchronously
                         Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
-                                builder: (ctx) =>  SignInScreen(directiontext:directiontext ,)),
+                                builder: (ctx) =>  SignIn(directiontext:directiontext ,)),
                             (route) => false);
                       } else {
                         // ignore: use_build_context_synchronously

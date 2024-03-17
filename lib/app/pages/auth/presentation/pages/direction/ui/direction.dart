@@ -14,7 +14,7 @@ class _DirectionState extends State<Direction> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: DirectionLayout(
+      body: ResponsiveLayOut(
           mobileScaffold: DirectionMob(),
           tabletScaffold: DirectionMob(),
           desktopScaffold: DirectionDesk()),

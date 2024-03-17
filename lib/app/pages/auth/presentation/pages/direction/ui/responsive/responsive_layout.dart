@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class DirectionLayout extends StatelessWidget {
+class ResponsiveLayOut extends StatelessWidget {
   final Widget mobileScaffold;
   final Widget tabletScaffold;
   final Widget desktopScaffold;
 
-  const DirectionLayout(
+  const ResponsiveLayOut(
       {super.key,
       required this.mobileScaffold,
       required this.tabletScaffold,
@@ -19,7 +19,7 @@ class DirectionLayout extends StatelessWidget {
           return mobileScaffold;
         }
         if (constraints.maxWidth < 1000) {
-          return mobileScaffold;
+          return tabletScaffold;
         } else {
           return desktopScaffold;
         }

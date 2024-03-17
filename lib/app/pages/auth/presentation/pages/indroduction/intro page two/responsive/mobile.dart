@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class IntroPage3 extends StatelessWidget {
-  const IntroPage3({super.key});
+class IntroTwoMob extends StatelessWidget {
+  const IntroTwoMob({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+      return Container(
+      
       decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
-                  'asset/onbordingImage/Screenshot 2024-02-01 205317.png'),
+                  'asset/onbordingImage/Screenshot 2024-02-01 205207.png'),
               fit: BoxFit.cover)),
-              alignment: Alignment.bottomCenter,
+      alignment: Alignment.bottomCenter,
       child: SizedBox(
         height: 100,
         width: 300,
         child: Column(
           children: [
-            Text('Findout Your Creativity',
+            Text('Discover Your Power',
                 style: GoogleFonts.roboto(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,

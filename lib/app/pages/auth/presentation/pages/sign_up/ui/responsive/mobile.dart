@@ -9,9 +9,9 @@ import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field
 import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field_password.dart';
 
 
-class SignUpScreen extends StatelessWidget {
+class SignUpMobLayOut extends StatelessWidget {
   final String directionText;
-  const SignUpScreen({super.key, required this.directionText});
+  const SignUpMobLayOut({super.key, required this.directionText});
 
   @override
   Widget build(BuildContext context) {

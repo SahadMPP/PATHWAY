@@ -3,17 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/forgot_ui.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/ui/sign_up_ui.dart';
-import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/ui/signup.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field_email.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field_password.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignMobLayOut extends StatelessWidget {
   final String directiontext;
-  const SignInScreen({
-    super.key,
-    required this.directiontext,
-  });
+
+  const SignMobLayOut({super.key, required this.directiontext});
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +124,7 @@ class SignInScreen extends StatelessWidget {
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (ctx) =>
-                                SignUpScreen(directionText: directiontext)));
+                                SignUp(directiontext: directiontext)));
                       },
                       child: Text('Sign Up',
                           style: GoogleFonts.roboto(

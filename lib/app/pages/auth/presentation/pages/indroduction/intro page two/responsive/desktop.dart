@@ -1,25 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class IntroPage1 extends StatelessWidget {
-  const IntroPage1({super.key});
+class IntroTwoDesk extends StatelessWidget {
+  const IntroTwoDesk({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-                  'asset/onbordingImage/Screenshot 2024-02-01 203844.png'),
-              fit: BoxFit.cover)),
-      alignment: Alignment.bottomCenter,
-      child: SizedBox(
-        height: 100,
-        width: 300,
-        child: Column(
+    return  Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Container(
+              height: double.infinity,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(12)),
+                image: DecorationImage(image:AssetImage("asset/onbordingImage/Screenshot 2024-02-01 205207.png"))
+              ),
+            ),
+          ),
+
+          Expanded(
+            child: Column(
           children: [
-            Text('Study Overview',
+                const SizedBox(height: 20),
+
+            Text('Discover Your Power',
                 style: GoogleFonts.roboto(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -36,6 +43,8 @@ class IntroPage1 extends StatelessWidget {
                 )),
           ],
         ),
+          )
+        ],
       ),
     );
   }
