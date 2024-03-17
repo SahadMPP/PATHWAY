@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:http/http.dart' as http;
-import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/ui/direction_screen_ui.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/ui/direction.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/indroduction/onbording_screen.dart';
 import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/ui/student_age_piking.dart';
 import 'package:path_way_flu/app/pages/student/widgets/student_bottom.dart';
@@ -91,7 +91,7 @@ class AuthFuntion {
     sharepre.clear();
 
     Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (ctx) => const DirectionScreen()),
+        MaterialPageRoute(builder: (ctx) => const Direction()),
         (route) => false);
   }
 

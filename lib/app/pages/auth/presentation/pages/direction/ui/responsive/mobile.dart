@@ -5,13 +5,12 @@ import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/di
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/ui/sign_in_ui.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
 
-
-class DirectionScreen extends StatelessWidget {
-  const DirectionScreen({super.key});
+class DirectionMob extends StatelessWidget {
+  const DirectionMob({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+   return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -108,6 +107,4 @@ class DirectionScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }

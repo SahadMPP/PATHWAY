@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/ui/direction_screen_ui.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/ui/direction.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/indroduction/intro_page_1.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/indroduction/intro_page_2.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/indroduction/intro_page_3.dart';
@@ -57,7 +57,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                       ? GestureDetector(
                           onTap: () => Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(
-                                  builder: (ctx) => const DirectionScreen()),
+                                  builder: (ctx) => const Direction()),
                               (route) => false),
                           child: const Text("done",style: TextStyle(color: Colors.black),))
                       : GestureDetector(
