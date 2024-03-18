@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:path_way_flu/app/core/constants/subject_list.dart';
-import 'package:path_way_flu/app/pages/student/pages/See%20All/ui/see_all_category.dart';
+import 'package:path_way_flu/app/pages/student/pages/See%20All/ui/see_all.dart';
 
 part 'teacher_home_event.dart';
 part 'teacher_home_state.dart';
@@ -15,7 +15,7 @@ class TeacherHomeBloc extends Bloc<TeacherHomeEvent, TeacherHomeState> {
   TeacherHomeBloc() : super(TeacherHomeState.initial()) {
     on<_navigatingSeeAllPage>((event, emit) {
       Navigator.of(event.context).push(MaterialPageRoute(
-        builder: (context) => const SeeAllCategory(),
+        builder: (context) => const SeeAll(),
       ));
     });
 

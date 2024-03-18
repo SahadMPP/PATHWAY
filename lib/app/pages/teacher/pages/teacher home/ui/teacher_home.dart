@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/core/constants/subject_list.dart';
 import 'package:path_way_flu/app/data/middleware/auth.dart';
-import 'package:path_way_flu/app/pages/student/pages/See%20All/ui/see_all_category.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:path_way_flu/app/pages/student/pages/See%20All/ui/see_all.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/teacher%20home/bloc/teacher_home_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/home_card.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/home_top_card.dart';
@@ -85,7 +85,7 @@ class TeachHome extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (ctx) => const SeeAllCategory()));
+                          builder: (ctx) => const SeeAll()));
                     },
                     child: Text(AppLocalizations.of(context).seeall,
                         style: kSubtitleTextSyule.copyWith(color: kBlueColor)),
@@ -191,7 +191,7 @@ class TeachHome extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (ctx) => const SeeAllCategory()));
+                          builder: (ctx) => const SeeAll()));
                     },
                     child: Text(AppLocalizations.of(context).seeall,
                         style: kSubtitleTextSyule.copyWith(color: kBlueColor)),

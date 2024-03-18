@@ -5,8 +5,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/app/pages/student/pages/See%20All/bloc/see_all_bloc.dart';
 import 'package:path_way_flu/app/pages/student/widgets/see_all_card.dart';
 
-class SeeAllCategory extends StatelessWidget {
-  const SeeAllCategory({super.key});
+class SeeAllDesk extends StatelessWidget {
+  const SeeAllDesk({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class SeeAllCategory extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              const ProdectCard()
+              const ProdectCard(count: 6)
             ],
           ),
         ),

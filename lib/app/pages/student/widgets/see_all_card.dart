@@ -6,8 +6,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class ProdectCard extends StatelessWidget {
+  final int count;
   const ProdectCard({
-    super.key,
+    super.key, required this.count,
   });
 
   @override
@@ -18,8 +19,8 @@ class ProdectCard extends StatelessWidget {
           return SizedBox(
             child: GridView.builder(
                 gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
+                     SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: count,
                   crossAxisSpacing: 15,
                   mainAxisSpacing: 15,
                   mainAxisExtent: 200,

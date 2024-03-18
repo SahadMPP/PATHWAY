@@ -151,13 +151,22 @@ class HomeMainBox extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 40),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: BlocBuilder<StudentHomeBloc, StudentHomeState>(
-                builder: (context, state) {
-                  return Text(state.currentSubject, style: kTitleTextStyle);
-                },
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                BlocBuilder<StudentHomeBloc, StudentHomeState>(
+                  builder: (context, state) {
+                    return Text(state.currentSubject, style: kTitleTextStyle);
+                  },
+                ),
+                TextButton(onPressed: (){
+                  context.read<StudentHomeBloc>().add(StudentHomeEvent.navigatingSeeAll(context: context));
+                }, child:  Text('SeeAll',style: GoogleFonts.aBeeZee(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12,
+                ),))
+              ],
             ),
             const SizedBox(height: 20),
             BlocBuilder<StudentHomeBloc, StudentHomeState>(

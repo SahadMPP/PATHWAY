@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:path_way_flu/app/core/constants/subject_list.dart';
 import 'package:path_way_flu/app/data/middleware/student.dart';
 import 'package:path_way_flu/app/data/model/lession.dart';
-import 'package:path_way_flu/app/pages/student/pages/See%20All/ui/see_all_category.dart';
+import 'package:path_way_flu/app/pages/student/pages/See%20All/ui/see_all.dart';
 import 'package:path_way_flu/main.dart';
 
 part 'student_home_event.dart';
@@ -15,7 +15,7 @@ part 'student_home_bloc.freezed.dart';
 class StudentHomeBloc extends Bloc<StudentHomeEvent, StudentHomeState> {
   StudentHomeBloc() : super(StudentHomeState.initial()) {
    on<_navigatingSeeAll>((event, emit) {
-      Navigator.of(event.context).push(MaterialPageRoute(builder: (context) => const SeeAllCategory(),));
+      Navigator.of(event.context).push(MaterialPageRoute(builder: (context) => const SeeAll(),));
    });
 
    on<_swichingSubjectList>((event, emit) {
