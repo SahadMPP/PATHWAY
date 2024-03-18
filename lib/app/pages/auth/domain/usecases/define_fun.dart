@@ -9,6 +9,7 @@ import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/ui/dire
 import 'package:path_way_flu/app/pages/auth/presentation/pages/indroduction/onbording_screen.dart';
 import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/ui/student_age_piking.dart';
 import 'package:path_way_flu/app/pages/student/widgets/student_bottom.dart';
+import 'package:path_way_flu/app/pages/student/widgets/student_main_screen.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/collect%20profile/ui/teacher_profile_piker.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/teacher_bottom_navi.dart';
 import 'package:path_way_flu/main.dart';
@@ -40,7 +41,18 @@ class AuthFuntion {
               (route) => false);
         } else {
           Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (ctx) => const StudentBotmNavi()),
+              MaterialPageRoute(
+                  builder: (ctx) => LayoutBuilder(
+                        builder: (context, constraints) {
+                          if (constraints.maxWidth < 600) {
+                            return const StudentBotmNavi();
+                          } else if (constraints.maxWidth < 1000) {
+                            return const StudentMainScreen();
+                          } else {
+                            return const StudentMainScreen();
+                          }
+                        },
+                      )),
               (route) => false);
         }
       } else {

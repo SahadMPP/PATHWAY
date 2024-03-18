@@ -51,15 +51,14 @@ class BuildHomeBoxDesk extends StatelessWidget {
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(left: 15),
-                                  child: ClipRRect(
-                                  
+                                  child: ClipRRect(               
                                     borderRadius: BorderRadius.circular(25),
                                     child: Container(
                                       padding: const EdgeInsets.only(
                                           left: 10, right: 10, top: 10),
                                       color:
                                           Theme.of(context).colorScheme.secondary,
-                                      width: MediaQuery.of(context).size.width * .6,
+                                      width: MediaQuery.of(context).size.width * .3,
                                       child: Column(
                                         children: [
                                           SizedBox(

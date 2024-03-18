@@ -12,4 +12,9 @@ class StudentHomeEvent with _$StudentHomeEvent {
   const factory StudentHomeEvent.swichingSubjectList({
     required int index,
   }) = _swichingSubjectList;
+
+  const factory StudentHomeEvent.selectingDeskSection({
+    required int index,
+  }) = _selectingDeskSection;
+  
 }

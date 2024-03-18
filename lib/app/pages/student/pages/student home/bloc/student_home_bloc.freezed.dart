@@ -21,6 +21,7 @@ mixin _$StudentHomeEvent {
     required TResult Function(BuildContext context) navigatingSeeAll,
     required TResult Function(BuildContext context, Lesson lesson) deatilePage,
     required TResult Function(int index) swichingSubjectList,
+    required TResult Function(int index) selectingDeskSection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$StudentHomeEvent {
     TResult? Function(BuildContext context)? navigatingSeeAll,
     TResult? Function(BuildContext context, Lesson lesson)? deatilePage,
     TResult? Function(int index)? swichingSubjectList,
+    TResult? Function(int index)? selectingDeskSection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$StudentHomeEvent {
     TResult Function(BuildContext context)? navigatingSeeAll,
     TResult Function(BuildContext context, Lesson lesson)? deatilePage,
     TResult Function(int index)? swichingSubjectList,
+    TResult Function(int index)? selectingDeskSection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$StudentHomeEvent {
     required TResult Function(_navigatingSeeAll value) navigatingSeeAll,
     required TResult Function(_deatilePage value) deatilePage,
     required TResult Function(_swichingSubjectList value) swichingSubjectList,
+    required TResult Function(_selectingDeskSection value) selectingDeskSection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$StudentHomeEvent {
     TResult? Function(_navigatingSeeAll value)? navigatingSeeAll,
     TResult? Function(_deatilePage value)? deatilePage,
     TResult? Function(_swichingSubjectList value)? swichingSubjectList,
+    TResult? Function(_selectingDeskSection value)? selectingDeskSection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$StudentHomeEvent {
     TResult Function(_navigatingSeeAll value)? navigatingSeeAll,
     TResult Function(_deatilePage value)? deatilePage,
     TResult Function(_swichingSubjectList value)? swichingSubjectList,
+    TResult Function(_selectingDeskSection value)? selectingDeskSection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +154,7 @@ class _$navigatingSeeAllImpl implements _navigatingSeeAll {
     required TResult Function(BuildContext context) navigatingSeeAll,
     required TResult Function(BuildContext context, Lesson lesson) deatilePage,
     required TResult Function(int index) swichingSubjectList,
+    required TResult Function(int index) selectingDeskSection,
   }) {
     return navigatingSeeAll(context);
   }
@@ -158,6 +165,7 @@ class _$navigatingSeeAllImpl implements _navigatingSeeAll {
     TResult? Function(BuildContext context)? navigatingSeeAll,
     TResult? Function(BuildContext context, Lesson lesson)? deatilePage,
     TResult? Function(int index)? swichingSubjectList,
+    TResult? Function(int index)? selectingDeskSection,
   }) {
     return navigatingSeeAll?.call(context);
   }
@@ -168,6 +176,7 @@ class _$navigatingSeeAllImpl implements _navigatingSeeAll {
     TResult Function(BuildContext context)? navigatingSeeAll,
     TResult Function(BuildContext context, Lesson lesson)? deatilePage,
     TResult Function(int index)? swichingSubjectList,
+    TResult Function(int index)? selectingDeskSection,
     required TResult orElse(),
   }) {
     if (navigatingSeeAll != null) {
@@ -182,6 +191,7 @@ class _$navigatingSeeAllImpl implements _navigatingSeeAll {
     required TResult Function(_navigatingSeeAll value) navigatingSeeAll,
     required TResult Function(_deatilePage value) deatilePage,
     required TResult Function(_swichingSubjectList value) swichingSubjectList,
+    required TResult Function(_selectingDeskSection value) selectingDeskSection,
   }) {
     return navigatingSeeAll(this);
   }
@@ -192,6 +202,7 @@ class _$navigatingSeeAllImpl implements _navigatingSeeAll {
     TResult? Function(_navigatingSeeAll value)? navigatingSeeAll,
     TResult? Function(_deatilePage value)? deatilePage,
     TResult? Function(_swichingSubjectList value)? swichingSubjectList,
+    TResult? Function(_selectingDeskSection value)? selectingDeskSection,
   }) {
     return navigatingSeeAll?.call(this);
   }
@@ -202,6 +213,7 @@ class _$navigatingSeeAllImpl implements _navigatingSeeAll {
     TResult Function(_navigatingSeeAll value)? navigatingSeeAll,
     TResult Function(_deatilePage value)? deatilePage,
     TResult Function(_swichingSubjectList value)? swichingSubjectList,
+    TResult Function(_selectingDeskSection value)? selectingDeskSection,
     required TResult orElse(),
   }) {
     if (navigatingSeeAll != null) {
@@ -296,6 +308,7 @@ class _$deatilePageImpl implements _deatilePage {
     required TResult Function(BuildContext context) navigatingSeeAll,
     required TResult Function(BuildContext context, Lesson lesson) deatilePage,
     required TResult Function(int index) swichingSubjectList,
+    required TResult Function(int index) selectingDeskSection,
   }) {
     return deatilePage(context, lesson);
   }
@@ -306,6 +319,7 @@ class _$deatilePageImpl implements _deatilePage {
     TResult? Function(BuildContext context)? navigatingSeeAll,
     TResult? Function(BuildContext context, Lesson lesson)? deatilePage,
     TResult? Function(int index)? swichingSubjectList,
+    TResult? Function(int index)? selectingDeskSection,
   }) {
     return deatilePage?.call(context, lesson);
   }
@@ -316,6 +330,7 @@ class _$deatilePageImpl implements _deatilePage {
     TResult Function(BuildContext context)? navigatingSeeAll,
     TResult Function(BuildContext context, Lesson lesson)? deatilePage,
     TResult Function(int index)? swichingSubjectList,
+    TResult Function(int index)? selectingDeskSection,
     required TResult orElse(),
   }) {
     if (deatilePage != null) {
@@ -330,6 +345,7 @@ class _$deatilePageImpl implements _deatilePage {
     required TResult Function(_navigatingSeeAll value) navigatingSeeAll,
     required TResult Function(_deatilePage value) deatilePage,
     required TResult Function(_swichingSubjectList value) swichingSubjectList,
+    required TResult Function(_selectingDeskSection value) selectingDeskSection,
   }) {
     return deatilePage(this);
   }
@@ -340,6 +356,7 @@ class _$deatilePageImpl implements _deatilePage {
     TResult? Function(_navigatingSeeAll value)? navigatingSeeAll,
     TResult? Function(_deatilePage value)? deatilePage,
     TResult? Function(_swichingSubjectList value)? swichingSubjectList,
+    TResult? Function(_selectingDeskSection value)? selectingDeskSection,
   }) {
     return deatilePage?.call(this);
   }
@@ -350,6 +367,7 @@ class _$deatilePageImpl implements _deatilePage {
     TResult Function(_navigatingSeeAll value)? navigatingSeeAll,
     TResult Function(_deatilePage value)? deatilePage,
     TResult Function(_swichingSubjectList value)? swichingSubjectList,
+    TResult Function(_selectingDeskSection value)? selectingDeskSection,
     required TResult orElse(),
   }) {
     if (deatilePage != null) {
@@ -439,6 +457,7 @@ class _$swichingSubjectListImpl implements _swichingSubjectList {
     required TResult Function(BuildContext context) navigatingSeeAll,
     required TResult Function(BuildContext context, Lesson lesson) deatilePage,
     required TResult Function(int index) swichingSubjectList,
+    required TResult Function(int index) selectingDeskSection,
   }) {
     return swichingSubjectList(index);
   }
@@ -449,6 +468,7 @@ class _$swichingSubjectListImpl implements _swichingSubjectList {
     TResult? Function(BuildContext context)? navigatingSeeAll,
     TResult? Function(BuildContext context, Lesson lesson)? deatilePage,
     TResult? Function(int index)? swichingSubjectList,
+    TResult? Function(int index)? selectingDeskSection,
   }) {
     return swichingSubjectList?.call(index);
   }
@@ -459,6 +479,7 @@ class _$swichingSubjectListImpl implements _swichingSubjectList {
     TResult Function(BuildContext context)? navigatingSeeAll,
     TResult Function(BuildContext context, Lesson lesson)? deatilePage,
     TResult Function(int index)? swichingSubjectList,
+    TResult Function(int index)? selectingDeskSection,
     required TResult orElse(),
   }) {
     if (swichingSubjectList != null) {
@@ -473,6 +494,7 @@ class _$swichingSubjectListImpl implements _swichingSubjectList {
     required TResult Function(_navigatingSeeAll value) navigatingSeeAll,
     required TResult Function(_deatilePage value) deatilePage,
     required TResult Function(_swichingSubjectList value) swichingSubjectList,
+    required TResult Function(_selectingDeskSection value) selectingDeskSection,
   }) {
     return swichingSubjectList(this);
   }
@@ -483,6 +505,7 @@ class _$swichingSubjectListImpl implements _swichingSubjectList {
     TResult? Function(_navigatingSeeAll value)? navigatingSeeAll,
     TResult? Function(_deatilePage value)? deatilePage,
     TResult? Function(_swichingSubjectList value)? swichingSubjectList,
+    TResult? Function(_selectingDeskSection value)? selectingDeskSection,
   }) {
     return swichingSubjectList?.call(this);
   }
@@ -493,6 +516,7 @@ class _$swichingSubjectListImpl implements _swichingSubjectList {
     TResult Function(_navigatingSeeAll value)? navigatingSeeAll,
     TResult Function(_deatilePage value)? deatilePage,
     TResult Function(_swichingSubjectList value)? swichingSubjectList,
+    TResult Function(_selectingDeskSection value)? selectingDeskSection,
     required TResult orElse(),
   }) {
     if (swichingSubjectList != null) {
@@ -513,9 +537,158 @@ abstract class _swichingSubjectList implements StudentHomeEvent {
 }
 
 /// @nodoc
+abstract class _$$selectingDeskSectionImplCopyWith<$Res> {
+  factory _$$selectingDeskSectionImplCopyWith(_$selectingDeskSectionImpl value,
+          $Res Function(_$selectingDeskSectionImpl) then) =
+      __$$selectingDeskSectionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$selectingDeskSectionImplCopyWithImpl<$Res>
+    extends _$StudentHomeEventCopyWithImpl<$Res, _$selectingDeskSectionImpl>
+    implements _$$selectingDeskSectionImplCopyWith<$Res> {
+  __$$selectingDeskSectionImplCopyWithImpl(_$selectingDeskSectionImpl _value,
+      $Res Function(_$selectingDeskSectionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$selectingDeskSectionImpl(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$selectingDeskSectionImpl implements _selectingDeskSection {
+  const _$selectingDeskSectionImpl({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'StudentHomeEvent.selectingDeskSection(index: $index)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$selectingDeskSectionImpl &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$selectingDeskSectionImplCopyWith<_$selectingDeskSectionImpl>
+      get copyWith =>
+          __$$selectingDeskSectionImplCopyWithImpl<_$selectingDeskSectionImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) navigatingSeeAll,
+    required TResult Function(BuildContext context, Lesson lesson) deatilePage,
+    required TResult Function(int index) swichingSubjectList,
+    required TResult Function(int index) selectingDeskSection,
+  }) {
+    return selectingDeskSection(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? navigatingSeeAll,
+    TResult? Function(BuildContext context, Lesson lesson)? deatilePage,
+    TResult? Function(int index)? swichingSubjectList,
+    TResult? Function(int index)? selectingDeskSection,
+  }) {
+    return selectingDeskSection?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? navigatingSeeAll,
+    TResult Function(BuildContext context, Lesson lesson)? deatilePage,
+    TResult Function(int index)? swichingSubjectList,
+    TResult Function(int index)? selectingDeskSection,
+    required TResult orElse(),
+  }) {
+    if (selectingDeskSection != null) {
+      return selectingDeskSection(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_navigatingSeeAll value) navigatingSeeAll,
+    required TResult Function(_deatilePage value) deatilePage,
+    required TResult Function(_swichingSubjectList value) swichingSubjectList,
+    required TResult Function(_selectingDeskSection value) selectingDeskSection,
+  }) {
+    return selectingDeskSection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_navigatingSeeAll value)? navigatingSeeAll,
+    TResult? Function(_deatilePage value)? deatilePage,
+    TResult? Function(_swichingSubjectList value)? swichingSubjectList,
+    TResult? Function(_selectingDeskSection value)? selectingDeskSection,
+  }) {
+    return selectingDeskSection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_navigatingSeeAll value)? navigatingSeeAll,
+    TResult Function(_deatilePage value)? deatilePage,
+    TResult Function(_swichingSubjectList value)? swichingSubjectList,
+    TResult Function(_selectingDeskSection value)? selectingDeskSection,
+    required TResult orElse(),
+  }) {
+    if (selectingDeskSection != null) {
+      return selectingDeskSection(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _selectingDeskSection implements StudentHomeEvent {
+  const factory _selectingDeskSection({required final int index}) =
+      _$selectingDeskSectionImpl;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$selectingDeskSectionImplCopyWith<_$selectingDeskSectionImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$StudentHomeState {
   int get selectedTopic => throw _privateConstructorUsedError;
   String get currentSubject => throw _privateConstructorUsedError;
+  int get selectedIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $StudentHomeStateCopyWith<StudentHomeState> get copyWith =>
@@ -528,7 +701,7 @@ abstract class $StudentHomeStateCopyWith<$Res> {
           StudentHomeState value, $Res Function(StudentHomeState) then) =
       _$StudentHomeStateCopyWithImpl<$Res, StudentHomeState>;
   @useResult
-  $Res call({int selectedTopic, String currentSubject});
+  $Res call({int selectedTopic, String currentSubject, int selectedIndex});
 }
 
 /// @nodoc
@@ -546,6 +719,7 @@ class _$StudentHomeStateCopyWithImpl<$Res, $Val extends StudentHomeState>
   $Res call({
     Object? selectedTopic = null,
     Object? currentSubject = null,
+    Object? selectedIndex = null,
   }) {
     return _then(_value.copyWith(
       selectedTopic: null == selectedTopic
@@ -556,6 +730,10 @@ class _$StudentHomeStateCopyWithImpl<$Res, $Val extends StudentHomeState>
           ? _value.currentSubject
           : currentSubject // ignore: cast_nullable_to_non_nullable
               as String,
+      selectedIndex: null == selectedIndex
+          ? _value.selectedIndex
+          : selectedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -568,7 +746,7 @@ abstract class _$$StudentHomeStateImplCopyWith<$Res>
       __$$StudentHomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int selectedTopic, String currentSubject});
+  $Res call({int selectedTopic, String currentSubject, int selectedIndex});
 }
 
 /// @nodoc
@@ -584,6 +762,7 @@ class __$$StudentHomeStateImplCopyWithImpl<$Res>
   $Res call({
     Object? selectedTopic = null,
     Object? currentSubject = null,
+    Object? selectedIndex = null,
   }) {
     return _then(_$StudentHomeStateImpl(
       selectedTopic: null == selectedTopic
@@ -594,6 +773,10 @@ class __$$StudentHomeStateImplCopyWithImpl<$Res>
           ? _value.currentSubject
           : currentSubject // ignore: cast_nullable_to_non_nullable
               as String,
+      selectedIndex: null == selectedIndex
+          ? _value.selectedIndex
+          : selectedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -602,16 +785,20 @@ class __$$StudentHomeStateImplCopyWithImpl<$Res>
 
 class _$StudentHomeStateImpl implements _StudentHomeState {
   const _$StudentHomeStateImpl(
-      {required this.selectedTopic, required this.currentSubject});
+      {required this.selectedTopic,
+      required this.currentSubject,
+      required this.selectedIndex});
 
   @override
   final int selectedTopic;
   @override
   final String currentSubject;
+  @override
+  final int selectedIndex;
 
   @override
   String toString() {
-    return 'StudentHomeState(selectedTopic: $selectedTopic, currentSubject: $currentSubject)';
+    return 'StudentHomeState(selectedTopic: $selectedTopic, currentSubject: $currentSubject, selectedIndex: $selectedIndex)';
   }
 
   @override
@@ -622,11 +809,14 @@ class _$StudentHomeStateImpl implements _StudentHomeState {
             (identical(other.selectedTopic, selectedTopic) ||
                 other.selectedTopic == selectedTopic) &&
             (identical(other.currentSubject, currentSubject) ||
-                other.currentSubject == currentSubject));
+                other.currentSubject == currentSubject) &&
+            (identical(other.selectedIndex, selectedIndex) ||
+                other.selectedIndex == selectedIndex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedTopic, currentSubject);
+  int get hashCode =>
+      Object.hash(runtimeType, selectedTopic, currentSubject, selectedIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -639,12 +829,15 @@ class _$StudentHomeStateImpl implements _StudentHomeState {
 abstract class _StudentHomeState implements StudentHomeState {
   const factory _StudentHomeState(
       {required final int selectedTopic,
-      required final String currentSubject}) = _$StudentHomeStateImpl;
+      required final String currentSubject,
+      required final int selectedIndex}) = _$StudentHomeStateImpl;
 
   @override
   int get selectedTopic;
   @override
   String get currentSubject;
+  @override
+  int get selectedIndex;
   @override
   @JsonKey(ignore: true)
   _$$StudentHomeStateImplCopyWith<_$StudentHomeStateImpl> get copyWith =>

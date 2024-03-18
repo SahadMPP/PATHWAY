@@ -27,5 +27,9 @@ class StudentHomeBloc extends Bloc<StudentHomeEvent, StudentHomeState> {
    on<_deatilePage>((event, emit) {
     StudentApi.getOneStudentForDeatilePage(context:event.context,lessionId:event.lesson.id,lesson: event.lesson,studentId:userId );
    });
+
+   on<_selectingDeskSection>((event, emit) {
+    emit(state.copyWith(selectedIndex: event.index));
+   });
   }
 }
