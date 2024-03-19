@@ -21,7 +21,7 @@ class _StudentMainScreenState extends State<StudentMainScreen> {
     const StudentHome(),
     const SubcriptionScreen(),
     const StudentChat(),
-    const StudentPrograss(),
+    const Progress(),
     const StudentProfileScreen(),
 ];
 

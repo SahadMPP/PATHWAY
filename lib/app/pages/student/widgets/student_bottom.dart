@@ -19,7 +19,7 @@ class _StudentBotmNaviState extends State<StudentBotmNavi> {
     const StudentHome(),
     const SubcriptionScreen(),
     const StudentChat(),
-    const StudentPrograss(),
+    const Progress(),
     const StudentProfileScreen(),
   ];
   @override
