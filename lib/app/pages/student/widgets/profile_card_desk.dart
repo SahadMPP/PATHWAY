@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BuildProfileCard extends StatelessWidget {
+class BuildProfileCardDesk extends StatelessWidget {
   final String text;
   final VoidCallback fun;
   final IconData icon;
-  const BuildProfileCard({
+  const BuildProfileCardDesk({
     super.key,
     required this.text,
     required this.fun,
@@ -24,8 +24,8 @@ class BuildProfileCard extends StatelessWidget {
             child: Text(
               text,
               style: GoogleFonts.aBeeZee(
-                color: Colors.black,
-                fontSize: 22,
+                color: Colors.grey,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),

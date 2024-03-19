@@ -15,6 +15,7 @@ import 'package:path_way_flu/app/pages/student/pages/See%20All/bloc/see_all_bloc
 import 'package:path_way_flu/app/pages/student/pages/chat/bloc/student_chat_bloc.dart';
 import 'package:path_way_flu/app/pages/student/pages/collecting%20initial%20deatiles/bloc/student_init_deatiles_bloc.dart';
 import 'package:path_way_flu/app/pages/student/pages/edit%20profile/bloc/stu_edit_profile_bloc.dart';
+import 'package:path_way_flu/app/pages/student/pages/settings/responsive/desktop.dart';
 import 'package:path_way_flu/app/pages/student/pages/student%20home/bloc/student_home_bloc.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/bloc/subcription_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -115,7 +116,7 @@ class _MyAppState extends State<MyApp> {
         ],
         theme: lightTheme,
         darkTheme: darkTheme,
-        home: const SpleshScreen(),
+        home: const StudentSettingDesk(),
       ),
     );
   }

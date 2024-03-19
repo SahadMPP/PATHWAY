@@ -22,7 +22,7 @@ class _StudentMainScreenState extends State<StudentMainScreen> {
     const SubcriptionScreen(),
     const StudentChat(),
     const Progress(),
-    const StudentProfileScreen(),
+    const StudentSetting(),
 ];
 
   @override

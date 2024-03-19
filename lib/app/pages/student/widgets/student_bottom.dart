@@ -20,7 +20,7 @@ class _StudentBotmNaviState extends State<StudentBotmNavi> {
     const SubcriptionScreen(),
     const StudentChat(),
     const Progress(),
-    const StudentProfileScreen(),
+    const StudentSetting(),
   ];
   @override
   Widget build(BuildContext context) {
