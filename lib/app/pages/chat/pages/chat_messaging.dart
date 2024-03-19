@@ -85,16 +85,19 @@ class _MassagingScreenState extends State<MassagingScreen> {
             SizedBox(
               width: double.infinity,
               child: Obx(
-                () => ListView.builder(
-                  itemBuilder: (context, index) {
-                    var currentChat = chatController.chatMessages[index];
-                    return MessengerItem(
-                      message: currentChat.message,
-                      sentByme: currentChat.sentByMe == socket.id,
-                      datetime: currentChat.dateTime,
-                    );
-                  },
-                  itemCount: chatController.chatMessages.length,
+                () => Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      var currentChat = chatController.chatMessages[index];
+                      return MessengerItem(
+                        message: currentChat.message,
+                        sentByme: currentChat.sentByMe == socket.id,
+                        datetime: currentChat.dateTime,
+                      );
+                    },
+                    itemCount: chatController.chatMessages.length,
+                  ),
                 ),
               ),
             ),
@@ -125,8 +128,10 @@ class _MassagingScreenState extends State<MassagingScreen> {
                       ),
                     ),
                     const SizedBox(width: 15),
-                    SizedBox(
-                        width: MediaQuery.of(context).size.width * .6,
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        maxWidth: 250
+                      ),
                         child: TextFormField(
                           controller: msgInputController,
                           decoration: const InputDecoration(
@@ -202,36 +207,43 @@ class MessengerItem extends StatelessWidget {
       alignment: sentByme ? Alignment.centerRight : Alignment.centerLeft,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: sentByme ? blue : grey),
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Text(
-                  message,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                  ),
+        child: Column(
+          children: [
+            Container(
+              constraints: const BoxConstraints(
+                minWidth: 30,
+              ),
+              margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: sentByme ? blue : grey),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Text(
+                      message,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                      ),
+                    ),
+                    
+                  ],
                 ),
-                const SizedBox(width: 5),
-                 Text(
-                  datetime,
+              ),
+            ),
+             Text(
+                  "$datetime PM",
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: Colors.grey,
                     fontSize: 10,
                   ),
                 ),
-              ],
-            ),
-          ),
+          ],
         ),
       ),
     );
