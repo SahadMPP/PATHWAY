@@ -133,8 +133,20 @@ class AuthFuntion {
       userName = username;
       userId = userid;
       userProfile = userprofile;
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (ctx) => const StudentBotmNavi()));
+      Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(
+                  builder: (ctx) => LayoutBuilder(
+                        builder: (context, constraints) {
+                          if (constraints.maxWidth < 600) {
+                            return const StudentBotmNavi();
+                          } else if (constraints.maxWidth < 1000) {
+                            return const StudentMainScreen();
+                          } else {
+                            return const StudentMainScreen();
+                          }
+                        },
+                      )),
+              (route) => false);
     }
   }
 }

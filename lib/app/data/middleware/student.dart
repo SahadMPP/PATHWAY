@@ -331,7 +331,7 @@ class StudentApi {
               builder: (ctx) => VideoPlay(lesson: lesson)));
         } else {
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (ctx) => StudentDeatileWithoutPay(lesson: lesson)));
+              builder: (ctx) => StudentPagePayment(lesson: lesson)));
         }
       } else {
         debugPrint('faild to get student lession');
