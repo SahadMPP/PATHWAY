@@ -62,7 +62,7 @@ class StudentPaymentPageDesk extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-                       Text(lesson.title, style: kHeadingextStyle),
+                      Text(lesson.title, style: kHeadingextStyle),
                       const SizedBox(height: 16),
                       Row(
                         children: [
@@ -81,7 +81,7 @@ class StudentPaymentPageDesk extends StatelessWidget {
                           Text("\u{20B9}${lesson.price}",
                               style: kHeadingextStyle.copyWith(fontSize: 32)),
                           const SizedBox(width: 5),
-                          Text("\u{20B9}70",
+                          Text("\u{20B9}${lesson.price + 50}",
                               style: TextStyle(
                                 color: kTextColor.withOpacity(.5),
                                 decoration: TextDecoration.lineThrough,
@@ -181,16 +181,17 @@ class StudentPaymentPageDesk extends StatelessWidget {
               child: Stack(
                 children: [
                   Container(
-                    padding: const EdgeInsets.only(top: 30, right: 10, left: 10),
+                    padding:
+                        const EdgeInsets.only(top: 30, right: 10, left: 10),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(18),
-                        border: Border.all(width: 1,color: Colors.grey)
-                        ),
+                        border: Border.all(width: 1, color: Colors.grey)),
                     child: FutureBuilder(
                         future: TeacherApi.getTotorial(lesson.id),
                         builder: (context, AsyncSnapshot snapshot) {
                           if (!snapshot.hasData) {
-                            return const Center(child: CircularProgressIndicator());
+                            return const Center(
+                                child: CircularProgressIndicator());
                           } else {
                             List<Tutorial> tutotial = snapshot.data;
                             if (tutotial.isEmpty) {
@@ -218,19 +219,23 @@ class StudentPaymentPageDesk extends StatelessWidget {
                                           children: [
                                             Text(tutotial[index].title,
                                                 style: TextStyle(
-                                                  color: kTextColor.withOpacity(.5),
+                                                  color: kTextColor
+                                                      .withOpacity(.5),
                                                   fontSize: 18,
                                                 )),
-                                            Text("${tutotial[index].duration} min",
+                                            Text(
+                                                "${tutotial[index].duration} min",
                                                 style: TextStyle(
-                                                  color: kTextColor.withOpacity(.5),
+                                                  color: kTextColor
+                                                      .withOpacity(.5),
                                                   fontSize: 15,
                                                 ))
                                           ],
                                         ),
                                         const Spacer(),
                                         Container(
-                                          margin: const EdgeInsets.only(left: 20),
+                                          margin:
+                                              const EdgeInsets.only(left: 20),
                                           width: 40,
                                           height: 40,
                                           decoration: const BoxDecoration(
