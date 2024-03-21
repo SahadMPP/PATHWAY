@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:path_way_flu/app/core/constants/snacbar.dart';
 import 'package:path_way_flu/app/pages/auth/domain/usecases/define_fun.dart';
 
+
 class AuthApi {
   static const baseUrl = "http://learnpro.today:5000/api/";
   static const baseUrlImage = "https://cors-anywhere.herokuapp.com/http://learnpro.today:5000/";

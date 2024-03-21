@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/pages/student/pages/See%20All/bloc/see_all_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -53,7 +54,7 @@ class ProdectCard extends StatelessWidget {
                                         borderRadius:
                                             BorderRadius.circular(15),
                                         child: Image.network(
-                                          "http://learnpro.today:5000/${state.list[index].coverImage}",
+                                          "${AuthApi.baseUrlImage}${state.list[index].coverImage}",
                                           fit: BoxFit.cover,
                                         ))),
                                 const SizedBox(height: 5),
