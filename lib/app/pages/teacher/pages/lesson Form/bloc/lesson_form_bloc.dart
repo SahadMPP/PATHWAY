@@ -2,6 +2,7 @@ import 'dart:convert';
 
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
@@ -86,5 +87,19 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
     on<_updateTotorial>((event, emit) {
       TeacherApi.updateTotorial(event.id,event.data,event.context);
     });
+
+     on<_fileImagePiker>((event, emit)async {
+     FilePickerResult? result =
+        await FilePicker.platform.pickFiles(type: FileType.image);
+
+    if (result != null) {
+       
+     emit(state.copyWith(imagefile: result.files.first));
+    } else {
+      return;
+    }
+  });
   }
+
+ 
 }

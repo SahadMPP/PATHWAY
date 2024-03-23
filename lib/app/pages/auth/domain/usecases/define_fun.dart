@@ -143,6 +143,7 @@ class AuthFuntion {
                             return const StudentMainScreen();
                           } else {
                             return const StudentMainScreen();
+                            // for git
                           }
                         },
                       )),

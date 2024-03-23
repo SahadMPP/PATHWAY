@@ -34,5 +34,9 @@ class LessonFormEvent with _$LessonFormEvent {
     required String id,
     required BuildContext context,
   }) = _updateTotorial;
+
+
+  const factory LessonFormEvent.fileImagePiker() = _fileImagePiker;
+  
   
 }

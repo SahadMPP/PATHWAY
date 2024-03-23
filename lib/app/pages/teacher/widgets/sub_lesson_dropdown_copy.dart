@@ -12,8 +12,7 @@ class BuildSubDropDownLession extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LessonFormBloc, LessonFormState>(
       builder: (context, state) {
-        return ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 450),
+        return SizedBox(
           child: Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
@@ -22,8 +21,10 @@ class BuildSubDropDownLession extends StatelessWidget {
             width: double.infinity,
             height: 60,
             child: DropdownButton<String>(
+                elevation: 0,
+                isExpanded: true,
                 borderRadius: BorderRadius.circular(15),
-                focusColor: Colors.blueGrey,
+                focusColor: Colors.white,
                 dropdownColor: Colors.white,
                 value: state.dropDownpiker,
                 style: GoogleFonts.roboto(fontSize: 18),
@@ -94,8 +95,9 @@ class BuildSubDropDownLession extends StatelessWidget {
                       )),
                 ],
                 onChanged: (newValue) {
-                  context.read<LessonFormBloc>().add(
-                      LessonFormEvent.dropDownpiker(subject: newValue!));
+                  context
+                      .read<LessonFormBloc>()
+                      .add(LessonFormEvent.dropDownpiker(subject: newValue!));
                 }),
           ),
         );

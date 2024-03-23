@@ -15,7 +15,7 @@ class LessionListBloc extends Bloc<LessionListEvent, LessionListState> {
   LessionListBloc() : super(const _Initial()) {
     on<_navigatingLessionFrom>((event, emit) {
       Navigator.of(event.context).pushReplacement(
-          MaterialPageRoute(builder: (ctx) => const LessionForm()));
+          MaterialPageRoute(builder: (ctx) => const LessonForm()));
     });
 
     on<_updateLession>((event, emit) {
