@@ -106,7 +106,7 @@ class LessonFormMob extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (ctx) => const AddTotorialForm(                          
+                        builder: (ctx) => const AddingTotorial(                          
                         )));
                   },
                   child: Text(

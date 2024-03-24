@@ -191,7 +191,7 @@ class LessonFormDesk extends StatelessWidget {
                           onPressed: () {
                             Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
-                                    builder: (ctx) => const AddTotorialForm()));
+                                    builder: (ctx) => const AddingTotorial()));
                           },
                           child: Text(
                             AppLocalizations.of(context).add,

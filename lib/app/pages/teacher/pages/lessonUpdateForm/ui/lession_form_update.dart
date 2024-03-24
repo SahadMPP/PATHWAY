@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/snacbar.dart';
+import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lessonUpdateForm/bloc/lesson_form_update_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorial%20form/ui/adding_tutorial_form.dart';
@@ -136,7 +137,7 @@ class LessonFormUpdate extends StatelessWidget {
                           color: Colors.grey,
                           child: state.pikedImage == null
                               ? Image.network(
-                                  "http://learnpro.today:5000/${lesson.coverImage}",
+                                  "${AuthApi.baseUrlImage}/${lesson.coverImage}",
                                   fit: BoxFit.cover,
                                 )
                               : Image.file(
@@ -163,7 +164,7 @@ class LessonFormUpdate extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (ctx) => AddTotorialForm(id: lesson.id)));
+                        builder: (ctx) => AddingTotorial(id: lesson.id)));
                   },
                   child: Text(
                     "Add",

@@ -76,7 +76,7 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
 
     on<_navicatingTutoralForm>((event, emit) {
       Navigator.of(event.context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const AddTotorialForm(),
+        builder: (context) => const AddingTotorial(),
       ));
     });
   
