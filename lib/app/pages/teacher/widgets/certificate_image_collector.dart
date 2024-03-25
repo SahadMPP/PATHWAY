@@ -36,7 +36,7 @@ class ImageCertificateCollector extends StatelessWidget {
                             fit: BoxFit.cover,
                           )),
               ),
-              const SizedBox(width: 30),
+              const Spacer(),
               GestureDetector(
                 onTap: () {
                   context

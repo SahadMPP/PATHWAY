@@ -22,7 +22,7 @@ class ShowWaring extends StatelessWidget {
             const SizedBox(height: 20),
              Text("Before creating your own tutorials, you need to get permission from the head. Just submit a request and wait a maximum of 3 days to receive a response.",textAlign: TextAlign.center,style: GoogleFonts.roboto(color: Theme.of(context).colorScheme.onSecondary)),
              TextButton(onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>const TeacherApplicationFormSc()));
+              Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>const ApplicationForm()));
              }, child: const Text('Fill your form',style: TextStyle(
               color: Colors.blue, 
                decoration: TextDecoration.underline,

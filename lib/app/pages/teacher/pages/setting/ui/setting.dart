@@ -117,7 +117,7 @@ class TeacherSettings extends StatelessWidget {
                             fun: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (ctx) =>
-                                      const TeacherApplicationFormSc()));
+                                      const ApplicationForm()));
                             },
                             icon: Icons.navigate_next),
                         BuildProfileWithToggle(
