@@ -2,7 +2,9 @@ part of 'tea_edit_profiel_bloc.dart';
 
 @freezed
 class TeaEditProfielEvent with _$TeaEditProfielEvent {
-   const factory TeaEditProfielEvent.gettingInitialValue() = _gettingInitialValue;
+   const factory TeaEditProfielEvent.gettingInitialValue({
+    required String image,
+   }) = _gettingInitialValue;
 
   const factory TeaEditProfielEvent.cencelPage({
     required BuildContext context,
