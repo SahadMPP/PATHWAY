@@ -23,41 +23,41 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
       Navigator.of(event.context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (ctx) => const TeacherBotmNavi()),
           (route) => false);
-          emit(state.copyWith(pikedImage: null));
+      emit(state.copyWith(pikedImage: null));
     });
 
-    on<_addingLession>((event, emit)async {
-
-     
+    on<_addingLession>((event, emit) async {
       final url = Uri.parse('${AuthApi.baseUrl}get_teacherById/$userId');
 
-    try {
-      final res = await http.get(url);
+      try {
+        final res = await http.get(url);
 
-      if (res.statusCode == 200) {
-       var data = json.decode(res.body);
-      
-        Map<String,dynamic> dataNew = {
-         "subject":event.subject.toString(),
-         "title":event.title.toString(),
-         "coverImage":event.coverImage.toString(),
-         "profileImage":event.coverImage.toString(),
-         "creatorName":data['name'].toString(),
-         "creatorId":data['_id'].toString(),
-         "price":event.price.toString(),
-      };
-       // ignore: use_build_context_synchronously
-      TeacherApi.addingLession(context: event.context,data:dataNew,filepath: event.coverImage,subject:event.subject);
-      emit(state.copyWith(pikedImage: null));
-      } else {
-        debugPrint('failed to get data');
+        if (res.statusCode == 200) {
+          var data = json.decode(res.body);
+
+          Map<String, dynamic> dataNew = {
+            "subject": event.subject.toString(),
+            "title": event.title.toString(),
+            "coverImage": event.coverImage.toString(),
+            "lessonProfileImage": event.profileImage.toString(),
+            "creatorName": data['name'].toString(),
+            "creatorId": data['_id'].toString(),
+            "price": event.price.toString(),
+          };
+          // ignore: use_build_context_synchronously
+          TeacherApi.addingLession(
+              profileFilepath: event.profileImage,
+              context: event.context,
+              data: dataNew,
+              filepath: event.coverImage,
+              subject: event.subject);
+          emit(state.copyWith(pikedImage: null));
+        } else {
+          debugPrint('failed to get data');
+        }
+      } catch (e) {
+        debugPrint(e.toString());
       }
-    } catch (e) {
-      debugPrint(e.toString());
-    }  
-
-     
-
     });
 
     on<_imagePiking>((event, emit) async {
@@ -79,27 +79,24 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
         builder: (context) => const AddingTotorial(),
       ));
     });
-  
+
     on<_deleteTutorial>((event, emit) {
-   TeacherApi.deleteTotorial(event.id,event.context);
-  });
-    
-    on<_updateTotorial>((event, emit) {
-      TeacherApi.updateTotorial(event.id,event.data,event.context);
+      TeacherApi.deleteTotorial(event.id, event.context);
     });
 
-     on<_fileImagePiker>((event, emit)async {
-     FilePickerResult? result =
-        await FilePicker.platform.pickFiles(type: FileType.image);
+    on<_updateTotorial>((event, emit) {
+      TeacherApi.updateTotorial(event.id, event.data, event.context);
+    });
 
-    if (result != null) {
-       
-     emit(state.copyWith(imagefile: result.files.first));
-    } else {
-      return;
-    }
-  });
+    on<_fileImagePiker>((event, emit) async {
+      FilePickerResult? result =
+          await FilePicker.platform.pickFiles(type: FileType.image);
+
+      if (result != null) {
+        emit(state.copyWith(imagefile: result.files.first));
+      } else {
+        return;
+      }
+    });
   }
-
- 
 }

@@ -29,7 +29,7 @@ class Lesson {
         id: json['_id'],
         creatorName: json['creatorName'],
         subject: json['subject'],
-        profileImage: json['profileImage'] ?? "",
+        profileImage: json['lessonProfileImage'] ?? "",
         coverImage: json['coverImage'] ?? "",
         countOfLesson: json['countOfLesson'] ?? 0,
         price: json['price'] ?? 0,
@@ -42,7 +42,7 @@ class Lesson {
   Map<String, dynamic> toJson() => {
         'creatorName': creatorName,
         'subject': subject,
-        'profileImage': profileImage,
+        'lessonProfileImage': profileImage,
         'coverImage': coverImage,
         'countOfLesson': countOfLesson,
         'price': price,

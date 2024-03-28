@@ -13,9 +13,10 @@ part 'lession_list_bloc.freezed.dart';
 
 class LessionListBloc extends Bloc<LessionListEvent, LessionListState> {
   LessionListBloc() : super(const _Initial()) {
+    
     on<_navigatingLessionFrom>((event, emit) {
-      Navigator.of(event.context).pushReplacement(
-          MaterialPageRoute(builder: (ctx) => const LessonForm()));
+      Navigator.of(event.context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (ctx) => const LessonForm()),(route) => false,);
     });
 
     on<_updateLession>((event, emit) {

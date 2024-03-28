@@ -48,6 +48,7 @@ class TeacherApi {
       {required Map data,
       required BuildContext context,
       required String filepath,
+      required String profileFilepath,
       required String subject}) async {
     final url = Uri.parse('${baseUrl}add_lession');
 
@@ -63,6 +64,8 @@ class TeacherApi {
 
         if (image_response.statusCode == 200) {
           //-------------------updating subject model--------------------------
+          //  await patchImageLessonProfile(data["_id"], profileFilepath);
+
 
           try {
             final url = Uri.parse("${baseUrl}get_subjectById/$subject");
@@ -243,7 +246,6 @@ class TeacherApi {
     num duration,
   ) async {
     num currentWatchTime = 0.00;
-        
 
     List<dynamic> oldIdList = [];
     final url = Uri.parse("${baseUrl}add_tutorial");
@@ -261,7 +263,6 @@ class TeacherApi {
             var data = jsonDecode(res.body);
             oldIdList = data['lessonId'];
             currentWatchTime = data['watchTime'];
-            
           } else {
             debugPrint('faild to get current lession');
           }
@@ -395,10 +396,25 @@ class TeacherApi {
 
   static Future<http.StreamedResponse> patchImage(
       String id, String filepath) async {
-    var request =
-        http.MultipartRequest('PATCH', Uri.parse("${baseUrl}add/image/$id"));
+    var request = http.MultipartRequest(
+        'PATCH', Uri.parse("${baseUrl}add/image_coverImage/$id"));
     request.files
         .add(await http.MultipartFile.fromPath("coverImage", filepath));
+    request.headers.addAll({
+      "Content-Type": "multipart/form-data",
+    });
+
+    var response = request.send();
+
+    return response;
+  }
+
+  static Future<http.StreamedResponse> patchImageLessonProfile(
+      String id, String filepath) async {
+    var request = http.MultipartRequest(
+        'PATCH', Uri.parse("${baseUrl}add/image_lessonProfile/$id"));
+    request.files
+        .add(await http.MultipartFile.fromPath("lessonProfileImage", filepath));
     request.headers.addAll({
       "Content-Type": "multipart/form-data",
     });

@@ -11,6 +11,7 @@ import 'package:path_way_flu/app/pages/teacher/widgets/lesson_form_tutoral_list.
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/sub_lesson_dropdown_copy.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/textfield.dart';
+import 'package:path_way_flu/main.dart';
 
 class LessonFormDesk extends StatelessWidget {
   const LessonFormDesk({super.key});
@@ -23,62 +24,62 @@ class LessonFormDesk extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          TextButton(
-            onPressed: () {
-              context
-                  .read<LessonFormBloc>()
-                  .add(LessonFormEvent.cancelButtonClick(context: context));
-            },
-            child: Text(AppLocalizations.of(context).cancel,
-                style: GoogleFonts.roboto(
-                    color: Colors.red[400],
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold)),
-          ),
-          Text(
-            AppLocalizations.of(context).addlesson,
-            style: GoogleFonts.roboto(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            TextButton(
+              onPressed: () {
+                context
+                    .read<LessonFormBloc>()
+                    .add(LessonFormEvent.cancelButtonClick(context: context));
+              },
+              child: Text(AppLocalizations.of(context).cancel,
+                  style: GoogleFonts.roboto(
+                      color: Colors.red[400],
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold)),
             ),
-          ),
-          BlocBuilder<LessonFormBloc, LessonFormState>(
-            builder: (context, state) {
-              return TextButton(
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    if (state.imagefile != null) {
-                      
-                      context.read<LessonFormBloc>().add(
-                          LessonFormEvent.addingLession(
-                              price:priceController.text,
-                              context: context,
-                              subject: state.dropDownpiker!,
-                              title: titleController.text,
-                              coverImage: state.imagefile.toString()));
-                    } else {
-                      buildShowSnacbar(
-                          context: context,
-                          content: "try to add cover image",
-                          title: "Oop's ",
-                          contentType: ContentType.warning);
+            Text(
+              AppLocalizations.of(context).addlesson,
+              style: GoogleFonts.roboto(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            BlocBuilder<LessonFormBloc, LessonFormState>(
+              builder: (context, state) {
+                return TextButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      if (state.imagefile != null) {
+                        context.read<LessonFormBloc>().add(
+                            LessonFormEvent.addingLession(
+                                profileImage: userProfile!,
+                                price: priceController.text,
+                                context: context,
+                                subject: state.dropDownpiker!,
+                                title: titleController.text,
+                                coverImage: state.imagefile.toString()));
+                      } else {
+                        buildShowSnacbar(
+                            context: context,
+                            content: "try to add cover image",
+                            title: "Oop's ",
+                            contentType: ContentType.warning);
+                      }
                     }
-                  }
-                },
-                child: Text(AppLocalizations.of(context).save,
-                    style: GoogleFonts.roboto(
-                        color: Colors.green[400],
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold)),
-              );
-            },
-          ),
-        ],
+                  },
+                  child: Text(AppLocalizations.of(context).save,
+                      style: GoogleFonts.roboto(
+                          color: Colors.green[400],
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold)),
+                );
+              },
+            ),
+          ],
+        ),
       ),
-    ),
       body: Row(
         children: [
           Expanded(
@@ -147,7 +148,7 @@ class LessonFormDesk extends StatelessWidget {
                                     width:
                                         MediaQuery.of(context).size.width * .3,
                                     color: Colors.grey,
-                                    child:state.imagefile == null
+                                    child: state.imagefile == null
                                         ? const Image(
                                             fit: BoxFit.cover,
                                             image: AssetImage(

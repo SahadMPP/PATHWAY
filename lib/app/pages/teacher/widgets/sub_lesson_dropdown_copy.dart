@@ -45,14 +45,7 @@ class BuildSubDropDownLession extends StatelessWidget {
                           color: Colors.grey,
                         ),
                       )),
-                  DropdownMenuItem(
-                      value: "English",
-                      child: Text(
-                        'English',
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      )),
+                  
                   DropdownMenuItem(
                       value: "Science",
                       child: Text(
