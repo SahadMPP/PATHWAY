@@ -125,6 +125,7 @@ class BuildAddingTutorial extends StatelessWidget {
                                     .read<TutorialAddingFormBloc>()
                                     .add(TutorialAddingFormEvent
                                         .addingTutorial(
+                                          duration:int.parse(durationController.text),
                                             context: context,
                                             data: data,
                                             lessonId: id ?? "null"));

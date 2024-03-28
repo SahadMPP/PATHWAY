@@ -192,7 +192,6 @@ class TeacherApi {
           headers: {'Content-Type': 'application/json'});
 
       if (res.statusCode == 200) {
-        debugPrint(res.body);
         debugPrint("lesson is updated");
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (ctx) => const TeacherBotmNavi(),
@@ -241,7 +240,11 @@ class TeacherApi {
     Map data,
     BuildContext context,
     String lessionId,
+    num duration,
   ) async {
+    num currentWatchTime = 0.00;
+        
+
     List<dynamic> oldIdList = [];
     final url = Uri.parse("${baseUrl}add_tutorial");
     try {
@@ -257,6 +260,8 @@ class TeacherApi {
           if (res.statusCode == 200) {
             var data = jsonDecode(res.body);
             oldIdList = data['lessonId'];
+            currentWatchTime = data['watchTime'];
+            
           } else {
             debugPrint('faild to get current lession');
           }
@@ -267,7 +272,11 @@ class TeacherApi {
         //adding id to lession
         var data = jsonDecode(res.body);
         oldIdList.add(data['_id']);
-        var updateLessonData = {"lessonId": oldIdList};
+        currentWatchTime = currentWatchTime + duration;
+        var updateLessonData = {
+          "lessonId": oldIdList,
+          "watchTime": currentWatchTime
+        };
 
         updateLesson(context: context, data: updateLessonData, id: lessionId);
 
@@ -341,7 +350,6 @@ class TeacherApi {
       final res = await http.put(url, body: data);
 
       if (res.statusCode == 200) {
-        debugPrint(res.body);
         debugPrint("tutorial is updated");
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const TeacherBotmNavi(),
@@ -400,8 +408,8 @@ class TeacherApi {
     return response;
   }
 
-  static getOneTacher(teacherId)async{
-      Teacher? teacher;
+  static getOneTacher(teacherId) async {
+    Teacher? teacher;
     final url = Uri.parse('${baseUrl}get_teacherById/$teacherId');
 
     try {
@@ -409,25 +417,31 @@ class TeacherApi {
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
         teacher = Teacher.fromJson(data);
-         return teacher;
+        return teacher;
       } else {
         debugPrint('faild to get student lession');
       }
     } catch (e) {
       debugPrint(e.toString());
-    } 
+    }
   }
 
-  static updateTeacher(id, Map data, context)async{
-        var url = Uri.parse("${baseUrl}update_teacher/$id");
+  static updateTeacher(id, Map data, context) async {
+    var url = Uri.parse("${baseUrl}update_teacher/$id");
 
     try {
-      final res = await http.put(url, body: jsonEncode(data),headers:{'Content-Type': 'application/json'} );
+      final res = await http.put(url,
+          body: jsonEncode(data),
+          headers: {'Content-Type': 'application/json'});
 
-      if (res.statusCode == 200) { 
+      if (res.statusCode == 200) {
         debugPrint("student is updated");
         Navigator.of(context).pop();
-        buildShowSnacbar(context: context, content: "you profile is updated", title: "Ok!", contentType: ContentType.success);
+        buildShowSnacbar(
+            context: context,
+            content: "you profile is updated",
+            title: "Ok!",
+            contentType: ContentType.success);
       } else {
         debugPrint("Failed to update teacher data");
       }
@@ -460,8 +474,6 @@ class TeacherApi {
   //   }
   // }
 
-
-
   static Future<http.StreamedResponse> patchProfileImage(
       String id, String filepath) async {
     var request = http.MultipartRequest(
@@ -471,7 +483,7 @@ class TeacherApi {
     request.headers.addAll({
       "Content-Type": "multipart/form-data",
     });
-     
+
     var response = request.send();
 
     return response;

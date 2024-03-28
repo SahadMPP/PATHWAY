@@ -7,8 +7,10 @@ class TutorialAddingFormEvent with _$TutorialAddingFormEvent {
     required String level,
   }) = _dropDownLevelPiker;
   const factory TutorialAddingFormEvent.addingTutorial({
+    required num duration,
     required BuildContext context,
     required Map data,
     required String lessonId,
+   
   }) = _addingTutorial;
 }

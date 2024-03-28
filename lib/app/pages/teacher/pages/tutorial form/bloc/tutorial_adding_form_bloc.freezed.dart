@@ -20,8 +20,8 @@ mixin _$TutorialAddingFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() backButtonClick,
     required TResult Function(String level) dropDownLevelPiker,
-    required TResult Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)
+    required TResult Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)
         addingTutorial,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,8 +29,8 @@ mixin _$TutorialAddingFormEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? backButtonClick,
     TResult? Function(String level)? dropDownLevelPiker,
-    TResult? Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)?
+    TResult? Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)?
         addingTutorial,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,8 +38,8 @@ mixin _$TutorialAddingFormEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? backButtonClick,
     TResult Function(String level)? dropDownLevelPiker,
-    TResult Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)?
+    TResult Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)?
         addingTutorial,
     required TResult orElse(),
   }) =>
@@ -127,8 +127,8 @@ class _$backButtonClickImpl implements _backButtonClick {
   TResult when<TResult extends Object?>({
     required TResult Function() backButtonClick,
     required TResult Function(String level) dropDownLevelPiker,
-    required TResult Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)
+    required TResult Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)
         addingTutorial,
   }) {
     return backButtonClick();
@@ -139,8 +139,8 @@ class _$backButtonClickImpl implements _backButtonClick {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? backButtonClick,
     TResult? Function(String level)? dropDownLevelPiker,
-    TResult? Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)?
+    TResult? Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)?
         addingTutorial,
   }) {
     return backButtonClick?.call();
@@ -151,8 +151,8 @@ class _$backButtonClickImpl implements _backButtonClick {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? backButtonClick,
     TResult Function(String level)? dropDownLevelPiker,
-    TResult Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)?
+    TResult Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)?
         addingTutorial,
     required TResult orElse(),
   }) {
@@ -269,8 +269,8 @@ class _$dropDownLevelPikerImpl implements _dropDownLevelPiker {
   TResult when<TResult extends Object?>({
     required TResult Function() backButtonClick,
     required TResult Function(String level) dropDownLevelPiker,
-    required TResult Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)
+    required TResult Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)
         addingTutorial,
   }) {
     return dropDownLevelPiker(level);
@@ -281,8 +281,8 @@ class _$dropDownLevelPikerImpl implements _dropDownLevelPiker {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? backButtonClick,
     TResult? Function(String level)? dropDownLevelPiker,
-    TResult? Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)?
+    TResult? Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)?
         addingTutorial,
   }) {
     return dropDownLevelPiker?.call(level);
@@ -293,8 +293,8 @@ class _$dropDownLevelPikerImpl implements _dropDownLevelPiker {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? backButtonClick,
     TResult Function(String level)? dropDownLevelPiker,
-    TResult Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)?
+    TResult Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)?
         addingTutorial,
     required TResult orElse(),
   }) {
@@ -356,7 +356,10 @@ abstract class _$$addingTutorialImplCopyWith<$Res> {
       __$$addingTutorialImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {BuildContext context, Map<dynamic, dynamic> data, String lessonId});
+      {num duration,
+      BuildContext context,
+      Map<dynamic, dynamic> data,
+      String lessonId});
 }
 
 /// @nodoc
@@ -370,11 +373,16 @@ class __$$addingTutorialImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? duration = null,
     Object? context = null,
     Object? data = null,
     Object? lessonId = null,
   }) {
     return _then(_$addingTutorialImpl(
+      duration: null == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as num,
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -395,11 +403,14 @@ class __$$addingTutorialImplCopyWithImpl<$Res>
 
 class _$addingTutorialImpl implements _addingTutorial {
   const _$addingTutorialImpl(
-      {required this.context,
+      {required this.duration,
+      required this.context,
       required final Map<dynamic, dynamic> data,
       required this.lessonId})
       : _data = data;
 
+  @override
+  final num duration;
   @override
   final BuildContext context;
   final Map<dynamic, dynamic> _data;
@@ -415,7 +426,7 @@ class _$addingTutorialImpl implements _addingTutorial {
 
   @override
   String toString() {
-    return 'TutorialAddingFormEvent.addingTutorial(context: $context, data: $data, lessonId: $lessonId)';
+    return 'TutorialAddingFormEvent.addingTutorial(duration: $duration, context: $context, data: $data, lessonId: $lessonId)';
   }
 
   @override
@@ -423,6 +434,8 @@ class _$addingTutorialImpl implements _addingTutorial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$addingTutorialImpl &&
+            (identical(other.duration, duration) ||
+                other.duration == duration) &&
             (identical(other.context, context) || other.context == context) &&
             const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.lessonId, lessonId) ||
@@ -430,7 +443,7 @@ class _$addingTutorialImpl implements _addingTutorial {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, context,
+  int get hashCode => Object.hash(runtimeType, duration, context,
       const DeepCollectionEquality().hash(_data), lessonId);
 
   @JsonKey(ignore: true)
@@ -445,11 +458,11 @@ class _$addingTutorialImpl implements _addingTutorial {
   TResult when<TResult extends Object?>({
     required TResult Function() backButtonClick,
     required TResult Function(String level) dropDownLevelPiker,
-    required TResult Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)
+    required TResult Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)
         addingTutorial,
   }) {
-    return addingTutorial(context, data, lessonId);
+    return addingTutorial(duration, context, data, lessonId);
   }
 
   @override
@@ -457,11 +470,11 @@ class _$addingTutorialImpl implements _addingTutorial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? backButtonClick,
     TResult? Function(String level)? dropDownLevelPiker,
-    TResult? Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)?
+    TResult? Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)?
         addingTutorial,
   }) {
-    return addingTutorial?.call(context, data, lessonId);
+    return addingTutorial?.call(duration, context, data, lessonId);
   }
 
   @override
@@ -469,13 +482,13 @@ class _$addingTutorialImpl implements _addingTutorial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? backButtonClick,
     TResult Function(String level)? dropDownLevelPiker,
-    TResult Function(
-            BuildContext context, Map<dynamic, dynamic> data, String lessonId)?
+    TResult Function(num duration, BuildContext context,
+            Map<dynamic, dynamic> data, String lessonId)?
         addingTutorial,
     required TResult orElse(),
   }) {
     if (addingTutorial != null) {
-      return addingTutorial(context, data, lessonId);
+      return addingTutorial(duration, context, data, lessonId);
     }
     return orElse();
   }
@@ -517,10 +530,12 @@ class _$addingTutorialImpl implements _addingTutorial {
 
 abstract class _addingTutorial implements TutorialAddingFormEvent {
   const factory _addingTutorial(
-      {required final BuildContext context,
+      {required final num duration,
+      required final BuildContext context,
       required final Map<dynamic, dynamic> data,
       required final String lessonId}) = _$addingTutorialImpl;
 
+  num get duration;
   BuildContext get context;
   Map<dynamic, dynamic> get data;
   String get lessonId;
