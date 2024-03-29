@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:path_way_flu/app/core/theme/dark_theme.dart';
 import 'package:path_way_flu/app/core/theme/light_theme.dart';
@@ -102,7 +103,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => TeacherApplicationBloc(),),
         BlocProvider(create: (context) => TeacherProfileCollectingBloc()),
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         supportedLocales: L10n.all,
         locale: _locale,

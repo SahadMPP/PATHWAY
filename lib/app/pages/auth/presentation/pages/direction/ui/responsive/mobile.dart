@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/ui/sign_in.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
+import 'package:get/get.dart' as Getx;
 
 class DirectionMob extends StatelessWidget {
   const DirectionMob({super.key});
 
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
+    return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -95,10 +97,9 @@ class DirectionMob extends StatelessWidget {
                 return BuildButton(
                     text: "Continue as a ${state.directionText}",
                     fun: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (ctx) =>  SignIn(directiontext: state.directionText,)));
+                      Getx.Get.to(SignIn(directiontext: state.directionText),
+                          transition: Getx.Transition.fade,
+                          duration: const Duration(seconds: 1));
                     });
               },
             ),

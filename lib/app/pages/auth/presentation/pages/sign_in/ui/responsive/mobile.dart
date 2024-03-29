@@ -7,6 +7,7 @@ import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/ui/signup
 import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field_email.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field_password.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
+import 'package:get/get.dart' as Getx;
 
 class SignMobLayOut extends StatelessWidget {
   final String directiontext;
@@ -122,9 +123,9 @@ class SignMobLayOut extends StatelessWidget {
                         )),
                     GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) =>
-                                SignUp(directiontext: directiontext)));
+                         Getx.Get.to(SignUp(directiontext: directiontext),
+                          transition: Getx.Transition.fade,
+                          duration: const Duration(seconds: 1));
                       },
                       child: Text('Sign Up',
                           style: GoogleFonts.roboto(
