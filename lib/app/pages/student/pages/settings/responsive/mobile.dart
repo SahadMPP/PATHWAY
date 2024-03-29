@@ -10,8 +10,9 @@ import 'package:path_way_flu/app/pages/commen%20pages/privecy%20text/ui/privecy.
 import 'package:path_way_flu/app/pages/student/widgets/complaint_alertbox.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/app/pages/student/widgets/profile_card.dart';
-import 'package:path_way_flu/app/pages/student/widgets/setting_cardwith_toggle.dart';
 import 'package:path_way_flu/main.dart';
+import 'package:lottie/lottie.dart';
+
 
 class StudentSettingMob extends StatelessWidget {
   const StudentSettingMob({super.key});
@@ -60,11 +61,7 @@ class StudentSettingMob extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20, top: 10),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.settings,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                      size: 50,
-                    ),
+                    LottieBuilder.asset("asset/animation_icon/Animation - 1711732212075.json",height: 50,fit: BoxFit.fill),
                     const SizedBox(width: 15),
                     Text(AppLocalizations.of(context).settings,
                         style: kHeadingextStyle.copyWith(
@@ -142,13 +139,6 @@ class StudentSettingMob extends StatelessWidget {
                               ));
                             },
                             icon: Icons.navigate_next),
-                        BuildProfileWithToggle(
-                            text:
-                                AppLocalizations.of(context).pushnotification,
-                            fun: () {}),
-                        BuildProfileWithToggle(
-                            text: AppLocalizations.of(context).darkmode,
-                            fun: () {}),
                         const Divider(
                             color: Color.fromARGB(255, 228, 228, 228),
                             thickness: 1),

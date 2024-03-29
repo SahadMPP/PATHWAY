@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/core/constants/subject_list.dart';
@@ -61,7 +61,11 @@ class StudentHomeMob extends StatelessWidget {
                       .read<StudentHomeBloc>()
                       .add(StudentHomeEvent.navigatingSeeAll(context: context));
                 },
-                child: SvgPicture.asset("asset/icons/search.svg")),
+                child: LottieBuilder.asset(
+                  "asset/animation_icon/Animation - 1711734592445.json",
+                  height: 45,
+                  fit: BoxFit.fill,
+                )),
           ],
         ),
       ),
@@ -192,8 +196,8 @@ class StudentHomeMob extends StatelessWidget {
                       style: kTitleTextStyle),
                   InkWell(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (ctx) => const SeeAll()));
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (ctx) => const SeeAll()));
                     },
                     child: Text(AppLocalizations.of(context).seeall,
                         style: kSubtitleTextSyule.copyWith(color: kBlueColor)),

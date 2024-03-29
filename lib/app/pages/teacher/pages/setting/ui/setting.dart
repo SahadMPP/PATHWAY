@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/data/middleware/auth.dart';
@@ -6,7 +7,6 @@ import 'package:path_way_flu/app/pages/auth/domain/usecases/define_fun.dart';
 import 'package:path_way_flu/app/pages/commen%20pages/about/ui/about.dart';
 import 'package:path_way_flu/app/pages/commen%20pages/privecy%20text/ui/privecy.dart';
 import 'package:path_way_flu/app/pages/student/widgets/profile_card.dart';
-import 'package:path_way_flu/app/pages/student/widgets/setting_cardwith_toggle.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/application%20from/ui/application_form.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/profile%20edit/ui/teacher_profile_edit.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/setting_appbar.dart';
@@ -29,11 +29,10 @@ class TeacherSettings extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20, top: 10),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.settings,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                      size: 50,
-                    ),
+                    LottieBuilder.asset(
+                        "asset/animation_icon/Animation - 1711732212075.json",
+                        height: 50,
+                        fit: BoxFit.fill),
                     const SizedBox(width: 15),
                     Text(AppLocalizations.of(context).settings,
                         style: kHeadingextStyle.copyWith(
@@ -63,7 +62,7 @@ class TeacherSettings extends StatelessWidget {
                         const SizedBox(height: 40),
                         Row(
                           children: [
-                             SizedBox(
+                            SizedBox(
                               height: 60,
                               width: 60,
                               child: ClipRRect(
@@ -116,19 +115,9 @@ class TeacherSettings extends StatelessWidget {
                             text: AppLocalizations.of(context).applyasateacher,
                             fun: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) =>
-                                      const ApplicationForm()));
+                                  builder: (ctx) => const ApplicationForm()));
                             },
                             icon: Icons.navigate_next),
-                        BuildProfileWithToggle(
-                            text:
-                                AppLocalizations.of(context).pushnotification,
-                            fun: () {}),
-                        const SizedBox(height: 10),
-
-                        BuildProfileWithToggle(
-                            text: AppLocalizations.of(context).darkmode,
-                            fun: () {}),
                         const Divider(),
                         const SizedBox(height: 10),
                         Text(
