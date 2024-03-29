@@ -3,13 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:appinio_video_player/appinio_video_player.dart';
+import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/data/middleware/student.dart';
 import 'package:path_way_flu/app/data/middleware/teacher.dart';
 import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
 import 'package:path_way_flu/app/pages/student/widgets/deatile_page_course_card.dart';
 import 'package:path_way_flu/main.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class VideoPlayMob extends StatefulWidget {
   final Lesson lesson;
@@ -24,6 +24,9 @@ class _VideoPlayMobState extends State<VideoPlayMob> {
   late CustomVideoPlayerController _customVideoPlayerController;
 
   bool isLoading = false;
+  bool isDiscription = true;
+
+  String discription = "";
 
   String videoUrlDefult =
       "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
@@ -52,35 +55,56 @@ class _VideoPlayMobState extends State<VideoPlayMob> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(onTap: () => Navigator.of(context).pop(),child: SvgPicture.asset("asset/icons/arrow-left.svg")),
+                      GestureDetector(
+                          onTap: () => Navigator.of(context).pop(),
+                          child:
+                              SvgPicture.asset("asset/icons/arrow-left.svg")),
                       SvgPicture.asset("asset/icons/more-vertical.svg"),
                     ],
                   ),
                   const SizedBox(height: 20),
                   isLoading
-                      ? Container(
-                          decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: Colors.grey, width: .5)),
-                          child: CustomVideoPlayer(
-                              customVideoPlayerController:
-                                  _customVideoPlayerController),
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.grey, width: .5)),
+                            child: CustomVideoPlayer(
+                                customVideoPlayerController:
+                                    _customVideoPlayerController),
+                          ),
                         )
                       : const Center(child: CircularProgressIndicator()),
                   const SizedBox(height: 15),
-                  Text("How to do multipucation",
-                      style: kSubtitleTextSyule.copyWith(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 19,
-                        height: 1.5,
-                      )),
-                  const SizedBox(height: 5),
-                  Text("Created by Kumar mohan",
-                      style: GoogleFonts.quicksand(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      )),
-                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 25,
+                        backgroundImage: NetworkImage(
+                            "${AuthApi.baseUrlImage}${widget.lesson.profileImage}"),
+                      ),
+                      const SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(widget.lesson.title.toUpperCase(),
+                              style: kSubtitleTextSyule.copyWith(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 19,
+                                height: 1.5,
+                              )),
+                          const SizedBox(height: 5),
+                          Text(widget.lesson.creatorName.toUpperCase(),
+                              style: GoogleFonts.quicksand(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              )),
+                          const SizedBox(height: 10),
+                        ],
+                      ),
+                    ],
+                  ),
                   ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 170),
                     child: const Row(
@@ -93,47 +117,40 @@ class _VideoPlayMobState extends State<VideoPlayMob> {
                         ),
                         SizedBox(width: 10),
                         Icon(Icons.timer, color: Colors.grey),
-                        Text("7.2 Hours", style: TextStyle(color: Colors.grey))
+                        Text("7.2 Hours", style: TextStyle(color: Colors.grey)),
+                        SizedBox(height: 30),
                       ],
                     ),
                   ),
                 ],
               ),
             ),
-            Container(
-              padding: const EdgeInsets.all(25),
-              height: 100,
-              width: double.infinity,
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+            Visibility(
+              visible: isDiscription,
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Great Work',
-                          style: GoogleFonts.roboto(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          'You compleated lession',
-                          style: GoogleFonts.quicksand(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Theme.of(context).colorScheme.onSecondary),
-                        ),
-                      ],
+                    Text(
+                      'Discription',
+                      style: GoogleFonts.roboto(
+                          color: Colors.grey,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold),
                     ),
-                    CircularPercentIndicator(
-                          radius: 25,
-                          center: const Text("25%"),
-                          percent: 25 / 100,
-                          progressColor: const Color.fromARGB(255, 0, 255, 8),
-                          backgroundWidth: 5,
-                        ),
-                    
-                  ]),
+                    const SizedBox(height: 10),
+                    Text(
+                      discription,
+                      style: GoogleFonts.quicksand(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: Theme.of(context).colorScheme.onSecondary),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Expanded(
                 child: Container(
@@ -161,7 +178,6 @@ class _VideoPlayMobState extends State<VideoPlayMob> {
                                   child: CircularProgressIndicator());
                             } else {
                               List<Tutorial> tutoral = snapshot.data!;
-
                               if (tutoral.isEmpty) {
                                 return const Center(
                                     child: Text("No Tutorial in available"));
@@ -173,8 +189,12 @@ class _VideoPlayMobState extends State<VideoPlayMob> {
                                       itemBuilder: (context, index) {
                                         return CourseContent(
                                             functionn: () {
-                                              int count = index + 1;
+                                              setState(() {
+                                                discription =
+                                                    tutoral[index].discription;
+                                              });
 
+                                              int count = index + 1;
                                               StudentApi
                                                   .getOneProgerssForUpdate(
                                                       context: context,
@@ -191,8 +211,7 @@ class _VideoPlayMobState extends State<VideoPlayMob> {
                                             },
                                             number: index,
                                             title: tutoral[index].title,
-                                            creatorName:
-                                                tutoral[index].level);
+                                            creatorName: tutoral[index].level);
                                       }),
                                 );
                               }
@@ -227,4 +246,3 @@ class _VideoPlayMobState extends State<VideoPlayMob> {
     });
   }
 }
-
