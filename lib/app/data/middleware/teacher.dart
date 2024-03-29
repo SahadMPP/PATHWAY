@@ -490,6 +490,8 @@ class TeacherApi {
   //   }
   // }
 
+ 
+ 
   static Future<http.StreamedResponse> patchProfileImage(
       String id, String filepath) async {
     var request = http.MultipartRequest(
@@ -503,5 +505,26 @@ class TeacherApi {
     var response = request.send();
 
     return response;
+  }
+  
+  static getAllLessionForTotel()async{
+        List<Lesson> listLesson = [];
+    final url = Uri.parse('${baseUrl}get_lession');
+
+    try {
+      final res = await http.get(url);
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
+        for (var value in data) {
+          listLesson.add(Lesson.fromJson(value));
+        }
+        return listLesson;
+      } else {
+        return listLesson;
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+ 
   }
 }

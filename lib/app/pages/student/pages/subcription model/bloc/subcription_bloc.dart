@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:path_way_flu/app/core/constants/snacbar.dart';
 import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/data/middleware/student.dart';
+import 'package:path_way_flu/app/data/middleware/teacher.dart';
 import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
@@ -88,7 +89,7 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
         c = 1;
         list.add(event.subject);
       }
-      Map<String,dynamic> data = {"lessonId": list};
+      Map<String, dynamic> data = {"lessonId": list};
 
       if (c == 0) {
         buildShowSnacbar(
@@ -107,7 +108,13 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
           "lessonId": event.lesson.id,
           "studentId": userId
         };
-        StudentApi.studentSubcriptionAdding(id: event.id, data: data, context: event.context, progressData: progressData, subject: event.lesson.subject, lessonPrice: event.lesson.price);
+        StudentApi.studentSubcriptionAdding(
+            id: event.id,
+            data: data,
+            context: event.context,
+            progressData: progressData,
+            subject: event.lesson.subject,
+            lessonPrice: event.lesson.price);
       }
 
       emit(state.copyWith(subject: []));
@@ -117,7 +124,7 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
       List<String> subjectsList = [];
       final url = Uri.parse("${AuthApi.baseUrl}get_studentById/${event.id}");
 
-      try { 
+      try {
         final res = await http.get(url);
 
         if (res.statusCode == 200) {
@@ -149,5 +156,15 @@ class SubcriptionBloc extends Bloc<SubcriptionEvent, SubcriptionState> {
       }
       emit(state.copyWith(subject: []));
     });
+
+    on<_gettingTotelAmount>((event, emit)async {
+      num totelPrice = 0;
+    List<Lesson> lessons = await TeacherApi.getAllLession();
+    for (var element in lessons) {
+     totelPrice = totelPrice + element.price; 
+    }
+      emit(state.copyWith(totelAmont:totelPrice.toString() ));
+    });
   }
 }
+   

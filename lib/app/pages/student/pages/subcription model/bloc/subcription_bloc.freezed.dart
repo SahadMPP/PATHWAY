@@ -27,6 +27,7 @@ mixin _$SubcriptionEvent {
         updataStudentdata,
     required TResult Function(String subject, String id, BuildContext context)
         naviagatedToDeatilePage,
+    required TResult Function() gettingTotelAmount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +40,7 @@ mixin _$SubcriptionEvent {
         updataStudentdata,
     TResult? Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
+    TResult? Function()? gettingTotelAmount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +53,7 @@ mixin _$SubcriptionEvent {
         updataStudentdata,
     TResult Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
+    TResult Function()? gettingTotelAmount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,6 +64,7 @@ mixin _$SubcriptionEvent {
     required TResult Function(_updataStudentdata value) updataStudentdata,
     required TResult Function(_naviagatedToDeatilePage value)
         naviagatedToDeatilePage,
+    required TResult Function(_gettingTotelAmount value) gettingTotelAmount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +73,7 @@ mixin _$SubcriptionEvent {
     TResult? Function(_makeinginstence value)? makeinginstence,
     TResult? Function(_updataStudentdata value)? updataStudentdata,
     TResult? Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult? Function(_gettingTotelAmount value)? gettingTotelAmount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +82,7 @@ mixin _$SubcriptionEvent {
     TResult Function(_makeinginstence value)? makeinginstence,
     TResult Function(_updataStudentdata value)? updataStudentdata,
     TResult Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult Function(_gettingTotelAmount value)? gettingTotelAmount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -202,6 +208,7 @@ class _$makingsubcriptionImpl implements _makingsubcription {
         updataStudentdata,
     required TResult Function(String subject, String id, BuildContext context)
         naviagatedToDeatilePage,
+    required TResult Function() gettingTotelAmount,
   }) {
     return makingsubcription(amount, mob, subject, email);
   }
@@ -217,6 +224,7 @@ class _$makingsubcriptionImpl implements _makingsubcription {
         updataStudentdata,
     TResult? Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
+    TResult? Function()? gettingTotelAmount,
   }) {
     return makingsubcription?.call(amount, mob, subject, email);
   }
@@ -232,6 +240,7 @@ class _$makingsubcriptionImpl implements _makingsubcription {
         updataStudentdata,
     TResult Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
+    TResult Function()? gettingTotelAmount,
     required TResult orElse(),
   }) {
     if (makingsubcription != null) {
@@ -248,6 +257,7 @@ class _$makingsubcriptionImpl implements _makingsubcription {
     required TResult Function(_updataStudentdata value) updataStudentdata,
     required TResult Function(_naviagatedToDeatilePage value)
         naviagatedToDeatilePage,
+    required TResult Function(_gettingTotelAmount value) gettingTotelAmount,
   }) {
     return makingsubcription(this);
   }
@@ -259,6 +269,7 @@ class _$makingsubcriptionImpl implements _makingsubcription {
     TResult? Function(_makeinginstence value)? makeinginstence,
     TResult? Function(_updataStudentdata value)? updataStudentdata,
     TResult? Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult? Function(_gettingTotelAmount value)? gettingTotelAmount,
   }) {
     return makingsubcription?.call(this);
   }
@@ -270,6 +281,7 @@ class _$makingsubcriptionImpl implements _makingsubcription {
     TResult Function(_makeinginstence value)? makeinginstence,
     TResult Function(_updataStudentdata value)? updataStudentdata,
     TResult Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult Function(_gettingTotelAmount value)? gettingTotelAmount,
     required TResult orElse(),
   }) {
     if (makingsubcription != null) {
@@ -342,6 +354,7 @@ class _$makeinginstenceImpl implements _makeinginstence {
         updataStudentdata,
     required TResult Function(String subject, String id, BuildContext context)
         naviagatedToDeatilePage,
+    required TResult Function() gettingTotelAmount,
   }) {
     return makeinginstence();
   }
@@ -357,6 +370,7 @@ class _$makeinginstenceImpl implements _makeinginstence {
         updataStudentdata,
     TResult? Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
+    TResult? Function()? gettingTotelAmount,
   }) {
     return makeinginstence?.call();
   }
@@ -372,6 +386,7 @@ class _$makeinginstenceImpl implements _makeinginstence {
         updataStudentdata,
     TResult Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
+    TResult Function()? gettingTotelAmount,
     required TResult orElse(),
   }) {
     if (makeinginstence != null) {
@@ -388,6 +403,7 @@ class _$makeinginstenceImpl implements _makeinginstence {
     required TResult Function(_updataStudentdata value) updataStudentdata,
     required TResult Function(_naviagatedToDeatilePage value)
         naviagatedToDeatilePage,
+    required TResult Function(_gettingTotelAmount value) gettingTotelAmount,
   }) {
     return makeinginstence(this);
   }
@@ -399,6 +415,7 @@ class _$makeinginstenceImpl implements _makeinginstence {
     TResult? Function(_makeinginstence value)? makeinginstence,
     TResult? Function(_updataStudentdata value)? updataStudentdata,
     TResult? Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult? Function(_gettingTotelAmount value)? gettingTotelAmount,
   }) {
     return makeinginstence?.call(this);
   }
@@ -410,6 +427,7 @@ class _$makeinginstenceImpl implements _makeinginstence {
     TResult Function(_makeinginstence value)? makeinginstence,
     TResult Function(_updataStudentdata value)? updataStudentdata,
     TResult Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult Function(_gettingTotelAmount value)? gettingTotelAmount,
     required TResult orElse(),
   }) {
     if (makeinginstence != null) {
@@ -525,6 +543,7 @@ class _$updataStudentdataImpl implements _updataStudentdata {
         updataStudentdata,
     required TResult Function(String subject, String id, BuildContext context)
         naviagatedToDeatilePage,
+    required TResult Function() gettingTotelAmount,
   }) {
     return updataStudentdata(subject, id, context, lesson);
   }
@@ -540,6 +559,7 @@ class _$updataStudentdataImpl implements _updataStudentdata {
         updataStudentdata,
     TResult? Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
+    TResult? Function()? gettingTotelAmount,
   }) {
     return updataStudentdata?.call(subject, id, context, lesson);
   }
@@ -555,6 +575,7 @@ class _$updataStudentdataImpl implements _updataStudentdata {
         updataStudentdata,
     TResult Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
+    TResult Function()? gettingTotelAmount,
     required TResult orElse(),
   }) {
     if (updataStudentdata != null) {
@@ -571,6 +592,7 @@ class _$updataStudentdataImpl implements _updataStudentdata {
     required TResult Function(_updataStudentdata value) updataStudentdata,
     required TResult Function(_naviagatedToDeatilePage value)
         naviagatedToDeatilePage,
+    required TResult Function(_gettingTotelAmount value) gettingTotelAmount,
   }) {
     return updataStudentdata(this);
   }
@@ -582,6 +604,7 @@ class _$updataStudentdataImpl implements _updataStudentdata {
     TResult? Function(_makeinginstence value)? makeinginstence,
     TResult? Function(_updataStudentdata value)? updataStudentdata,
     TResult? Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult? Function(_gettingTotelAmount value)? gettingTotelAmount,
   }) {
     return updataStudentdata?.call(this);
   }
@@ -593,6 +616,7 @@ class _$updataStudentdataImpl implements _updataStudentdata {
     TResult Function(_makeinginstence value)? makeinginstence,
     TResult Function(_updataStudentdata value)? updataStudentdata,
     TResult Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult Function(_gettingTotelAmount value)? gettingTotelAmount,
     required TResult orElse(),
   }) {
     if (updataStudentdata != null) {
@@ -711,6 +735,7 @@ class _$naviagatedToDeatilePageImpl implements _naviagatedToDeatilePage {
         updataStudentdata,
     required TResult Function(String subject, String id, BuildContext context)
         naviagatedToDeatilePage,
+    required TResult Function() gettingTotelAmount,
   }) {
     return naviagatedToDeatilePage(subject, id, context);
   }
@@ -726,6 +751,7 @@ class _$naviagatedToDeatilePageImpl implements _naviagatedToDeatilePage {
         updataStudentdata,
     TResult? Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
+    TResult? Function()? gettingTotelAmount,
   }) {
     return naviagatedToDeatilePage?.call(subject, id, context);
   }
@@ -741,6 +767,7 @@ class _$naviagatedToDeatilePageImpl implements _naviagatedToDeatilePage {
         updataStudentdata,
     TResult Function(String subject, String id, BuildContext context)?
         naviagatedToDeatilePage,
+    TResult Function()? gettingTotelAmount,
     required TResult orElse(),
   }) {
     if (naviagatedToDeatilePage != null) {
@@ -757,6 +784,7 @@ class _$naviagatedToDeatilePageImpl implements _naviagatedToDeatilePage {
     required TResult Function(_updataStudentdata value) updataStudentdata,
     required TResult Function(_naviagatedToDeatilePage value)
         naviagatedToDeatilePage,
+    required TResult Function(_gettingTotelAmount value) gettingTotelAmount,
   }) {
     return naviagatedToDeatilePage(this);
   }
@@ -768,6 +796,7 @@ class _$naviagatedToDeatilePageImpl implements _naviagatedToDeatilePage {
     TResult? Function(_makeinginstence value)? makeinginstence,
     TResult? Function(_updataStudentdata value)? updataStudentdata,
     TResult? Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult? Function(_gettingTotelAmount value)? gettingTotelAmount,
   }) {
     return naviagatedToDeatilePage?.call(this);
   }
@@ -779,6 +808,7 @@ class _$naviagatedToDeatilePageImpl implements _naviagatedToDeatilePage {
     TResult Function(_makeinginstence value)? makeinginstence,
     TResult Function(_updataStudentdata value)? updataStudentdata,
     TResult Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult Function(_gettingTotelAmount value)? gettingTotelAmount,
     required TResult orElse(),
   }) {
     if (naviagatedToDeatilePage != null) {
@@ -803,9 +833,144 @@ abstract class _naviagatedToDeatilePage implements SubcriptionEvent {
 }
 
 /// @nodoc
+abstract class _$$gettingTotelAmountImplCopyWith<$Res> {
+  factory _$$gettingTotelAmountImplCopyWith(_$gettingTotelAmountImpl value,
+          $Res Function(_$gettingTotelAmountImpl) then) =
+      __$$gettingTotelAmountImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$gettingTotelAmountImplCopyWithImpl<$Res>
+    extends _$SubcriptionEventCopyWithImpl<$Res, _$gettingTotelAmountImpl>
+    implements _$$gettingTotelAmountImplCopyWith<$Res> {
+  __$$gettingTotelAmountImplCopyWithImpl(_$gettingTotelAmountImpl _value,
+      $Res Function(_$gettingTotelAmountImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$gettingTotelAmountImpl implements _gettingTotelAmount {
+  const _$gettingTotelAmountImpl();
+
+  @override
+  String toString() {
+    return 'SubcriptionEvent.gettingTotelAmount()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$gettingTotelAmountImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            int amount, String mob, String subject, String email)
+        makingsubcription,
+    required TResult Function() makeinginstence,
+    required TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)
+        updataStudentdata,
+    required TResult Function(String subject, String id, BuildContext context)
+        naviagatedToDeatilePage,
+    required TResult Function() gettingTotelAmount,
+  }) {
+    return gettingTotelAmount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int amount, String mob, String subject, String email)?
+        makingsubcription,
+    TResult? Function()? makeinginstence,
+    TResult? Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
+        updataStudentdata,
+    TResult? Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
+    TResult? Function()? gettingTotelAmount,
+  }) {
+    return gettingTotelAmount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int amount, String mob, String subject, String email)?
+        makingsubcription,
+    TResult Function()? makeinginstence,
+    TResult Function(
+            String subject, String id, BuildContext context, Lesson lesson)?
+        updataStudentdata,
+    TResult Function(String subject, String id, BuildContext context)?
+        naviagatedToDeatilePage,
+    TResult Function()? gettingTotelAmount,
+    required TResult orElse(),
+  }) {
+    if (gettingTotelAmount != null) {
+      return gettingTotelAmount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_makingsubcription value) makingsubcription,
+    required TResult Function(_makeinginstence value) makeinginstence,
+    required TResult Function(_updataStudentdata value) updataStudentdata,
+    required TResult Function(_naviagatedToDeatilePage value)
+        naviagatedToDeatilePage,
+    required TResult Function(_gettingTotelAmount value) gettingTotelAmount,
+  }) {
+    return gettingTotelAmount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_makingsubcription value)? makingsubcription,
+    TResult? Function(_makeinginstence value)? makeinginstence,
+    TResult? Function(_updataStudentdata value)? updataStudentdata,
+    TResult? Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult? Function(_gettingTotelAmount value)? gettingTotelAmount,
+  }) {
+    return gettingTotelAmount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_makingsubcription value)? makingsubcription,
+    TResult Function(_makeinginstence value)? makeinginstence,
+    TResult Function(_updataStudentdata value)? updataStudentdata,
+    TResult Function(_naviagatedToDeatilePage value)? naviagatedToDeatilePage,
+    TResult Function(_gettingTotelAmount value)? gettingTotelAmount,
+    required TResult orElse(),
+  }) {
+    if (gettingTotelAmount != null) {
+      return gettingTotelAmount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _gettingTotelAmount implements SubcriptionEvent {
+  const factory _gettingTotelAmount() = _$gettingTotelAmountImpl;
+}
+
+/// @nodoc
 mixin _$SubcriptionState {
   Razorpay get razorpay => throw _privateConstructorUsedError;
   List<String> get subject => throw _privateConstructorUsedError;
+  String get totelAmont => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SubcriptionStateCopyWith<SubcriptionState> get copyWith =>
@@ -818,7 +983,7 @@ abstract class $SubcriptionStateCopyWith<$Res> {
           SubcriptionState value, $Res Function(SubcriptionState) then) =
       _$SubcriptionStateCopyWithImpl<$Res, SubcriptionState>;
   @useResult
-  $Res call({Razorpay razorpay, List<String> subject});
+  $Res call({Razorpay razorpay, List<String> subject, String totelAmont});
 }
 
 /// @nodoc
@@ -836,6 +1001,7 @@ class _$SubcriptionStateCopyWithImpl<$Res, $Val extends SubcriptionState>
   $Res call({
     Object? razorpay = null,
     Object? subject = null,
+    Object? totelAmont = null,
   }) {
     return _then(_value.copyWith(
       razorpay: null == razorpay
@@ -846,6 +1012,10 @@ class _$SubcriptionStateCopyWithImpl<$Res, $Val extends SubcriptionState>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      totelAmont: null == totelAmont
+          ? _value.totelAmont
+          : totelAmont // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -858,7 +1028,7 @@ abstract class _$$SubcriptionStateImplCopyWith<$Res>
       __$$SubcriptionStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Razorpay razorpay, List<String> subject});
+  $Res call({Razorpay razorpay, List<String> subject, String totelAmont});
 }
 
 /// @nodoc
@@ -874,6 +1044,7 @@ class __$$SubcriptionStateImplCopyWithImpl<$Res>
   $Res call({
     Object? razorpay = null,
     Object? subject = null,
+    Object? totelAmont = null,
   }) {
     return _then(_$SubcriptionStateImpl(
       razorpay: null == razorpay
@@ -884,6 +1055,10 @@ class __$$SubcriptionStateImplCopyWithImpl<$Res>
           ? _value._subject
           : subject // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      totelAmont: null == totelAmont
+          ? _value.totelAmont
+          : totelAmont // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -892,7 +1067,9 @@ class __$$SubcriptionStateImplCopyWithImpl<$Res>
 
 class _$SubcriptionStateImpl implements _SubcriptionState {
   const _$SubcriptionStateImpl(
-      {required this.razorpay, required final List<String> subject})
+      {required this.razorpay,
+      required final List<String> subject,
+      required this.totelAmont})
       : _subject = subject;
 
   @override
@@ -906,8 +1083,11 @@ class _$SubcriptionStateImpl implements _SubcriptionState {
   }
 
   @override
+  final String totelAmont;
+
+  @override
   String toString() {
-    return 'SubcriptionState(razorpay: $razorpay, subject: $subject)';
+    return 'SubcriptionState(razorpay: $razorpay, subject: $subject, totelAmont: $totelAmont)';
   }
 
   @override
@@ -917,12 +1097,14 @@ class _$SubcriptionStateImpl implements _SubcriptionState {
             other is _$SubcriptionStateImpl &&
             (identical(other.razorpay, razorpay) ||
                 other.razorpay == razorpay) &&
-            const DeepCollectionEquality().equals(other._subject, _subject));
+            const DeepCollectionEquality().equals(other._subject, _subject) &&
+            (identical(other.totelAmont, totelAmont) ||
+                other.totelAmont == totelAmont));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, razorpay, const DeepCollectionEquality().hash(_subject));
+  int get hashCode => Object.hash(runtimeType, razorpay,
+      const DeepCollectionEquality().hash(_subject), totelAmont);
 
   @JsonKey(ignore: true)
   @override
@@ -935,12 +1117,15 @@ class _$SubcriptionStateImpl implements _SubcriptionState {
 abstract class _SubcriptionState implements SubcriptionState {
   const factory _SubcriptionState(
       {required final Razorpay razorpay,
-      required final List<String> subject}) = _$SubcriptionStateImpl;
+      required final List<String> subject,
+      required final String totelAmont}) = _$SubcriptionStateImpl;
 
   @override
   Razorpay get razorpay;
   @override
   List<String> get subject;
+  @override
+  String get totelAmont;
   @override
   @JsonKey(ignore: true)
   _$$SubcriptionStateImplCopyWith<_$SubcriptionStateImpl> get copyWith =>

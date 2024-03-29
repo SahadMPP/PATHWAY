@@ -5,11 +5,11 @@ import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/pages/student/pages/See%20All/bloc/see_all_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class ProdectCard extends StatelessWidget {
   final int count;
   const ProdectCard({
-    super.key, required this.count,
+    super.key,
+    required this.count,
   });
 
   @override
@@ -19,8 +19,7 @@ class ProdectCard extends StatelessWidget {
         builder: (context, state) {
           return SizedBox(
             child: GridView.builder(
-                gridDelegate:
-                     SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: count,
                   crossAxisSpacing: 15,
                   mainAxisSpacing: 15,
@@ -32,17 +31,13 @@ class ProdectCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     child: GestureDetector(
                       onTap: () {
-                        
                         context.read<SeeAllBloc>().add(
-
                             SeeAllEvent.navigatingMaker(
-                                lesson: state.list[index],
-                                context: context));
+                                lesson: state.list[index], context: context));
                       },
                       child: Container(
                         padding: const EdgeInsets.all(10),
-                        color:
-                            Theme.of(context).colorScheme.secondary,
+                        color: Theme.of(context).colorScheme.secondary,
                         child: Stack(
                           children: [
                             Column(
@@ -51,8 +46,7 @@ class ProdectCard extends StatelessWidget {
                                     height: 100,
                                     width: double.infinity,
                                     child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(15),
                                         child: Image.network(
                                           "${AuthApi.baseUrlImage}${state.list[index].coverImage}",
                                           fit: BoxFit.cover,
@@ -63,10 +57,8 @@ class ProdectCard extends StatelessWidget {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     ConstrainedBox(
-                                      constraints:
-                                          const BoxConstraints(
-                                              maxWidth: 120,
-                                              maxHeight: 35),
+                                      constraints: const BoxConstraints(
+                                          maxWidth: 120, maxHeight: 35),
                                       child: Text(
                                         state.list[index].title,
                                         style: GoogleFonts.aBeeZee(
@@ -97,13 +89,10 @@ class ProdectCard extends StatelessWidget {
                                         ),
                                         const SizedBox(width: 5),
                                         Text(
-                                          state.list[index]
-                                              .creatorName,
-                                          style:
-                                              GoogleFonts.quicksand(
+                                          state.list[index].creatorName,
+                                          style: GoogleFonts.quicksand(
                                             fontSize: 14,
-                                            fontWeight:
-                                                FontWeight.w500,
+                                            fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                       ],
@@ -141,8 +130,7 @@ class ProdectCard extends StatelessWidget {
                                           "${state.list[index].lessonId.length} ${AppLocalizations.of(context).lesson}",
                                           style: GoogleFonts.aBeeZee(
                                               color: Colors.grey,
-                                              fontWeight:
-                                                  FontWeight.bold,
+                                              fontWeight: FontWeight.bold,
                                               fontSize: 12,
                                               wordSpacing: 3),
                                         )
@@ -154,12 +142,11 @@ class ProdectCard extends StatelessWidget {
                             ),
                             Align(
                                 alignment: Alignment.topRight,
-                                child: BlocBuilder<SeeAllBloc,
-                                    SeeAllState>(
+                                child: BlocBuilder<SeeAllBloc, SeeAllState>(
                                   builder: (context, state) {
                                     return Visibility(
-                                        visible: state.list[index]
-                                            .lessonId.isEmpty,
+                                        visible:
+                                            state.list[index].lessonId.isEmpty,
                                         child: Image.asset(
                                           "asset/icons/coming-soon.png",
                                           height: 45,

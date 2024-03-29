@@ -40,7 +40,5 @@ class SeeAllBloc extends Bloc<SeeAllEvent, SeeAllState> {
           lesson: event.lesson,
           studentId: userId);
     });
-
-   
   }
 }

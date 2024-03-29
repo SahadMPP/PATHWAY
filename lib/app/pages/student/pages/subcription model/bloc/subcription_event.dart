@@ -23,4 +23,6 @@ class SubcriptionEvent with _$SubcriptionEvent {
     required BuildContext context,
   }) = _naviagatedToDeatilePage;
    
+   const factory SubcriptionEvent.gettingTotelAmount() = _gettingTotelAmount;
+   
 }
