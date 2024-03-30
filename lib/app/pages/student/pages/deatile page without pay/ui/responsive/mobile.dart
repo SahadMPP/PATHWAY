@@ -34,13 +34,7 @@ class StudentDeatileWithoutPayMob extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(onTap: () => Navigator.of(context).pop(),child: SvgPicture.asset("asset/icons/arrow-left.svg")),
-                      SvgPicture.asset("asset/icons/more-vertical.svg"),
-                    ],
-                  ),
+                  GestureDetector(onTap: () => Navigator.of(context).pop(),child: SvgPicture.asset("asset/icons/arrow-left.svg")),
                   const SizedBox(height: 30),
                   ClipPath(
                     clipper: BestSellerClipper(),

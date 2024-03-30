@@ -23,26 +23,41 @@ class SubcriptionMiniCard extends StatelessWidget {
           color: bgcolor,
           border: Border.all(width: 1, color: borderColor!),
           borderRadius: BorderRadius.circular(30)),
-      child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 30),
-            const SizedBox(width: 10),
-            Text(
-              text,
-              style: GoogleFonts.aBeeZee(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),
+      child: GestureDetector(
+        onTap: () {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            
+            content: Text(
+              "CheckOut Subcription List",
+              style: GoogleFonts.roboto(color: Colors.white),
             ),
-          ],
+            backgroundColor: Colors.blue,
+            behavior: SnackBarBehavior.floating,
+            margin: const EdgeInsets.all(5),
+            duration: const Duration(seconds: 3),
+          ));
+        },
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 30),
+              const SizedBox(width: 10),
+              Text(
+                text,
+                style: GoogleFonts.aBeeZee(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
 
 class BuildSubcriptionSubhead extends StatelessWidget {
   final String text;
