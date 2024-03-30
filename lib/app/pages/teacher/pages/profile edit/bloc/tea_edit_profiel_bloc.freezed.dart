@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TeaEditProfielEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String image) gettingInitialValue,
+    required TResult Function() gettingInitialValue,
     required TResult Function(BuildContext context) cencelPage,
     required TResult Function(BuildContext context, Map<dynamic, dynamic> data)
         updateValue,
@@ -27,7 +27,7 @@ mixin _$TeaEditProfielEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String image)? gettingInitialValue,
+    TResult? Function()? gettingInitialValue,
     TResult? Function(BuildContext context)? cencelPage,
     TResult? Function(BuildContext context, Map<dynamic, dynamic> data)?
         updateValue,
@@ -36,7 +36,7 @@ mixin _$TeaEditProfielEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String image)? gettingInitialValue,
+    TResult Function()? gettingInitialValue,
     TResult Function(BuildContext context)? cencelPage,
     TResult Function(BuildContext context, Map<dynamic, dynamic> data)?
         updateValue,
@@ -94,8 +94,6 @@ abstract class _$$gettingInitialValueImplCopyWith<$Res> {
   factory _$$gettingInitialValueImplCopyWith(_$gettingInitialValueImpl value,
           $Res Function(_$gettingInitialValueImpl) then) =
       __$$gettingInitialValueImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String image});
 }
 
 /// @nodoc
@@ -105,80 +103,56 @@ class __$$gettingInitialValueImplCopyWithImpl<$Res>
   __$$gettingInitialValueImplCopyWithImpl(_$gettingInitialValueImpl _value,
       $Res Function(_$gettingInitialValueImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? image = null,
-  }) {
-    return _then(_$gettingInitialValueImpl(
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$gettingInitialValueImpl implements _gettingInitialValue {
-  const _$gettingInitialValueImpl({required this.image});
-
-  @override
-  final String image;
+  const _$gettingInitialValueImpl();
 
   @override
   String toString() {
-    return 'TeaEditProfielEvent.gettingInitialValue(image: $image)';
+    return 'TeaEditProfielEvent.gettingInitialValue()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$gettingInitialValueImpl &&
-            (identical(other.image, image) || other.image == image));
+            other is _$gettingInitialValueImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, image);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$gettingInitialValueImplCopyWith<_$gettingInitialValueImpl> get copyWith =>
-      __$$gettingInitialValueImplCopyWithImpl<_$gettingInitialValueImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String image) gettingInitialValue,
+    required TResult Function() gettingInitialValue,
     required TResult Function(BuildContext context) cencelPage,
     required TResult Function(BuildContext context, Map<dynamic, dynamic> data)
         updateValue,
     required TResult Function() imagePiker,
   }) {
-    return gettingInitialValue(image);
+    return gettingInitialValue();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String image)? gettingInitialValue,
+    TResult? Function()? gettingInitialValue,
     TResult? Function(BuildContext context)? cencelPage,
     TResult? Function(BuildContext context, Map<dynamic, dynamic> data)?
         updateValue,
     TResult? Function()? imagePiker,
   }) {
-    return gettingInitialValue?.call(image);
+    return gettingInitialValue?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String image)? gettingInitialValue,
+    TResult Function()? gettingInitialValue,
     TResult Function(BuildContext context)? cencelPage,
     TResult Function(BuildContext context, Map<dynamic, dynamic> data)?
         updateValue,
@@ -186,7 +160,7 @@ class _$gettingInitialValueImpl implements _gettingInitialValue {
     required TResult orElse(),
   }) {
     if (gettingInitialValue != null) {
-      return gettingInitialValue(image);
+      return gettingInitialValue();
     }
     return orElse();
   }
@@ -230,13 +204,7 @@ class _$gettingInitialValueImpl implements _gettingInitialValue {
 }
 
 abstract class _gettingInitialValue implements TeaEditProfielEvent {
-  const factory _gettingInitialValue({required final String image}) =
-      _$gettingInitialValueImpl;
-
-  String get image;
-  @JsonKey(ignore: true)
-  _$$gettingInitialValueImplCopyWith<_$gettingInitialValueImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _gettingInitialValue() = _$gettingInitialValueImpl;
 }
 
 /// @nodoc
@@ -303,7 +271,7 @@ class _$cencelPageImpl implements _cencelPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String image) gettingInitialValue,
+    required TResult Function() gettingInitialValue,
     required TResult Function(BuildContext context) cencelPage,
     required TResult Function(BuildContext context, Map<dynamic, dynamic> data)
         updateValue,
@@ -315,7 +283,7 @@ class _$cencelPageImpl implements _cencelPage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String image)? gettingInitialValue,
+    TResult? Function()? gettingInitialValue,
     TResult? Function(BuildContext context)? cencelPage,
     TResult? Function(BuildContext context, Map<dynamic, dynamic> data)?
         updateValue,
@@ -327,7 +295,7 @@ class _$cencelPageImpl implements _cencelPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String image)? gettingInitialValue,
+    TResult Function()? gettingInitialValue,
     TResult Function(BuildContext context)? cencelPage,
     TResult Function(BuildContext context, Map<dynamic, dynamic> data)?
         updateValue,
@@ -468,7 +436,7 @@ class _$updateValueImpl implements _updateValue {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String image) gettingInitialValue,
+    required TResult Function() gettingInitialValue,
     required TResult Function(BuildContext context) cencelPage,
     required TResult Function(BuildContext context, Map<dynamic, dynamic> data)
         updateValue,
@@ -480,7 +448,7 @@ class _$updateValueImpl implements _updateValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String image)? gettingInitialValue,
+    TResult? Function()? gettingInitialValue,
     TResult? Function(BuildContext context)? cencelPage,
     TResult? Function(BuildContext context, Map<dynamic, dynamic> data)?
         updateValue,
@@ -492,7 +460,7 @@ class _$updateValueImpl implements _updateValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String image)? gettingInitialValue,
+    TResult Function()? gettingInitialValue,
     TResult Function(BuildContext context)? cencelPage,
     TResult Function(BuildContext context, Map<dynamic, dynamic> data)?
         updateValue,
@@ -593,7 +561,7 @@ class _$imagePikerImpl implements _imagePiker {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String image) gettingInitialValue,
+    required TResult Function() gettingInitialValue,
     required TResult Function(BuildContext context) cencelPage,
     required TResult Function(BuildContext context, Map<dynamic, dynamic> data)
         updateValue,
@@ -605,7 +573,7 @@ class _$imagePikerImpl implements _imagePiker {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String image)? gettingInitialValue,
+    TResult? Function()? gettingInitialValue,
     TResult? Function(BuildContext context)? cencelPage,
     TResult? Function(BuildContext context, Map<dynamic, dynamic> data)?
         updateValue,
@@ -617,7 +585,7 @@ class _$imagePikerImpl implements _imagePiker {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String image)? gettingInitialValue,
+    TResult Function()? gettingInitialValue,
     TResult Function(BuildContext context)? cencelPage,
     TResult Function(BuildContext context, Map<dynamic, dynamic> data)?
         updateValue,
@@ -675,6 +643,15 @@ abstract class _imagePiker implements TeaEditProfielEvent {
 /// @nodoc
 mixin _$TeaEditProfielState {
   String? get pikedImage => throw _privateConstructorUsedError;
+  String? get currentPikedImage => throw _privateConstructorUsedError;
+  TextEditingController? get nameController =>
+      throw _privateConstructorUsedError;
+  TextEditingController? get emailController =>
+      throw _privateConstructorUsedError;
+  TextEditingController? get passwordController =>
+      throw _privateConstructorUsedError;
+  TextEditingController? get phoneController =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TeaEditProfielStateCopyWith<TeaEditProfielState> get copyWith =>
@@ -687,7 +664,13 @@ abstract class $TeaEditProfielStateCopyWith<$Res> {
           TeaEditProfielState value, $Res Function(TeaEditProfielState) then) =
       _$TeaEditProfielStateCopyWithImpl<$Res, TeaEditProfielState>;
   @useResult
-  $Res call({String? pikedImage});
+  $Res call(
+      {String? pikedImage,
+      String? currentPikedImage,
+      TextEditingController? nameController,
+      TextEditingController? emailController,
+      TextEditingController? passwordController,
+      TextEditingController? phoneController});
 }
 
 /// @nodoc
@@ -704,12 +687,37 @@ class _$TeaEditProfielStateCopyWithImpl<$Res, $Val extends TeaEditProfielState>
   @override
   $Res call({
     Object? pikedImage = freezed,
+    Object? currentPikedImage = freezed,
+    Object? nameController = freezed,
+    Object? emailController = freezed,
+    Object? passwordController = freezed,
+    Object? phoneController = freezed,
   }) {
     return _then(_value.copyWith(
       pikedImage: freezed == pikedImage
           ? _value.pikedImage
           : pikedImage // ignore: cast_nullable_to_non_nullable
               as String?,
+      currentPikedImage: freezed == currentPikedImage
+          ? _value.currentPikedImage
+          : currentPikedImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nameController: freezed == nameController
+          ? _value.nameController
+          : nameController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      emailController: freezed == emailController
+          ? _value.emailController
+          : emailController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      passwordController: freezed == passwordController
+          ? _value.passwordController
+          : passwordController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      phoneController: freezed == phoneController
+          ? _value.phoneController
+          : phoneController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
     ) as $Val);
   }
 }
@@ -722,7 +730,13 @@ abstract class _$$TeaEditProfielStateImplCopyWith<$Res>
       __$$TeaEditProfielStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? pikedImage});
+  $Res call(
+      {String? pikedImage,
+      String? currentPikedImage,
+      TextEditingController? nameController,
+      TextEditingController? emailController,
+      TextEditingController? passwordController,
+      TextEditingController? phoneController});
 }
 
 /// @nodoc
@@ -737,12 +751,37 @@ class __$$TeaEditProfielStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? pikedImage = freezed,
+    Object? currentPikedImage = freezed,
+    Object? nameController = freezed,
+    Object? emailController = freezed,
+    Object? passwordController = freezed,
+    Object? phoneController = freezed,
   }) {
     return _then(_$TeaEditProfielStateImpl(
       pikedImage: freezed == pikedImage
           ? _value.pikedImage
           : pikedImage // ignore: cast_nullable_to_non_nullable
               as String?,
+      currentPikedImage: freezed == currentPikedImage
+          ? _value.currentPikedImage
+          : currentPikedImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nameController: freezed == nameController
+          ? _value.nameController
+          : nameController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      emailController: freezed == emailController
+          ? _value.emailController
+          : emailController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      passwordController: freezed == passwordController
+          ? _value.passwordController
+          : passwordController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      phoneController: freezed == phoneController
+          ? _value.phoneController
+          : phoneController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
     ));
   }
 }
@@ -750,14 +789,30 @@ class __$$TeaEditProfielStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TeaEditProfielStateImpl implements _TeaEditProfielState {
-  const _$TeaEditProfielStateImpl({this.pikedImage});
+  const _$TeaEditProfielStateImpl(
+      {this.pikedImage,
+      this.currentPikedImage,
+      this.nameController,
+      this.emailController,
+      this.passwordController,
+      this.phoneController});
 
   @override
   final String? pikedImage;
+  @override
+  final String? currentPikedImage;
+  @override
+  final TextEditingController? nameController;
+  @override
+  final TextEditingController? emailController;
+  @override
+  final TextEditingController? passwordController;
+  @override
+  final TextEditingController? phoneController;
 
   @override
   String toString() {
-    return 'TeaEditProfielState(pikedImage: $pikedImage)';
+    return 'TeaEditProfielState(pikedImage: $pikedImage, currentPikedImage: $currentPikedImage, nameController: $nameController, emailController: $emailController, passwordController: $passwordController, phoneController: $phoneController)';
   }
 
   @override
@@ -766,11 +821,22 @@ class _$TeaEditProfielStateImpl implements _TeaEditProfielState {
         (other.runtimeType == runtimeType &&
             other is _$TeaEditProfielStateImpl &&
             (identical(other.pikedImage, pikedImage) ||
-                other.pikedImage == pikedImage));
+                other.pikedImage == pikedImage) &&
+            (identical(other.currentPikedImage, currentPikedImage) ||
+                other.currentPikedImage == currentPikedImage) &&
+            (identical(other.nameController, nameController) ||
+                other.nameController == nameController) &&
+            (identical(other.emailController, emailController) ||
+                other.emailController == emailController) &&
+            (identical(other.passwordController, passwordController) ||
+                other.passwordController == passwordController) &&
+            (identical(other.phoneController, phoneController) ||
+                other.phoneController == phoneController));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pikedImage);
+  int get hashCode => Object.hash(runtimeType, pikedImage, currentPikedImage,
+      nameController, emailController, passwordController, phoneController);
 
   @JsonKey(ignore: true)
   @override
@@ -781,11 +847,27 @@ class _$TeaEditProfielStateImpl implements _TeaEditProfielState {
 }
 
 abstract class _TeaEditProfielState implements TeaEditProfielState {
-  const factory _TeaEditProfielState({final String? pikedImage}) =
+  const factory _TeaEditProfielState(
+          {final String? pikedImage,
+          final String? currentPikedImage,
+          final TextEditingController? nameController,
+          final TextEditingController? emailController,
+          final TextEditingController? passwordController,
+          final TextEditingController? phoneController}) =
       _$TeaEditProfielStateImpl;
 
   @override
   String? get pikedImage;
+  @override
+  String? get currentPikedImage;
+  @override
+  TextEditingController? get nameController;
+  @override
+  TextEditingController? get emailController;
+  @override
+  TextEditingController? get passwordController;
+  @override
+  TextEditingController? get phoneController;
   @override
   @JsonKey(ignore: true)
   _$$TeaEditProfielStateImplCopyWith<_$TeaEditProfielStateImpl> get copyWith =>

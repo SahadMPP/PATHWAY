@@ -56,7 +56,7 @@ class LessonFormUpdate extends StatelessWidget {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       if (state.pikedImage != null) {
-                        Map<String,dynamic> data = {
+                        Map<String, dynamic> data = {
                           "subject": state.dropdownPiker.toString(),
                           "title": titleController.text.toString(),
                           "coverImage": state.pikedImage.toString(),
@@ -86,8 +86,8 @@ class LessonFormUpdate extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Form(
               key: formKey,
@@ -135,13 +135,13 @@ class LessonFormUpdate extends StatelessWidget {
                           height: 150,
                           width: MediaQuery.of(context).size.width * .5,
                           color: Colors.grey,
-                          child: state.pikedImage == null
+                          child: state.currentPikedImage == null
                               ? Image.network(
-                                  "${AuthApi.baseUrlImage}/${lesson.coverImage}",
+                                  "${AuthApi.baseUrlImage}${lesson.coverImage}",
                                   fit: BoxFit.cover,
                                 )
                               : Image.file(
-                                  File(state.pikedImage!),
+                                  File(state.currentPikedImage!),
                                   fit: BoxFit.cover,
                                 ));
                     },

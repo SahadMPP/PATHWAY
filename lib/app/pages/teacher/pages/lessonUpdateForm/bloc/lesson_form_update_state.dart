@@ -4,6 +4,7 @@ part of 'lesson_form_update_bloc.dart';
 class LessonFormUpdateState with _$LessonFormUpdateState {
   const factory LessonFormUpdateState({
     String? pikedImage,
+    String? currentPikedImage,
     required String dropdownPiker,
   }) = _LessonFormUpdateState;
 

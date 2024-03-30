@@ -1,13 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/data/middleware/teacher.dart';
 import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/lessionList/bloc/lession_list_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/main.dart';
-
 
 class ListOfLession extends StatelessWidget {
   const ListOfLession({super.key});
@@ -83,7 +82,9 @@ class ListOfLession extends StatelessWidget {
                                 width: 110,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(18),
-                                  child: Image.network("http://learnpro.today:5000/${lesson[index].coverImage}",fit: BoxFit.cover),
+                                  child: Image.network(
+                                      "${AuthApi.baseUrlImage}${lesson[index].coverImage}",
+                                      fit: BoxFit.cover),
                                 ),
                               ),
                               Padding(
@@ -127,7 +128,9 @@ class ListOfLession extends StatelessWidget {
                                                       Theme.of(context)
                                                           .colorScheme
                                                           .onSurface)),
-                                          child:  Text(AppLocalizations.of(context).keepprocessing),
+                                          child: Text(
+                                              AppLocalizations.of(context)
+                                                  .keepprocessing),
                                         ))
                                   ],
                                 ),

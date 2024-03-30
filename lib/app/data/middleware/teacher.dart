@@ -186,7 +186,7 @@ class TeacherApi {
   // }
 
   static updateLesson(
-      {required BuildContext context, required Map data, required id}) async {
+      {required BuildContext context, required Map data, required id,filepath}) async {
     var url = Uri.parse("${baseUrl}update_lession/$id");
 
     try {
@@ -196,6 +196,9 @@ class TeacherApi {
 
       if (res.statusCode == 200) {
         debugPrint("lesson is updated");
+         if (filepath != null) {
+           patchImage(id, filepath);
+         }
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (ctx) => const TeacherBotmNavi(),
         ));
@@ -442,7 +445,23 @@ class TeacherApi {
     }
   }
 
-  static updateTeacher(id, Map data, context) async {
+ 
+   static Future<http.StreamedResponse> patchProfileImageTeacher(
+      String id, String filepath) async {
+    var request = http.MultipartRequest(
+        'PATCH', Uri.parse("${baseUrl}add/teacher_image/$id"));
+    request.files
+        .add(await http.MultipartFile.fromPath("profileImage", filepath));
+    request.headers.addAll({
+      "Content-Type": "multipart/form-data",
+    });
+
+    var response = request.send();
+
+    return response;
+  }
+
+  static updateTeacher(id, Map data, context,filepath) async {
     var url = Uri.parse("${baseUrl}update_teacher/$id");
 
     try {
@@ -451,6 +470,9 @@ class TeacherApi {
           headers: {'Content-Type': 'application/json'});
 
       if (res.statusCode == 200) {
+        if (filepath != null) {
+          patchProfileImageTeacher(id,filepath);
+        }
         debugPrint("student is updated");
         Navigator.of(context).pop();
         buildShowSnacbar(

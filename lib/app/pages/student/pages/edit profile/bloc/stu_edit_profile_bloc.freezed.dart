@@ -643,6 +643,7 @@ abstract class _imagePiker implements StuEditProfileEvent {
 /// @nodoc
 mixin _$StuEditProfileState {
   String? get pikedImage => throw _privateConstructorUsedError;
+  String? get currentPikedImage => throw _privateConstructorUsedError;
   TextEditingController? get nameController =>
       throw _privateConstructorUsedError;
   TextEditingController? get emailController =>
@@ -665,6 +666,7 @@ abstract class $StuEditProfileStateCopyWith<$Res> {
   @useResult
   $Res call(
       {String? pikedImage,
+      String? currentPikedImage,
       TextEditingController? nameController,
       TextEditingController? emailController,
       TextEditingController? passwordController,
@@ -685,6 +687,7 @@ class _$StuEditProfileStateCopyWithImpl<$Res, $Val extends StuEditProfileState>
   @override
   $Res call({
     Object? pikedImage = freezed,
+    Object? currentPikedImage = freezed,
     Object? nameController = freezed,
     Object? emailController = freezed,
     Object? passwordController = freezed,
@@ -694,6 +697,10 @@ class _$StuEditProfileStateCopyWithImpl<$Res, $Val extends StuEditProfileState>
       pikedImage: freezed == pikedImage
           ? _value.pikedImage
           : pikedImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currentPikedImage: freezed == currentPikedImage
+          ? _value.currentPikedImage
+          : currentPikedImage // ignore: cast_nullable_to_non_nullable
               as String?,
       nameController: freezed == nameController
           ? _value.nameController
@@ -725,6 +732,7 @@ abstract class _$$StuEditProfileStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? pikedImage,
+      String? currentPikedImage,
       TextEditingController? nameController,
       TextEditingController? emailController,
       TextEditingController? passwordController,
@@ -743,6 +751,7 @@ class __$$StuEditProfileStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? pikedImage = freezed,
+    Object? currentPikedImage = freezed,
     Object? nameController = freezed,
     Object? emailController = freezed,
     Object? passwordController = freezed,
@@ -752,6 +761,10 @@ class __$$StuEditProfileStateImplCopyWithImpl<$Res>
       pikedImage: freezed == pikedImage
           ? _value.pikedImage
           : pikedImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currentPikedImage: freezed == currentPikedImage
+          ? _value.currentPikedImage
+          : currentPikedImage // ignore: cast_nullable_to_non_nullable
               as String?,
       nameController: freezed == nameController
           ? _value.nameController
@@ -778,6 +791,7 @@ class __$$StuEditProfileStateImplCopyWithImpl<$Res>
 class _$StuEditProfileStateImpl implements _StuEditProfileState {
   const _$StuEditProfileStateImpl(
       {this.pikedImage,
+      this.currentPikedImage,
       this.nameController,
       this.emailController,
       this.passwordController,
@@ -785,6 +799,8 @@ class _$StuEditProfileStateImpl implements _StuEditProfileState {
 
   @override
   final String? pikedImage;
+  @override
+  final String? currentPikedImage;
   @override
   final TextEditingController? nameController;
   @override
@@ -796,7 +812,7 @@ class _$StuEditProfileStateImpl implements _StuEditProfileState {
 
   @override
   String toString() {
-    return 'StuEditProfileState(pikedImage: $pikedImage, nameController: $nameController, emailController: $emailController, passwordController: $passwordController, phoneController: $phoneController)';
+    return 'StuEditProfileState(pikedImage: $pikedImage, currentPikedImage: $currentPikedImage, nameController: $nameController, emailController: $emailController, passwordController: $passwordController, phoneController: $phoneController)';
   }
 
   @override
@@ -806,6 +822,8 @@ class _$StuEditProfileStateImpl implements _StuEditProfileState {
             other is _$StuEditProfileStateImpl &&
             (identical(other.pikedImage, pikedImage) ||
                 other.pikedImage == pikedImage) &&
+            (identical(other.currentPikedImage, currentPikedImage) ||
+                other.currentPikedImage == currentPikedImage) &&
             (identical(other.nameController, nameController) ||
                 other.nameController == nameController) &&
             (identical(other.emailController, emailController) ||
@@ -817,8 +835,8 @@ class _$StuEditProfileStateImpl implements _StuEditProfileState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pikedImage, nameController,
-      emailController, passwordController, phoneController);
+  int get hashCode => Object.hash(runtimeType, pikedImage, currentPikedImage,
+      nameController, emailController, passwordController, phoneController);
 
   @JsonKey(ignore: true)
   @override
@@ -831,6 +849,7 @@ class _$StuEditProfileStateImpl implements _StuEditProfileState {
 abstract class _StuEditProfileState implements StuEditProfileState {
   const factory _StuEditProfileState(
           {final String? pikedImage,
+          final String? currentPikedImage,
           final TextEditingController? nameController,
           final TextEditingController? emailController,
           final TextEditingController? passwordController,
@@ -839,6 +858,8 @@ abstract class _StuEditProfileState implements StuEditProfileState {
 
   @override
   String? get pikedImage;
+  @override
+  String? get currentPikedImage;
   @override
   TextEditingController? get nameController;
   @override

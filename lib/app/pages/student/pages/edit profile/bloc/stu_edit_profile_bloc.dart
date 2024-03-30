@@ -33,22 +33,24 @@ class StuEditProfileBloc
           passwordController: password,
           phoneController: phone,
           pikedImage: student.profileImage,
+          currentPikedImage: null
           ));
     });
   
     on<_cencelPage>((event, emit) {
+      emit(state.copyWith(currentPikedImage: null));
        Navigator.of(event.context).pop();
     });
     
     on<_updateValue>((event, emit) {
-      StudentApi.updateStudent(userId, event.data, event.context);
+      StudentApi.updateStudent(userId, event.data, event.context,state.currentPikedImage);
     });
 
     on<_imagePiker>((event, emit) async{
        final ImagePicker picker = ImagePicker();
       XFile? image = await picker.pickImage(source: ImageSource.gallery);
       if (image != null) {
-        emit(state.copyWith(pikedImage: image.path));
+        emit(state.copyWith(currentPikedImage: image.path));
       } else {
         return;
       }

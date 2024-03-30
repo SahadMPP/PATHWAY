@@ -1,39 +1,22 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/data/middleware/auth.dart';
-import 'package:path_way_flu/app/data/middleware/teacher.dart';
-import 'package:path_way_flu/app/data/model/teacher.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
 import 'package:path_way_flu/app/pages/student/widgets/edit_profile_card.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/profile%20edit/bloc/tea_edit_profiel_bloc.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/appbar_save_cancel.dart';
-import 'package:path_way_flu/main.dart';
 
 class TeacherEditProfile extends StatelessWidget {
   const TeacherEditProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
-      TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  String? image;
-  late Teacher teacher;
-
-  gettingValue(context) async {
-    teacher = await TeacherApi.getOneTacher(userId);
-    nameController.text = teacher.name;
-    emailController.text = teacher.email;
-    passwordController.text = teacher.password;
-    phoneController.text = teacher.mobNumber ?? "00";
-    image = teacher.profileImage??"";
-  }
- 
- gettingValue(context);
-  
-    // context.read<TeaEditProfielBloc>().add(TeaEditProfielEvent.gettingInitialValue(image: teacher.profileImage!));
+    context
+        .read<TeaEditProfielBloc>()
+        .add(const TeaEditProfielEvent.gettingInitialValue());
     return Scaffold(
       appBar: buildAppBar(
           title: "Edit Profile",
@@ -49,19 +32,18 @@ class TeacherEditProfile extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              Center(
-                  child: ClipRRect(
-                borderRadius: BorderRadius.circular(70),
-                child:image != null ?
-                 CircleAvatar(
-                  radius: 70,
-                  backgroundImage: NetworkImage("${AuthApi.baseUrlImage}$image"),
-                ):
-                const CircleAvatar(
-                  radius: 70,
-                  backgroundImage: AssetImage("asset/images(adding icon).png"),
-                ),
-              )),
+              BlocBuilder<TeaEditProfielBloc, TeaEditProfielState>(
+                builder: (context, state) {
+                   return ClipRRect(
+                  borderRadius: BorderRadius.circular(70),
+                  child: CircleAvatar(
+                    radius: 60,
+                    child:state.currentPikedImage == null
+                    ? Image.network("${AuthApi.baseUrlImage}${state.pikedImage}",fit: BoxFit.fill,): Image.file(File(state.currentPikedImage!),fit: BoxFit.fill)
+                  ),
+                );
+                },
+              ),
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
@@ -87,22 +69,22 @@ class TeacherEditProfile extends StatelessWidget {
                   return Column(
                     children: [
                       BuildEditTexfielCard(
-                        controller: nameController,
+                        controller: state.nameController,
                         hintText: "enter name",
                         title: "Name",
                       ),
                       BuildEditTexfielCard(
-                        controller: emailController,
+                        controller: state.emailController,
                         hintText: "Email",
                         title: "email",
                       ),
                       BuildEditTexfielCard(
-                        controller: passwordController,
+                        controller: state.passwordController,
                         hintText: "Password",
                         title: "Password",
                       ),
                       BuildEditTexfielCard(
-                        controller: phoneController,
+                        controller: state.phoneController,
                         hintText: "Phone",
                         title: "Phone",
                       ),
@@ -113,12 +95,12 @@ class TeacherEditProfile extends StatelessWidget {
                             text: "update",
                             fun: () {
                               Map<String, dynamic> data = {
-                                "name": nameController.text.toString(),
-                                "email": emailController.text.toString(),
+                                "name": state.nameController!.text.toString(),
+                                "email": state.emailController!.text.toString(),
                                 "password":
-                                    passwordController.text.toString(),
+                                    state.passwordController!.text.toString(),
                                 "mobNumber":
-                                    phoneController.text.toString(),
+                                    state.phoneController!.text.toString(),
                               };
                               context.read<TeaEditProfielBloc>().add(
                                   TeaEditProfielEvent.updateValue(

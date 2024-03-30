@@ -90,54 +90,58 @@ class StudentApi {
   }
 
   static studentSubcriptionAdding(
-      {required id,required Map data,required BuildContext context,required Map progressData,required String subject,required num lessonPrice}) async {
+      {required id,
+      required Map data,
+      required BuildContext context,
+      required Map progressData,
+      required String subject,
+      required num lessonPrice}) async {
     final url = Uri.parse("${baseUrl}update_student/$id");
 
     try {
       final res = await http.put(url,
           body: jsonEncode(data),
           headers: {'Content-Type': 'application/json'});
-         
+
       if (res.statusCode == 200) {
         debugPrint("subject purcher successfull");
         //-----------update subject model-------------
-      try {
-            final url = Uri.parse("${baseUrl}get_subjectById/$subject");
+        try {
+          final url = Uri.parse("${baseUrl}get_subjectById/$subject");
 
-            final res = await http.get(url);
+          final res = await http.get(url);
 
-            if (res.statusCode == 200) {
-              var data = jsonDecode(res.body);
-              var id = data['_id'];
-              var studentC = data['countOfStudent'];
-              var orderValue = data['orderValue'];
-              
-              //-------------------
-              var subjectData = {
-                "countOfStudent": studentC + 1,
-                "orderValue": orderValue + lessonPrice
-              };
-              try {
-                final url = Uri.parse("${baseUrl}update_subject/$id");
-                final res = await http.put(url,
-                    body: jsonEncode(subjectData),
-                    headers: {'Content-Type': 'application/json'});
+          if (res.statusCode == 200) {
+            var data = jsonDecode(res.body);
+            var id = data['_id'];
+            var studentC = data['countOfStudent'];
+            var orderValue = data['orderValue'];
 
-                if (res.statusCode == 200) {
-                  debugPrint("subject model updated");
-                } else {
-                  debugPrint("failed to update in subject model");
-                }
-              } catch (e) {
-                debugPrint(e.toString());
+            //-------------------
+            var subjectData = {
+              "countOfStudent": studentC + 1,
+              "orderValue": orderValue + lessonPrice
+            };
+            try {
+              final url = Uri.parse("${baseUrl}update_subject/$id");
+              final res = await http.put(url,
+                  body: jsonEncode(subjectData),
+                  headers: {'Content-Type': 'application/json'});
+
+              if (res.statusCode == 200) {
+                debugPrint("subject model updated");
+              } else {
+                debugPrint("failed to update in subject model");
               }
-            } else {
-              debugPrint(
-                  "we are fasing some error to getting lesson model");
+            } catch (e) {
+              debugPrint(e.toString());
             }
-          } catch (e) {
-            debugPrint(e.toString());
+          } else {
+            debugPrint("we are fasing some error to getting lesson model");
           }
+        } catch (e) {
+          debugPrint(e.toString());
+        }
 
         //--------------------------------------------
         buildShowSnacbar(
@@ -191,7 +195,7 @@ class StudentApi {
     request.headers.addAll({
       "Content-Type": "multipart/form-data",
     });
-     
+
     var response = request.send();
 
     return response;
@@ -240,7 +244,10 @@ class StudentApi {
             if (oldCount > count) return;
             if (oldCount + 1 != count) {
               ScaffoldMessenger.of(context).clearSnackBars();
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('video is locked'),backgroundColor: Colors.blue,));
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: Text('video is locked'),
+                backgroundColor: Colors.blue,
+              ));
               return;
             }
             final url = Uri.parse('${baseUrl}get_progressById/$id');
@@ -296,39 +303,42 @@ class StudentApi {
     }
   }
 
-  static getOneStudent(studentId)async{
-     Student? student;
-    final url = Uri.parse('${baseUrl}get_studentById/$studentId');
-
-    try {
-      final res = await http.get(url);
-      if (res.statusCode == 200) {
-        var data = jsonDecode(res.body);
-        student = Student.fromJson(data);
-         return student;
-      } else {
-        debugPrint('faild to get student lession');
-      }
-    } catch (e) {
-      debugPrint(e.toString());
-    } 
-  }
-
-
-  static getOneStudentForDeatilePage({required studentId,required lessionId,required lesson,required context}) async {
+  static getOneStudent(studentId) async {
     Student? student;
     final url = Uri.parse('${baseUrl}get_studentById/$studentId');
 
     try {
       final res = await http.get(url);
-      
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body);
         student = Student.fromJson(data);
-        
+        return student;
+      } else {
+        debugPrint('faild to get student lession');
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  static getOneStudentForDeatilePage(
+      {required studentId,
+      required lessionId,
+      required lesson,
+      required context}) async {
+    Student? student;
+    final url = Uri.parse('${baseUrl}get_studentById/$studentId');
+
+    try {
+      final res = await http.get(url);
+
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body);
+        student = Student.fromJson(data);
+
         if (student.lessonId.contains(lessionId)) {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (ctx) => VideoPlay(lesson: lesson)));
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (ctx) => VideoPlay(lesson: lesson)));
         } else {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (ctx) => StudentPagePayment(lesson: lesson)));
@@ -386,17 +396,25 @@ class StudentApi {
     }
   }
 
-  static updateStudent(id, Map data, context) async {
+  static updateStudent(id, Map data, context, filepath) async {
     var url = Uri.parse("${baseUrl}update_student/$id");
 
     try {
-      final res = await http.put(url, body: jsonEncode(data),headers:{'Content-Type': 'application/json'} );
+      final res = await http.put(url,
+          body: jsonEncode(data),
+          headers: {'Content-Type': 'application/json'});
 
-      if (res.statusCode == 200) { 
-        // debugPrint(res.body);
+      if (res.statusCode == 200) {
+        if (filepath != null) {
+          await patchProfileImage(id, filepath);
+        }
         debugPrint("student is updated");
         Navigator.of(context).pop();
-        buildShowSnacbar(context: context, content: "you profile is edited", title: "Ok!", contentType: ContentType.success);
+        buildShowSnacbar(
+            context: context,
+            content: "you profile is edited",
+            title: "Ok!",
+            contentType: ContentType.success);
       } else {
         debugPrint("Failed to update student data");
       }
@@ -405,15 +423,17 @@ class StudentApi {
     }
   }
 
-   static updateStudentForlevel(id, Map data, context) async {
+  static updateStudentForlevel(id, Map data, context) async {
     var url = Uri.parse("${baseUrl}update_student/$id");
 
     try {
       final res = await http.put(url, body: data);
 
-      if (res.statusCode == 200) { 
+      if (res.statusCode == 200) {
         debugPrint("student is updated");
-     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const ProfleImageCollect() ,));
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const ProfleImageCollect(),
+        ));
       } else {
         debugPrint("Failed to update student data");
       }

@@ -910,6 +910,7 @@ abstract class _imagePiking implements LessonFormUpdateEvent {
 /// @nodoc
 mixin _$LessonFormUpdateState {
   String? get pikedImage => throw _privateConstructorUsedError;
+  String? get currentPikedImage => throw _privateConstructorUsedError;
   String get dropdownPiker => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -923,7 +924,8 @@ abstract class $LessonFormUpdateStateCopyWith<$Res> {
           $Res Function(LessonFormUpdateState) then) =
       _$LessonFormUpdateStateCopyWithImpl<$Res, LessonFormUpdateState>;
   @useResult
-  $Res call({String? pikedImage, String dropdownPiker});
+  $Res call(
+      {String? pikedImage, String? currentPikedImage, String dropdownPiker});
 }
 
 /// @nodoc
@@ -941,12 +943,17 @@ class _$LessonFormUpdateStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? pikedImage = freezed,
+    Object? currentPikedImage = freezed,
     Object? dropdownPiker = null,
   }) {
     return _then(_value.copyWith(
       pikedImage: freezed == pikedImage
           ? _value.pikedImage
           : pikedImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currentPikedImage: freezed == currentPikedImage
+          ? _value.currentPikedImage
+          : currentPikedImage // ignore: cast_nullable_to_non_nullable
               as String?,
       dropdownPiker: null == dropdownPiker
           ? _value.dropdownPiker
@@ -965,7 +972,8 @@ abstract class _$$LessonFormUpdateStateImplCopyWith<$Res>
       __$$LessonFormUpdateStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? pikedImage, String dropdownPiker});
+  $Res call(
+      {String? pikedImage, String? currentPikedImage, String dropdownPiker});
 }
 
 /// @nodoc
@@ -981,12 +989,17 @@ class __$$LessonFormUpdateStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? pikedImage = freezed,
+    Object? currentPikedImage = freezed,
     Object? dropdownPiker = null,
   }) {
     return _then(_$LessonFormUpdateStateImpl(
       pikedImage: freezed == pikedImage
           ? _value.pikedImage
           : pikedImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currentPikedImage: freezed == currentPikedImage
+          ? _value.currentPikedImage
+          : currentPikedImage // ignore: cast_nullable_to_non_nullable
               as String?,
       dropdownPiker: null == dropdownPiker
           ? _value.dropdownPiker
@@ -1000,16 +1013,18 @@ class __$$LessonFormUpdateStateImplCopyWithImpl<$Res>
 
 class _$LessonFormUpdateStateImpl implements _LessonFormUpdateState {
   const _$LessonFormUpdateStateImpl(
-      {this.pikedImage, required this.dropdownPiker});
+      {this.pikedImage, this.currentPikedImage, required this.dropdownPiker});
 
   @override
   final String? pikedImage;
+  @override
+  final String? currentPikedImage;
   @override
   final String dropdownPiker;
 
   @override
   String toString() {
-    return 'LessonFormUpdateState(pikedImage: $pikedImage, dropdownPiker: $dropdownPiker)';
+    return 'LessonFormUpdateState(pikedImage: $pikedImage, currentPikedImage: $currentPikedImage, dropdownPiker: $dropdownPiker)';
   }
 
   @override
@@ -1019,12 +1034,15 @@ class _$LessonFormUpdateStateImpl implements _LessonFormUpdateState {
             other is _$LessonFormUpdateStateImpl &&
             (identical(other.pikedImage, pikedImage) ||
                 other.pikedImage == pikedImage) &&
+            (identical(other.currentPikedImage, currentPikedImage) ||
+                other.currentPikedImage == currentPikedImage) &&
             (identical(other.dropdownPiker, dropdownPiker) ||
                 other.dropdownPiker == dropdownPiker));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pikedImage, dropdownPiker);
+  int get hashCode =>
+      Object.hash(runtimeType, pikedImage, currentPikedImage, dropdownPiker);
 
   @JsonKey(ignore: true)
   @override
@@ -1037,10 +1055,13 @@ class _$LessonFormUpdateStateImpl implements _LessonFormUpdateState {
 abstract class _LessonFormUpdateState implements LessonFormUpdateState {
   const factory _LessonFormUpdateState(
       {final String? pikedImage,
+      final String? currentPikedImage,
       required final String dropdownPiker}) = _$LessonFormUpdateStateImpl;
 
   @override
   String? get pikedImage;
+  @override
+  String? get currentPikedImage;
   @override
   String get dropdownPiker;
   @override

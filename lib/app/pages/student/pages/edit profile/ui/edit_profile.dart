@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
 import 'package:path_way_flu/app/pages/student/pages/edit%20profile/bloc/stu_edit_profile_bloc.dart';
 import 'package:path_way_flu/app/pages/student/widgets/edit_profile_card.dart';
@@ -34,12 +37,8 @@ class StudentfEditProfile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(70),
                   child: CircleAvatar(
                     radius: 60,
-                    child: state.pikedImage == null
-                          ? const Image(
-                              fit: BoxFit.cover,
-                              image:
-                                  AssetImage("asset/profiles/image1.png"))
-                          : Image.network(state.pikedImage!,fit: BoxFit.cover,),
+                    child:state.currentPikedImage == null
+                    ? Image.network("${AuthApi.baseUrlImage}${state.pikedImage}",fit: BoxFit.fill,): Image.file(File(state.currentPikedImage!),fit: BoxFit.fill)
                   ),
                 );
               },

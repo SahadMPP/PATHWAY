@@ -4,6 +4,7 @@ part of 'stu_edit_profile_bloc.dart';
 class StuEditProfileState with _$StuEditProfileState {
   const factory StuEditProfileState({
      String? pikedImage,
+     String? currentPikedImage,
      TextEditingController? nameController,
      TextEditingController? emailController,
      TextEditingController? passwordController,
@@ -11,6 +12,6 @@ class StuEditProfileState with _$StuEditProfileState {
   }) = _StuEditProfileState;
 
   factory StuEditProfileState.initial(){
-    return const StuEditProfileState(pikedImage: null);
+    return const StuEditProfileState();
   }
 }

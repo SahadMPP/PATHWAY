@@ -13,7 +13,6 @@ import 'package:path_way_flu/app/pages/student/widgets/profile_card.dart';
 import 'package:path_way_flu/main.dart';
 import 'package:lottie/lottie.dart';
 
-
 class StudentSettingMob extends StatelessWidget {
   const StudentSettingMob({super.key});
 
@@ -61,7 +60,10 @@ class StudentSettingMob extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20, top: 10),
                 child: Row(
                   children: [
-                    LottieBuilder.asset("asset/animation_icon/Animation - 1711732212075.json",height: 50,fit: BoxFit.fill),
+                    LottieBuilder.asset(
+                        "asset/animation_icon/Animation - 1711732212075.json",
+                        height: 50,
+                        fit: BoxFit.fill),
                     const SizedBox(width: 15),
                     Text(AppLocalizations.of(context).settings,
                         style: kHeadingextStyle.copyWith(

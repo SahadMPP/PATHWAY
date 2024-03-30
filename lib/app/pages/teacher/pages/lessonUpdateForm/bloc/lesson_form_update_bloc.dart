@@ -14,7 +14,8 @@ class LessonFormUpdateBloc
   LessonFormUpdateBloc() : super(LessonFormUpdateState.initial()) {
     on<_updatelesson>((event, emit) {
       TeacherApi.updateLesson(
-          context: event.context, data: event.data, id: event.id);
+          context: event.context, data: event.data, id: event.id,filepath: state.currentPikedImage);
+          emit(state.copyWith(currentPikedImage: null));
     });
 
     on<_cancelButtonClick>((event, emit) {});
@@ -27,11 +28,11 @@ class LessonFormUpdateBloc
       emit(state.copyWith(dropdownPiker: event.value,pikedImage:event.pikedImage ));
     });
 
-      on<_imagePiking>((event, emit) async {
+    on<_imagePiking>((event, emit) async {
       final ImagePicker picker = ImagePicker();
       XFile? image = await picker.pickImage(source: ImageSource.gallery);
       if (image != null) {
-        emit(state.copyWith(pikedImage: image.path));
+        emit(state.copyWith(currentPikedImage: image.path));
       } else {
         return;
       }
