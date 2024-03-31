@@ -84,104 +84,137 @@ class LessonFormUpdate extends StatelessWidget {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-        child: ListView(
-          // crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Form(
-              key: formKey,
-              child: BuildAddTutorFormText(
-                title: "Title",
-                hintText: "title",
-                controllre: titleController,
-                validateText: "Title",
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              "Subject",
-              style: GoogleFonts.roboto(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: Theme.of(context).colorScheme.onSecondary,
-              ),
-            ),
-            // need set bloc
-            const BuildSubDropDownLessionUpdate(),
-            const SizedBox(height: 10),
-            Text(
-              "Cover Image",
-              style: GoogleFonts.roboto(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: Theme.of(context).colorScheme.onSecondary,
-              ),
-            ),
-            // change bloc
-            const SizedBox(height: 10),
-            BlocBuilder<LessonFormUpdateBloc, LessonFormUpdateState>(
-              builder: (context, state) {
-                return GestureDetector(
-                  onTap: () {
-                    context
-                        .read<LessonFormUpdateBloc>()
-                        .add(const LessonFormUpdateEvent.imagePiking());
-                  },
-                  child:
-                      BlocBuilder<LessonFormUpdateBloc, LessonFormUpdateState>(
-                    builder: (context, state) {
-                      return Container(
-                          height: 150,
-                          width: MediaQuery.of(context).size.width * .5,
-                          color: Colors.grey,
-                          child: state.currentPikedImage == null
-                              ? Image.network(
-                                  "${AuthApi.baseUrlImage}${lesson.coverImage}",
-                                  fit: BoxFit.cover,
-                                )
-                              : Image.file(
-                                  File(state.currentPikedImage!),
-                                  fit: BoxFit.cover,
-                                ));
-                    },
-                  ),
-                );
-              },
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Tutorial List",
-                  style: GoogleFonts.roboto(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: Theme.of(context).colorScheme.onSecondary,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (ctx) => AddingTotorial(id: lesson.id)));
-                  },
-                  child: Text(
-                    "Add",
-                    style: GoogleFonts.roboto(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.blue,
-                      decoration: TextDecoration.underline,
+      body: BlocBuilder<LessonFormUpdateBloc, LessonFormUpdateState>(
+        builder: (context, state) {
+          return state.isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : Column(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: SingleChildScrollView(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 20, right: 20, top: 10),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Form(
+                                  key: formKey,
+                                  child: BuildAddTutorFormText(
+                                    title: "Title",
+                                    hintText: "title",
+                                    controllre: titleController,
+                                    validateText: "Title",
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  "Subject",
+                                  style: GoogleFonts.roboto(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSecondary,
+                                  ),
+                                ),
+                                // need set bloc
+                                const BuildSubDropDownLessionUpdate(),
+                                const SizedBox(height: 10),
+                                Text(
+                                  "Cover Image",
+                                  style: GoogleFonts.roboto(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSecondary,
+                                  ),
+                                ),
+                                // change bloc
+                                const SizedBox(height: 10),
+                                BlocBuilder<LessonFormUpdateBloc,
+                                    LessonFormUpdateState>(
+                                  builder: (context, state) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        context
+                                            .read<LessonFormUpdateBloc>()
+                                            .add(const LessonFormUpdateEvent
+                                                .imagePiking());
+                                      },
+                                      child: BlocBuilder<LessonFormUpdateBloc,
+                                          LessonFormUpdateState>(
+                                        builder: (context, state) {
+                                          return Container(
+                                              height: 150,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  .5,
+                                              color: Colors.grey,
+                                              child: state.currentPikedImage ==
+                                                      null
+                                                  ? Image.network(
+                                                      "${AuthApi.baseUrlImage}${lesson.coverImage}",
+                                                      fit: BoxFit.cover,
+                                                    )
+                                                  : Image.file(
+                                                      File(state
+                                                          .currentPikedImage!),
+                                                      fit: BoxFit.cover,
+                                                    ));
+                                        },
+                                      ),
+                                    );
+                                  },
+                                ),
+                                const SizedBox(height: 10),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Tutorial List",
+                                      style: GoogleFonts.roboto(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSecondary,
+                                      ),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pushReplacement(
+                                            MaterialPageRoute(
+                                                builder: (ctx) =>
+                                                    AddingTotorial(
+                                                        id: lesson.id)));
+                                      },
+                                      child: Text(
+                                        "Add",
+                                        style: GoogleFonts.roboto(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.blue,
+                                          decoration: TextDecoration.underline,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ]),
+                        ),
+                      ),
                     ),
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(height: 10),
-            TutorialList(lesson: lesson),
-          ],
-        ),
+                    Expanded(
+                      child: TutorialList(lesson: lesson),
+                    ),
+                  ],
+                );
+        },
       ),
     );
   }

@@ -303,13 +303,21 @@ abstract class _userlogin implements SignInEvent {
 }
 
 /// @nodoc
-mixin _$SignInState {}
+mixin _$SignInState {
+  bool get isLoading => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SignInStateCopyWith<SignInState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $SignInStateCopyWith<$Res> {
   factory $SignInStateCopyWith(
           SignInState value, $Res Function(SignInState) then) =
       _$SignInStateCopyWithImpl<$Res, SignInState>;
+  @useResult
+  $Res call({bool isLoading});
 }
 
 /// @nodoc
@@ -321,13 +329,30 @@ class _$SignInStateCopyWithImpl<$Res, $Val extends SignInState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+  }) {
+    return _then(_value.copyWith(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$SignInStateImplCopyWith<$Res> {
+abstract class _$$SignInStateImplCopyWith<$Res>
+    implements $SignInStateCopyWith<$Res> {
   factory _$$SignInStateImplCopyWith(
           _$SignInStateImpl value, $Res Function(_$SignInStateImpl) then) =
       __$$SignInStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({bool isLoading});
 }
 
 /// @nodoc
@@ -337,28 +362,61 @@ class __$$SignInStateImplCopyWithImpl<$Res>
   __$$SignInStateImplCopyWithImpl(
       _$SignInStateImpl _value, $Res Function(_$SignInStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+  }) {
+    return _then(_$SignInStateImpl(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$SignInStateImpl implements _SignInState {
-  const _$SignInStateImpl();
+  const _$SignInStateImpl({required this.isLoading});
+
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'SignInState()';
+    return 'SignInState(isLoading: $isLoading)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SignInStateImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SignInStateImpl &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, isLoading);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignInStateImplCopyWith<_$SignInStateImpl> get copyWith =>
+      __$$SignInStateImplCopyWithImpl<_$SignInStateImpl>(this, _$identity);
 }
 
 abstract class _SignInState implements SignInState {
-  const factory _SignInState() = _$SignInStateImpl;
+  const factory _SignInState({required final bool isLoading}) =
+      _$SignInStateImpl;
+
+  @override
+  bool get isLoading;
+  @override
+  @JsonKey(ignore: true)
+  _$$SignInStateImplCopyWith<_$SignInStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

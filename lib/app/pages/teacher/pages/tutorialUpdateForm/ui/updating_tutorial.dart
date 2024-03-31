@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_way_flu/app/data/model/tutoral.dart';
-import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
+import 'package:path_way_flu/app/pages/student/widgets/isloading_button.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/textfield.dart';
 import 'package:path_way_flu/app/pages/student/widgets/hedline_back.dart';
 import 'package:path_way_flu/app/pages/teacher/pages/tutorialUpdateForm/bloc/tutorial_update_bloc.dart';
@@ -79,10 +79,11 @@ class UpdatingTutorial extends StatelessWidget {
                       child:
                           BlocBuilder<TutorialUpdateBloc, TutorialUpdateState>(
                         builder: (context, state) {
-                          return BuildButton(
-                              fun: () {
+                          return BuildLoaderButton(
+                              isLoading: state.isLoading,
+                              function: () {
                                 if (formKey.currentState!.validate()) {
-                                  Map<String,dynamic> data = {
+                                  Map<String, dynamic> data = {
                                     "title": titleController.text,
                                     "level": state.dropDownLevel,
                                     "videoUrl": videoUrlController.text,
@@ -96,7 +97,7 @@ class UpdatingTutorial extends StatelessWidget {
                                           id: tutoral.id!));
                                 }
                               },
-                              text: "Update");
+                              defultText: "Update");
                         },
                       )),
                 ],

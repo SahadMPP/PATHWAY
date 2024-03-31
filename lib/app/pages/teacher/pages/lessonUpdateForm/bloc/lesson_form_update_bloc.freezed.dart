@@ -912,6 +912,7 @@ mixin _$LessonFormUpdateState {
   String? get pikedImage => throw _privateConstructorUsedError;
   String? get currentPikedImage => throw _privateConstructorUsedError;
   String get dropdownPiker => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LessonFormUpdateStateCopyWith<LessonFormUpdateState> get copyWith =>
@@ -925,7 +926,10 @@ abstract class $LessonFormUpdateStateCopyWith<$Res> {
       _$LessonFormUpdateStateCopyWithImpl<$Res, LessonFormUpdateState>;
   @useResult
   $Res call(
-      {String? pikedImage, String? currentPikedImage, String dropdownPiker});
+      {String? pikedImage,
+      String? currentPikedImage,
+      String dropdownPiker,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -945,6 +949,7 @@ class _$LessonFormUpdateStateCopyWithImpl<$Res,
     Object? pikedImage = freezed,
     Object? currentPikedImage = freezed,
     Object? dropdownPiker = null,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       pikedImage: freezed == pikedImage
@@ -959,6 +964,10 @@ class _$LessonFormUpdateStateCopyWithImpl<$Res,
           ? _value.dropdownPiker
           : dropdownPiker // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -973,7 +982,10 @@ abstract class _$$LessonFormUpdateStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? pikedImage, String? currentPikedImage, String dropdownPiker});
+      {String? pikedImage,
+      String? currentPikedImage,
+      String dropdownPiker,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -991,6 +1003,7 @@ class __$$LessonFormUpdateStateImplCopyWithImpl<$Res>
     Object? pikedImage = freezed,
     Object? currentPikedImage = freezed,
     Object? dropdownPiker = null,
+    Object? isLoading = null,
   }) {
     return _then(_$LessonFormUpdateStateImpl(
       pikedImage: freezed == pikedImage
@@ -1005,6 +1018,10 @@ class __$$LessonFormUpdateStateImplCopyWithImpl<$Res>
           ? _value.dropdownPiker
           : dropdownPiker // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1013,7 +1030,10 @@ class __$$LessonFormUpdateStateImplCopyWithImpl<$Res>
 
 class _$LessonFormUpdateStateImpl implements _LessonFormUpdateState {
   const _$LessonFormUpdateStateImpl(
-      {this.pikedImage, this.currentPikedImage, required this.dropdownPiker});
+      {this.pikedImage,
+      this.currentPikedImage,
+      required this.dropdownPiker,
+      required this.isLoading});
 
   @override
   final String? pikedImage;
@@ -1021,10 +1041,12 @@ class _$LessonFormUpdateStateImpl implements _LessonFormUpdateState {
   final String? currentPikedImage;
   @override
   final String dropdownPiker;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'LessonFormUpdateState(pikedImage: $pikedImage, currentPikedImage: $currentPikedImage, dropdownPiker: $dropdownPiker)';
+    return 'LessonFormUpdateState(pikedImage: $pikedImage, currentPikedImage: $currentPikedImage, dropdownPiker: $dropdownPiker, isLoading: $isLoading)';
   }
 
   @override
@@ -1037,12 +1059,14 @@ class _$LessonFormUpdateStateImpl implements _LessonFormUpdateState {
             (identical(other.currentPikedImage, currentPikedImage) ||
                 other.currentPikedImage == currentPikedImage) &&
             (identical(other.dropdownPiker, dropdownPiker) ||
-                other.dropdownPiker == dropdownPiker));
+                other.dropdownPiker == dropdownPiker) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, pikedImage, currentPikedImage, dropdownPiker);
+  int get hashCode => Object.hash(
+      runtimeType, pikedImage, currentPikedImage, dropdownPiker, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -1056,7 +1080,8 @@ abstract class _LessonFormUpdateState implements LessonFormUpdateState {
   const factory _LessonFormUpdateState(
       {final String? pikedImage,
       final String? currentPikedImage,
-      required final String dropdownPiker}) = _$LessonFormUpdateStateImpl;
+      required final String dropdownPiker,
+      required final bool isLoading}) = _$LessonFormUpdateStateImpl;
 
   @override
   String? get pikedImage;
@@ -1064,6 +1089,8 @@ abstract class _LessonFormUpdateState implements LessonFormUpdateState {
   String? get currentPikedImage;
   @override
   String get dropdownPiker;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$LessonFormUpdateStateImplCopyWith<_$LessonFormUpdateStateImpl>

@@ -5,9 +5,10 @@ class TutorialUpdateState with _$TutorialUpdateState {
 
   const factory TutorialUpdateState({
     required String dropDownLevel,
+    required bool isLoading,
   }) = _TutorialUpdateState;
 
    factory TutorialUpdateState.initial(){
-    return const TutorialUpdateState(dropDownLevel: "Basic");
+    return const TutorialUpdateState(dropDownLevel: "Basic",isLoading: false);
   }
 }

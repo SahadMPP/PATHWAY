@@ -11,9 +11,13 @@ part 'tutorial_adding_form_bloc.freezed.dart';
 class TutorialAddingFormBloc
     extends Bloc<TutorialAddingFormEvent, TutorialAddingFormState> {
   TutorialAddingFormBloc() : super(TutorialAddingFormState.initial()) {
-    on<_addingTutorial>((event, emit) {
-
+    on<_addingTutorial>((event, emit)async {
+      emit(state.copyWith(isLoading: true));
+      await Future.delayed(const Duration(seconds: 1));
+      // ignore: use_build_context_synchronously
       TeacherApi.addTotorial(event.data,event.context,event.lessonId,event.duration);
+      emit(state.copyWith(isLoading: false));
+
     });
 
     on<_backButtonClick>((event, emit) {});

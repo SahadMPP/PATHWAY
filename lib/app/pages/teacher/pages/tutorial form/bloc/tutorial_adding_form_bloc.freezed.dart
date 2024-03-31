@@ -547,6 +547,7 @@ abstract class _addingTutorial implements TutorialAddingFormEvent {
 /// @nodoc
 mixin _$TutorialAddingFormState {
   String get levelDropDown => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TutorialAddingFormStateCopyWith<TutorialAddingFormState> get copyWith =>
@@ -559,7 +560,7 @@ abstract class $TutorialAddingFormStateCopyWith<$Res> {
           $Res Function(TutorialAddingFormState) then) =
       _$TutorialAddingFormStateCopyWithImpl<$Res, TutorialAddingFormState>;
   @useResult
-  $Res call({String levelDropDown});
+  $Res call({String levelDropDown, bool isLoading});
 }
 
 /// @nodoc
@@ -577,12 +578,17 @@ class _$TutorialAddingFormStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? levelDropDown = null,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       levelDropDown: null == levelDropDown
           ? _value.levelDropDown
           : levelDropDown // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -596,7 +602,7 @@ abstract class _$$TutorialAddingFormStateImplCopyWith<$Res>
       __$$TutorialAddingFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String levelDropDown});
+  $Res call({String levelDropDown, bool isLoading});
 }
 
 /// @nodoc
@@ -613,12 +619,17 @@ class __$$TutorialAddingFormStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? levelDropDown = null,
+    Object? isLoading = null,
   }) {
     return _then(_$TutorialAddingFormStateImpl(
       levelDropDown: null == levelDropDown
           ? _value.levelDropDown
           : levelDropDown // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -626,14 +637,17 @@ class __$$TutorialAddingFormStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TutorialAddingFormStateImpl implements _TutorialAddingFormState {
-  const _$TutorialAddingFormStateImpl({required this.levelDropDown});
+  const _$TutorialAddingFormStateImpl(
+      {required this.levelDropDown, required this.isLoading});
 
   @override
   final String levelDropDown;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'TutorialAddingFormState(levelDropDown: $levelDropDown)';
+    return 'TutorialAddingFormState(levelDropDown: $levelDropDown, isLoading: $isLoading)';
   }
 
   @override
@@ -642,11 +656,13 @@ class _$TutorialAddingFormStateImpl implements _TutorialAddingFormState {
         (other.runtimeType == runtimeType &&
             other is _$TutorialAddingFormStateImpl &&
             (identical(other.levelDropDown, levelDropDown) ||
-                other.levelDropDown == levelDropDown));
+                other.levelDropDown == levelDropDown) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, levelDropDown);
+  int get hashCode => Object.hash(runtimeType, levelDropDown, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -658,10 +674,13 @@ class _$TutorialAddingFormStateImpl implements _TutorialAddingFormState {
 
 abstract class _TutorialAddingFormState implements TutorialAddingFormState {
   const factory _TutorialAddingFormState(
-      {required final String levelDropDown}) = _$TutorialAddingFormStateImpl;
+      {required final String levelDropDown,
+      required final bool isLoading}) = _$TutorialAddingFormStateImpl;
 
   @override
   String get levelDropDown;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$TutorialAddingFormStateImplCopyWith<_$TutorialAddingFormStateImpl>

@@ -20,21 +20,20 @@ part 'lesson_form_bloc.freezed.dart';
 class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
   LessonFormBloc() : super(LessonFormState.initial()) {
     on<_cancelButtonClick>((event, emit) {
+ 
+ 
       Navigator.of(event.context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (ctx) => const TeacherBotmNavi()),
           (route) => false);
       emit(state.copyWith(pikedImage: null));
     });
-
     on<_addingLession>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
       final url = Uri.parse('${AuthApi.baseUrl}get_teacherById/$userId');
-
       try {
         final res = await http.get(url);
-
         if (res.statusCode == 200) {
           var data = json.decode(res.body);
-
           Map<String, dynamic> dataNew = {
             "subject": event.subject.toString(),
             "title": event.title.toString(),
@@ -51,7 +50,7 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
               data: dataNew,
               filepath: event.coverImage,
               subject: event.subject);
-          emit(state.copyWith(pikedImage: null));
+          emit(state.copyWith(pikedImage: null,isLoading: false));
         } else {
           debugPrint('failed to get data');
         }

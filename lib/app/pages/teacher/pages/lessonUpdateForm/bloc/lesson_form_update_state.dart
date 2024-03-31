@@ -6,9 +6,10 @@ class LessonFormUpdateState with _$LessonFormUpdateState {
     String? pikedImage,
     String? currentPikedImage,
     required String dropdownPiker,
+    required bool isLoading,
   }) = _LessonFormUpdateState;
 
   factory LessonFormUpdateState.initial(){
-    return const LessonFormUpdateState(dropdownPiker: "Computer");
+    return const LessonFormUpdateState(dropdownPiker: "Computer",isLoading: false);
   }
 }

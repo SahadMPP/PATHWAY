@@ -1642,6 +1642,7 @@ mixin _$LessonFormState {
   String? get pikedImage => throw _privateConstructorUsedError;
   String? get dropDownpiker => throw _privateConstructorUsedError;
   PlatformFile? get imagefile => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LessonFormStateCopyWith<LessonFormState> get copyWith =>
@@ -1655,7 +1656,10 @@ abstract class $LessonFormStateCopyWith<$Res> {
       _$LessonFormStateCopyWithImpl<$Res, LessonFormState>;
   @useResult
   $Res call(
-      {String? pikedImage, String? dropDownpiker, PlatformFile? imagefile});
+      {String? pikedImage,
+      String? dropDownpiker,
+      PlatformFile? imagefile,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -1674,6 +1678,7 @@ class _$LessonFormStateCopyWithImpl<$Res, $Val extends LessonFormState>
     Object? pikedImage = freezed,
     Object? dropDownpiker = freezed,
     Object? imagefile = freezed,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       pikedImage: freezed == pikedImage
@@ -1688,6 +1693,10 @@ class _$LessonFormStateCopyWithImpl<$Res, $Val extends LessonFormState>
           ? _value.imagefile
           : imagefile // ignore: cast_nullable_to_non_nullable
               as PlatformFile?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -1701,7 +1710,10 @@ abstract class _$$LessonFormStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? pikedImage, String? dropDownpiker, PlatformFile? imagefile});
+      {String? pikedImage,
+      String? dropDownpiker,
+      PlatformFile? imagefile,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -1718,6 +1730,7 @@ class __$$LessonFormStateImplCopyWithImpl<$Res>
     Object? pikedImage = freezed,
     Object? dropDownpiker = freezed,
     Object? imagefile = freezed,
+    Object? isLoading = null,
   }) {
     return _then(_$LessonFormStateImpl(
       pikedImage: freezed == pikedImage
@@ -1732,6 +1745,10 @@ class __$$LessonFormStateImplCopyWithImpl<$Res>
           ? _value.imagefile
           : imagefile // ignore: cast_nullable_to_non_nullable
               as PlatformFile?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1740,7 +1757,10 @@ class __$$LessonFormStateImplCopyWithImpl<$Res>
 
 class _$LessonFormStateImpl implements _LessonFormState {
   const _$LessonFormStateImpl(
-      {this.pikedImage, required this.dropDownpiker, this.imagefile});
+      {this.pikedImage,
+      required this.dropDownpiker,
+      this.imagefile,
+      required this.isLoading});
 
   @override
   final String? pikedImage;
@@ -1748,10 +1768,12 @@ class _$LessonFormStateImpl implements _LessonFormState {
   final String? dropDownpiker;
   @override
   final PlatformFile? imagefile;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'LessonFormState(pikedImage: $pikedImage, dropDownpiker: $dropDownpiker, imagefile: $imagefile)';
+    return 'LessonFormState(pikedImage: $pikedImage, dropDownpiker: $dropDownpiker, imagefile: $imagefile, isLoading: $isLoading)';
   }
 
   @override
@@ -1764,12 +1786,14 @@ class _$LessonFormStateImpl implements _LessonFormState {
             (identical(other.dropDownpiker, dropDownpiker) ||
                 other.dropDownpiker == dropDownpiker) &&
             (identical(other.imagefile, imagefile) ||
-                other.imagefile == imagefile));
+                other.imagefile == imagefile) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, pikedImage, dropDownpiker, imagefile);
+      Object.hash(runtimeType, pikedImage, dropDownpiker, imagefile, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -1783,7 +1807,8 @@ abstract class _LessonFormState implements LessonFormState {
   const factory _LessonFormState(
       {final String? pikedImage,
       required final String? dropDownpiker,
-      final PlatformFile? imagefile}) = _$LessonFormStateImpl;
+      final PlatformFile? imagefile,
+      required final bool isLoading}) = _$LessonFormStateImpl;
 
   @override
   String? get pikedImage;
@@ -1791,6 +1816,8 @@ abstract class _LessonFormState implements LessonFormState {
   String? get dropDownpiker;
   @override
   PlatformFile? get imagefile;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$LessonFormStateImplCopyWith<_$LessonFormStateImpl> get copyWith =>

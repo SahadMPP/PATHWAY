@@ -6,9 +6,10 @@ class LessonFormState with _$LessonFormState {
     String? pikedImage,
    required String? dropDownpiker,
     PlatformFile? imagefile,
+    required bool isLoading,
   }) = _LessonFormState;
 
    factory LessonFormState.initial(){
-    return const LessonFormState(dropDownpiker: "Computer");
+    return const LessonFormState(dropDownpiker: "Computer",isLoading: false);
   }
 }

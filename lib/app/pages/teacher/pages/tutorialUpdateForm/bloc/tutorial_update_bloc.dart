@@ -11,9 +11,12 @@ part 'tutorial_update_bloc.freezed.dart';
 class TutorialUpdateBloc
     extends Bloc<TutorialUpdateEvent, TutorialUpdateState> {
   TutorialUpdateBloc() : super(TutorialUpdateState.initial()) {
-    
-    on<_updateTutoral>((event, emit) {
+    on<_updateTutoral>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+      await Future.delayed(const Duration(seconds: 1));
+      // ignore: use_build_context_synchronously
       TeacherApi.updateTotorial(event.id, event.data, event.context);
+      emit(state.copyWith(isLoading: false));
     });
 
     on<_dropDownLevel>((event, emit) {
@@ -21,7 +24,7 @@ class TutorialUpdateBloc
     });
 
     on<_givingInitialValue>((event, emit) {
-     emit(state.copyWith(dropDownLevel: event.value));
+      emit(state.copyWith(dropDownLevel: event.value));
     });
   }
 }

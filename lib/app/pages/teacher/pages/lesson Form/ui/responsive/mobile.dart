@@ -19,114 +19,121 @@ class LessonFormMob extends StatelessWidget {
     TextEditingController titleController = TextEditingController();
     TextEditingController priceController = TextEditingController();
     return Scaffold(
-      appBar: buildLessonFormAppBar(context, formKey, priceController, titleController),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-        child: ListView(
-          // crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Form(
-              key: formKey,
-              child: Column(
-                children: [
-                  BuildAddTutorFormText(
-                    title: AppLocalizations.of(context).title,
-                    hintText: "title",
-                    controllre: titleController,
-                    validateText: "Title",
+      appBar: buildLessonFormAppBar(
+          context, formKey, priceController, titleController),
+      body: BlocBuilder<LessonFormBloc, LessonFormState>(
+        builder: (context, state) {
+          return state.isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : Padding(
+                  padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                  child: ListView(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Form(
+                        key: formKey,
+                        child: Column(
+                          children: [
+                            BuildAddTutorFormText(
+                              title: AppLocalizations.of(context).title,
+                              hintText: "title",
+                              controllre: titleController,
+                              validateText: "Title",
+                            ),
+                            BuildAddTutorFormText(
+                              title: "Price",
+                              hintText: "Price",
+                              controllre: priceController,
+                              validateText: "price",
+                              textInputType: TextInputType.number,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        "Subject",
+                        style: GoogleFonts.roboto(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
+                      ),
+                      // need set bloc
+                      const BuildSubDropDownLession(),
+                      const SizedBox(height: 10),
+                      Text(
+                        AppLocalizations.of(context).coverimage,
+                        style: GoogleFonts.roboto(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
+                      ),
+                      // change bloc
+                      const SizedBox(height: 10),
+                      BlocBuilder<LessonFormBloc, LessonFormState>(
+                        builder: (context, state) {
+                          return GestureDetector(
+                            onTap: () {
+                              context
+                                  .read<LessonFormBloc>()
+                                  .add(const LessonFormEvent.imagePiking());
+                            },
+                            child: Container(
+                                height: 150,
+                                width: MediaQuery.of(context).size.width * .5,
+                                color: Colors.grey,
+                                child: state.pikedImage == null
+                                    ? const Image(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage(
+                                            "asset/images(adding icon).png"))
+                                    : Image.file(
+                                        File(state.pikedImage!),
+                                        fit: BoxFit.cover,
+                                      )),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            AppLocalizations.of(context).lession,
+                            style: GoogleFonts.roboto(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              color: Theme.of(context).colorScheme.onSecondary,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (ctx) =>
+                                          const AddingTotorial()));
+                            },
+                            child: Text(
+                              AppLocalizations.of(context).add,
+                              style: GoogleFonts.roboto(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.blue,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      const LessonList(),
+                    ],
                   ),
-                   BuildAddTutorFormText(
-                    title: "Price",
-                    hintText: "Price",
-                    controllre: priceController,
-                    validateText: "price",
-                    textInputType: TextInputType.number,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              "Subject",
-              style: GoogleFonts.roboto(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: Theme.of(context).colorScheme.onSecondary,
-              ),
-            ),
-            // need set bloc
-            const BuildSubDropDownLession(),
-            const SizedBox(height: 10),
-            Text(
-              AppLocalizations.of(context).coverimage,
-              style: GoogleFonts.roboto(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: Theme.of(context).colorScheme.onSecondary,
-              ),
-            ),
-            // change bloc
-            const SizedBox(height: 10),
-            BlocBuilder<LessonFormBloc, LessonFormState>(
-              builder: (context, state) {
-                return GestureDetector(
-                  onTap: () {
-                    context
-                        .read<LessonFormBloc>()
-                        .add(const LessonFormEvent.imagePiking());
-                  },
-                  child: Container(
-                      height: 150,
-                      width: MediaQuery.of(context).size.width * .5,
-                      color: Colors.grey,
-                      child: state.pikedImage == null
-                          ? const Image(
-                              fit: BoxFit.cover,
-                              image:
-                                  AssetImage("asset/images(adding icon).png"))
-                          : Image.file(
-                              File(state.pikedImage!),
-                              fit: BoxFit.cover,
-                            )),
                 );
-              },
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  AppLocalizations.of(context).lession,
-                  style: GoogleFonts.roboto(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: Theme.of(context).colorScheme.onSecondary,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (ctx) => const AddingTotorial(                          
-                        )));
-                  },
-                  child: Text(
-                    AppLocalizations.of(context).add,
-                    style: GoogleFonts.roboto(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.blue,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(height: 10),
-            const LessonList(),
-          ],
-        ),
+        },
       ),
     );
   }
-
 }

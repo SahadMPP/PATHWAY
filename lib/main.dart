@@ -9,6 +9,7 @@ import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:path_way_flu/app/core/theme/dark_theme.dart';
 import 'package:path_way_flu/app/core/theme/light_theme.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/direction_bloc.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/forgot/bloc/forgot_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/splash_screen_ui.dart';
@@ -102,6 +103,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => StudentHomeBloc()),
         BlocProvider(create: (context) => TeacherApplicationBloc(),),
         BlocProvider(create: (context) => TeacherProfileCollectingBloc()),
+        BlocProvider(create: (context) => ForgotBloc(),)
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,

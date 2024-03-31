@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:panara_dialogs/panara_dialogs.dart';
-import 'package:email_otp/email_otp.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/pages/otp_screen.dart';
-import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/forgot/bloc/forgot_bloc.dart';
+import 'package:path_way_flu/app/pages/student/widgets/isloading_button.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
@@ -17,11 +16,11 @@ class ForgetPasswordScreen extends StatelessWidget {
       required this.email,
       required this.textToCheck,
       this.name,
-      this.password, required this.directiontext});
+      this.password,
+      required this.directiontext});
 
   @override
   Widget build(BuildContext context) {
-    EmailOTP myAuth = EmailOTP();
     TextEditingController emailController = TextEditingController();
     emailController = email;
     GlobalKey<FormState> formkey = GlobalKey();
@@ -97,55 +96,30 @@ class ForgetPasswordScreen extends StatelessWidget {
                       sufixIcon: false),
                 ),
                 const SizedBox(height: 30),
-                BuildButton(
-                    text:
-                        textToCheck == "Forgot" ? "Resent Password" : "verify",
-                    fun: () async {
-                      if (formkey.currentState!.validate()) {
-                        myAuth.setConfig(
-                            appEmail: "pathWay@sahadmpdev.com",
-                            appName: "PathWay OTP Validation",
-                            userEmail: email.text,
-                            otpLength: 4,
-                            otpType: OTPType.digitsOnly);
-
-                        if (await myAuth.sendOTP() == true) {
-                          debugPrint("working");
-
-                          // ignore: use_build_context_synchronously
-                          PanaraInfoDialog.show(
-                            context,
-                            imagePath: 'asset/download (4).png',
-                            title: "Check your email",
-                            message:
-                                "We have send code in your email for futher verification",
-                            buttonText: "Okay",
-                            onTapDismiss: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (ctx) => OtpScreen(
-                                        directiontext: directiontext,
-                                            textToCheck: textToCheck,
-                                            myAuth: myAuth,
-                                            emailtext: email.text,
-                                            name: name!.text,
-                                            password: password!.text,
-                                          )));
-                            },
-                            panaraDialogType: PanaraDialogType.normal,
-                          );
+                BlocBuilder<ForgotBloc, ForgotState>(
+                  builder: (context, state) {
+                    return BuildLoaderButton(
+                      defultText: textToCheck == "Forgot"
+                          ? "Resent Password"
+                          : "verify",
+                      function: () {
+                        if (formkey.currentState!.validate()) {
+                          context.read<ForgotBloc>().add(
+                              ForgotEvent.callForEmailEvent(
+                                  context: context,
+                                  email: email,
+                                  name: name,
+                                  password: password,
+                                  textToCheck: textToCheck,
+                                  directiontext: directiontext));
                         } else {
-                          // ignore: use_build_context_synchronously
-                          ScaffoldMessenger.of(context)
-                              .showSnackBar(const SnackBar(
-                            content: Text('Oops, OTP send failed'),
-                          ));
+                          debugPrint("Authenticaton Error");
                         }
-                      } else {
-                        debugPrint("Authenticaton Error");
-                      }
-                    }),
+                      },
+                      isLoading: state.isLoading,
+                    );
+                  },
+                ),
               ],
             ),
           ),

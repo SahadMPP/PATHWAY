@@ -12,10 +12,16 @@ part 'lesson_form_update_bloc.freezed.dart';
 class LessonFormUpdateBloc
     extends Bloc<LessonFormUpdateEvent, LessonFormUpdateState> {
   LessonFormUpdateBloc() : super(LessonFormUpdateState.initial()) {
-    on<_updatelesson>((event, emit) {
+    on<_updatelesson>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+      await Future.delayed(const Duration(seconds: 1));
+      // ignore: use_build_context_synchronously
       TeacherApi.updateLesson(
-          context: event.context, data: event.data, id: event.id,filepath: state.currentPikedImage);
-          emit(state.copyWith(currentPikedImage: null));
+          context: event.context,
+          data: event.data,
+          id: event.id,
+          filepath: state.currentPikedImage);
+      emit(state.copyWith(currentPikedImage: null, isLoading: false));
     });
 
     on<_cancelButtonClick>((event, emit) {});
@@ -25,7 +31,8 @@ class LessonFormUpdateBloc
     });
 
     on<_givingInitialDropDownValue>((event, emit) {
-      emit(state.copyWith(dropdownPiker: event.value,pikedImage:event.pikedImage ));
+      emit(state.copyWith(
+          dropdownPiker: event.value, pikedImage: event.pikedImage));
     });
 
     on<_imagePiking>((event, emit) async {

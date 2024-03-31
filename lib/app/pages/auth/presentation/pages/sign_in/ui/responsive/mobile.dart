@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path_way_flu/app/pages/auth/presentation/pages/forgot_ui.dart';
+import 'package:path_way_flu/app/pages/auth/presentation/pages/forgot/ui/forgot_ui.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/ui/signup.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field_email.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/widget/text_field_password.dart';
-import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
+import 'package:path_way_flu/app/pages/student/widgets/isloading_button.dart';
+// ignore: library_prefixes
 import 'package:get/get.dart' as Getx;
 
 class SignMobLayOut extends StatelessWidget {
@@ -99,16 +100,24 @@ class SignMobLayOut extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 50),
-                BuildButton(
-                  text: "SIGN IN",
-                  fun: () {
-                    if (formkey.currentState!.validate()) {
-                      context.read<SignInBloc>().add(SignInEvent.userlogin(
-                          directionText: directiontext,
-                          emailController: emailController.text.trim(),
-                          passwordController: passwordController.text.trim(),
-                          context: context));
-                    }
+          
+                BlocBuilder<SignInBloc, SignInState>(
+                  builder: (context, state) {
+                    return BuildLoaderButton(
+                        isLoading: state.isLoading,
+                        function: () {
+                          if (formkey.currentState!.validate()) {
+                            context.read<SignInBloc>().add(
+                                SignInEvent.userlogin(
+                                    directionText: directiontext,
+                                    emailController:
+                                        emailController.text.trim(),
+                                    passwordController:
+                                        passwordController.text.trim(),
+                                    context: context));
+                          }
+                        },
+                        defultText: "SIGN IN");
                   },
                 ),
                 const SizedBox(height: 30),
@@ -123,9 +132,9 @@ class SignMobLayOut extends StatelessWidget {
                         )),
                     GestureDetector(
                       onTap: () {
-                         Getx.Get.to(SignUp(directiontext: directiontext),
-                          transition: Getx.Transition.fade,
-                          duration: const Duration(seconds: 1));
+                        Getx.Get.to(SignUp(directiontext: directiontext),
+                            transition: Getx.Transition.fade,
+                            duration: const Duration(seconds: 1));
                       },
                       child: Text('Sign Up',
                           style: GoogleFonts.roboto(

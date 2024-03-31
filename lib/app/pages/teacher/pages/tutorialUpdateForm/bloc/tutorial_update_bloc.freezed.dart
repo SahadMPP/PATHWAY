@@ -559,6 +559,7 @@ abstract class _givingInitialValue implements TutorialUpdateEvent {
 /// @nodoc
 mixin _$TutorialUpdateState {
   String get dropDownLevel => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TutorialUpdateStateCopyWith<TutorialUpdateState> get copyWith =>
@@ -571,7 +572,7 @@ abstract class $TutorialUpdateStateCopyWith<$Res> {
           TutorialUpdateState value, $Res Function(TutorialUpdateState) then) =
       _$TutorialUpdateStateCopyWithImpl<$Res, TutorialUpdateState>;
   @useResult
-  $Res call({String dropDownLevel});
+  $Res call({String dropDownLevel, bool isLoading});
 }
 
 /// @nodoc
@@ -588,12 +589,17 @@ class _$TutorialUpdateStateCopyWithImpl<$Res, $Val extends TutorialUpdateState>
   @override
   $Res call({
     Object? dropDownLevel = null,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       dropDownLevel: null == dropDownLevel
           ? _value.dropDownLevel
           : dropDownLevel // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -606,7 +612,7 @@ abstract class _$$TutorialUpdateStateImplCopyWith<$Res>
       __$$TutorialUpdateStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String dropDownLevel});
+  $Res call({String dropDownLevel, bool isLoading});
 }
 
 /// @nodoc
@@ -621,12 +627,17 @@ class __$$TutorialUpdateStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? dropDownLevel = null,
+    Object? isLoading = null,
   }) {
     return _then(_$TutorialUpdateStateImpl(
       dropDownLevel: null == dropDownLevel
           ? _value.dropDownLevel
           : dropDownLevel // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -634,14 +645,17 @@ class __$$TutorialUpdateStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TutorialUpdateStateImpl implements _TutorialUpdateState {
-  const _$TutorialUpdateStateImpl({required this.dropDownLevel});
+  const _$TutorialUpdateStateImpl(
+      {required this.dropDownLevel, required this.isLoading});
 
   @override
   final String dropDownLevel;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'TutorialUpdateState(dropDownLevel: $dropDownLevel)';
+    return 'TutorialUpdateState(dropDownLevel: $dropDownLevel, isLoading: $isLoading)';
   }
 
   @override
@@ -650,11 +664,13 @@ class _$TutorialUpdateStateImpl implements _TutorialUpdateState {
         (other.runtimeType == runtimeType &&
             other is _$TutorialUpdateStateImpl &&
             (identical(other.dropDownLevel, dropDownLevel) ||
-                other.dropDownLevel == dropDownLevel));
+                other.dropDownLevel == dropDownLevel) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, dropDownLevel);
+  int get hashCode => Object.hash(runtimeType, dropDownLevel, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -665,11 +681,14 @@ class _$TutorialUpdateStateImpl implements _TutorialUpdateState {
 }
 
 abstract class _TutorialUpdateState implements TutorialUpdateState {
-  const factory _TutorialUpdateState({required final String dropDownLevel}) =
-      _$TutorialUpdateStateImpl;
+  const factory _TutorialUpdateState(
+      {required final String dropDownLevel,
+      required final bool isLoading}) = _$TutorialUpdateStateImpl;
 
   @override
   String get dropDownLevel;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$TutorialUpdateStateImplCopyWith<_$TutorialUpdateStateImpl> get copyWith =>

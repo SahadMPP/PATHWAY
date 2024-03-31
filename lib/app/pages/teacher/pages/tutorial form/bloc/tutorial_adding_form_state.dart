@@ -4,9 +4,10 @@ part of 'tutorial_adding_form_bloc.dart';
 class TutorialAddingFormState with _$TutorialAddingFormState {
   const factory TutorialAddingFormState({
     required String levelDropDown,
+    required bool isLoading,
   }) = _TutorialAddingFormState;
 
   factory TutorialAddingFormState.initial(){
-    return const TutorialAddingFormState(levelDropDown: "Basic");
+    return const TutorialAddingFormState(levelDropDown: "Basic",isLoading: false);
   }
 }
