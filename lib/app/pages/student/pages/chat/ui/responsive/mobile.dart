@@ -130,6 +130,8 @@ class _StudentChatMobState extends State<StudentChatMob> {
                                         context.read<StudentChatBloc>().add(
                                             StudentChatEvent
                                                 .navigatingToChatScreen(
+                                                  image:"${AuthApi.baseUrlImage}${state.list[index].profileImage!}" ,
+                                                  name: state.list[index].name,
                                                     context: context));
                                       },
                                       child: Text(

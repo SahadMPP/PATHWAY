@@ -17,7 +17,7 @@ class _ChatBoxState extends State<ChatBox> {
   Widget build(BuildContext context) {
     context.read<StudentChatBloc>().add(const StudentChatEvent.givingValue());
     return Container(
-      padding: const EdgeInsets.only(left: 15, right: 15,top: 12,bottom: 12),
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 12, bottom: 12),
       decoration: BoxDecoration(
         border: Border.all(
             width: 1, color: const Color.fromARGB(255, 212, 212, 212)),
@@ -49,8 +49,7 @@ class _ChatBoxState extends State<ChatBox> {
               ),
               prefixIconConstraints:
                   const BoxConstraints(maxHeight: 35, maxWidth: 35),
-              hintStyle:
-                  GoogleFonts.aBeeZee(color: Colors.grey, fontSize: 16),
+              hintStyle: GoogleFonts.aBeeZee(color: Colors.grey, fontSize: 16),
               border: InputBorder.none,
             ),
           ),
@@ -124,9 +123,10 @@ class _ChatBoxState extends State<ChatBox> {
                                               Colors.blue)),
                                   onPressed: () {
                                     context.read<StudentChatBloc>().add(
-                                        StudentChatEvent
-                                            .navigatingToChatScreen(
-                                                context: context));
+                                        StudentChatEvent.navigatingToChatScreen(
+                                            image: "${AuthApi.baseUrlImage}${state.list[index].profileImage!}",
+                                            name: state.list[index].name,
+                                            context: context));
                                   },
                                   child: Text(
                                     "Chat",

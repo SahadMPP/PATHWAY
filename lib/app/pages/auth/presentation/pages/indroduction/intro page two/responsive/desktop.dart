@@ -21,29 +21,27 @@ class IntroTwoDesk extends StatelessWidget {
             ),
           ),
 
-          Expanded(
-            child: Column(
-          children: [
-                const SizedBox(height: 20),
-
-            Text('Discover Your Power',
-                style: GoogleFonts.roboto(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                )),
-                const SizedBox(height: 20),
-            Text(
-                'There is many variations of passages hava suffered alteration in some',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.aBeeZee(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.grey,
-                )),
-          ],
-        ),
-          )
+          Column(
+                    children: [
+              const SizedBox(height: 20),
+          
+          Text('Discover Your Power',
+              style: GoogleFonts.roboto(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              )),
+              const SizedBox(height: 20),
+          Text(
+              'There is many variations of passages hava suffered alteration in some',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.aBeeZee(
+                fontSize: 17,
+                fontWeight: FontWeight.w400,
+                color: Colors.grey,
+              )),
+                    ],
+                  )
         ],
       ),
     );

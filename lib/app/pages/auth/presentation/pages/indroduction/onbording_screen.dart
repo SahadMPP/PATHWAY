@@ -22,7 +22,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
         body: Stack(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * .75,
+              height: MediaQuery.of(context).size.height * .70,
               width: double.infinity,
               child: PageView(
                 controller: controller,

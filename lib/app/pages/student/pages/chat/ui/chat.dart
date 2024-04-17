@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:path_way_flu/app/data/middleware/admin.dart';
+import 'package:path_way_flu/app/data/model/teacher.dart';
 
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/ui/responsive/responsive_layout.dart';
 import 'package:path_way_flu/app/pages/student/pages/chat/ui/responsive/desktop.dart';
 import 'package:path_way_flu/app/pages/student/pages/chat/ui/responsive/mobile.dart';
-
 
 class StudentChat extends StatefulWidget {
   const StudentChat({super.key});
@@ -13,13 +14,22 @@ class StudentChat extends StatefulWidget {
 }
 
 class _StudentChatState extends State<StudentChat> {
+  List<Teacher> teacher = [];
+
+  getTeacher() async {
+    teacher = await AdminApi.getTeacher();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    getTeacher();
+    return Scaffold(
       body: ResponsiveLayOut(
-          mobileScaffold: StudentChatMob(),
-          tabletScaffold: StudentChatMob(),
-          desktopScaffold: StudentChatDesk()),
+          mobileScaffold: const StudentChatMob(),
+          tabletScaffold: const StudentChatMob(),
+          desktopScaffold: StudentChatDesk(
+            teacher: teacher.first,
+          )),
     );
   }
 }

@@ -10,8 +10,10 @@ import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:socket_io_client/socket_io_client.dart';
 
 class MassagingScreen extends StatefulWidget {
+    final String image;
+    final String name;
   
-  const MassagingScreen({super.key});
+  const MassagingScreen({super.key, required this.image, required this.name});
 
   @override
   State<MassagingScreen> createState() => _MassagingScreenState();
@@ -41,16 +43,16 @@ class _MassagingScreenState extends State<MassagingScreen> {
         title: Row(
           children: [
             const SizedBox(width: 5),
-            const CircleAvatar(
+             CircleAvatar(
               radius: 28,
-              backgroundImage: AssetImage("asset/profiles/chat111.png"),
+              backgroundImage: NetworkImage(widget.image),
             ),
             const SizedBox(width: 15),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Danny Hopkins',
+                  widget.name,
                   style: GoogleFonts.quicksand(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

@@ -62,8 +62,7 @@ class TeacherChat extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Text(AppLocalizations.of(context).students,
-                style: kTitleTextStyle),
+            Text(AppLocalizations.of(context).students, style: kTitleTextStyle),
             const SizedBox(height: 10),
             Expanded(child: BlocBuilder<TeacherChatBloc, TeacherChatState>(
               builder: (context, state) {
@@ -123,7 +122,12 @@ class TeacherChat extends StatelessWidget {
                                         Navigator.of(context).push(
                                             MaterialPageRoute(
                                                 builder: (ctx) =>
-                                                    const MassagingScreen()));
+                                                    MassagingScreen(
+                                                      image:
+                                                          "${AuthApi.baseUrlImage}${state.list[index].profileImage}",
+                                                      name: state
+                                                          .list[index].name,
+                                                    )));
                                       },
                                       child: Text(
                                         AppLocalizations.of(context).chat,

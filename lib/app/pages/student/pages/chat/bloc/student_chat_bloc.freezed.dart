@@ -19,21 +19,24 @@ mixin _$StudentChatEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() givingValue,
-    required TResult Function(BuildContext context) navigatingToChatScreen,
+    required TResult Function(String image, String name, BuildContext context)
+        navigatingToChatScreen,
     required TResult Function(String textValue) filteringForSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? givingValue,
-    TResult? Function(BuildContext context)? navigatingToChatScreen,
+    TResult? Function(String image, String name, BuildContext context)?
+        navigatingToChatScreen,
     TResult? Function(String textValue)? filteringForSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? givingValue,
-    TResult Function(BuildContext context)? navigatingToChatScreen,
+    TResult Function(String image, String name, BuildContext context)?
+        navigatingToChatScreen,
     TResult Function(String textValue)? filteringForSearch,
     required TResult orElse(),
   }) =>
@@ -120,7 +123,8 @@ class _$givingValueImpl implements _givingValue {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() givingValue,
-    required TResult Function(BuildContext context) navigatingToChatScreen,
+    required TResult Function(String image, String name, BuildContext context)
+        navigatingToChatScreen,
     required TResult Function(String textValue) filteringForSearch,
   }) {
     return givingValue();
@@ -130,7 +134,8 @@ class _$givingValueImpl implements _givingValue {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? givingValue,
-    TResult? Function(BuildContext context)? navigatingToChatScreen,
+    TResult? Function(String image, String name, BuildContext context)?
+        navigatingToChatScreen,
     TResult? Function(String textValue)? filteringForSearch,
   }) {
     return givingValue?.call();
@@ -140,7 +145,8 @@ class _$givingValueImpl implements _givingValue {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? givingValue,
-    TResult Function(BuildContext context)? navigatingToChatScreen,
+    TResult Function(String image, String name, BuildContext context)?
+        navigatingToChatScreen,
     TResult Function(String textValue)? filteringForSearch,
     required TResult orElse(),
   }) {
@@ -197,7 +203,7 @@ abstract class _$$navigatingToChatScreenImplCopyWith<$Res> {
           $Res Function(_$navigatingToChatScreenImpl) then) =
       __$$navigatingToChatScreenImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({BuildContext context});
+  $Res call({String image, String name, BuildContext context});
 }
 
 /// @nodoc
@@ -212,9 +218,19 @@ class __$$navigatingToChatScreenImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? image = null,
+    Object? name = null,
     Object? context = null,
   }) {
     return _then(_$navigatingToChatScreenImpl(
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -226,14 +242,19 @@ class __$$navigatingToChatScreenImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$navigatingToChatScreenImpl implements _navigatingToChatScreen {
-  const _$navigatingToChatScreenImpl({required this.context});
+  const _$navigatingToChatScreenImpl(
+      {required this.image, required this.name, required this.context});
 
+  @override
+  final String image;
+  @override
+  final String name;
   @override
   final BuildContext context;
 
   @override
   String toString() {
-    return 'StudentChatEvent.navigatingToChatScreen(context: $context)';
+    return 'StudentChatEvent.navigatingToChatScreen(image: $image, name: $name, context: $context)';
   }
 
   @override
@@ -241,11 +262,13 @@ class _$navigatingToChatScreenImpl implements _navigatingToChatScreen {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$navigatingToChatScreenImpl &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, context);
+  int get hashCode => Object.hash(runtimeType, image, name, context);
 
   @JsonKey(ignore: true)
   @override
@@ -258,32 +281,35 @@ class _$navigatingToChatScreenImpl implements _navigatingToChatScreen {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() givingValue,
-    required TResult Function(BuildContext context) navigatingToChatScreen,
+    required TResult Function(String image, String name, BuildContext context)
+        navigatingToChatScreen,
     required TResult Function(String textValue) filteringForSearch,
   }) {
-    return navigatingToChatScreen(context);
+    return navigatingToChatScreen(image, name, context);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? givingValue,
-    TResult? Function(BuildContext context)? navigatingToChatScreen,
+    TResult? Function(String image, String name, BuildContext context)?
+        navigatingToChatScreen,
     TResult? Function(String textValue)? filteringForSearch,
   }) {
-    return navigatingToChatScreen?.call(context);
+    return navigatingToChatScreen?.call(image, name, context);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? givingValue,
-    TResult Function(BuildContext context)? navigatingToChatScreen,
+    TResult Function(String image, String name, BuildContext context)?
+        navigatingToChatScreen,
     TResult Function(String textValue)? filteringForSearch,
     required TResult orElse(),
   }) {
     if (navigatingToChatScreen != null) {
-      return navigatingToChatScreen(context);
+      return navigatingToChatScreen(image, name, context);
     }
     return orElse();
   }
@@ -325,9 +351,13 @@ class _$navigatingToChatScreenImpl implements _navigatingToChatScreen {
 }
 
 abstract class _navigatingToChatScreen implements StudentChatEvent {
-  const factory _navigatingToChatScreen({required final BuildContext context}) =
-      _$navigatingToChatScreenImpl;
+  const factory _navigatingToChatScreen(
+      {required final String image,
+      required final String name,
+      required final BuildContext context}) = _$navigatingToChatScreenImpl;
 
+  String get image;
+  String get name;
   BuildContext get context;
   @JsonKey(ignore: true)
   _$$navigatingToChatScreenImplCopyWith<_$navigatingToChatScreenImpl>
@@ -401,7 +431,8 @@ class _$filteringForSearchImpl implements _filteringForSearch {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() givingValue,
-    required TResult Function(BuildContext context) navigatingToChatScreen,
+    required TResult Function(String image, String name, BuildContext context)
+        navigatingToChatScreen,
     required TResult Function(String textValue) filteringForSearch,
   }) {
     return filteringForSearch(textValue);
@@ -411,7 +442,8 @@ class _$filteringForSearchImpl implements _filteringForSearch {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? givingValue,
-    TResult? Function(BuildContext context)? navigatingToChatScreen,
+    TResult? Function(String image, String name, BuildContext context)?
+        navigatingToChatScreen,
     TResult? Function(String textValue)? filteringForSearch,
   }) {
     return filteringForSearch?.call(textValue);
@@ -421,7 +453,8 @@ class _$filteringForSearchImpl implements _filteringForSearch {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? givingValue,
-    TResult Function(BuildContext context)? navigatingToChatScreen,
+    TResult Function(String image, String name, BuildContext context)?
+        navigatingToChatScreen,
     TResult Function(String textValue)? filteringForSearch,
     required TResult orElse(),
   }) {

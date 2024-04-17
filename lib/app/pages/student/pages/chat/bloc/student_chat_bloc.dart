@@ -33,7 +33,7 @@ class StudentChatBloc extends Bloc<StudentChatEvent, StudentChatState> {
 
     on<_navigatingToChatScreen>((event, emit) {
       Navigator.of(event.context)
-          .push(MaterialPageRoute(builder: (ctx) => const MassagingScreen()));
+          .push(MaterialPageRoute(builder: (ctx) =>  MassagingScreen(image:event.image ,name:event.name)));
     });
   }
 }

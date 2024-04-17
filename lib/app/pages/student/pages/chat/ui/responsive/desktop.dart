@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:path_way_flu/app/data/model/teacher.dart';
 import 'package:path_way_flu/app/pages/chat/pages/chat_messaging.dart';
 import 'package:path_way_flu/app/pages/student/widgets/desk_chat_right_box.dart';
 import 'package:path_way_flu/app/pages/student/widgets/desktop_chat.dart';
 
 class StudentChatDesk extends StatelessWidget {
-  const StudentChatDesk({super.key});
+  final Teacher teacher;
+  const StudentChatDesk({super.key, required this.teacher});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class StudentChatDesk extends StatelessWidget {
                 color: const Color.fromARGB(255, 212, 212, 212)),
                         borderRadius: BorderRadius.circular(8),
                       ),              
-                child: const MassagingScreen(),
+                child: const MassagingScreen(image:"" ,name:"" ),
               ),
             ),
           ),

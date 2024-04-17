@@ -1,11 +1,12 @@
 import 'package:email_otp/email_otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/ui/sign_in.dart';
-
+import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_up/bloc/sign_up_bloc.dart';
 
 class OtpScreen extends StatelessWidget {
   final String emailtext;
@@ -21,7 +22,8 @@ class OtpScreen extends StatelessWidget {
       required this.myAuth,
       this.name,
       this.password,
-      required this.textToCheck, required this.directiontext});
+      required this.textToCheck,
+      required this.directiontext});
 
   @override
   Widget build(BuildContext context) {
@@ -246,10 +248,20 @@ class OtpScreen extends StatelessWidget {
                         // if (textToCheck != "Forgot") {
 
                         // }
+
+                        // ignore: use_build_context_synchronously
+                        context.read<SignUpBloc>().add(SignUpEvent.registerUser(
+                            nameController: name!,
+                            emailController: emailtext,
+                            passwordController: password!,
+                            context: context,
+                            directionText: directiontext));
                         // ignore: use_build_context_synchronously
                         Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
-                                builder: (ctx) =>  SignIn(directiontext:directiontext ,)),
+                                builder: (ctx) => SignIn(
+                                      directiontext: directiontext,
+                                    )),
                             (route) => false);
                       } else {
                         // ignore: use_build_context_synchronously
