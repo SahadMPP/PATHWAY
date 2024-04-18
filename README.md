@@ -51,5 +51,5 @@ You can download the app from the Amazon store to explore its features and benef
 
 ## App Screens
 
-![GitHub Logo](https://github.com/username/repository/blob/branch/image_folder/image_name.png)
+![GitHub Logo]([https://github.com/username/repository/blob/branch/image_folder/image_name.png](https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY))
 
