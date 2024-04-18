@@ -51,5 +51,5 @@ You can download the app from the Amazon store to explore its features and benef
 
 ## App Screens
 
-![screenshot](screen_short)
+![screenshot](screen_short/photo_2024-03-15_15-42-57.jp)
 
