@@ -9,7 +9,7 @@ Amazon store Link: https://www.amazon.com/dp/B0CYB118YT/ref=apps_sf_sta
 
 Key Features:
 
-# User Authentication:
+### User Authentication:
 Secure user authentication system to protect user data and provide personalized experiences.
 Course Exploration:
 Users can explore a wide range of courses available on the platform, categorized based on various subjects and topics.
