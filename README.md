@@ -14,28 +14,28 @@ Secure user authentication system to protect user data and provide personalized 
 Course Exploration:
 Users can explore a wide range of courses available on the platform, categorized based on various subjects and topics.
 
-## Complaint Registration:
+### Complaint Registration:
 Users can register complaints regarding any issues they encounter on the platform, ensuring a seamless user experience.
 
-## Trending Courses:
+### Trending Courses:
 Access to trending courses helps users stay updated with popular topics and subjects.
 
 ## Mentor Interaction:
 Students can interact with mentors, seek guidance, and participate in discussions to enhance their learning experience.
 
-## Admin Module:
+### Admin Module:
 The admin module allows administrators to manage courses, handle user complaints, and manage user-mentor interactions efficiently.
 
-## Push Notifications:
+### Push Notifications:
 Implemented push notification functionality to keep users informed about important updates and announcements.
 
-## Localization:
+### Localization:
 Localization support enables users to access the application in multiple languages, enhancing accessibility.
 
-## Web-Socket:
+### Web-Socket:
  Integrated web-socket functionality for real-time communication and interaction between users and mentors.
 
-Technology Stack:
+### Technology Stack:
 
 Frontend: Flutter
 Backend: Node.js with Express
