@@ -51,5 +51,5 @@ You can download the app from the Amazon store to explore its features and benef
 
 ## App Screens
 
-![screenshot](asset\pathway_screens.png)
+![asset](asset\pathway_screens.png)
 
