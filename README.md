@@ -20,7 +20,7 @@ Users can register complaints regarding any issues they encounter on the platfor
 ### Trending Courses:
 Access to trending courses helps users stay updated with popular topics and subjects.
 
-## Mentor Interaction:
+### Mentor Interaction:
 Students can interact with mentors, seek guidance, and participate in discussions to enhance their learning experience.
 
 ### Admin Module:
