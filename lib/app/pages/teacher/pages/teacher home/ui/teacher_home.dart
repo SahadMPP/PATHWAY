@@ -28,7 +28,7 @@ class TeachHome extends StatelessWidget {
                   borderRadius: BorderRadius.circular(70),
                   child: Image(
                     image: NetworkImage(
-                        "${AuthApi.baseUrlImage}${userProfile!}"),
+                        "${AuthApi.baseUrlImage}${userProfile ?? ""}"),
                     fit: BoxFit.cover,
                   )),
             ),
@@ -93,80 +93,29 @@ class TeachHome extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              SizedBox(
-                height: 60,
-                width: double.infinity,
-                child: ListView.builder(
-                  itemCount: 4,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ConstrainedBox(
-                        constraints:
-                            const BoxConstraints(maxHeight: 20, maxWidth: 130),
-                        child: BlocBuilder<TeacherHomeBloc, TeacherHomeState>(
-                          builder: (context, state) {
-                            return ElevatedButton(
-                                style: ButtonStyle(
-                                    side: MaterialStatePropertyAll(BorderSide(
-                                        color: state.selectedTopic == index
-                                            ? Colors.blue[400]!
-                                            : Colors.transparent,
-                                        width: 2)),
-                                    backgroundColor: MaterialStatePropertyAll(
-                                      Theme.of(context).colorScheme.primary,
-                                    )),
-                                onPressed: () {
-                                  context.read<TeacherHomeBloc>().add(
-                                      TeacherHomeEvent.swichingSubjectList(
-                                          index: index));
-                                },
-                                child: Text(
-                                  subjectList[index]['name']!,
-                                  style:
+               BlocBuilder<TeacherHomeBloc, TeacherHomeState>(
+                builder: (context, state) {
+                  return Wrap(
+                      spacing: 10,
+                      runSpacing: 5,
+                      children: List.generate(
+                          subjectList.length,
+                          (index) => GestureDetector(
+                            onTap: () => context.read<TeacherHomeBloc>().add(TeacherHomeEvent.swichingSubjectList(index: index)),
+                            child: Chip(                              
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      side:  BorderSide(
+                                          color: state.selectedTopic == index
+                                              ? Colors.blue[400]!
+                                              : Colors.transparent)),
+                                  label: Text(subjectList[index]['name']!),
+                                  backgroundColor: Colors.grey[100],
+                                  labelStyle:
                                       GoogleFonts.aBeeZee(color: Colors.grey),
-                                ));
-                          },
-                        )),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 60,
-                width: double.infinity,
-                child: ListView.builder(
-                  itemCount: 3,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ConstrainedBox(
-                        constraints:
-                            const BoxConstraints(maxHeight: 20, maxWidth: 130),
-                        child: BlocBuilder<TeacherHomeBloc, TeacherHomeState>(
-                          builder: (context, state) {
-                            return ElevatedButton(
-                                style: ButtonStyle(
-                                    side: MaterialStatePropertyAll(BorderSide(
-                                        color: state.selectedTopic == index + 4
-                                            ? Colors.blue[400]!
-                                            : Colors.transparent,
-                                        width: 2)),
-                                    backgroundColor: MaterialStatePropertyAll(
-                                        Theme.of(context).colorScheme.primary)),
-                                onPressed: () {
-                                  context.read<TeacherHomeBloc>().add(
-                                      TeacherHomeEvent.swichingSubjectList(
-                                          index: index + 4));
-                                },
-                                child: Text(
-                                  subjectList[index + 4]['name']!,
-                                  style:
-                                      GoogleFonts.aBeeZee(color: Colors.grey),
-                                ));
-                          },
-                        )),
-                  ),
-                ),
+                                ),
+                          )));
+                },
               ),
               const SizedBox(height: 10),
               BlocBuilder<TeacherHomeBloc, TeacherHomeState>(
