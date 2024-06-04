@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:email_otp/email_otp.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class ForgotBloc extends Bloc<ForgotEvent, ForgotState> {
         emit(state.copyWith(isLoading: false));
         // ignore: use_build_context_synchronously
         PanaraInfoDialog.show(
+          // ignore: use_build_context_synchronously
           event.context,
           imagePath: 'asset/download (4).png',
           title: "Check your email",

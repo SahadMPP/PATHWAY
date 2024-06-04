@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/data/model/message.dart';
 import 'package:path_way_flu/app/pages/chat/controller/chat_controller.dart';
 import 'package:path_way_flu/app/pages/student/pages/videocall/video_call.dart';
@@ -24,9 +25,10 @@ class _MassagingScreenState extends State<MassagingScreen> {
   late IO.Socket socket;
   ChatController chatController = ChatController();
   @override
-  void initState() {
+  void initState() { 
     socket = IO.io(
-        'http://learnpro.today:5000',
+        // 'http://16.171.61.229:5000',
+        AuthApi.baseUrl,
         OptionBuilder()
             .setTransports(['websocket']) // for Flutter or Dart VM
             .disableAutoConnect() // disable auto-connection
@@ -115,24 +117,10 @@ class _MassagingScreenState extends State<MassagingScreen> {
                     color: Theme.of(context).colorScheme.secondary),
                 child: Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                            color: Colors.black12,
-                            borderRadius: BorderRadius.circular(50)),
-                        child: Icon(
-                          Icons.camera_alt_outlined,
-                          color: Theme.of(context).iconTheme.color,
-                        ),
-                      ),
-                    ),
                     const SizedBox(width: 15),
                     ConstrainedBox(
-                      constraints: const BoxConstraints(
-                        maxWidth: 250
+                      constraints:  BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * .7,
                       ),
                         child: TextFormField(
                           controller: msgInputController,
@@ -151,7 +139,6 @@ class _MassagingScreenState extends State<MassagingScreen> {
                       icon: const Icon(Icons.send),
                       color: Theme.of(context).iconTheme.color,
                     ),
-                    const Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: Icon(

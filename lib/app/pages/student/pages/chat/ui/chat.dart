@@ -23,12 +23,12 @@ class _StudentChatState extends State<StudentChat> {
   @override
   Widget build(BuildContext context) {
     getTeacher();
-    return Scaffold(
+    return const Scaffold(
       body: ResponsiveLayOut(
-          mobileScaffold: const StudentChatMob(),
-          tabletScaffold: const StudentChatMob(),
+          mobileScaffold: StudentChatMob(),
+          tabletScaffold: StudentChatMob(),
           desktopScaffold: StudentChatDesk(
-            teacher: teacher.first,
+            // teacher: teacher.first,
           )),
     );
   }

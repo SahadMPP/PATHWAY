@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/core/constants/constants.dart';
-import 'package:path_way_flu/app/pages/teacher/widgets/home_top_card.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/build_home_topbox.dart';
 
 class TeacherProfile extends StatelessWidget {
   const TeacherProfile({super.key});
@@ -150,7 +150,7 @@ class TeacherProfile extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return const Padding(
                             padding: EdgeInsets.all(12.0),
-                            child: BuildHomeBoxTop(),
+                            child: BuildHomeTopBox(),
                           );
                         }),
                   )

@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/pages/student/pages/subcription%20model/ui/subcription_detailepage.dart';
-import 'package:get/get.dart' as Getx;
+import 'package:get/get.dart' as getx;
 
 
 class BuildSubcriptionListViewCard extends StatelessWidget {
@@ -19,8 +19,8 @@ class BuildSubcriptionListViewCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Getx.Get.to(SubcriptionDeatilePage(lesson: lesson),
-                          transition: Getx.Transition.fade,
+        getx.Get.to(SubcriptionDeatilePage(lesson: lesson),
+                          transition: getx.Transition.fade,
                           duration: const Duration(seconds: 1));
       },
       child: Padding(

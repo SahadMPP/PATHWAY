@@ -212,6 +212,7 @@ class _VideoPlayTabState extends State<VideoPlayTab> {
       ..initialize().then((value) => setState(() {}));
     // ignore: use_build_context_synchronously
     _customVideoPlayerController = CustomVideoPlayerController(
+      // ignore: use_build_context_synchronously
       context: context,
       videoPlayerController: videoPlayerController,
     );

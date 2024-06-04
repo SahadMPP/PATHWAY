@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/direction/bloc/direction_bloc.dart';
 import 'package:path_way_flu/app/pages/auth/presentation/pages/sign_in/ui/sign_in.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/button_buil.dart';
-import 'package:get/get.dart' as Getx;
+import 'package:get/get.dart' as getx;
 
 class DirectionMob extends StatelessWidget {
   const DirectionMob({super.key});
@@ -97,8 +97,8 @@ class DirectionMob extends StatelessWidget {
                 return BuildButton(
                     text: "Continue as a ${state.directionText}",
                     fun: () {
-                      Getx.Get.to(SignIn(directiontext: state.directionText),
-                          transition: Getx.Transition.fade,
+                      getx.Get.to(SignIn(directiontext: state.directionText),
+                          transition: getx.Transition.fade,
                           duration: const Duration(seconds: 1));
                     });
               },

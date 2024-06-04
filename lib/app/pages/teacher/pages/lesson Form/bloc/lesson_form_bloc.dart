@@ -46,6 +46,7 @@ class LessonFormBloc extends Bloc<LessonFormEvent, LessonFormState> {
           // ignore: use_build_context_synchronously
           TeacherApi.addingLession(
               profileFilepath: event.profileImage,
+              // ignore: use_build_context_synchronously
               context: event.context,
               data: dataNew,
               filepath: event.coverImage,

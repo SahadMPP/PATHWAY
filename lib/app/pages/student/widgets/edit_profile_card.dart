@@ -27,7 +27,7 @@ class BuildEditTexfielCard extends StatelessWidget {
           ),
           const Spacer(),
           SizedBox(
-            width: 250,
+            width:MediaQuery.of(context).size.width *.5,
             child: TextFormField(
               controller: controller,
               decoration: InputDecoration(

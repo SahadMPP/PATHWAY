@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:path_way_flu/app/data/model/teacher.dart';
+// import 'package:path_way_flu/app/data/model/teacher.dart';
 import 'package:path_way_flu/app/pages/chat/pages/chat_messaging.dart';
 import 'package:path_way_flu/app/pages/student/widgets/desk_chat_right_box.dart';
 import 'package:path_way_flu/app/pages/student/widgets/desktop_chat.dart';
 
 class StudentChatDesk extends StatelessWidget {
-  final Teacher teacher;
-  const StudentChatDesk({super.key, required this.teacher});
+  // final Teacher teacher;
+  const StudentChatDesk({super.key});
 
   @override
   Widget build(BuildContext context) {

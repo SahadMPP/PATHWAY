@@ -31,34 +31,26 @@ class TeacherChat extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).colorScheme.onBackground),
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-              width: double.infinity,
-              height: 60,
-              decoration: BoxDecoration(
-                  color: const Color(0xFFF5F5F7),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Row(
-                children: [
-                  SvgPicture.asset("asset/icons/search.svg"),
-                  const SizedBox(width: 18),
-                  SizedBox(
-                    width: 250,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: TextFormField(
-                        onChanged: (value) {
-                          context.read<TeacherChatBloc>().add(
-                              TeacherChatEvent.runFilterdValue(value: value));
-                        },
-                        decoration: InputDecoration(
-                            hintText: AppLocalizations.of(context).search,
-                            border: InputBorder.none),
-                      ),
+            SizedBox(
+              height: 55,
+              child: TextFormField(
+                onChanged: (value) {
+                  context
+                      .read<TeacherChatBloc>()
+                      .add(TeacherChatEvent.runFilterdValue(value: value));
+                },
+                decoration: InputDecoration(
+                    hintText: "Search here..",
+                    prefixIconConstraints: const BoxConstraints(
+                      maxHeight: 50,
+                      maxWidth: 50,
                     ),
-                  ),
-                ],
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SvgPicture.asset("asset/icons/search.svg"),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(45))),
               ),
             ),
             const SizedBox(height: 10),

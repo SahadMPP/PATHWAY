@@ -254,6 +254,7 @@ class OtpScreen extends StatelessWidget {
                             nameController: name!,
                             emailController: emailtext,
                             passwordController: password!,
+                            // ignore: use_build_context_synchronously
                             context: context,
                             directionText: directiontext));
                         // ignore: use_build_context_synchronously

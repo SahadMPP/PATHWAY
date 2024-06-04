@@ -66,48 +66,53 @@ class TeacherEditProfile extends StatelessWidget {
               const SizedBox(height: 20),
               BlocBuilder<TeaEditProfielBloc, TeaEditProfielState>(
                 builder: (context, state) {
-                  return Column(
-                    children: [
-                      BuildEditTexfielCard(
-                        controller: state.nameController,
-                        hintText: "enter name",
-                        title: "Name",
-                      ),
-                      BuildEditTexfielCard(
-                        controller: state.emailController,
-                        hintText: "Email",
-                        title: "email",
-                      ),
-                      BuildEditTexfielCard(
-                        controller: state.passwordController,
-                        hintText: "Password",
-                        title: "Password",
-                      ),
-                      BuildEditTexfielCard(
-                        controller: state.phoneController,
-                        hintText: "Phone",
-                        title: "Phone",
-                      ),
-                      const SizedBox(height: 80),
-                      BlocBuilder<TeaEditProfielBloc, TeaEditProfielState>(
-                          builder: (context, state) {
-                        return BuildButton(
-                            text: "update",
-                            fun: () {
-                              Map<String, dynamic> data = {
-                                "name": state.nameController!.text.toString(),
-                                "email": state.emailController!.text.toString(),
-                                "password":
-                                    state.passwordController!.text.toString(),
-                                "mobNumber":
-                                    state.phoneController!.text.toString(),
-                              };
-                              context.read<TeaEditProfielBloc>().add(
-                                  TeaEditProfielEvent.updateValue(
-                                      context: context, data: data));
-                            });
-                      })
-                    ],
+                  return ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: MediaQuery.of(context).size.width,
+                    ),
+                    child: Column(
+                      children: [
+                        BuildEditTexfielCard(
+                          controller: state.nameController,
+                          hintText: "enter name",
+                          title: "Name",
+                        ),
+                        BuildEditTexfielCard(
+                          controller: state.emailController,
+                          hintText: "Email",
+                          title: "email",
+                        ),
+                        BuildEditTexfielCard(
+                          controller: state.passwordController,
+                          hintText: "Password",
+                          title: "Password",
+                        ),
+                        BuildEditTexfielCard(
+                          controller: state.phoneController,
+                          hintText: "Phone",
+                          title: "Phone",
+                        ),
+                        const SizedBox(height: 80),
+                        BlocBuilder<TeaEditProfielBloc, TeaEditProfielState>(
+                            builder: (context, state) {
+                          return BuildButton(
+                              text: "update",
+                              fun: () {
+                                Map<String, dynamic> data = {
+                                  "name": state.nameController!.text.toString(),
+                                  "email": state.emailController!.text.toString(),
+                                  "password":
+                                      state.passwordController!.text.toString(),
+                                  "mobNumber":
+                                      state.phoneController!.text.toString(),
+                                };
+                                context.read<TeaEditProfielBloc>().add(
+                                    TeaEditProfielEvent.updateValue(
+                                        context: context, data: data));
+                              });
+                        })
+                      ],
+                    ),
                   );
                 },
               ),

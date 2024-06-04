@@ -8,8 +8,8 @@ import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/pages/student/pages/See%20All/ui/see_all.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_way_flu/app/pages/student/pages/student%20home/bloc/student_home_bloc.dart';
+import 'package:path_way_flu/app/pages/teacher/widgets/build_home_topbox.dart';
 import 'package:path_way_flu/app/pages/teacher/widgets/home_card.dart';
-import 'package:path_way_flu/app/pages/teacher/widgets/home_top_card.dart';
 import 'package:path_way_flu/main.dart';
 
 class StudentHomeMob extends StatelessWidget {
@@ -80,7 +80,7 @@ class StudentHomeMob extends StatelessWidget {
               Text(AppLocalizations.of(context).suggestedyou,
                   style: kTitleTextStyle),
               const SizedBox(height: 15),
-              const BuildHomeBoxTop(),
+              const BuildHomeTopBox(),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

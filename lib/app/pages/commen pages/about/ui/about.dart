@@ -11,8 +11,8 @@ class About extends StatelessWidget {
       body: Center(
           child: Padding(
         padding: const EdgeInsets.all(40.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "About Us",

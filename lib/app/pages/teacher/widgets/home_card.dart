@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:path_way_flu/app/data/middleware/auth.dart';
 import 'package:path_way_flu/app/data/middleware/student.dart';
 import 'package:path_way_flu/app/data/model/lession.dart';
 import 'package:path_way_flu/app/pages/student/pages/student%20home/bloc/student_home_bloc.dart';
@@ -71,7 +72,7 @@ class BuildHomeBox extends StatelessWidget {
                                                   borderRadius:
                                                       BorderRadius.circular(25),
                                                   child: Image.network(
-                                                    "http://learnpro.today:5000/${lession[index].coverImage}",
+                                                    "${AuthApi.baseUrlImage}${lession[index].coverImage}",
                                                     fit: BoxFit.cover,
                                                   ))),
                                           Container(
@@ -113,7 +114,7 @@ class BuildHomeBox extends StatelessWidget {
                                                       radius: 15,
                                                       backgroundImage:
                                                           NetworkImage(
-                                                        "http://learnpro.today:5000/${lession[index].profileImage}",
+                                                        "${AuthApi.baseUrlImage}${lession[index].profileImage}",
                                                       ),
                                                     ),
                                                     const SizedBox(width: 5),

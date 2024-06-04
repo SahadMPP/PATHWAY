@@ -59,6 +59,7 @@ class TeacherProfileCollectingBloc
         } else {
           // ignore: use_build_context_synchronously
           buildShowSnacbar(
+              // ignore: use_build_context_synchronously
               context: event.context,
               content: "Something went wrong,Check you connection",
               title: "Oop's",
